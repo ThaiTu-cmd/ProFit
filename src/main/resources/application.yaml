@@ -12,3 +12,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+app:
+  jwt:
+    secret: "ProFitJwtSecretKeyMustBeAtLeastSixtyFourCharactersLongForHS512Secure"
+    expiration-ms: 86400000
+    remember-expiration-ms: 604800000

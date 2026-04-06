@@ -8,7 +8,6 @@ import com.doan.ProFit.enums.Role;
 import com.doan.ProFit.enums.Status;
 import com.doan.ProFit.exception.UserNotFoundException;
 import com.doan.ProFit.repository.UserRepository;
-import com.doan.ProFit.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;

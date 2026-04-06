@@ -4,7 +4,7 @@ import com.doan.ProFit.dto.request.UserCreationRequest;
 import com.doan.ProFit.dto.request.UserUpdateRequest;
 import com.doan.ProFit.dto.response.UserResponse;
 import com.doan.ProFit.exception.UserNotFoundException;
-import com.doan.ProFit.security.service.UserService;
+import com.doan.ProFit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;

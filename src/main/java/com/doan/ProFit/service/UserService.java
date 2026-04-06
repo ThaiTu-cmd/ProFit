@@ -1,4 +1,4 @@
-package com.doan.ProFit.security.service;
+package com.doan.ProFit.service;
 
 import com.doan.ProFit.dto.request.UserCreationRequest;
 import com.doan.ProFit.dto.request.UserUpdateRequest;

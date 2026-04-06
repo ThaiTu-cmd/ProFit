@@ -367,11 +367,25 @@ const Modal = {
 ─────────────────────────────────────────────────────────────── */
 function logout() {
   if (!confirm("Bạn có chắc muốn đăng xuất?")) return;
-  localStorage.removeItem("authToken");
-  Utils.toast("Đã đăng xuất thành công", "success");
-  setTimeout(() => {
-    window.location.href = "../index.html";
-  }, 300);
+  closeLogoutDropdown();
+
+  fetch(`${APP_CONTEXT_PATH}/api/auth/admin/logout`, {
+    method: "POST",
+    credentials: "same-origin",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Logout failed");
+      }
+      localStorage.removeItem("authToken");
+      Utils.toast("Đã đăng xuất thành công", "success");
+      setTimeout(() => {
+        window.location.href = `${APP_CONTEXT_PATH}/admin/login`;
+      }, 300);
+    })
+    .catch(() => {
+      Utils.toast("Không thể đăng xuất. Vui lòng thử lại.", "error");
+    });
 }
 
 function toggleLogoutDropdown() {
