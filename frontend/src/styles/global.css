@@ -1,0 +1,613 @@
+/* =====================================================
+   GLOBAL.CSS – Toàn bộ style dùng chung cho dự án
+   Sử dụng CSS Variables để dễ thay đổi màu sắc
+   ===================================================== */
+
+/* ===== BIẾN MÀU & FONT ===== */
+:root {
+  --primary: #ff5c00;
+  --primary-dark: #cc4700;
+  --dark: #0f0f0f;
+  --dark2: #1a1a1a;
+  --dark3: #252525;
+  --card-bg: #1e1e1e;
+  --light: #f5f5f5;
+  --gray: #888;
+  --white: #ffffff;
+  --green: #22c55e;
+  --red: #ef4444;
+}
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--dark);
+  color: var(--light);
+  line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; font-family: 'Nunito', sans-serif; }
+img { max-width: 100%; }
+
+/* ===== LAYOUT CHUNG ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 70px 60px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 36px;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+.section-title span { color: var(--primary); }
+
+.see-all {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+.see-all:hover { opacity: 0.75; cursor: pointer; }
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 800;
+  border: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  border: 2px solid #444;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-danger {
+  background: var(--red);
+  color: var(--white);
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  transition: opacity 0.2s;
+}
+.btn-danger:hover { opacity: 0.85; }
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 60px;
+  background-color: var(--dark2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.navbar .logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: var(--primary);
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+.navbar .logo span { color: var(--white); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+.nav-links button {
+  background: none;
+  border: none;
+  font-weight: 600;
+  color: #ccc;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+.nav-links button:hover,
+.nav-links button.active {
+  color: var(--primary);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.btn-cart {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+.btn-cart:hover { background: var(--primary-dark); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--dark2);
+  border-top: 1px solid #2a2a2a;
+  padding: 50px 60px 30px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.footer-brand .logo { margin-bottom: 14px; display: block; }
+.footer-brand p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+.footer-col h4 {
+  font-size: 14px; font-weight: 800; color: var(--white);
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul button {
+  background: none; border: none; font-size: 14px;
+  color: var(--gray); transition: color 0.2s; text-align: left;
+  font-family: 'Nunito', sans-serif;
+}
+.footer-col ul button:hover { color: var(--primary); }
+.footer-bottom {
+  border-top: 1px solid #2a2a2a;
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-bottom p { font-size: 13px; color: var(--gray); }
+.footer-socials { display: flex; gap: 14px; }
+.social-btn {
+  width: 36px; height: 36px;
+  background: var(--dark3);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; cursor: pointer;
+  border: 1px solid #333; transition: background 0.2s;
+}
+.social-btn:hover { background: var(--primary); }
+
+/* ===== PRODUCT CARD ===== */
+.product-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #2a2a2a;
+  transition: transform 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+}
+.product-img-wrap {
+  background: var(--dark3);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  position: relative;
+}
+.badge-sale {
+  position: absolute; top: 12px; left: 12px;
+  background: var(--primary); color: var(--white);
+  font-size: 11px; font-weight: 800;
+  padding: 4px 10px; border-radius: 6px; letter-spacing: 1px;
+}
+.badge-new {
+  position: absolute; top: 12px; left: 12px;
+  background: var(--green); color: var(--white);
+  font-size: 11px; font-weight: 800;
+  padding: 4px 10px; border-radius: 6px; letter-spacing: 1px;
+}
+.product-info { padding: 18px; }
+.product-brand {
+  font-size: 11px; color: var(--primary);
+  font-weight: 800; text-transform: uppercase;
+  letter-spacing: 1px; margin-bottom: 6px;
+}
+.product-name { font-size: 15px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+.product-rating { display: flex; align-items: center; gap: 6px; margin-bottom: 14px; }
+.stars { color: #f59e0b; font-size: 13px; }
+.rating-count { font-size: 12px; color: var(--gray); }
+.product-footer { display: flex; align-items: center; justify-content: space-between; }
+.product-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px; color: var(--primary);
+}
+.product-price-old {
+  font-size: 13px; color: var(--gray);
+  text-decoration: line-through; margin-left: 6px;
+}
+.btn-add {
+  background: var(--primary); color: var(--white);
+  border: none; width: 36px; height: 36px;
+  border-radius: 8px; font-size: 20px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.btn-add:hover { background: var(--primary-dark); }
+
+/* ===== CATEGORY CARD ===== */
+.category-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #2a2a2a;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.category-card:hover,
+.category-card.active {
+  border-color: var(--primary);
+  transform: translateY(-4px);
+}
+.category-icon { font-size: 40px; margin-bottom: 12px; }
+.category-name { font-weight: 800; font-size: 15px; color: var(--white); margin-bottom: 4px; }
+.category-count { font-size: 13px; color: var(--gray); }
+
+/* ===== TOAST ===== */
+.toast {
+  position: fixed; bottom: 30px; right: 30px;
+  background: var(--green); color: white;
+  padding: 14px 24px; border-radius: 12px;
+  font-weight: 700; font-size: 14px; z-index: 999;
+  opacity: 0; transform: translateY(20px);
+  transition: all 0.3s; pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+
+/* ===== STATS ===== */
+.stats {
+  display: flex; justify-content: center; gap: 60px;
+  padding: 40px 60px;
+  background: var(--dark3);
+  border-top: 1px solid #2a2a2a;
+  border-bottom: 1px solid #2a2a2a;
+}
+.stat-item { text-align: center; }
+.stat-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px; color: var(--primary); line-height: 1;
+}
+.stat-label {
+  font-size: 13px; color: var(--gray); font-weight: 600;
+  margin-top: 4px; text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* ===== TRANG TRỐNG / LOADING ===== */
+.empty-state {
+  text-align: center; padding: 80px 20px; color: var(--gray);
+}
+.empty-state .empty-icon { font-size: 64px; margin-bottom: 20px; }
+.empty-state h3 { font-size: 22px; font-weight: 800; color: var(--white); margin-bottom: 10px; }
+.empty-state p { font-size: 15px; margin-bottom: 24px; }
+
+/* ===== HERO (trang chủ) ===== */
+.hero {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 80px 60px; min-height: 90vh;
+  background: linear-gradient(135deg, #0f0f0f 60%, #1a1a1a 100%);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; width: 500px; height: 500px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,92,0,0.15) 0%, transparent 70%);
+  right: 200px; top: 50%; transform: translateY(-50%);
+}
+.hero-text { max-width: 560px; z-index: 1; }
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,92,0,0.15); color: var(--primary);
+  border: 1px solid var(--primary); padding: 6px 16px;
+  border-radius: 20px; font-size: 13px; font-weight: 700;
+  margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase;
+}
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 80px; line-height: 1; margin-bottom: 20px;
+  color: var(--white); letter-spacing: 2px;
+}
+.hero-title span { color: var(--primary); }
+.hero-desc { font-size: 16px; color: #aaa; margin-bottom: 36px; max-width: 460px; }
+.hero-buttons { display: flex; gap: 16px; align-items: center; }
+.hero-image {
+  z-index: 1; font-size: 200px; text-align: center;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+
+/* ===== PRODUCT & CATEGORY GRIDS ===== */
+.product-grid  { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.category-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+/* ===== PROMO BANNER ===== */
+.promo-banner {
+  background: linear-gradient(120deg, #ff5c00, #cc3700);
+  border-radius: 20px; padding: 50px 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  overflow: hidden; position: relative;
+}
+.promo-banner::after {
+  content: ''; position: absolute;
+  right: -40px; top: -40px; width: 280px; height: 280px;
+  border-radius: 50%; background: rgba(255,255,255,0.08);
+}
+.promo-text h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px; color: var(--white); letter-spacing: 2px; line-height: 1; margin-bottom: 10px;
+}
+.promo-text p { font-size: 16px; color: rgba(255,255,255,0.85); max-width: 400px; }
+.btn-white {
+  background: var(--white); color: var(--primary);
+  padding: 14px 34px; border-radius: 10px;
+  font-size: 15px; font-weight: 800; border: none;
+  font-family: 'Nunito', sans-serif; white-space: nowrap;
+  transition: opacity 0.2s; z-index: 1;
+}
+.btn-white:hover { opacity: 0.9; cursor: pointer; }
+
+/* ===== FEATURES (tại sao chọn chúng tôi) ===== */
+.features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.feature-card {
+  background: var(--card-bg); border-radius: 16px;
+  padding: 30px 24px; border: 1px solid #2a2a2a; text-align: center;
+}
+.feature-icon { font-size: 36px; margin-bottom: 14px; }
+.feature-title { font-weight: 800; font-size: 16px; color: var(--white); margin-bottom: 8px; }
+.feature-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+/* ===== TESTIMONIALS ===== */
+.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.testimonial-card {
+  background: var(--card-bg); border-radius: 16px;
+  padding: 28px; border: 1px solid #2a2a2a;
+}
+.testimonial-header { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.testimonial-avatar { font-size: 40px; }
+.testimonial-name { font-weight: 800; font-size: 15px; color: var(--white); }
+.testimonial-role { font-size: 13px; color: var(--primary); font-weight: 600; }
+.testimonial-text { font-size: 14px; color: var(--gray); line-height: 1.7; font-style: italic; }
+
+/* ===== FILTER BAR (trang sản phẩm) ===== */
+.filter-bar {
+  display: flex; align-items: center; gap: 20px;
+  background: var(--card-bg); padding: 16px 24px;
+  border-radius: 14px; border: 1px solid #2a2a2a;
+}
+.search-wrap { display: flex; align-items: center; gap: 10px; flex: 1; }
+.search-icon { font-size: 16px; }
+.search-input {
+  background: var(--dark3); border: 1px solid #333;
+  border-radius: 8px; padding: 10px 14px;
+  color: var(--white); font-size: 14px;
+  font-family: 'Nunito', sans-serif; flex: 1;
+  outline: none; transition: border-color 0.2s;
+}
+.search-input:focus { border-color: var(--primary); }
+.sort-select {
+  background: var(--dark3); border: 1px solid #333;
+  color: var(--white); padding: 10px 14px;
+  border-radius: 8px; font-size: 14px;
+  font-family: 'Nunito', sans-serif; cursor: pointer; outline: none;
+}
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb {
+  padding: 20px 60px; font-size: 14px; color: var(--gray);
+}
+.breadcrumb span { cursor: pointer; transition: color 0.2s; }
+.breadcrumb span:hover { color: var(--primary); }
+
+/* ===== PRODUCT DETAIL ===== */
+.detail-layout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+}
+.detail-image-wrap {
+  background: var(--dark3); border-radius: 20px;
+  padding: 60px 40px; text-align: center; position: relative;
+}
+.detail-image { font-size: 160px; }
+.detail-discount {
+  position: absolute; top: 20px; right: 20px;
+  background: var(--primary); color: var(--white);
+  font-size: 16px; font-weight: 800; padding: 8px 16px;
+  border-radius: 10px;
+}
+.detail-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px; letter-spacing: 1px;
+  color: var(--white); margin-bottom: 14px; line-height: 1.1;
+}
+.detail-price-wrap { display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px; }
+.detail-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px; color: var(--primary);
+}
+.detail-price-old { font-size: 18px; color: var(--gray); text-decoration: line-through; }
+.detail-desc { font-size: 15px; color: #aaa; line-height: 1.8; margin-bottom: 24px; }
+.detail-specs {
+  display: flex; gap: 24px; margin-bottom: 24px;
+  padding: 16px; background: var(--dark3); border-radius: 12px;
+}
+.spec-item { display: flex; flex-direction: column; gap: 4px; }
+.spec-item span { font-size: 13px; color: var(--gray); }
+.spec-item strong { font-size: 15px; color: var(--white); }
+.detail-label { font-size: 14px; font-weight: 700; color: var(--gray); margin-bottom: 10px; }
+.detail-flavors { margin-bottom: 24px; }
+.flavor-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.flavor-btn {
+  background: var(--dark3); color: #ccc; border: 1px solid #333;
+  padding: 8px 16px; border-radius: 8px; font-size: 13px;
+  font-family: 'Nunito', sans-serif; cursor: pointer; transition: all 0.2s;
+}
+.flavor-btn.active, .flavor-btn:hover {
+  background: rgba(255,92,0,0.15); border-color: var(--primary); color: var(--primary);
+}
+.detail-quantity { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.quantity-control { display: flex; align-items: center; gap: 0; border: 1px solid #333; border-radius: 10px; overflow: hidden; }
+.qty-btn {
+  background: var(--dark3); color: var(--white); border: none;
+  width: 38px; height: 38px; font-size: 18px; font-family: 'Nunito', sans-serif;
+  cursor: pointer; transition: background 0.2s;
+}
+.qty-btn:hover { background: var(--primary); }
+.qty-value {
+  padding: 0 18px; font-weight: 800; font-size: 16px; color: var(--white);
+  background: var(--dark3); height: 38px; display: flex; align-items: center;
+  border-left: 1px solid #333; border-right: 1px solid #333;
+}
+.detail-actions { display: flex; gap: 12px; }
+
+/* ===== CART ===== */
+.cart-layout { display: grid; grid-template-columns: 1fr 360px; gap: 32px; align-items: start; }
+.cart-items { background: var(--card-bg); border-radius: 16px; padding: 24px; border: 1px solid #2a2a2a; }
+.cart-header {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 40px;
+  padding-bottom: 16px; border-bottom: 1px solid #2a2a2a;
+  font-size: 13px; font-weight: 700; color: var(--gray);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.cart-row {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 40px;
+  align-items: center; padding: 20px 0;
+  border-bottom: 1px solid #1a1a1a; gap: 12px;
+}
+.cart-product { display: flex; align-items: center; gap: 14px; }
+.cart-emoji { font-size: 44px; background: var(--dark3); padding: 8px; border-radius: 10px; }
+.cart-name { font-weight: 800; font-size: 14px; color: var(--white); margin-bottom: 4px; }
+.cart-brand { font-size: 12px; color: var(--primary); font-weight: 700; }
+.cart-price { font-size: 15px; font-weight: 700; color: var(--white); }
+.cart-summary {
+  background: var(--card-bg); border-radius: 16px;
+  padding: 28px; border: 1px solid #2a2a2a; position: sticky; top: 90px;
+}
+.summary-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px; color: var(--white); margin-bottom: 20px; letter-spacing: 1px;
+}
+.summary-row { display: flex; justify-content: space-between; margin-bottom: 14px; font-size: 15px; color: #ccc; }
+.summary-total { font-size: 20px; font-weight: 800; color: var(--white); margin-top: 4px; }
+.summary-total span:last-child { color: var(--primary); font-family: 'Bebas Neue', sans-serif; font-size: 28px; }
+.summary-divider { border: none; border-top: 1px solid #2a2a2a; margin: 16px 0; }
+.coupon-wrap { display: flex; gap: 10px; margin: 16px 0; }
+.free-ship-hint { font-size: 13px; color: var(--gray); margin-top: 12px; text-align: center; line-height: 1.6; }
+
+/* ===== ABOUT ===== */
+.about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.team-card {
+  background: var(--card-bg); border-radius: 16px;
+  padding: 32px 24px; border: 1px solid #2a2a2a; text-align: center;
+}
+.team-avatar { font-size: 56px; margin-bottom: 14px; }
+.team-name { font-weight: 800; font-size: 17px; color: var(--white); margin-bottom: 6px; }
+.team-role { color: var(--primary); font-size: 13px; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+.team-desc { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+/* ===== CONTACT ===== */
+.contact-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
+.contact-item { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 24px; }
+.contact-icon { font-size: 24px; margin-top: 2px; }
+.contact-label { font-size: 12px; color: var(--gray); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.contact-value { font-size: 15px; color: var(--white); font-weight: 600; }
+.working-hours {
+  background: var(--dark3); border-radius: 12px; padding: 20px; margin-top: 8px;
+  border: 1px solid #2a2a2a;
+}
+.working-hours h4 { font-size: 14px; font-weight: 800; color: var(--white); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+.hours-row { display: flex; justify-content: space-between; font-size: 14px; color: var(--gray); margin-bottom: 8px; }
+.hours-row span:last-child { color: var(--green); font-weight: 700; }
+.contact-form { background: var(--card-bg); border-radius: 16px; padding: 36px; border: 1px solid #2a2a2a; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 20px; }
+.form-label { display: block; font-size: 13px; font-weight: 700; color: var(--gray); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+.form-input {
+  width: 100%; background: var(--dark3); border: 1px solid #333;
+  border-radius: 10px; padding: 12px 16px; color: var(--white);
+  font-size: 15px; font-family: 'Nunito', sans-serif; outline: none;
+  transition: border-color 0.2s;
+}
+.form-input:focus { border-color: var(--primary); }
+.form-textarea { min-height: 130px; resize: vertical; }
+
+/* ===== FAQ ===== */
+.faq-list { display: flex; flex-direction: column; gap: 12px; max-width: 800px; }
+.faq-item { background: var(--card-bg); border-radius: 12px; border: 1px solid #2a2a2a; overflow: hidden; }
+.faq-item.open { border-color: var(--primary); }
+.faq-question {
+  width: 100%; display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 24px; background: none; border: none; color: var(--white);
+  font-size: 15px; font-weight: 700; font-family: 'Nunito', sans-serif;
+  cursor: pointer; text-align: left; transition: color 0.2s;
+}
+.faq-question:hover { color: var(--primary); }
+.faq-icon { font-size: 20px; color: var(--primary); flex-shrink: 0; margin-left: 16px; }
+.faq-answer { padding: 0 24px 18px; font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+/* ===== PAGE HERO (tiêu đề trang) ===== */
+.page-hero {
+  padding: 60px 60px 0;
+  text-align: center;
+}
+.page-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 60px; letter-spacing: 3px;
+  color: var(--white); margin-bottom: 12px;
+}
+.page-hero h1 span { color: var(--primary); }
+.page-hero p { font-size: 16px; color: var(--gray); max-width: 500px; margin: 0 auto; }
