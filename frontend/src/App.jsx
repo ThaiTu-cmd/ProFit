@@ -1,165 +1,245 @@
 // =====================================================
-// App.jsx – Component gốc
-// Quản lý:
-//   - Điều hướng giữa các trang (dùng state thay react-router)
-//   - Giỏ hàng (cart)
-//   - Thông báo toast
-// =====================================================
+// App.jsx – Ứng dụng chính, quản lý routing và state toàn cục
 
-import { useState, useEffect } from "react";
 
-// Import components dùng chung
+import { useState } from "react";
+
 import Navbar  from "./components/Navbar";
 import Footer  from "./components/Footer";
 import Toast   from "./components/Toast";
 
-// Import các trang
 import HomePage          from "./pages/HomePage";
-import ProductsPage      from "./pages/ProductsPage";
+import ProductListPage   from "./pages/ProductListPage";   
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CartPage          from "./pages/CartPage";
+import CheckoutPage      from "./pages/CheckoutPage";       
+import OrderPage         from "./pages/OrderPage";          
+import OrderDetailPage   from "./pages/OrderDetailPage";    
 import AboutPage         from "./pages/AboutPage";
 import ContactPage       from "./pages/ContactPage";
+import LoginPage         from "./pages/LoginPage";          
+import RegisterPage      from "./pages/RegisterPage"; 
+import ProfilePage       from "./pages/ProfilePage";      
 
-// Import CSS
+import DashboardPage     from "./pages/admin/DashboardPage";
+import ProductManagePage from "./pages/admin/ProductManagePage";
+import OrderManagePage   from "./pages/admin/OrderManagePage";
+
 import "./styles/global.css";
 
 const App = () => {
-  // ===== STATE ĐIỀU HƯỚNG =====
-  const [currentPage, setCurrentPage] = useState("home");
-  // Lưu sản phẩm đang xem chi tiết
+  // ── Routing ──────────────────────────────────────
+  const [currentPage, setCurrentPage]         = useState("home");
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedOrder, setSelectedOrder]     = useState(null);
 
-  // ===== STATE GIỎ HÀNG =====
-  // cart là mảng: [{ product: {...}, qty: 2 }, ...]
+  // ── [MỚI] Auth state ─────────────────────────────
+  // user = null khi chưa đăng nhập
+  // user = { id, name, email, phone, role: "user" | "admin" } khi đã đăng nhập
+  const [user, setUser] = useState(null);
+
+  // ── Giỏ hàng ─────────────────────────────────────
   const [cart, setCart] = useState([]);
 
-  // ===== STATE TOAST =====
-  const [toast, setToast] = useState({ visible: false, message: "" });
+  // ── [MỚI] Đơn hàng ───────────────────────────────
+  const [orders, setOrders] = useState([]);
 
-  // Hàm hiện toast rồi tự tắt sau 2.5 giây
-  const showToast = (message) => {
-    setToast({ visible: true, message });
+  // ── Toast ─────────────────────────────────────────
+  const [toast, setToast] = useState({ visible: false, message: "" });
+  const showToast = (msg) => {
+    setToast({ visible: true, message: msg });
     setTimeout(() => setToast({ visible: false, message: "" }), 2500);
   };
 
-  // ===== HÀM CHUYỂN TRANG =====
+  // ── Navigate ──────────────────────────────────────
   const navigate = (page) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" }); // cuộn lên đầu trang
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // ===== HÀM XEM CHI TIẾT SẢN PHẨM =====
-  const handleViewDetail = (product) => {
-    setSelectedProduct(product);
-    navigate("detail");
-  };
+  // ── Handlers ──────────────────────────────────────
+  const handleViewDetail = (product) => { setSelectedProduct(product); navigate("detail"); };
+  const handleViewOrder  = (order)   => { setSelectedOrder(order);     navigate("order-detail"); };
 
-  // ===== HÀM GIỎ HÀNG =====
-
-  // Thêm vào giỏ hàng
   const handleAddToCart = (product) => {
-    setCart((prevCart) => {
-      const existing = prevCart.find((item) => item.product.id === product.id);
-      if (existing) {
-        // Nếu đã có thì tăng số lượng
-        return prevCart.map((item) =>
-          item.product.id === product.id
-            ? { ...item, qty: item.qty + 1 }
-            : item
-        );
-      }
-      // Nếu chưa có thì thêm mới với qty = 1
-      return [...prevCart, { product, qty: 1 }];
+    setCart((prev) => {
+      const found = prev.find((i) => i.product.id === product.id);
+      return found
+        ? prev.map((i) => i.product.id === product.id ? { ...i, qty: i.qty + 1 } : i)
+        : [...prev, { product, qty: 1 }];
     });
     showToast(`✅ Đã thêm "${product.name}" vào giỏ!`);
   };
 
-  // Cập nhật số lượng (qty = 0 thì xóa luôn)
-  const handleUpdateQty = (productId, newQty) => {
-    if (newQty <= 0) {
-      handleRemoveFromCart(productId);
-      return;
-    }
-    setCart((prev) =>
-      prev.map((item) =>
-        item.product.id === productId ? { ...item, qty: newQty } : item
-      )
-    );
+  const handleUpdateQty = (id, qty) => {
+    if (qty <= 0) { handleRemove(id); return; }
+    setCart((prev) => prev.map((i) => i.product.id === id ? { ...i, qty } : i));
   };
 
-  // Xóa khỏi giỏ hàng
-  const handleRemoveFromCart = (productId) => {
-    setCart((prev) => prev.filter((item) => item.product.id !== productId));
+  const handleRemove = (id) => {
+    setCart((prev) => prev.filter((i) => i.product.id !== id));
     showToast("🗑 Đã xóa sản phẩm khỏi giỏ hàng");
   };
 
-  // Tổng số lượng trong giỏ
-  const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+  // [MỚI] Đặt hàng thành công: xóa giỏ, lưu đơn
+  const handlePlaceOrder = (order) => {
+    setOrders((prev) => [...prev, order]);
+    setCart([]);
+    showToast("🎉 Đặt hàng thành công!");
+  };
 
-  // ===== RENDER TRANG TƯƠNG ỨNG =====
+  // [MỚI] Admin cập nhật trạng thái đơn
+  const handleUpdateOrderStatus = (orderId, newStatus) => {
+    setOrders((prev) =>
+      prev.map((o) => o.id === orderId ? { ...o, status: newStatus } : o)
+    );
+  };
+
+  // [MỚI] Login / Logout
+  const handleLogin  = (userData) => {
+    setUser(userData);
+    showToast(`👋 Xin chào, ${userData.name}!`);
+  };
+  const handleLogout = () => {
+    setUser(null);
+    navigate("home");
+    showToast("Đã đăng xuất.");
+  };
+
+  const cartCount = cart.reduce((s, i) => s + i.qty, 0);
+
+  // ── Render page ───────────────────────────────────
   const renderPage = () => {
     switch (currentPage) {
+
       case "home":
-        return (
-          <HomePage
-            navigate={navigate}
-            onAddToCart={handleAddToCart}
-            onViewDetail={handleViewDetail}
-          />
-        );
+        return <HomePage navigate={navigate} onAddToCart={handleAddToCart} onViewDetail={handleViewDetail} />;
+
       case "products":
-        return (
-          <ProductsPage
-            onAddToCart={handleAddToCart}
-            onViewDetail={handleViewDetail}
-          />
-        );
+        return <ProductListPage onAddToCart={handleAddToCart} onViewDetail={handleViewDetail} />;
+
       case "detail":
-        return selectedProduct ? (
+        return (
           <ProductDetailPage
             product={selectedProduct}
             onAddToCart={handleAddToCart}
             onViewDetail={handleViewDetail}
             navigate={navigate}
           />
-        ) : null;
+        );
+
       case "cart":
         return (
           <CartPage
             cart={cart}
             onUpdateQty={handleUpdateQty}
-            onRemove={handleRemoveFromCart}
+            onRemove={handleRemove}
             navigate={navigate}
           />
         );
+
+      // ── [SỬA] Truyền thêm user + showToast ──────
+      case "checkout":
+        return (
+          <CheckoutPage
+            cart={cart}
+            user={user}                          // ← THÊM
+            onPlaceOrder={handlePlaceOrder}
+            navigate={navigate}
+            showToast={showToast}                // ← THÊM
+          />
+        );
+
+      // ── [MỚI] Trang đặt hàng thành công ─────────
+      case "order-success":
+        return (
+          <div className="section" style={{ textAlign: "center", padding: "80px 60px" }}>
+            <div style={{ fontSize: 80, marginBottom: 24 }}>🎉</div>
+            <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 52, color: "var(--white)", marginBottom: 12 }}>
+              ĐẶT HÀNG THÀNH CÔNG!
+            </h1>
+            <p style={{ color: "var(--gray)", fontSize: 16, marginBottom: 36 }}>
+              Cảm ơn bạn đã mua hàng. Chúng tôi sẽ xử lý đơn sớm nhất.
+            </p>
+            <div style={{ display: "flex", gap: 16, justifyContent: "center" }}>
+              {/* Chỉ hiện "Xem đơn hàng" nếu đã đăng nhập */}
+              {user && (
+                <button className="btn-primary" style={{ padding: "14px 32px" }}
+                  onClick={() => navigate("orders")}>
+                  Xem đơn hàng
+                </button>
+              )}
+              <button className="btn-outline" style={{ padding: "14px 32px" }}
+                onClick={() => navigate("home")}>
+                Về trang chủ
+              </button>
+            </div>
+          </div>
+        );
+
+      // ── [MỚI] Các trang mới ──────────────────────
+      case "orders":
+        return (
+          <OrderPage
+            orders={orders}
+            navigate={navigate}
+            onViewOrderDetail={handleViewOrder}
+          />
+        );
+
+      case "order-detail":
+        return <OrderDetailPage order={selectedOrder} navigate={navigate} />;
+
       case "about":
         return <AboutPage navigate={navigate} />;
+
       case "contact":
         return <ContactPage showToast={showToast} />;
+
+      case "login":
+        return <LoginPage onLogin={handleLogin} navigate={navigate} />;
+
+      case "register":
+        return <RegisterPage onLogin={handleLogin} navigate={navigate} />;
+
+      case "profile":
+        return <ProfilePage navigate={navigate} />;
+      // ── Admin (guard quyền) ───────────────────────
+      case "admin-dashboard":
+        if (!user || user.role !== "admin") { navigate("login"); return null; }
+        return <DashboardPage orders={orders} navigate={navigate} />;
+
+      case "admin-products":
+        if (!user || user.role !== "admin") { navigate("login"); return null; }
+        return <ProductManagePage showToast={showToast} />;
+
+      case "admin-orders":
+        if (!user || user.role !== "admin") { navigate("login"); return null; }
+        return <OrderManagePage orders={orders} onUpdateStatus={handleUpdateOrderStatus} showToast={showToast} />;
+
       default:
         return <HomePage navigate={navigate} onAddToCart={handleAddToCart} onViewDetail={handleViewDetail} />;
+      
     }
   };
 
+  const isAdmin = currentPage.startsWith("admin-");
+
   return (
     <div>
-      {/* Navbar luôn hiển thị ở trên */}
+      {/* [SỬA] Truyền thêm user + onLogout */}
       <Navbar
         currentPage={currentPage}
         navigate={navigate}
         cartCount={cartCount}
+        user={user}           // ← THÊM
+        onLogout={handleLogout} // ← THÊM
       />
 
-      {/* Nội dung trang */}
-      <main>
-        {renderPage()}
-      </main>
+      <main>{renderPage()}</main>
 
-      {/* Footer luôn hiển thị ở dưới */}
-      <Footer navigate={navigate} />
+      {!isAdmin && <Footer navigate={navigate} />}
 
-      {/* Toast thông báo */}
       <Toast message={toast.message} visible={toast.visible} />
     </div>
   );

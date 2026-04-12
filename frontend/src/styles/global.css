@@ -611,3 +611,296 @@ footer {
 }
 .page-hero h1 span { color: var(--primary); }
 .page-hero p { font-size: 16px; color: var(--gray); max-width: 500px; margin: 0 auto; }
+
+/* 
+   CSS cho các trang: Login, Register, Checkout,
+   Order, Admin, Near-expiry
+  */
+
+/* ── AUTH (Login / Register) ─────────────────────── */
+.auth-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 440px;
+  border: 1px solid #2a2a2a;
+}
+
+.auth-error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid var(--red);
+  color: var(--red);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: var(--gray);
+  font-size: 13px;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #2a2a2a;
+}
+
+.demo-hint {
+  background: rgba(255, 92, 0, 0.08);
+  border: 1px solid rgba(255, 92, 0, 0.3);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--gray);
+  margin-bottom: 20px;
+}
+
+/* ── CHECKOUT layout ───────────────────────────────── */
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 32px;
+  align-items: start;
+}
+
+.checkout-form-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.checkout-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid #2a2a2a;
+}
+
+.checkout-card-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+/* Badge user đăng nhập / khách vãng lai */
+.checkout-user-badge {
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.checkout-user-badge.logged-in {
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  color: var(--green);
+}
+
+.checkout-user-badge.guest {
+  background: rgba(255, 92, 0, 0.08);
+  border: 1px solid rgba(255, 92, 0, 0.35);
+  color: var(--white);
+}
+
+/* ── FORM ──────────────────────────────────────────── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  background: var(--dark3);
+  color: var(--white);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 92, 0, 0.12);
+}
+
+.form-input::placeholder {
+  color: #777;
+}
+
+.form-textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+/* ── PAYMENT METHOD options ───────────────────────── */
+.pay-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pay-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  background: var(--dark3);
+}
+
+.pay-option:hover,
+.pay-option.active {
+  border-color: var(--primary);
+  background: rgba(255, 92, 0, 0.08);
+}
+
+.pay-icon {
+  font-size: 22px;
+}
+
+.pay-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* ── ORDER SUMMARY ────────────────────────────────── */
+.summary-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 24px;
+  letter-spacing: 1px;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.summary-divider {
+  height: 1px;
+  background: #2a2a2a;
+  margin: 16px 0;
+}
+
+.summary-total span {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.summary-total span:last-child {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 28px;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+
+/* ── COUPON ───────────────────────────────────────── */
+.coupon-wrap {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ── USER BADGE / NAVBAR ─────────────────────────── */
+.user-badge {
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  color: var(--white);
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.user-badge:hover {
+  border-color: var(--primary);
+  background: rgba(255, 92, 0, 0.08);
+}
+
+.btn-logout {
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  color: var(--white);
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn-logout:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+/* ── RESPONSIVE ───────────────────────────────────── */
+@media (max-width: 992px) {
+  .checkout-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .checkout-card {
+    padding: 20px;
+  }
+
+  .coupon-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .summary-row {
+    font-size: 13px;
+  }
+
+  .summary-total span:last-child {
+    font-size: 24px;
+  }
+}

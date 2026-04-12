@@ -7,15 +7,18 @@
 //   - navigate: chuyển trang
 // =====================================================
 
+
+// CẬP NHẬT: nút "Thanh toán" đã navigate đúng sang checkout
+//           bỏ ô mã giảm giá (đã chuyển sang CheckoutPage)
+
 import { formatPrice } from "../data/products";
 
 const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
-  // Tính tổng tiền
   const subtotal = cart.reduce((sum, item) => sum + item.product.price * item.qty, 0);
-  const shipping = subtotal > 500000 ? 0 : 30000; // Miễn phí ship khi > 500k
+  const shipping = subtotal >= 500000 ? 0 : 30000;
   const total    = subtotal + shipping;
 
-  // Khi giỏ rỗng
+  // Giỏ rỗng
   if (cart.length === 0) {
     return (
       <div className="section">
@@ -40,7 +43,8 @@ const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
 
       <section className="section">
         <div className="cart-layout">
-          {/* ===== DANH SÁCH SẢN PHẨM ===== */}
+
+          {/* Danh sách sản phẩm */}
           <div className="cart-items">
             <div className="cart-header">
               <span>Sản phẩm</span>
@@ -64,7 +68,7 @@ const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
                 {/* Giá đơn */}
                 <div className="cart-price">{formatPrice(item.product.price)}</div>
 
-                {/* Điều chỉnh số lượng */}
+                {/* Số lượng */}
                 <div className="quantity-control">
                   <button className="qty-btn" onClick={() => onUpdateQty(item.product.id, item.qty - 1)}>−</button>
                   <span className="qty-value">{item.qty}</span>
@@ -72,17 +76,17 @@ const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
                 </div>
 
                 {/* Thành tiền */}
-                <div className="cart-subtotal" style={{ color: "var(--primary)", fontFamily: "'Bebas Neue', sans-serif", fontSize: 20 }}>
+                <div style={{ color: "var(--primary)", fontFamily: "'Bebas Neue', sans-serif", fontSize: 20 }}>
                   {formatPrice(item.product.price * item.qty)}
                 </div>
 
-                {/* Nút xóa */}
+                {/* Xóa */}
                 <button className="btn-danger" onClick={() => onRemove(item.product.id)}>🗑</button>
               </div>
             ))}
           </div>
 
-          {/* ===== TỔNG TIỀN ===== */}
+          {/* Tóm tắt */}
           <div className="cart-summary">
             <h3 className="summary-title">Tóm tắt đơn hàng</h3>
 
@@ -97,12 +101,6 @@ const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
               </span>
             </div>
 
-            {/* Nhập mã giảm giá */}
-            <div className="coupon-wrap">
-              <input type="text" className="search-input" placeholder="Nhập mã giảm giá..." style={{ flex: 1 }} />
-              <button className="btn-primary" style={{ whiteSpace: "nowrap" }}>Áp dụng</button>
-            </div>
-
             <div className="summary-divider"></div>
 
             <div className="summary-row summary-total">
@@ -112,11 +110,20 @@ const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
 
             {shipping > 0 && (
               <p className="free-ship-hint">
-                🚚 Mua thêm <strong style={{ color: "var(--primary)" }}>{formatPrice(500000 - subtotal)}</strong> để được miễn phí vận chuyển
+                🚚 Mua thêm{" "}
+                <strong style={{ color: "var(--primary)" }}>
+                  {formatPrice(500000 - subtotal)}
+                </strong>{" "}
+                để miễn phí vận chuyển
               </p>
             )}
 
-            <button className="btn-primary" style={{ width: "100%", padding: "16px 0", marginTop: 16, fontSize: 16 }}>
+            {/* Nút tiến hành thanh toán – navigate đúng sang CheckoutPage */}
+            <button
+              className="btn-primary"
+              style={{ width: "100%", padding: "16px 0", marginTop: 20, fontSize: 16 }}
+              onClick={() => navigate("checkout")}
+            >
               Tiến hành thanh toán →
             </button>
 
