@@ -45,7 +45,8 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable()) // Tắt CSRF vì dùng JWT
+        http.cors(org.springframework.security.config.Customizer.withDefaults()) // Bật cấu hình CORS của Spring Security
+                .csrf(csrf -> csrf.disable()) // Tắt CSRF vì dùng JWT
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .exceptionHandling(ex -> ex.authenticationEntryPoint((request, response, authException) -> {
                     if (request.getRequestURI().contains("/api/")) {
@@ -59,7 +60,7 @@ public class SecurityConfig {
                         .requestMatchers("/admin/login").permitAll()       // Trang đăng nhập admin
                         .requestMatchers("/admin/css/**", "/admin/js/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/admin/**").permitAll() // Tạm thời cho phép tất cả để Test kết nối FE -> BE
                         .anyRequest().permitAll()
                 )
                 .addFilterBefore(authTokenFilter, UsernamePasswordAuthenticationFilter.class);

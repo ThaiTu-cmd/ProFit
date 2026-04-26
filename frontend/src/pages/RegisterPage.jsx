@@ -12,7 +12,7 @@ const RegisterPage = ({ onLogin, navigate }) => {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setError("");
     const { fullName, email, phone, password, confirm } = form;
 
@@ -27,13 +27,31 @@ const RegisterPage = ({ onLogin, navigate }) => {
     }
 
     setLoading(true);
-    // Giả lập gọi API POST /api/auth/register
-    setTimeout(() => {
+    try {
+      const response = await fetch("http://localhost:8080/ProFitSuppsDB/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName,
+          email,
+          phone,
+          password_hash: password // send the raw password
+        })
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || "Đăng ký thất bại.");
+      }
+
+      // Đăng ký thành công -> Xóa bộ nhớ và chuyển qua trang đăng nhập
+      localStorage.removeItem("userInfo");
+      navigate("login"); // Hoặc có thể tự động login luôn, nhưng tốt nhất bắt đăng nhập lại
+    } catch (err) {
+      setError(err.message);
+    } finally {
       setLoading(false);
-      // Tự động đăng nhập sau khi đăng ký thành công
-      onLogin({ id: Date.now(), name: fullName, email, phone, role: "user" });
-      navigate("home");
-    }, 800);
+    }
   };
 
   return (
@@ -42,7 +60,7 @@ const RegisterPage = ({ onLogin, navigate }) => {
         {/* Logo */}
         <div style={{ textAlign: "center", marginBottom: 28 }}>
           <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 32, color: "var(--primary)", letterSpacing: 2 }}>
-            Power<span style={{ color: "var(--white)" }}>Fuel</span>
+            Pro<span style={{ color: "var(--white)" }}>Fit</span>
           </div>
           <p style={{ color: "var(--gray)", fontSize: 14, marginTop: 6 }}>Tạo tài khoản miễn phí</p>
         </div>

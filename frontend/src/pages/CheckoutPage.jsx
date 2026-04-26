@@ -6,6 +6,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { formatPrice } from "../data/products";
+import { ShoppingCart, Clock, User, Banknote, Landmark, Smartphone } from "lucide-react";
 
 const DEFAULT_USER_INFO = {
   fullName: "",
@@ -22,7 +23,7 @@ const COUPONS = {
   SALE10: 0.1,
 };
 
-const CheckoutPage = ({ cart = [], onPlaceOrder, navigate }) => {
+const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate }) => {
   const [userInfo, setUserInfo] = useState(DEFAULT_USER_INFO);
   const [payMethod, setPayMethod] = useState("cod");
   const [coupon, setCoupon] = useState("");
@@ -32,12 +33,20 @@ const CheckoutPage = ({ cart = [], onPlaceOrder, navigate }) => {
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem("userInfo");
+      const storageKey = user ? `userInfo_${user.email}` : "userInfo";
+      const saved = localStorage.getItem(storageKey);
       if (saved) {
         const parsed = JSON.parse(saved);
         setUserInfo({
           ...DEFAULT_USER_INFO,
           ...parsed,
+        });
+      } else if (user) {
+        setUserInfo({
+          ...DEFAULT_USER_INFO,
+          fullName: user.name || "",
+          email: user.email || "",
+          phone: user.phone || ""
         });
       }
     } catch (error) {
@@ -111,7 +120,7 @@ const CheckoutPage = ({ cart = [], onPlaceOrder, navigate }) => {
     return (
       <div className="section">
         <div className="empty-state">
-          <div className="empty-icon">🛒</div>
+          <div className="empty-icon"><ShoppingCart size={64} color="var(--gray)" /></div>
           <h3>Giỏ hàng trống</h3>
           <p>Vui lòng thêm sản phẩm trước khi thanh toán.</p>
           <button className="btn-primary" onClick={() => navigate("products")}>
@@ -126,8 +135,8 @@ const CheckoutPage = ({ cart = [], onPlaceOrder, navigate }) => {
     return (
       <div className="section">
         <div className="empty-state">
-          <div className="empty-icon">⏳</div>
-          <h3>Đang tải thông tin giao hàng...</h3>
+          <div className="empty-icon"><Clock size={64} color="var(--primary)" /></div>
+          <h2 style={{ marginBottom: 10 }}>ĐẶT HÀNG THÀNH CÔNG!</h2>
         </div>
       </div>
     );
@@ -207,9 +216,9 @@ const CheckoutPage = ({ cart = [], onPlaceOrder, navigate }) => {
 
               <div className="pay-methods">
                 {[
-                  { id: "cod", icon: "💵", label: "Thanh toán khi nhận hàng (COD)" },
-                  { id: "banking", icon: "🏦", label: "Chuyển khoản ngân hàng" },
-                  { id: "vnpay", icon: "📱", label: "VNPay / Ví điện tử" },
+                  { id: "cod", icon: <Banknote size={24} />, label: "Thanh toán khi nhận hàng (COD)" },
+                  { id: "banking", icon: <Landmark size={24} />, label: "Chuyển khoản ngân hàng" },
+                  { id: "vnpay", icon: <Smartphone size={24} />, label: "VNPay / Ví điện tử" },
                 ].map((m) => (
                   <label
                     key={m.id}

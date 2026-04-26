@@ -45,7 +45,9 @@ const ProductDetailPage = ({ product, onAddToCart, onViewDetail, navigate }) => 
         <div className="detail-layout">
           {/* Cột trái: ảnh sản phẩm */}
           <div className="detail-image-wrap">
-            <div className="detail-image">{product.emoji}</div>
+            <div className="detail-image" style={{ padding: 0, overflow: "hidden" }}>
+              <img src={product.image} alt={product.name} style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }} />
+            </div>
             {discount && <div className="detail-discount">-{discount}%</div>}
           </div>
 

@@ -12,6 +12,7 @@
 //           bỏ ô mã giảm giá (đã chuyển sang CheckoutPage)
 
 import { formatPrice } from "../data/products";
+import { ShoppingCart } from "lucide-react";
 
 const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
   const subtotal = cart.reduce((sum, item) => sum + item.product.price * item.qty, 0);
@@ -23,7 +24,7 @@ const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
     return (
       <div className="section">
         <div className="empty-state">
-          <div className="empty-icon">🛒</div>
+          <div className="empty-icon"><ShoppingCart size={64} color="var(--gray)" /></div>
           <h3>Giỏ hàng trống</h3>
           <p>Bạn chưa thêm sản phẩm nào vào giỏ hàng.</p>
           <button className="btn-primary" onClick={() => navigate("products")}>
@@ -58,7 +59,9 @@ const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
               <div className="cart-row" key={item.product.id}>
                 {/* Ảnh + tên */}
                 <div className="cart-product">
-                  <div className="cart-emoji">{item.product.emoji}</div>
+                  <div className="cart-emoji" style={{ padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <img src={item.product.image} alt={item.product.name} style={{ width: "50px", height: "50px", objectFit: "contain" }} />
+                  </div>
                   <div>
                     <div className="cart-name">{item.product.name}</div>
                     <div className="cart-brand">{item.product.brand}</div>

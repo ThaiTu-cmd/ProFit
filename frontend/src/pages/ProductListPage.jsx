@@ -4,13 +4,23 @@
 // Props: onAddToCart, onViewDetail
 // =====================================================
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { products, categories } from "../data/products";
 import ProductCard from "../components/ProductCard";
 import CategoryCard from "../components/CategoryCard";
 
-const ProductListPage = ({ onAddToCart, onViewDetail }) => {
-  const [activeCategory, setActiveCategory] = useState(categories[0]);
+const ProductListPage = ({ onAddToCart, onViewDetail, initialCategoryId }) => {
+  const [activeCategory, setActiveCategory] = useState(
+    initialCategoryId ? (categories.find(c => c.id === initialCategoryId) || categories[0]) : categories[0]
+  );
+
+  useEffect(() => {
+    if (initialCategoryId) {
+      setActiveCategory(categories.find(c => c.id === initialCategoryId) || categories[0]);
+    } else {
+      setActiveCategory(categories[0]);
+    }
+  }, [initialCategoryId]);
   const [searchText, setSearchText]         = useState("");
   const [sortBy, setSortBy]                 = useState("default");
   const [showNearExpiry, setShowNearExpiry] = useState(false);

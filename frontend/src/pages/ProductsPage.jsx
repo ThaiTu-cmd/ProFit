@@ -10,6 +10,7 @@ import { useState } from "react";
 import { products, categories } from "../data/products";
 import ProductCard from "../components/ProductCard";
 import CategoryCard from "../components/CategoryCard";
+import { Search } from "lucide-react";
 
 const ProductsPage = ({ onAddToCart, onViewDetail }) => {
   // State: danh mục đang được chọn
@@ -61,7 +62,7 @@ const ProductsPage = ({ onAddToCart, onViewDetail }) => {
         <div className="filter-bar">
           {/* Ô tìm kiếm */}
           <div className="search-wrap">
-            <span className="search-icon">🔍</span>
+            <span className="search-icon" style={{ display: 'flex', alignItems: 'center' }}><Search size={16} color="var(--gray)" /></span>
             <input
               type="text"
               className="search-input"
@@ -109,7 +110,7 @@ const ProductsPage = ({ onAddToCart, onViewDetail }) => {
         ) : (
           /* Khi không có kết quả */
           <div className="empty-state">
-            <div className="empty-icon">🔍</div>
+            <div className="empty-icon"><Search size={64} color="var(--gray)" /></div>
             <h3>Không tìm thấy sản phẩm</h3>
             <p>Thử tìm kiếm với từ khoá khác hoặc chọn danh mục khác.</p>
             <button className="btn-primary" onClick={() => { setSearchText(""); setActiveCategory(categories[0]); }}>

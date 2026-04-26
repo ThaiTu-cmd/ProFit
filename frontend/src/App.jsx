@@ -24,6 +24,7 @@ import ProfilePage       from "./pages/ProfilePage";
 import DashboardPage     from "./pages/admin/DashboardPage";
 import ProductManagePage from "./pages/admin/ProductManagePage";
 import OrderManagePage   from "./pages/admin/OrderManagePage";
+import UserManagePage    from "./pages/admin/UserManagePage";
 
 import "./styles/global.css";
 
@@ -52,8 +53,15 @@ const App = () => {
   };
 
   // ── Navigate ──────────────────────────────────────
-  const navigate = (page) => {
+  const [targetCategory, setTargetCategory] = useState(null);
+
+  const navigate = (page, params = {}) => {
     setCurrentPage(page);
+    if (page === "products" && params.categoryId) {
+      setTargetCategory(params.categoryId);
+    } else if (page === "products") {
+      setTargetCategory(null);
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -116,7 +124,7 @@ const App = () => {
         return <HomePage navigate={navigate} onAddToCart={handleAddToCart} onViewDetail={handleViewDetail} />;
 
       case "products":
-        return <ProductListPage onAddToCart={handleAddToCart} onViewDetail={handleViewDetail} />;
+        return <ProductListPage onAddToCart={handleAddToCart} onViewDetail={handleViewDetail} initialCategoryId={targetCategory} />;
 
       case "detail":
         return (
@@ -203,7 +211,7 @@ const App = () => {
         return <RegisterPage onLogin={handleLogin} navigate={navigate} />;
 
       case "profile":
-        return <ProfilePage navigate={navigate} />;
+        return <ProfilePage navigate={navigate} user={user} />;
       // ── Admin (guard quyền) ───────────────────────
       case "admin-dashboard":
         if (!user || user.role !== "admin") { navigate("login"); return null; }
@@ -216,6 +224,10 @@ const App = () => {
       case "admin-orders":
         if (!user || user.role !== "admin") { navigate("login"); return null; }
         return <OrderManagePage orders={orders} onUpdateStatus={handleUpdateOrderStatus} showToast={showToast} />;
+
+      case "admin-users":
+        if (!user || user.role !== "admin") { navigate("login"); return null; }
+        return <UserManagePage showToast={showToast} navigate={navigate} />;
 
       default:
         return <HomePage navigate={navigate} onAddToCart={handleAddToCart} onViewDetail={handleViewDetail} />;

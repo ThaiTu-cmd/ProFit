@@ -5,9 +5,9 @@ server:
 
 spring:
   datasource:
-    url: "jdbc:mysql://localhost:3306/ProFitSuppsDB"
+    url: "jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true"
     username: root
-    password: root
+    password: 123456
   jpa:
     hibernate:
       ddl-auto: update

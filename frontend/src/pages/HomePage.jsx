@@ -6,9 +6,10 @@
 //   - onViewDetail: xem chi tiết sản phẩm
 // =====================================================
 
-import { products, categories, formatPrice, renderStars } from "../data/products";
+import { products, categories, formatPrice, renderStars, banners } from "../data/products";
 import ProductCard from "../components/ProductCard";
 import CategoryCard from "../components/CategoryCard";
+import { CheckCircle, Truck, RefreshCw, MessageCircle, User } from "lucide-react";
 
 const HomePage = ({ navigate, onAddToCart, onViewDetail }) => {
   // Chỉ lấy 4 sản phẩm đầu để hiển thị ở trang chủ
@@ -38,16 +39,18 @@ const HomePage = ({ navigate, onAddToCart, onViewDetail }) => {
             </button>
           </div>
         </div>
-        <div className="hero-image">💪</div>
+        <div className="hero-image">
+          <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1000&auto=format&fit=crop" alt="Fitness Athlete" style={{ width: '100%', height: '100%', maxHeight: '500px', borderRadius: '24px', objectFit: 'cover', filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.3))' }} />
+        </div>
       </section>
 
       {/* ===== STATS ===== */}
       <div className="stats">
         {[
-          { number: "500+",  label: "Sản phẩm"   },
-          { number: "20K+",  label: "Khách hàng"  },
-          { number: "50+",   label: "Thương hiệu" },
-          { number: "100%",  label: "Chính hãng"  },
+          { number: "500+", label: "Sản phẩm" },
+          { number: "20K+", label: "Khách hàng" },
+          { number: "50+", label: "Thương hiệu" },
+          { number: "100%", label: "Chính hãng" },
         ].map((s) => (
           <div className="stat-item" key={s.label}>
             <div className="stat-number">{s.number}</div>
@@ -68,7 +71,7 @@ const HomePage = ({ navigate, onAddToCart, onViewDetail }) => {
               key={cat.id}
               category={cat}
               isActive={false}
-              onClick={() => navigate("products")}
+              onClick={() => navigate("products", { categoryId: cat.id })}
             />
           ))}
         </div>
@@ -92,17 +95,6 @@ const HomePage = ({ navigate, onAddToCart, onViewDetail }) => {
         </div>
       </section>
 
-      {/* ===== BANNER KHUYẾN MÃI ===== */}
-      <div className="promo-banner" style={{ margin: "0 60px 70px" }}>
-        <div className="promo-text">
-          <h2>GIẢM 30%<br />ĐƠN HÀNG ĐẦU TIÊN</h2>
-          <p>Dùng mã <strong>POWERFUEL30</strong> khi thanh toán. Áp dụng cho tất cả sản phẩm trong tháng này!</p>
-        </div>
-        <button className="btn-white" onClick={() => navigate("products")}>
-          Mua ngay
-        </button>
-      </div>
-
       {/* ===== TẠI SAO CHỌN CHÚNG TÔI ===== */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="section-header">
@@ -110,10 +102,10 @@ const HomePage = ({ navigate, onAddToCart, onViewDetail }) => {
         </div>
         <div className="features-grid">
           {[
-            { icon: "✅", title: "Chính hãng 100%",  desc: "Nhập khẩu trực tiếp từ nhà sản xuất, có tem chống hàng giả." },
-            { icon: "🚚", title: "Giao hàng nhanh",  desc: "Giao trong 2–4 giờ tại TP.HCM, 1–2 ngày toàn quốc." },
-            { icon: "🔄", title: "Đổi trả dễ dàng", desc: "Đổi trả miễn phí trong 7 ngày nếu sản phẩm có lỗi." },
-            { icon: "💬", title: "Tư vấn miễn phí", desc: "Chuyên gia dinh dưỡng tư vấn lộ trình phù hợp với bạn." },
+            { icon: <CheckCircle size={36} color="var(--primary)" />, title: "Chính hãng 100%", desc: "Nhập khẩu trực tiếp từ nhà sản xuất, có tem chống hàng giả." },
+            { icon: <Truck size={36} color="var(--primary)" />, title: "Giao hàng nhanh", desc: "Giao trong 2–4 giờ tại TP.HCM, 1–2 ngày toàn quốc." },
+            { icon: <RefreshCw size={36} color="var(--primary)" />, title: "Đổi trả dễ dàng", desc: "Đổi trả miễn phí trong 7 ngày nếu sản phẩm có lỗi." },
+            { icon: <MessageCircle size={36} color="var(--primary)" />, title: "Tư vấn miễn phí", desc: "Chuyên gia dinh dưỡng tư vấn lộ trình phù hợp với bạn." },
           ].map((f) => (
             <div className="feature-card" key={f.title}>
               <div className="feature-icon">{f.icon}</div>
@@ -134,21 +126,21 @@ const HomePage = ({ navigate, onAddToCart, onViewDetail }) => {
             {
               name: "Nguyễn Minh Tuấn",
               role: "Gym 3 năm",
-              avatar: "👨",
+              avatar: <User size={40} />,
               text: "Whey Gold Standard từ PowerFuel chất lượng không thua gì hàng xách tay nhưng giá tốt hơn nhiều. Giao hàng nhanh, đóng gói cẩn thận.",
               rating: 5,
             },
             {
               name: "Trần Thị Lan",
               role: "CrossFit athlete",
-              avatar: "👩",
+              avatar: <User size={40} />,
               text: "Mình mua Creatine và Pre-Workout ở đây từ 1 năm nay. Nhân viên tư vấn nhiệt tình, hiểu biết. Sẽ tiếp tục ủng hộ!",
               rating: 5,
             },
             {
               name: "Lê Văn Hùng",
               role: "Personal Trainer",
-              avatar: "🧑",
+              avatar: <User size={40} />,
               text: "Là PT mình hay giới thiệu học viên mua ở đây. Hàng chính hãng 100%, giá cạnh tranh và nhiều chương trình ưu đãi hấp dẫn.",
               rating: 5,
             },

@@ -1,35 +1,57 @@
-// =====================================================
-// pages/admin/DashboardPage.jsx – Trang tổng quan Admin
-// Props: orders, navigate
-// =====================================================
+import { useState, useEffect } from "react";
+import { adminService } from "../../services/adminService";
 
-import { formatPrice } from "../../data/products";
+const formatPrice = (price) => {
+  return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price || 0);
+};
 
-const DashboardPage = ({ orders = [], navigate }) => {
-  // Tính các số liệu tổng quan
-  const totalRevenue  = orders.filter(o => o.status === "delivered").reduce((s, o) => s + o.total, 0);
+const DashboardPage = ({ navigate }) => {
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await adminService.getAllOrders();
+        setOrders(data);
+      } catch (error) {
+        console.error("Lỗi tải đơn hàng:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const totalRevenue  = orders.filter(o => o.status === "COMPLETED").reduce((s, o) => s + o.totalAmount, 0);
   const totalOrders   = orders.length;
-  const pendingOrders = orders.filter(o => o.status === "pending").length;
-  const todayOrders   = orders.filter(o => o.createdAt === new Date().toLocaleDateString("vi-VN")).length;
+  const pendingOrders = orders.filter(o => o.status === "PENDING").length;
+  
+  // Tính đơn hàng hôm nay
+  const todayStr = new Date().toISOString().split('T')[0];
+  const todayOrders = orders.filter(o => o.placedAt && o.placedAt.startsWith(todayStr)).length;
 
-  // 5 đơn hàng gần nhất
-  const recentOrders = [...orders].reverse().slice(0, 5);
+  const recentOrders = [...orders].slice(0, 5); // Đã được sort ở backend (OrderByCreatedAtDesc)
 
   const STATUS_LABEL = {
-    pending:   { text: "Chờ xác nhận", color: "#f59e0b" },
-    confirmed: { text: "Đã xác nhận",  color: "#3b82f6" },
-    shipping:  { text: "Đang giao",    color: "#8b5cf6" },
-    delivered: { text: "Đã nhận",      color: "var(--green)" },
-    cancelled: { text: "Đã hủy",       color: "var(--red)" },
+    PENDING:   { text: "Chờ xác nhận", color: "#f59e0b" },
+    PAID:      { text: "Đã thanh toán",color: "#3b82f6" },
+    PROCESSING:{ text: "Đang xử lý",   color: "#8b5cf6" },
+    SHIPPED:   { text: "Đang giao",    color: "#10b981" },
+    COMPLETED: { text: "Hoàn tất",     color: "var(--green)" },
+    CANCELED:  { text: "Đã hủy",       color: "var(--red)" },
+    REFUNDED:  { text: "Hoàn tiền",    color: "#ef4444" },
   };
 
   return (
     <div className="section">
-      <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 36, letterSpacing: 2, marginBottom: 32 }}>
-        TỔNG QUAN <span style={{ color: "var(--primary)" }}>HỆ THỐNG</span>
-      </h2>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 32 }}>
+        <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 36, letterSpacing: 2, margin: 0 }}>
+          TỔNG QUAN <span style={{ color: "var(--primary)" }}>HỆ THỐNG</span>
+        </h2>
 
-      {/* Thẻ thống kê */}
+      </div>
+
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20, marginBottom: 36 }}>
         {[
           { icon: "💰", label: "Doanh thu",        value: formatPrice(totalRevenue), color: "var(--primary)" },
@@ -46,7 +68,6 @@ const DashboardPage = ({ orders = [], navigate }) => {
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 300px", gap: 24 }}>
-        {/* Đơn hàng gần nhất */}
         <div style={{ background: "var(--card-bg)", borderRadius: 16, padding: 28, border: "1px solid #2a2a2a" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
             <h3 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, letterSpacing: 1 }}>ĐƠN HÀNG GẦN NHẤT</h3>
@@ -54,7 +75,9 @@ const DashboardPage = ({ orders = [], navigate }) => {
               onClick={() => navigate("admin-orders")}>Xem tất cả →</span>
           </div>
 
-          {recentOrders.length === 0 ? (
+          {loading ? (
+            <p style={{ color: "var(--gray)" }}>Đang tải dữ liệu...</p>
+          ) : recentOrders.length === 0 ? (
             <p style={{ color: "var(--gray)" }}>Chưa có đơn hàng nào.</p>
           ) : (
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
@@ -67,14 +90,16 @@ const DashboardPage = ({ orders = [], navigate }) => {
               </thead>
               <tbody>
                 {recentOrders.map((order) => {
-                  const st = STATUS_LABEL[order.status] ?? STATUS_LABEL.pending;
+                  const st = STATUS_LABEL[order.status] ?? STATUS_LABEL.PENDING;
                   return (
                     <tr key={order.id} style={{ borderBottom: "1px solid #1a1a1a", cursor: "pointer" }}
                       onClick={() => navigate("admin-orders")}>
-                      <td style={{ padding: "12px 12px", color: "var(--white)", fontWeight: 700 }}>#{order.id}</td>
-                      <td style={{ padding: "12px 12px", color: "var(--white)" }}>{order.info?.fullName ?? "—"}</td>
-                      <td style={{ padding: "12px 12px", color: "var(--primary)", fontFamily: "'Bebas Neue', sans-serif", fontSize: 18 }}>{formatPrice(order.total)}</td>
-                      <td style={{ padding: "12px 12px", color: "var(--gray)" }}>{order.createdAt}</td>
+                      <td style={{ padding: "12px 12px", color: "var(--white)", fontWeight: 700 }}>{order.orderCode}</td>
+                      <td style={{ padding: "12px 12px", color: "var(--white)" }}>{order.recipientName || "—"}</td>
+                      <td style={{ padding: "12px 12px", color: "var(--primary)", fontFamily: "'Bebas Neue', sans-serif", fontSize: 18 }}>{formatPrice(order.totalAmount)}</td>
+                      <td style={{ padding: "12px 12px", color: "var(--gray)" }}>
+                        {order.placedAt ? new Date(order.placedAt).toLocaleString("vi-VN") : "—"}
+                      </td>
                       <td style={{ padding: "12px 12px" }}>
                         <span style={{ fontSize: 12, fontWeight: 700, color: st.color, border: `1px solid ${st.color}`, padding: "3px 10px", borderRadius: 6 }}>{st.text}</span>
                       </td>
@@ -86,12 +111,11 @@ const DashboardPage = ({ orders = [], navigate }) => {
           )}
         </div>
 
-        {/* Menu nhanh */}
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           {[
             { icon: "📦", label: "Quản lý sản phẩm", page: "admin-products", desc: "Thêm, sửa, xóa sản phẩm" },
             { icon: "🛒", label: "Quản lý đơn hàng", page: "admin-orders",   desc: "Xử lý & cập nhật đơn" },
-            { icon: "🕐", label: "Sản phẩm cận date", page: "admin-products", desc: "Quản lý hàng sắp hết hạn" },
+            { icon: "👥", label: "Quản lý User",     page: "admin-users",    desc: "Xem & sửa người dùng" }
           ].map((item) => (
             <div key={item.label} onClick={() => navigate(item.page)}
               style={{ background: "var(--card-bg)", borderRadius: 14, padding: "18px 20px", border: "1px solid #2a2a2a", cursor: "pointer", transition: "border-color 0.2s" }}

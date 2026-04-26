@@ -3,6 +3,7 @@
 // =====================================================
 
 import { useState } from "react";
+import { MapPin, Phone, Mail, ThumbsUp } from "lucide-react";
 
 const ContactPage = ({ showToast }) => {
   // State form
@@ -40,10 +41,10 @@ const ContactPage = ({ showToast }) => {
             </h3>
 
             {[
-              { icon: "📍", label: "Địa chỉ",    value: "123 Nguyễn Đình Chiểu, Quận 3, TP. HCM" },
-              { icon: "📞", label: "Hotline",     value: "0901 234 567 (8:00 – 22:00)" },
-              { icon: "✉️", label: "Email",       value: "hello@powerfuel.vn" },
-              { icon: "📘", label: "Facebook",    value: "fb.com/powerfuel.vn" },
+              { icon: <MapPin size={24} color="var(--primary)" />, label: "Địa chỉ", value: "123 Nguyễn Đình Chiểu, Quận 3, TP. HCM" },
+              { icon: <Phone size={24} color="var(--primary)" />, label: "Hotline", value: "0901 234 567 (8:00 – 22:00)" },
+              { icon: <Mail size={24} color="var(--primary)" />, label: "Email", value: "hello@powerfuel.vn" },
+              { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>, label: "Facebook", value: "fb.com/powerfuel.vn" },
             ].map((info) => (
               <div className="contact-item" key={info.label}>
                 <div className="contact-icon">{info.icon}</div>

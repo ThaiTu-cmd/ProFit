@@ -6,13 +6,13 @@
 import { useState } from "react";
 
 const LoginPage = ({ onLogin, navigate }) => {
-  const [form, setForm]     = useState({ email: "", password: "" });
+  const [form, setForm]     = useState({ email: "admin@profit.com", password: "Admin@123" });
   const [error, setError]   = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setError("");
     if (!form.email || !form.password) {
       setError("Vui lòng điền đầy đủ thông tin.");
@@ -20,20 +20,42 @@ const LoginPage = ({ onLogin, navigate }) => {
     }
 
     setLoading(true);
-    // Giả lập gọi API – trong thực tế gọi POST /api/auth/login
-    setTimeout(() => {
-      setLoading(false);
-      // Tài khoản demo
-      if (form.email === "admin@powerfuel.vn" && form.password === "123456") {
-        onLogin({ id: 1, name: "Admin", email: form.email, role: "admin" });
-        navigate("admin-dashboard");
-      } else if (form.email === "user@powerfuel.vn" && form.password === "123456") {
-        onLogin({ id: 2, name: "Nguyễn Văn A", email: form.email, role: "user" });
-        navigate("home");
-      } else {
-        setError("Email hoặc mật khẩu không đúng.");
+    try {
+      const response = await fetch("http://localhost:8080/ProFitSuppsDB/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: form.email,
+          password: form.password,
+          rememberMe: false
+        })
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || "Tài khoản hoặc mật khẩu không đúng.");
       }
-    }, 800);
+
+      // Đăng nhập thành công -> Lưu JWT Token vào LocalStorage
+      localStorage.setItem("token", data.token);
+      
+      // Update global state based on role returned from backend
+      const userRole = data.role ? data.role.toLowerCase() : "user";
+      onLogin({ email: data.username, role: userRole, token: data.token });
+      
+      // Chuyển hướng theo role
+      if (userRole === "admin") {
+        navigate("admin-dashboard");
+      } else {
+        navigate("home");
+      }
+      
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -42,14 +64,14 @@ const LoginPage = ({ onLogin, navigate }) => {
         {/* Logo */}
         <div style={{ textAlign: "center", marginBottom: 32 }}>
           <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 32, color: "var(--primary)", letterSpacing: 2 }}>
-            Power<span style={{ color: "var(--white)" }}>Fuel</span>
+            Pro<span style={{ color: "var(--white)" }}>Fit</span>
           </div>
           <p style={{ color: "var(--gray)", fontSize: 14, marginTop: 6 }}>Đăng nhập để tiếp tục</p>
         </div>
 
         {/* Tài khoản demo */}
         <div className="demo-hint">
-          <strong>Demo:</strong> user@powerfuel.vn / 123456 &nbsp;|&nbsp; admin@powerfuel.vn / 123456
+          <strong>Demo:</strong> admin@profit.com / Admin@123
         </div>
 
         {/* Form */}

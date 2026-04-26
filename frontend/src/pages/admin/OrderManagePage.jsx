@@ -1,69 +1,100 @@
-// =====================================================
-// pages/admin/OrderManagePage.jsx – Quản lý đơn hàng
-// Props: orders, onUpdateStatus, showToast
-// =====================================================
+import { useState, useEffect } from "react";
+import { adminService } from "../../services/adminService";
 
-import { useState } from "react";
-import { formatPrice } from "../../data/products";
+const formatPrice = (price) => {
+  return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price || 0);
+};
 
 const STATUS_LIST = [
   { key: "all",       label: "Tất cả"        },
-  { key: "pending",   label: "Chờ xác nhận"  },
-  { key: "confirmed", label: "Đã xác nhận"   },
-  { key: "shipping",  label: "Đang giao"     },
-  { key: "delivered", label: "Đã nhận"       },
-  { key: "cancelled", label: "Đã hủy"        },
+  { key: "PENDING",   label: "Chờ xác nhận"  },
+  { key: "PAID",      label: "Đã thanh toán" },
+  { key: "PROCESSING",label: "Đang xử lý"    },
+  { key: "SHIPPED",   label: "Đang giao"     },
+  { key: "COMPLETED", label: "Hoàn tất"      },
+  { key: "CANCELED",  label: "Đã hủy"        },
+  { key: "REFUNDED",  label: "Hoàn tiền"     },
 ];
 
 const STATUS_NEXT = {
-  pending:   "confirmed",
-  confirmed: "shipping",
-  shipping:  "delivered",
+  PENDING:   "PAID",
+  PAID:      "PROCESSING",
+  PROCESSING:"SHIPPED",
+  SHIPPED:   "COMPLETED",
 };
 
 const STATUS_COLOR = {
-  pending:   "#f59e0b",
-  confirmed: "#3b82f6",
-  shipping:  "#8b5cf6",
-  delivered: "var(--green)",
-  cancelled: "var(--red)",
+  PENDING:   "#f59e0b",
+  PAID:      "#3b82f6",
+  PROCESSING:"#8b5cf6",
+  SHIPPED:   "#10b981",
+  COMPLETED: "var(--green)",
+  CANCELED:  "var(--red)",
+  REFUNDED:  "#ef4444",
 };
 
-const OrderManagePage = ({ orders = [], onUpdateStatus, showToast }) => {
-  const [filter, setFilter]         = useState("all");
-  const [search, setSearch]         = useState("");
+const OrderManagePage = ({ showToast }) => {
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState("all");
+  const [search, setSearch] = useState("");
   const [expandedId, setExpandedId] = useState(null);
+
+  const fetchOrders = async () => {
+    try {
+      setLoading(true);
+      const data = await adminService.getAllOrders();
+      setOrders(data);
+    } catch (error) {
+      showToast(`❌ Lỗi tải đơn hàng: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchOrders();
+  }, []);
 
   const filtered = orders.filter((o) => {
     const matchStatus = filter === "all" || o.status === filter;
-    const matchSearch = String(o.id).includes(search) || (o.info?.fullName ?? "").toLowerCase().includes(search.toLowerCase());
+    const matchSearch = String(o.orderCode).toLowerCase().includes(search.toLowerCase()) || 
+                        (o.recipientName || "").toLowerCase().includes(search.toLowerCase()) ||
+                        String(o.id).includes(search);
     return matchStatus && matchSearch;
   });
 
-  // Đếm theo trạng thái
   const countByStatus = (key) => key === "all" ? orders.length : orders.filter(o => o.status === key).length;
 
-  const handleUpdateStatus = (orderId, newStatus) => {
-    onUpdateStatus(orderId, newStatus);
-    showToast(`✅ Đã cập nhật trạng thái đơn #${orderId}`);
+  const handleUpdateStatus = async (orderId, newStatus) => {
+    try {
+      await adminService.updateOrderStatus(orderId, { status: newStatus });
+      showToast(`✅ Đã cập nhật trạng thái đơn #${orderId}`);
+      fetchOrders();
+    } catch (error) {
+      showToast(`❌ Lỗi cập nhật trạng thái: ${error.message}`);
+    }
   };
 
-  const handleCancel = (orderId) => {
+  const handleCancel = async (orderId) => {
     if (!window.confirm("Bạn có chắc muốn hủy đơn hàng này?")) return;
-    onUpdateStatus(orderId, "cancelled");
-    showToast(`🗑 Đã hủy đơn #${orderId}`);
+    try {
+      await adminService.updateOrderStatus(orderId, { status: "CANCELED" });
+      showToast(`🗑 Đã hủy đơn #${orderId}`);
+      fetchOrders();
+    } catch (error) {
+      showToast(`❌ Lỗi hủy đơn: ${error.message}`);
+    }
   };
 
   return (
     <div className="section">
-      {/* Header */}
       <div style={{ marginBottom: 28 }}>
         <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 32, letterSpacing: 2 }}>
           QUẢN LÝ <span style={{ color: "var(--primary)" }}>ĐƠN HÀNG</span>
         </h2>
       </div>
 
-      {/* Tabs trạng thái */}
       <div className="order-tabs" style={{ marginBottom: 20 }}>
         {STATUS_LIST.map((tab) => (
           <button key={tab.key} className={`order-tab ${filter === tab.key ? "active" : ""}`}
@@ -76,7 +107,6 @@ const OrderManagePage = ({ orders = [], onUpdateStatus, showToast }) => {
         ))}
       </div>
 
-      {/* Tìm kiếm */}
       <div className="filter-bar" style={{ marginBottom: 20 }}>
         <div className="search-wrap" style={{ flex: 1 }}>
           <span>🔍</span>
@@ -87,8 +117,9 @@ const OrderManagePage = ({ orders = [], onUpdateStatus, showToast }) => {
         </span>
       </div>
 
-      {/* Bảng đơn hàng */}
-      {filtered.length === 0 ? (
+      {loading ? (
+        <div className="empty-state"><h3>Đang tải dữ liệu...</h3></div>
+      ) : filtered.length === 0 ? (
         <div className="empty-state"><div className="empty-icon">📭</div><h3>Không có đơn hàng</h3></div>
       ) : (
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
@@ -100,22 +131,21 @@ const OrderManagePage = ({ orders = [], onUpdateStatus, showToast }) => {
 
             return (
               <div key={order.id} style={{ background: "var(--card-bg)", borderRadius: 14, border: "1px solid #2a2a2a", overflow: "hidden" }}>
-                {/* Hàng tóm tắt */}
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr auto", gap: 16, padding: "16px 20px", alignItems: "center", cursor: "pointer" }}
                   onClick={() => setExpandedId(isExpanded ? null : order.id)}>
 
                   <div>
                     <div style={{ fontSize: 13, color: "var(--gray)" }}>Mã đơn</div>
-                    <div style={{ fontWeight: 700, color: "var(--white)" }}>#{order.id}</div>
+                    <div style={{ fontWeight: 700, color: "var(--white)" }}>{order.orderCode}</div>
                   </div>
                   <div>
                     <div style={{ fontSize: 13, color: "var(--gray)" }}>Khách hàng</div>
-                    <div style={{ fontWeight: 700, color: "var(--white)" }}>{order.info?.fullName ?? "—"}</div>
-                    <div style={{ fontSize: 12, color: "var(--gray)" }}>{order.info?.phone}</div>
+                    <div style={{ fontWeight: 700, color: "var(--white)" }}>{order.recipientName || "—"}</div>
+                    <div style={{ fontSize: 12, color: "var(--gray)" }}>{order.recipientPhone}</div>
                   </div>
                   <div>
                     <div style={{ fontSize: 13, color: "var(--gray)" }}>Tổng tiền</div>
-                    <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: "var(--primary)" }}>{formatPrice(order.total)}</div>
+                    <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: "var(--primary)" }}>{formatPrice(order.totalAmount)}</div>
                   </div>
                   <div>
                     <div style={{ fontSize: 13, color: "var(--gray)", marginBottom: 4 }}>Trạng thái</div>
@@ -126,29 +156,22 @@ const OrderManagePage = ({ orders = [], onUpdateStatus, showToast }) => {
                   <div style={{ fontSize: 18, color: "var(--gray)" }}>{isExpanded ? "▲" : "▼"}</div>
                 </div>
 
-                {/* Chi tiết mở rộng */}
                 {isExpanded && (
                   <div style={{ borderTop: "1px solid #2a2a2a", padding: "20px 20px" }}>
-                    {/* Sản phẩm */}
                     <div style={{ marginBottom: 20 }}>
                       {order.items?.map((item) => (
-                        <div key={item.product.id} style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 10 }}>
-                          <span style={{ fontSize: 28 }}>{item.product.emoji}</span>
-                          <span style={{ flex: 1, fontSize: 13, color: "var(--white)" }}>{item.product.name}</span>
-                          <span style={{ fontSize: 13, color: "var(--gray)" }}>x{item.qty}</span>
-                          <span style={{ fontSize: 14, fontWeight: 700, color: "var(--primary)" }}>{formatPrice(item.product.price * item.qty)}</span>
+                        <div key={item.id} style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 10 }}>
+                          <span style={{ flex: 1, fontSize: 13, color: "var(--white)" }}>{item.productName} (SKU: {item.productSku})</span>
+                          <span style={{ fontSize: 13, color: "var(--gray)" }}>x{item.quantity}</span>
+                          <span style={{ fontSize: 14, fontWeight: 700, color: "var(--primary)" }}>{formatPrice(item.lineTotal)}</span>
                         </div>
                       ))}
                     </div>
 
-                    {/* Địa chỉ giao hàng */}
-                    {order.info && (
-                      <div style={{ fontSize: 13, color: "var(--gray)", marginBottom: 20 }}>
-                        📍 {order.info.address}, {order.info.district}, {order.info.city}
-                      </div>
-                    )}
+                    <div style={{ fontSize: 13, color: "var(--gray)", marginBottom: 20 }}>
+                      📍 {order.shippingAddressLine1}, {order.shippingCity}, {order.shippingProvince}
+                    </div>
 
-                    {/* Nút cập nhật */}
                     <div style={{ display: "flex", gap: 10 }}>
                       {nextStatus && (
                         <button className="btn-primary" style={{ padding: "10px 20px", fontSize: 13 }}
@@ -156,7 +179,7 @@ const OrderManagePage = ({ orders = [], onUpdateStatus, showToast }) => {
                           → Chuyển sang: {STATUS_LIST.find(s => s.key === nextStatus)?.label}
                         </button>
                       )}
-                      {order.status !== "delivered" && order.status !== "cancelled" && (
+                      {order.status !== "COMPLETED" && order.status !== "CANCELED" && order.status !== "REFUNDED" && (
                         <button className="btn-danger" onClick={() => handleCancel(order.id)}>Hủy đơn</button>
                       )}
                     </div>
