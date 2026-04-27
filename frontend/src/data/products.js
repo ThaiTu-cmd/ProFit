@@ -14,6 +14,7 @@ export const categories = [
 export const products = [
   {
     id: 1,
+    sku: "OPT-WHEY-001",
     image: "/images/whey/whey-gold.png",
     emoji: "🥛",
     brand: "Optimum Nutrition",
@@ -33,6 +34,7 @@ export const products = [
   },
   {
     id: 2,
+    sku: "MUS-CREAT-001",
     image: "/images/creatin/creatine-platinum.png",
     emoji: "⚡",
     brand: "MuscleTech",
@@ -52,6 +54,7 @@ export const products = [
   },
   {
     id: 3,
+    sku: "C4-PREWORK-001",
     image: "/images/pre-workout/c4-preworkout.png",
     emoji: "🔥",
     brand: "C4",
@@ -71,6 +74,7 @@ export const products = [
   },
   {
     id: 4,
+    sku: "OPT-VIT-001",
     image: "/images/vitamin/optimen-vitamin.png",
     emoji: "💊",
     brand: "Optimum Nutrition",
@@ -90,6 +94,7 @@ export const products = [
   },
   {
     id: 5,
+    sku: "DYM-ISO-001",
     image: "/images/whey/iso100-whey.png",
     emoji: "🥛",
     brand: "Dymatize",
@@ -109,6 +114,7 @@ export const products = [
   },
   {
     id: 6,
+    sku: "LEG-PREWORK-001",
     image: "/images/pre-workout/legion-pulse.png",
     emoji: "🔥",
     brand: "Legion",
@@ -128,6 +134,7 @@ export const products = [
   },
   {
     id: 7,
+    sku: "ALL-CREAT-001",
     image: "/images/creatin/allmax-creatine.png",
     emoji: "⚡",
     brand: "Allmax",
@@ -147,6 +154,7 @@ export const products = [
   },
   {
     id: 8,
+    sku: "NOW-BCAA-001",
     image: "/images/vitamin/now-bcaa.png",
     emoji: "💊",
     brand: "NOW Foods",

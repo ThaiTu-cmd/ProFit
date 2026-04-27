@@ -5,14 +5,15 @@
 
 import { formatPrice } from "../data/products";
 
-const STATUS_STEPS = ["pending", "confirmed", "shipping", "delivered"];
+const STATUS_STEPS = ["PENDING", "CONFIRMED", "SHIPPING", "DELIVERED"];
 
 const STATUS_LABEL = {
-  pending:   "Chờ xác nhận",
-  confirmed: "Đã xác nhận",
-  shipping:  "Đang giao hàng",
-  delivered: "Đã nhận hàng",
-  cancelled: "Đã hủy",
+  PENDING:    "Chờ xác nhận",
+  CONFIRMED:  "Đã xác nhận",
+  SHIPPING:   "Đang giao hàng",
+  DELIVERED:  "Đã nhận hàng",
+  CANCELLED:  "Đã hủy",
+  REJECTED:   "Từ chối",
 };
 
 const OrderDetailPage = ({ order, navigate }) => {
@@ -29,7 +30,11 @@ const OrderDetailPage = ({ order, navigate }) => {
   }
 
   const currentStep = STATUS_STEPS.indexOf(order.status);
-  const isCancelled = order.status === "cancelled";
+  const isCancelled = order.status === "CANCELLED" || order.status === "REJECTED";
+
+  const displayDate = order.placedAt || order.createdAt || "";
+  const displayCode = order.orderCode || `#${order.id}`;
+  const items = order.items || [];
 
   return (
     <div>
@@ -39,7 +44,7 @@ const OrderDetailPage = ({ order, navigate }) => {
         <span> / </span>
         <span onClick={() => navigate("orders")}>Đơn hàng</span>
         <span> / </span>
-        <span style={{ color: "var(--primary)" }}>#{order.id}</span>
+        <span style={{ color: "var(--primary)" }}>{displayCode}</span>
       </div>
 
       <section className="section">
@@ -83,8 +88,11 @@ const OrderDetailPage = ({ order, navigate }) => {
             )}
 
             {isCancelled && (
-              <div style={{ background: "rgba(239,68,68,0.1)", border: "1px solid var(--red)", borderRadius: 16, padding: 20, color: "var(--red)", fontWeight: 700 }}>
-                ✗ Đơn hàng này đã bị hủy
+              <div style={{
+                background: "rgba(239,68,68,0.1)", border: "1px solid var(--red)",
+                borderRadius: 16, padding: 20, color: "var(--red)", fontWeight: 700, textAlign: "center",
+              }}>
+                ✗ Đơn hàng này đã bị {order.status === "CANCELLED" ? "hủy" : "từ chối"}
               </div>
             )}
 
@@ -93,72 +101,88 @@ const OrderDetailPage = ({ order, navigate }) => {
               <h3 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, marginBottom: 20, letterSpacing: 1 }}>
                 SẢN PHẨM ĐÃ ĐẶT
               </h3>
-              {order.items.map((item) => (
-                <div key={item.product.id} style={{ display: "flex", gap: 16, padding: "14px 0", borderBottom: "1px solid #2a2a2a", alignItems: "center" }}>
-                  <div style={{ fontSize: 52, background: "var(--dark3)", borderRadius: 12, padding: "8px 12px" }}>{item.product.emoji}</div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: 15, fontWeight: 700, color: "var(--white)", marginBottom: 4 }}>{item.product.name}</div>
-                    <div style={{ fontSize: 12, color: "var(--primary)", fontWeight: 700 }}>{item.product.brand}</div>
-                    <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 4 }}>
-                      {formatPrice(item.product.price)} × {item.qty}
+              {items.map((item) => {
+                const name = item.productName || (item.product && item.product.name) || "Sản phẩm";
+                const qty  = item.quantity || item.qty || 1;
+                const price = item.unitPrice || (item.product ? item.product.price : 0);
+                const emoji = item.product ? item.product.emoji : "📦";
+
+                return (
+                  <div key={item.id} style={{
+                    display: "flex", gap: 16, padding: "14px 0",
+                    borderBottom: "1px solid #2a2a2a", alignItems: "center",
+                  }}>
+                    <div style={{ fontSize: 52, background: "var(--dark3)", borderRadius: 12, padding: "8px 12px" }}>{emoji}</div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: 15, fontWeight: 700, color: "var(--white)", marginBottom: 4 }}>{name}</div>
+                      {item.productSku && (
+                        <div style={{ fontSize: 12, color: "var(--gray)" }}>SKU: {item.productSku}</div>
+                      )}
+                      <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 4 }}>
+                        {formatPrice(price)} × {qty}
+                      </div>
+                    </div>
+                    <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: "var(--primary)" }}>
+                      {formatPrice(item.lineTotal ? Number(item.lineTotal) : (price * qty))}
                     </div>
                   </div>
-                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: "var(--primary)" }}>
-                    {formatPrice(item.product.price * item.qty)}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Thông tin giao hàng */}
-            {order.info && (
-              <div style={{ background: "var(--card-bg)", borderRadius: 16, padding: 28, border: "1px solid #2a2a2a" }}>
-                <h3 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, marginBottom: 20, letterSpacing: 1 }}>
-                  THÔNG TIN GIAO HÀNG
-                </h3>
-                {[
-                  ["👤 Người nhận", order.info.fullName],
-                  ["📞 Số điện thoại", order.info.phone],
-                  ["📍 Địa chỉ", `${order.info.address}, ${order.info.district}, ${order.info.city}`],
-                  ["💳 Thanh toán", order.payMethod === "cod" ? "Thanh toán khi nhận hàng" : order.payMethod === "banking" ? "Chuyển khoản" : "VNPay"],
-                ].map(([label, value]) => value && (
-                  <div key={label} style={{ display: "flex", gap: 16, marginBottom: 12, fontSize: 14 }}>
-                    <span style={{ color: "var(--gray)", minWidth: 140 }}>{label}</span>
-                    <span style={{ color: "var(--white)", fontWeight: 600 }}>{value}</span>
-                  </div>
-                ))}
-              </div>
-            )}
+            <div style={{ background: "var(--card-bg)", borderRadius: 16, padding: 28, border: "1px solid #2a2a2a" }}>
+              <h3 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, marginBottom: 20, letterSpacing: 1 }}>
+                THÔNG TIN GIAO HÀNG
+              </h3>
+              {[
+                ["👤 Người nhận", order.recipientName || (order.info && order.info.fullName)],
+                ["📞 Số điện thoại", order.recipientPhone || (order.info && order.info.phone)],
+                ["📍 Địa chỉ", order.shippingAddressLine1
+                  ? `${order.shippingAddressLine1}, ${order.shippingCity}, ${order.shippingProvince}`
+                  : order.info ? `${order.info.address}, ${order.info.district}, ${order.info.city}` : null
+                ],
+              ].map(([label, value]) => value && (
+                <div key={label} style={{ display: "flex", gap: 16, marginBottom: 12, fontSize: 14 }}>
+                  <span style={{ color: "var(--gray)", minWidth: 140 }}>{label}</span>
+                  <span style={{ color: "var(--white)", fontWeight: 600 }}>{value}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Cột phải: Tổng kết */}
           <div className="cart-summary" style={{ position: "sticky", top: 90 }}>
-            <h3 className="summary-title">TÓM TẮT ĐƠN #{order.id}</h3>
-            <div style={{ fontSize: 13, color: "var(--gray)", marginBottom: 20 }}>Ngày đặt: {order.createdAt}</div>
+            <h3 className="summary-title">TÓM TẮT {displayCode}</h3>
+            <div style={{ fontSize: 13, color: "var(--gray)", marginBottom: 20 }}>Ngày đặt: {displayDate}</div>
 
-            <div className="summary-row"><span>Tạm tính</span><span>{formatPrice(order.subtotal)}</span></div>
+            <div className="summary-row"><span>Tạm tính</span><span>{formatPrice(order.subtotal || 0)}</span></div>
+            {Number(order.discountAmount || 0) > 0 && (
+              <div className="summary-row"><span>Giảm giá</span><span style={{ color: "var(--green)" }}>- {formatPrice(Number(order.discountAmount))}</span></div>
+            )}
             <div className="summary-row">
               <span>Phí vận chuyển</span>
-              <span style={{ color: order.shipping === 0 ? "var(--green)" : "inherit" }}>
-                {order.shipping === 0 ? "Miễn phí" : formatPrice(order.shipping)}
+              <span style={{ color: Number(order.shippingFee || 0) === 0 ? "var(--green)" : "inherit" }}>
+                {Number(order.shippingFee || 0) === 0 ? "Miễn phí" : formatPrice(Number(order.shippingFee))}
               </span>
             </div>
-            {order.discount > 0 && (
-              <div className="summary-row"><span>Giảm giá</span><span style={{ color: "var(--green)" }}>- {formatPrice(order.discount)}</span></div>
-            )}
-            <div className="summary-divider"></div>
-            <div className="summary-row summary-total"><span>Tổng cộng</span><span>{formatPrice(order.total)}</span></div>
+            <div className="summary-divider" />
+            <div className="summary-row summary-total"><span>Tổng cộng</span><span>{formatPrice(order.totalAmount || order.total || 0)}</span></div>
 
-            <button className="btn-outline" style={{ width: "100%", padding: "12px 0", marginTop: 20 }}
+            <div style={{
+              marginTop: 16, padding: "12px 16px",
+              background: `${STATUS_LABEL[order.status]?.color || "#f59e0b"}15`,
+              border: `1px solid ${STATUS_LABEL[order.status]?.color || "#f59e0b"}`,
+              borderRadius: 8, textAlign: "center", fontSize: 13, fontWeight: 700,
+              color: STATUS_LABEL[order.status]?.color || "#f59e0b",
+            }}>
+              {STATUS_LABEL[order.status]?.text || order.status}
+            </div>
+
+            <button className="btn-outline" style={{ width: "100%", padding: "12px 0", marginTop: 16 }}
               onClick={() => navigate("orders")}>
               ← Về danh sách đơn
             </button>
-            {order.status === "delivered" && (
-              <button className="btn-primary" style={{ width: "100%", padding: "12px 0", marginTop: 10 }}
-                onClick={() => navigate("products")}>
-                Mua lại
-              </button>
-            )}
           </div>
         </div>
       </section>

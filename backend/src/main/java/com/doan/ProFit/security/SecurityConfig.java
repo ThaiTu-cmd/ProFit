@@ -57,6 +57,7 @@ public class SecurityConfig {
                 }))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()       // API đăng nhập/logout
+                        .requestMatchers("/api/guest/**").permitAll()      // Guest checkout - không cần đăng nhập
                         .requestMatchers("/admin/login").permitAll()       // Trang đăng nhập admin
                         .requestMatchers("/admin/css/**", "/admin/js/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")

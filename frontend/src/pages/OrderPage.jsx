@@ -7,19 +7,21 @@ import { useState } from "react";
 import { formatPrice } from "../data/products";
 import { Package, Inbox } from "lucide-react";
 
-// Nhãn trạng thái đơn hàng
 const STATUS_LABEL = {
-  pending:   { text: "Chờ xác nhận", color: "#f59e0b" },
-  confirmed: { text: "Đã xác nhận",  color: "#3b82f6" },
-  shipping:  { text: "Đang giao",    color: "#8b5cf6" },
-  delivered: { text: "Đã nhận",      color: "var(--green)" },
-  cancelled: { text: "Đã hủy",       color: "var(--red)" },
+  PENDING:    { text: "Chờ xác nhận", color: "#f59e0b" },
+  CONFIRMED:  { text: "Đã xác nhận",  color: "#3b82f6" },
+  SHIPPING:   { text: "Đang giao",    color: "#8b5cf6" },
+  DELIVERED:  { text: "Đã giao",      color: "var(--green)" },
+  CANCELLED:  { text: "Đã hủy",       color: "var(--red)" },
+  REJECTED:   { text: "Từ chối",       color: "#ef4444" },
 };
 
 const OrderPage = ({ orders = [], navigate, onViewOrderDetail }) => {
   const [filter, setFilter] = useState("all");
 
-  const filtered = filter === "all" ? orders : orders.filter((o) => o.status === filter);
+  const filtered = filter === "all"
+    ? orders
+    : orders.filter((o) => o.status === filter);
 
   if (orders.length === 0) {
     return (
@@ -45,11 +47,12 @@ const OrderPage = ({ orders = [], navigate, onViewOrderDetail }) => {
         {/* Filter tabs */}
         <div className="order-tabs">
           {[
-            { key: "all",       label: "Tất cả" },
-            { key: "pending",   label: "Chờ xác nhận" },
-            { key: "shipping",  label: "Đang giao" },
-            { key: "delivered", label: "Đã nhận" },
-            { key: "cancelled", label: "Đã hủy" },
+            { key: "all",       label: "Tất cả"       },
+            { key: "PENDING",   label: "Chờ xác nhận" },
+            { key: "CONFIRMED", label: "Đã xác nhận"  },
+            { key: "SHIPPING",  label: "Đang giao"    },
+            { key: "DELIVERED", label: "Đã giao"      },
+            { key: "CANCELLED", label: "Đã hủy"      },
           ].map((tab) => (
             <button
               key={tab.key}
@@ -70,38 +73,59 @@ const OrderPage = ({ orders = [], navigate, onViewOrderDetail }) => {
         ) : (
           <div style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 24 }}>
             {filtered.map((order) => {
-              const st = STATUS_LABEL[order.status] ?? STATUS_LABEL.pending;
+              const st = STATUS_LABEL[order.status] ?? STATUS_LABEL.PENDING;
+              const displayDate = order.placedAt || order.createdAt || "";
+              const displayCode = order.orderCode || `#${order.id}`;
+              const items = order.items || [];
+
               return (
-                <div key={order.id} className="order-card">
+                <div key={order.id || order.orderCode} className="order-card">
                   {/* Header đơn */}
                   <div className="order-card-header">
                     <div>
                       <span style={{ fontSize: 13, color: "var(--gray)" }}>Mã đơn: </span>
-                      <span style={{ fontSize: 13, fontWeight: 700, color: "var(--white)" }}>#{order.id}</span>
+                      <span style={{ fontSize: 13, fontWeight: 700, color: "var(--white)" }}>{displayCode}</span>
                     </div>
-                    <div style={{ fontSize: 13, color: "var(--gray)" }}>{order.createdAt}</div>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: st.color, padding: "4px 12px", borderRadius: 6, border: `1px solid ${st.color}` }}>
+                    <div style={{ fontSize: 13, color: "var(--gray)" }}>{displayDate}</div>
+                    <div style={{
+                      fontSize: 12, fontWeight: 700, color: st.color,
+                      padding: "4px 12px", borderRadius: 6,
+                      border: `1px solid ${st.color}`,
+                      background: `${st.color}15`,
+                    }}>
                       {st.text}
                     </div>
                   </div>
 
                   {/* Sản phẩm */}
                   <div className="order-items-preview">
-                    {order.items.slice(0, 3).map((item) => (
-                      <div key={item.product.id} style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 0", borderBottom: "1px solid #2a2a2a" }}>
-                        <span style={{ fontSize: 36 }}>{item.product.emoji}</span>
-                        <div style={{ flex: 1 }}>
-                          <div style={{ fontSize: 14, fontWeight: 700, color: "var(--white)" }}>{item.product.name}</div>
-                          <div style={{ fontSize: 12, color: "var(--gray)" }}>x{item.qty}</div>
+                    {items.slice(0, 3).map((item, idx) => {
+                      const name = item.productName || (item.product && item.product.name) || "Sản phẩm";
+                      const qty  = item.quantity || (item.qty) || 1;
+                      const price = item.lineTotal
+                        ? Number(item.lineTotal) / qty
+                        : (item.product ? item.product.price : 0);
+                      const emoji = item.product ? item.product.emoji : "📦";
+
+                      return (
+                        <div key={item.id || idx} style={{
+                          display: "flex", alignItems: "center", gap: 12, padding: "10px 0",
+                          borderBottom: idx < Math.min(items.length, 3) - 1 ? "1px solid #2a2a2a" : "none",
+                        }}>
+                          <span style={{ fontSize: 36 }}>{emoji}</span>
+                          <div style={{ flex: 1 }}>
+                            <div style={{ fontSize: 14, fontWeight: 700, color: "var(--white)" }}>{name}</div>
+                            <div style={{ fontSize: 12, color: "var(--gray)" }}>x{qty}</div>
+                          </div>
+                          <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 18, color: "var(--primary)" }}>
+                            {formatPrice(item.lineTotal ? Number(item.lineTotal) : (price * qty))}
+                          </div>
                         </div>
-                        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 18, color: "var(--primary)" }}>
-                          {formatPrice(item.product.price * item.qty)}
-                        </div>
-                      </div>
-                    ))}
-                    {order.items.length > 3 && (
+                      );
+                    })}
+                    {items.length > 3 && (
                       <div style={{ fontSize: 13, color: "var(--gray)", padding: "8px 0" }}>
-                        +{order.items.length - 3} sản phẩm khác
+                        +{items.length - 3} sản phẩm khác
                       </div>
                     )}
                   </div>
@@ -111,15 +135,10 @@ const OrderPage = ({ orders = [], navigate, onViewOrderDetail }) => {
                     <div>
                       <span style={{ fontSize: 14, color: "var(--gray)" }}>Tổng: </span>
                       <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: "var(--primary)" }}>
-                        {formatPrice(order.total)}
+                        {formatPrice(order.totalAmount || order.total || 0)}
                       </span>
                     </div>
                     <div style={{ display: "flex", gap: 10 }}>
-                      {order.status === "delivered" && (
-                        <button className="btn-outline" style={{ padding: "8px 16px", fontSize: 13 }}>
-                          Mua lại
-                        </button>
-                      )}
                       <button className="btn-primary" style={{ padding: "8px 20px", fontSize: 13 }}
                         onClick={() => onViewOrderDetail(order)}>
                         Xem chi tiết

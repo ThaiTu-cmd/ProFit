@@ -6,31 +6,28 @@ const formatPrice = (price) => {
 };
 
 const STATUS_LIST = [
-  { key: "all",       label: "Tất cả"        },
-  { key: "PENDING",   label: "Chờ xác nhận"  },
-  { key: "PAID",      label: "Đã thanh toán" },
-  { key: "PROCESSING",label: "Đang xử lý"    },
-  { key: "SHIPPED",   label: "Đang giao"     },
-  { key: "COMPLETED", label: "Hoàn tất"      },
-  { key: "CANCELED",  label: "Đã hủy"        },
-  { key: "REFUNDED",  label: "Hoàn tiền"     },
+  { key: "all",        label: "Tất cả"        },
+  { key: "PENDING",    label: "Chờ xác nhận"  },
+  { key: "CONFIRMED",  label: "Đã xác nhận"   },
+  { key: "SHIPPING",   label: "Đang giao"      },
+  { key: "DELIVERED",  label: "Đã giao"       },
+  { key: "CANCELLED",  label: "Đã hủy"        },
+  { key: "REJECTED",   label: "Từ chối"       },
 ];
 
 const STATUS_NEXT = {
-  PENDING:   "PAID",
-  PAID:      "PROCESSING",
-  PROCESSING:"SHIPPED",
-  SHIPPED:   "COMPLETED",
+  PENDING:   "CONFIRMED",
+  CONFIRMED: "SHIPPING",
+  SHIPPING:  "DELIVERED",
 };
 
 const STATUS_COLOR = {
   PENDING:   "#f59e0b",
-  PAID:      "#3b82f6",
-  PROCESSING:"#8b5cf6",
-  SHIPPED:   "#10b981",
-  COMPLETED: "var(--green)",
-  CANCELED:  "var(--red)",
-  REFUNDED:  "#ef4444",
+  CONFIRMED: "#3b82f6",
+  SHIPPING:  "#8b5cf6",
+  DELIVERED: "var(--green)",
+  CANCELLED: "var(--red)",
+  REJECTED:  "#ef4444",
 };
 
 const OrderManagePage = ({ showToast }) => {
@@ -79,7 +76,7 @@ const OrderManagePage = ({ showToast }) => {
   const handleCancel = async (orderId) => {
     if (!window.confirm("Bạn có chắc muốn hủy đơn hàng này?")) return;
     try {
-      await adminService.updateOrderStatus(orderId, { status: "CANCELED" });
+      await adminService.updateOrderStatus(orderId, { status: "CANCELLED" });
       showToast(`🗑 Đã hủy đơn #${orderId}`);
       fetchOrders();
     } catch (error) {
@@ -179,7 +176,7 @@ const OrderManagePage = ({ showToast }) => {
                           → Chuyển sang: {STATUS_LIST.find(s => s.key === nextStatus)?.label}
                         </button>
                       )}
-                      {order.status !== "COMPLETED" && order.status !== "CANCELED" && order.status !== "REFUNDED" && (
+                      {order.status !== "DELIVERED" && order.status !== "CANCELLED" && order.status !== "REJECTED" && (
                         <button className="btn-danger" onClick={() => handleCancel(order.id)}>Hủy đơn</button>
                       )}
                     </div>

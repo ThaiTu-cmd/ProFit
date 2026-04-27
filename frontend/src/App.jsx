@@ -89,11 +89,10 @@ const App = () => {
     showToast("🗑 Đã xóa sản phẩm khỏi giỏ hàng");
   };
 
-  // [MỚI] Đặt hàng thành công: xóa giỏ, lưu đơn
-  const handlePlaceOrder = (order) => {
-    setOrders((prev) => [...prev, order]);
-    setCart([]);
-    showToast("🎉 Đặt hàng thành công!");
+  // [MỚI] Đặt hàng thành công: lưu đơn (cart đã được xóa ở CheckoutPage)
+  const handlePlaceOrder = (orderData) => {
+    setOrders((prev) => [...prev, orderData]);
+    showToast("Đặt hàng thành công!");
   };
 
   // [MỚI] Admin cập nhật trạng thái đơn

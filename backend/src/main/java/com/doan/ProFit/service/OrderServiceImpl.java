@@ -59,6 +59,7 @@ public class OrderServiceImpl implements OrderService {
         response.setTotalAmount(order.getTotalAmount());
         response.setStatus(order.getStatus());
         response.setPaymentStatus(order.getPaymentStatus());
+        response.setPaymentMethod(order.getPaymentMethod());
         response.setPlacedAt(order.getPlacedAt());
         if (order.getUser() != null) {
             response.setUserName(order.getUser().getFullName());

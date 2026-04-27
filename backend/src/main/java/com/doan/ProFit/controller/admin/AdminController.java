@@ -174,6 +174,16 @@ public class AdminController {
         return orderService.updateOrderStatus(id, request);
     }
 
+    @PutMapping("/order/{id}/confirm-payment")
+    @ResponseBody
+    public OrderResponse confirmPayment(@PathVariable Long id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Khong tim thay don hang"));
+        order.setPaymentStatus("PAID");
+        Order saved = orderRepository.save(order);
+        return orderService.getOrderById(saved.getId());
+    }
+
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
