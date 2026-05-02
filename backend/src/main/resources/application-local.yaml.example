@@ -1,0 +1,9 @@
+# Đổi tên file này thành application-local.yaml để chạy riêng trên máy cá nhân
+# Các setting trong này sẽ tự động ghi đè application.yaml khi chạy với profile local
+
+spring:
+  datasource:
+    # Đổi username và password bên dưới thành thông tin MySQL cá nhân của bạn
+    username: root
+    password: my_secret_password
+    url: "jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true"
