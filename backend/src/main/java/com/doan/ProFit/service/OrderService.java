@@ -9,4 +9,5 @@ public interface OrderService {
     List<OrderResponse> getAllOrders();
     OrderResponse getOrderById(Long id);
     OrderResponse updateOrderStatus(Long id, OrderStatusUpdateRequest request);
+    List<OrderResponse> getOrdersByEmail(String email);
 }

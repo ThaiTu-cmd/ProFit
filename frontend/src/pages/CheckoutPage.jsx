@@ -153,12 +153,19 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
 
   // ── Đặt hàng ────────────────────────────────────
   const handlePlaceOrder = async () => {
-    if (!hasRequiredInfo) {
-      showToast("Vui lòng nhập đầy đủ thông tin giao hàng");
-      return;
-    }
     if (cart.length === 0) {
       showToast("Giỏ hàng trống");
+      return;
+    }
+
+    const missing = [];
+    if (!recipientName.trim()) missing.push("họ tên");
+    if (!recipientPhone.trim()) missing.push("số điện thoại");
+    if (!addressLine1.trim()) missing.push("địa chỉ");
+    if (!city.trim()) missing.push("tỉnh/thành phố");
+
+    if (missing.length > 0) {
+      showToast(`Vui lòng nhập: ${missing.join(", ")}`);
       return;
     }
 
@@ -208,7 +215,8 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
       }
 
       setOrderSuccess(data);
-      setCart([]);
+      onPlaceOrder(data);
+      navigate("order-success");
 
     } catch (err) {
       showToast(err.message || "Có lỗi xảy ra. Thử lại.");

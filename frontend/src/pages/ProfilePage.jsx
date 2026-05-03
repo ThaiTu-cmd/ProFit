@@ -1,9 +1,11 @@
 // =====================================================
-// ProfilePage.jsx – Trang quản lý thông tin cá nhân, lưu vào localStorage
-// Props: navigate
+// pages/ProfilePage.jsx – Trang quản lý thông tin cá nhân
+// Props: navigate, user, onUserUpdate
 // =====================================================
 
 import { useEffect, useState } from "react";
+import { API_BASE_URL } from "../services/apiConfig";
+import { Loader } from "lucide-react";
 
 const DEFAULT_USER_INFO = {
   fullName: "",
@@ -15,55 +17,109 @@ const DEFAULT_USER_INFO = {
   note: "",
 };
 
-const ProfilePage = ({ navigate, user }) => {
+const ProfilePage = ({ navigate, user, onUserUpdate }) => {
   const [form, setForm] = useState(DEFAULT_USER_INFO);
+  const [loading, setLoading] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [error, setError] = useState("");
 
+  // Nạp thông tin: ưu tiên từ API, fallback localStorage
   useEffect(() => {
-    try {
-      const storageKey = user ? `userInfo_${user.email}` : "userInfo";
-      const savedInfo = localStorage.getItem(storageKey);
-      if (savedInfo) {
-        const parsed = JSON.parse(savedInfo);
-        setForm({
-          ...DEFAULT_USER_INFO,
-          ...parsed,
-        });
-      } else if (user) {
-        // Nếu chưa lưu lần nào nhưng đã có thông tin user từ login/register
-        setForm({
-          ...DEFAULT_USER_INFO,
-          fullName: user.name || "",
-          email: user.email || "",
-          phone: user.phone || ""
-        });
-      }
-    } catch (error) {
-      console.error("Không đọc được thông tin người dùng:", error);
-    }
+    const token = localStorage.getItem("token");
+    if (!user || !token) return;
+
+    setLoading(true);
+    fetch(`${API_BASE_URL}/api/users/me`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(res => res.ok ? res.json() : null)
+      .then(data => {
+        if (data) {
+          const storageKey = `userInfo_${user.email}`;
+          const savedInfo = localStorage.getItem(storageKey);
+          const local = savedInfo ? JSON.parse(savedInfo) : {};
+
+          setForm({
+            ...DEFAULT_USER_INFO,
+            fullName: data.fullName || "",
+            email: data.email || user.email || "",
+            phone: data.phone || "",
+            address: local.address || "",
+            district: local.district || "",
+            city: local.city || "",
+            note: local.note || "",
+          });
+        }
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
   }, [user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm((prev) => ({
-      ...prev,
-      [name]: value,
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const saveToLocal = () => {
+    const storageKey = user ? `userInfo_${user.email}` : "userInfo";
+    localStorage.setItem(storageKey, JSON.stringify({
+      fullName: form.fullName,
+      phone: form.phone,
+      email: form.email,
+      address: form.address,
+      district: form.district,
+      city: form.city,
+      note: form.note,
     }));
   };
 
-  const handleSave = () => {
-    if (!form.fullName.trim() || !form.phone.trim() || !form.address.trim() || !form.city.trim()) {
-      alert("Vui lòng nhập đầy đủ họ tên, số điện thoại, địa chỉ và tỉnh/thành phố.");
+  const handleSave = async () => {
+    if (!form.fullName.trim() || !form.phone.trim()) {
+      setError("Vui lòng nhập họ tên và số điện thoại.");
       return;
     }
 
-    const storageKey = user ? `userInfo_${user.email}` : "userInfo";
-    localStorage.setItem(storageKey, JSON.stringify(form));
-    setSaved(true);
+    const token = localStorage.getItem("token");
 
-    setTimeout(() => {
-      setSaved(false);
-    }, 2000);
+    if (!token || !user) {
+      saveToLocal();
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/users/me`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          fullName: form.fullName.trim(),
+          phone: form.phone.trim(),
+        })
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Cập nhật thất bại");
+
+      if (onUserUpdate && data.fullName) {
+        onUserUpdate({ ...user, name: data.fullName, phone: data.phone });
+      }
+
+      saveToLocal();
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
+
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -78,6 +134,16 @@ const ProfilePage = ({ navigate, user }) => {
       <section className="section">
         <div className="checkout-card" style={{ maxWidth: 860, margin: "0 auto" }}>
           <h3 className="checkout-card-title">👤 Hồ sơ giao hàng</h3>
+
+          {loading && (
+            <div style={{ textAlign: "center", padding: 20 }}>
+              <Loader size={24} style={{ animation: "spin 1s linear infinite" }} />
+            </div>
+          )}
+
+          {error && (
+            <div style={{ color: "var(--red)", fontSize: 14, marginBottom: 12 }}>{error}</div>
+          )}
 
           <div className="form-row">
             <div className="form-group">
@@ -110,12 +176,13 @@ const ProfilePage = ({ navigate, user }) => {
               type="email"
               name="email"
               value={form.email}
-              onChange={handleChange}
+              disabled
+              style={{ opacity: 0.6 }}
             />
           </div>
 
           <div className="form-group">
-            <label className="form-label">Địa chỉ *</label>
+            <label className="form-label">Địa chỉ</label>
             <input
               className="form-input"
               type="text"
@@ -138,7 +205,7 @@ const ProfilePage = ({ navigate, user }) => {
             </div>
 
             <div className="form-group">
-              <label className="form-label">Tỉnh / Thành phố *</label>
+              <label className="form-label">Tỉnh / Thành phố</label>
               <input
                 className="form-input"
                 type="text"
@@ -160,8 +227,8 @@ const ProfilePage = ({ navigate, user }) => {
           </div>
 
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 20 }}>
-            <button className="btn-primary" onClick={handleSave}>
-              Lưu thông tin
+            <button className="btn-primary" onClick={handleSave} disabled={loading}>
+              {loading ? "Đang lưu..." : "Lưu thông tin"}
             </button>
 
             <button className="btn-outline" onClick={() => navigate("checkout")}>

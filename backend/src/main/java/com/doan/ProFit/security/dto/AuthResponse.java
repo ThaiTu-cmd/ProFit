@@ -5,11 +5,15 @@ public class AuthResponse {
     private final String tokenType = "Bearer";
     private final String username;
     private final String role;
+    private final String fullName;
+    private final String phone;
 
-    public AuthResponse(String token, String username, String role) {
+    public AuthResponse(String token, String username, String role, String fullName, String phone) {
         this.token = token;
         this.username = username;
         this.role = role;
+        this.fullName = fullName;
+        this.phone = phone;
     }
 
     public String getToken() {
@@ -26,5 +30,13 @@ public class AuthResponse {
 
     public String getRole() {
         return role;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 }

@@ -62,6 +62,7 @@ public class SecurityConfig {
                         .requestMatchers("/admin/css/**", "/admin/js/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/admin/**").permitAll() // Tạm thời cho phép tất cả để Test kết nối FE -> BE
+                        .requestMatchers("/api/users/**", "/api/orders/**").authenticated() // User cần đăng nhập
                         .anyRequest().permitAll()
                 )
                 .addFilterBefore(authTokenFilter, UsernamePasswordAuthenticationFilter.class);

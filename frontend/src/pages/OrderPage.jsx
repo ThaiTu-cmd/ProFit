@@ -1,36 +1,77 @@
 // =====================================================
 // pages/OrderPage.jsx – Lịch sử đơn hàng của người dùng
-// Props: orders, navigate, onViewOrderDetail
+// Props: user, orders, onOrdersChange, navigate, onViewOrderDetail
 // =====================================================
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { API_BASE_URL } from "../services/apiConfig";
 import { formatPrice } from "../data/products";
-import { Package, Inbox } from "lucide-react";
+import { Package, Inbox, Loader } from "lucide-react";
 
 const STATUS_LABEL = {
-  PENDING:    { text: "Chờ xác nhận", color: "#f59e0b" },
-  CONFIRMED:  { text: "Đã xác nhận",  color: "#3b82f6" },
-  SHIPPING:   { text: "Đang giao",    color: "#8b5cf6" },
-  DELIVERED:  { text: "Đã giao",      color: "var(--green)" },
-  CANCELLED:  { text: "Đã hủy",       color: "var(--red)" },
-  REJECTED:   { text: "Từ chối",       color: "#ef4444" },
+  PENDING: { text: "Chờ xác nhận", color: "#f59e0b" },
+  CONFIRMED: { text: "Đã xác nhận", color: "#3b82f6" },
+  SHIPPING: { text: "Đang giao", color: "#8b5cf6" },
+  DELIVERED: { text: "Đã giao", color: "var(--green)" },
+  CANCELLED: { text: "Đã hủy", color: "var(--red)" },
+  REJECTED: { text: "Từ chối", color: "#ef4444" },
 };
 
-const OrderPage = ({ orders = [], navigate, onViewOrderDetail }) => {
+const OrderPage = ({
+  user,
+  orders = [],
+  onOrdersChange,
+  navigate,
+  onViewOrderDetail,
+}) => {
   const [filter, setFilter] = useState("all");
+  const [loading, setLoading] = useState(false);
 
-  const filtered = filter === "all"
-    ? orders
-    : orders.filter((o) => o.status === filter);
+  // Gọi API lấy đơn hàng khi user đăng nhập
+  useEffect(() => {
+    if (!user) return;
 
-  if (orders.length === 0) {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
+    setLoading(true);
+    fetch(`${API_BASE_URL}/api/orders/my-orders`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Không thể lấy đơn hàng");
+        return res.json();
+      })
+      .then((data) => {
+        if (Array.isArray(data)) {
+          // Merge: ưu tiên orders từ API (mới nhất từ server)
+          // Loại bỏ trùng lặp theo orderCode
+          const serverCodes = new Set(data.map((o) => o.orderCode));
+          const localOnly = orders.filter(
+            (o) => o.orderCode && !serverCodes.has(o.orderCode),
+          );
+          onOrdersChange([...data, ...localOnly]);
+        }
+      })
+      .catch((err) => console.error("Lỗi load orders:", err))
+      .finally(() => setLoading(false));
+  }, [user]);
+
+  const filtered =
+    filter === "all" ? orders : orders.filter((o) => o.status === filter);
+
+  if (orders.length === 0 && !loading) {
     return (
       <div className="section">
         <div className="empty-state">
-          <div className="empty-icon"><Package size={64} color="var(--primary)" /></div>
+          <div className="empty-icon">
+            <Package size={64} color="var(--primary)" />
+          </div>
           <h3>Chưa có đơn hàng nào</h3>
           <p>Hãy mua sắm và theo dõi đơn hàng của bạn tại đây.</p>
-          <button className="btn-primary" onClick={() => navigate("products")}>Mua sắm ngay</button>
+          <button className="btn-primary" onClick={() => navigate("products")}>
+            Mua sắm ngay
+          </button>
         </div>
       </div>
     );
@@ -39,20 +80,34 @@ const OrderPage = ({ orders = [], navigate, onViewOrderDetail }) => {
   return (
     <div>
       <div className="page-hero">
-        <h1>ĐƠN HÀNG <span>CỦA TÔI</span></h1>
-        <p>{orders.length} đơn hàng</p>
+        <h1>
+          ĐƠN HÀNG <span>CỦA TÔI</span>
+        </h1>
+        <p>{loading ? "Đang tải..." : `${orders.length} đơn hàng`}</p>
       </div>
 
       <section className="section">
+        {loading && (
+          <div
+            style={{ textAlign: "center", padding: 20, color: "var(--gray)" }}
+          >
+            <Loader
+              size={24}
+              style={{ animation: "spin 1s linear infinite" }}
+            />
+            <span style={{ marginLeft: 8 }}>Đang tải đơn hàng...</span>
+          </div>
+        )}
+
         {/* Filter tabs */}
         <div className="order-tabs">
           {[
-            { key: "all",       label: "Tất cả"       },
-            { key: "PENDING",   label: "Chờ xác nhận" },
-            { key: "CONFIRMED", label: "Đã xác nhận"  },
-            { key: "SHIPPING",  label: "Đang giao"    },
-            { key: "DELIVERED", label: "Đã giao"      },
-            { key: "CANCELLED", label: "Đã hủy"      },
+            { key: "all", label: "Tất cả" },
+            { key: "PENDING", label: "Chờ xác nhận" },
+            { key: "CONFIRMED", label: "Đã xác nhận" },
+            { key: "SHIPPING", label: "Đang giao" },
+            { key: "DELIVERED", label: "Đã giao" },
+            { key: "CANCELLED", label: "Đã hủy" },
           ].map((tab) => (
             <button
               key={tab.key}
@@ -67,11 +122,20 @@ const OrderPage = ({ orders = [], navigate, onViewOrderDetail }) => {
         {/* Danh sách đơn */}
         {filtered.length === 0 ? (
           <div className="empty-state" style={{ padding: "40px 0" }}>
-            <div className="empty-icon"><Inbox size={64} color="var(--gray)" /></div>
+            <div className="empty-icon">
+              <Inbox size={64} color="var(--gray)" />
+            </div>
             <h3>Không có đơn hàng</h3>
           </div>
         ) : (
-          <div style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 24 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 16,
+              marginTop: 24,
+            }}
+          >
             {filtered.map((order) => {
               const st = STATUS_LABEL[order.status] ?? STATUS_LABEL.PENDING;
               const displayDate = order.placedAt || order.createdAt || "";
@@ -83,16 +147,33 @@ const OrderPage = ({ orders = [], navigate, onViewOrderDetail }) => {
                   {/* Header đơn */}
                   <div className="order-card-header">
                     <div>
-                      <span style={{ fontSize: 13, color: "var(--gray)" }}>Mã đơn: </span>
-                      <span style={{ fontSize: 13, fontWeight: 700, color: "var(--white)" }}>{displayCode}</span>
+                      <span style={{ fontSize: 13, color: "var(--gray)" }}>
+                        Mã đơn:{" "}
+                      </span>
+                      <span
+                        style={{
+                          fontSize: 13,
+                          fontWeight: 700,
+                          color: "var(--white)",
+                        }}
+                      >
+                        {displayCode}
+                      </span>
                     </div>
-                    <div style={{ fontSize: 13, color: "var(--gray)" }}>{displayDate}</div>
-                    <div style={{
-                      fontSize: 12, fontWeight: 700, color: st.color,
-                      padding: "4px 12px", borderRadius: 6,
-                      border: `1px solid ${st.color}`,
-                      background: `${st.color}15`,
-                    }}>
+                    <div style={{ fontSize: 13, color: "var(--gray)" }}>
+                      {displayDate}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: 12,
+                        fontWeight: 700,
+                        color: st.color,
+                        padding: "4px 12px",
+                        borderRadius: 6,
+                        border: `1px solid ${st.color}`,
+                        background: `${st.color}15`,
+                      }}
+                    >
                       {st.text}
                     </div>
                   </div>
@@ -100,31 +181,71 @@ const OrderPage = ({ orders = [], navigate, onViewOrderDetail }) => {
                   {/* Sản phẩm */}
                   <div className="order-items-preview">
                     {items.slice(0, 3).map((item, idx) => {
-                      const name = item.productName || (item.product && item.product.name) || "Sản phẩm";
-                      const qty  = item.quantity || (item.qty) || 1;
+                      const name =
+                        item.productName ||
+                        (item.product && item.product.name) ||
+                        "Sản phẩm";
+                      const qty = item.quantity || item.qty || 1;
                       const price = item.lineTotal
                         ? Number(item.lineTotal) / qty
-                        : (item.product ? item.product.price : 0);
+                        : item.product
+                          ? item.product.price
+                          : 0;
                       const emoji = item.product ? item.product.emoji : "📦";
 
                       return (
-                        <div key={item.id || idx} style={{
-                          display: "flex", alignItems: "center", gap: 12, padding: "10px 0",
-                          borderBottom: idx < Math.min(items.length, 3) - 1 ? "1px solid #2a2a2a" : "none",
-                        }}>
+                        <div
+                          key={item.id || idx}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 12,
+                            padding: "10px 0",
+                            borderBottom:
+                              idx < Math.min(items.length, 3) - 1
+                                ? "1px solid #2a2a2a"
+                                : "none",
+                          }}
+                        >
                           <span style={{ fontSize: 36 }}>{emoji}</span>
                           <div style={{ flex: 1 }}>
-                            <div style={{ fontSize: 14, fontWeight: 700, color: "var(--white)" }}>{name}</div>
-                            <div style={{ fontSize: 12, color: "var(--gray)" }}>x{qty}</div>
+                            <div
+                              style={{
+                                fontSize: 14,
+                                fontWeight: 700,
+                                color: "var(--white)",
+                              }}
+                            >
+                              {name}
+                            </div>
+                            <div style={{ fontSize: 12, color: "var(--gray)" }}>
+                              x{qty}
+                            </div>
                           </div>
-                          <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 18, color: "var(--primary)" }}>
-                            {formatPrice(item.lineTotal ? Number(item.lineTotal) : (price * qty))}
+                          <div
+                            style={{
+                              fontFamily: "'Bebas Neue', sans-serif",
+                              fontSize: 18,
+                              color: "var(--primary)",
+                            }}
+                          >
+                            {formatPrice(
+                              item.lineTotal
+                                ? Number(item.lineTotal)
+                                : price * qty,
+                            )}
                           </div>
                         </div>
                       );
                     })}
                     {items.length > 3 && (
-                      <div style={{ fontSize: 13, color: "var(--gray)", padding: "8px 0" }}>
+                      <div
+                        style={{
+                          fontSize: 13,
+                          color: "var(--gray)",
+                          padding: "8px 0",
+                        }}
+                      >
                         +{items.length - 3} sản phẩm khác
                       </div>
                     )}
@@ -133,14 +254,25 @@ const OrderPage = ({ orders = [], navigate, onViewOrderDetail }) => {
                   {/* Footer đơn */}
                   <div className="order-card-footer">
                     <div>
-                      <span style={{ fontSize: 14, color: "var(--gray)" }}>Tổng: </span>
-                      <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: "var(--primary)" }}>
+                      <span style={{ fontSize: 14, color: "var(--gray)" }}>
+                        Tổng:{" "}
+                      </span>
+                      <span
+                        style={{
+                          fontFamily: "'Bebas Neue', sans-serif",
+                          fontSize: 22,
+                          color: "var(--primary)",
+                        }}
+                      >
                         {formatPrice(order.totalAmount || order.total || 0)}
                       </span>
                     </div>
                     <div style={{ display: "flex", gap: 10 }}>
-                      <button className="btn-primary" style={{ padding: "8px 20px", fontSize: 13 }}
-                        onClick={() => onViewOrderDetail(order)}>
+                      <button
+                        className="btn-primary"
+                        style={{ padding: "8px 20px", fontSize: 13 }}
+                        onClick={() => onViewOrderDetail(order)}
+                      >
                         Xem chi tiết
                       </button>
                     </div>

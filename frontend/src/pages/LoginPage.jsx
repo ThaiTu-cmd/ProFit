@@ -32,17 +32,24 @@ const LoginPage = ({ onLogin, navigate }) => {
       });
 
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.message || "Tài khoản hoặc mật khẩu không đúng.");
       }
 
-      // Đăng nhập thành công -> Lưu JWT Token vào LocalStorage
+      // Lưu JWT Token vào LocalStorage
       localStorage.setItem("token", data.token);
-      
-      // Update global state based on role returned from backend
+
+      // Update global state với đầy đủ thông tin
       const userRole = data.role ? data.role.toLowerCase() : "user";
-      onLogin({ email: data.username, role: userRole, token: data.token });
+      onLogin({
+        id: data.id || null,
+        email: data.username,
+        name: data.fullName || data.username,
+        phone: data.phone || "",
+        role: userRole,
+        token: data.token
+      });
       
       // Chuyển hướng theo role
       if (userRole === "admin") {

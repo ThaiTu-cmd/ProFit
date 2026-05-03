@@ -47,6 +47,13 @@ public class OrderServiceImpl implements OrderService {
         return mapToResponse(saved);
     }
 
+    @Override
+    public List<OrderResponse> getOrdersByEmail(String email) {
+        return orderRepository.findByUserEmailOrderByCreatedAtDesc(email).stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
+    }
+
     private OrderResponse mapToResponse(Order order) {
         OrderResponse response = new OrderResponse();
         response.setId(order.getId());

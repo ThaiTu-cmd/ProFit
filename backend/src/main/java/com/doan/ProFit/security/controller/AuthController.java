@@ -68,7 +68,13 @@ public class AuthController {
                     .build();
 
             response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
-            return ResponseEntity.ok(new AuthResponse(jwt, userDetails.getUsername(), role));
+            return ResponseEntity.ok(new AuthResponse(
+                    jwt,
+                    userDetails.getUsername(),
+                    role,
+                    userDetails.getUser().getFullName(),
+                    userDetails.getUser().getPhone()
+            ));
         } catch (BadCredentialsException ex) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(Map.of("message", "Tên đăng nhập hoặc mật khẩu không đúng."));

@@ -2,7 +2,7 @@
 // App.jsx – Ứng dụng chính, quản lý routing và state toàn cục
 
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Navbar  from "./components/Navbar";
 import Footer  from "./components/Footer";
@@ -40,7 +40,18 @@ const App = () => {
   const [user, setUser] = useState(null);
 
   // ── Giỏ hàng ─────────────────────────────────────
-  const [cart, setCart] = useState([]);
+  // Đọc cart từ localStorage khi khởi tạo
+  const [cart, setCart] = useState(() => {
+    try {
+      const saved = localStorage.getItem("cart");
+      return saved ? JSON.parse(saved) : [];
+    } catch { return []; }
+  });
+
+  // Lưu cart vào localStorage mỗi khi thay đổi
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   // ── [MỚI] Đơn hàng ───────────────────────────────
   const [orders, setOrders] = useState([]);
@@ -89,9 +100,10 @@ const App = () => {
     showToast("🗑 Đã xóa sản phẩm khỏi giỏ hàng");
   };
 
-  // [MỚI] Đặt hàng thành công: lưu đơn (cart đã được xóa ở CheckoutPage)
+  // Đặt hàng thành công: lưu đơn + xóa giỏ hàng
   const handlePlaceOrder = (orderData) => {
     setOrders((prev) => [...prev, orderData]);
+    setCart([]); // Xóa giỏ hàng sau khi đặt thành công
     showToast("Đặt hàng thành công!");
   };
 
@@ -188,7 +200,9 @@ const App = () => {
       case "orders":
         return (
           <OrderPage
+            user={user}
             orders={orders}
+            onOrdersChange={setOrders}
             navigate={navigate}
             onViewOrderDetail={handleViewOrder}
           />
@@ -210,7 +224,7 @@ const App = () => {
         return <RegisterPage onLogin={handleLogin} navigate={navigate} />;
 
       case "profile":
-        return <ProfilePage navigate={navigate} user={user} />;
+        return <ProfilePage navigate={navigate} user={user} onUserUpdate={setUser} />;
       // ── Admin (guard quyền) ───────────────────────
       case "admin-dashboard":
         if (!user || user.role !== "admin") { navigate("login"); return null; }
