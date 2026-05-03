@@ -12,7 +12,11 @@ spring:
     url: "jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true"
     username: root
     password: password
+  sql:
+    init:
+      mode: always
   jpa:
+    defer-datasource-initialization: true
     hibernate:
       ddl-auto: update
     show-sql: true

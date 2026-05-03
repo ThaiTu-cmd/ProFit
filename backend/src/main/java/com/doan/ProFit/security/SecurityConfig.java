@@ -57,11 +57,12 @@ public class SecurityConfig {
                 }))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()       // API đăng nhập/logout
+                        .requestMatchers("/api/public/**").permitAll()     // API công khai cho khách (Sản phẩm, Danh mục)
                         .requestMatchers("/admin/login").permitAll()       // Trang đăng nhập admin
                         .requestMatchers("/admin/css/**", "/admin/js/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/admin/**").permitAll() // Tạm thời cho phép tất cả để Test kết nối FE -> BE
-                        .anyRequest().permitAll()
+                        .anyRequest().authenticated()
                 )
                 .addFilterBefore(authTokenFilter, UsernamePasswordAuthenticationFilter.class);
 

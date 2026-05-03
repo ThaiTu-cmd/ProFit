@@ -25,6 +25,7 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 application-local.yml
+application-local.yaml
 application-local.properties
 
 # 4. Cấu hình của các IDE/Editor (Tránh xung đột môi trường code của mỗi người)
