@@ -9,6 +9,9 @@ import com.doan.ProFit.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,6 +29,31 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findByIsActiveTrueAndDeletedAtIsNull().stream()
                 .map(this::mapToResponse)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public ProductResponse getProductById(Long id) {
+        Product product = productRepository.findByIdAndIsActiveTrueAndDeletedAtIsNull(id)
+                .orElseThrow(() -> new IllegalArgumentException("Product not found"));
+        return mapToResponse(product);
+    }
+
+    @Override
+    public Page<ProductResponse> getActiveProducts(Pageable pageable) {
+        return productRepository.findByIsActiveTrueAndDeletedAtIsNull(pageable)
+                .map(this::mapToResponse);
+    }
+
+    @Override
+    public Page<ProductResponse> getActiveProductsByCategory(Long categoryId, Pageable pageable) {
+        return productRepository.findByCategoryIdAndIsActiveTrueAndDeletedAtIsNull(categoryId, pageable)
+                .map(this::mapToResponse);
+    }
+
+    @Override
+    public Page<ProductResponse> searchActiveProducts(String keyword, Pageable pageable) {
+        return productRepository.findByNameContainingIgnoreCaseAndIsActiveTrueAndDeletedAtIsNull(keyword, pageable)
+                .map(this::mapToResponse);
     }
 
     @Override
