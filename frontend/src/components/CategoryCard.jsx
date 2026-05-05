@@ -6,13 +6,26 @@
 //   - onClick: hàm xử lý khi click
 // =====================================================
 
+import { Store, Droplet, Zap, Flame, Pill } from "lucide-react";
+
+const getCategoryIcon = (id, originalIcon) => {
+  switch(id) {
+    case 1: return <Store size={32} color="var(--primary)" />;
+    case 2: return <Droplet size={32} color="var(--primary)" />;
+    case 3: return <Zap size={32} color="var(--primary)" />;
+    case 4: return <Flame size={32} color="var(--primary)" />;
+    case 5: return <Pill size={32} color="var(--primary)" />;
+    default: return originalIcon;
+  }
+};
+
 const CategoryCard = ({ category, isActive, onClick }) => {
   return (
     <div
       className={`category-card ${isActive ? "active" : ""}`}
       onClick={() => onClick(category)}
     >
-      <div className="category-icon">{category.icon}</div>
+      <div className="category-icon">{getCategoryIcon(category.id, category.icon)}</div>
       <div className="category-name">{category.name}</div>
       <div className="category-count">{category.count} sản phẩm</div>
     </div>

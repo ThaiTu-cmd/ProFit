@@ -15,24 +15,33 @@ const DEFAULT_USER_INFO = {
   note: "",
 };
 
-const ProfilePage = ({ navigate }) => {
+const ProfilePage = ({ navigate, user }) => {
   const [form, setForm] = useState(DEFAULT_USER_INFO);
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
     try {
-      const savedInfo = localStorage.getItem("userInfo");
+      const storageKey = user ? `userInfo_${user.email}` : "userInfo";
+      const savedInfo = localStorage.getItem(storageKey);
       if (savedInfo) {
         const parsed = JSON.parse(savedInfo);
         setForm({
           ...DEFAULT_USER_INFO,
           ...parsed,
         });
+      } else if (user) {
+        // Nếu chưa lưu lần nào nhưng đã có thông tin user từ login/register
+        setForm({
+          ...DEFAULT_USER_INFO,
+          fullName: user.name || "",
+          email: user.email || "",
+          phone: user.phone || ""
+        });
       }
     } catch (error) {
       console.error("Không đọc được thông tin người dùng:", error);
     }
-  }, []);
+  }, [user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -48,7 +57,8 @@ const ProfilePage = ({ navigate }) => {
       return;
     }
 
-    localStorage.setItem("userInfo", JSON.stringify(form));
+    const storageKey = user ? `userInfo_${user.email}` : "userInfo";
+    localStorage.setItem(storageKey, JSON.stringify(form));
     setSaved(true);
 
     setTimeout(() => {
@@ -78,7 +88,6 @@ const ProfilePage = ({ navigate }) => {
                 name="fullName"
                 value={form.fullName}
                 onChange={handleChange}
-                placeholder="Nguyễn Văn A"
               />
             </div>
 
@@ -90,7 +99,6 @@ const ProfilePage = ({ navigate }) => {
                 name="phone"
                 value={form.phone}
                 onChange={handleChange}
-                placeholder="0901 234 567"
               />
             </div>
           </div>
@@ -103,7 +111,6 @@ const ProfilePage = ({ navigate }) => {
               name="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="email@example.com"
             />
           </div>
 
@@ -115,7 +122,6 @@ const ProfilePage = ({ navigate }) => {
               name="address"
               value={form.address}
               onChange={handleChange}
-              placeholder="Số nhà, tên đường"
             />
           </div>
 
@@ -128,7 +134,6 @@ const ProfilePage = ({ navigate }) => {
                 name="district"
                 value={form.district}
                 onChange={handleChange}
-                placeholder="Quận 1"
               />
             </div>
 
@@ -140,7 +145,6 @@ const ProfilePage = ({ navigate }) => {
                 name="city"
                 value={form.city}
                 onChange={handleChange}
-                placeholder="TP. Hồ Chí Minh"
               />
             </div>
           </div>
@@ -152,7 +156,6 @@ const ProfilePage = ({ navigate }) => {
               name="note"
               value={form.note}
               onChange={handleChange}
-              placeholder="Ví dụ: giao giờ hành chính, gọi trước khi giao..."
             />
           </div>
 

@@ -30,6 +30,32 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserResponse getUserProfile(String email) {
+        User user = userRepository.findByEmailOrPhone(email, email)
+                .orElseThrow(() -> new UserNotFoundException("User not found"));
+        return toResponse(user);
+    }
+
+    @Override
+    public UserResponse updateUserProfile(String email, UserUpdateRequest request) {
+        User user = userRepository.findByEmailOrPhone(email, email)
+                .orElseThrow(() -> new UserNotFoundException("User not found"));
+
+        if (request.getFullName() != null && !request.getFullName().isBlank()) {
+            user.setFullName(request.getFullName().trim());
+        }
+        if (request.getPhone() != null) {
+            user.setPhone(request.getPhone().trim());
+        }
+        if (request.getPasswordHash() != null && !request.getPasswordHash().isBlank()) {
+            user.setPasswordHash(passwordEncoder.encode(request.getPasswordHash()));
+        }
+
+        User savedUser = userRepository.save(user);
+        return toResponse(savedUser);
+    }
+
+    @Override
     public UserResponse createUser(UserCreationRequest request) {
         if (request.getFullName() == null || request.getFullName().isBlank()) {
             throw new IllegalArgumentException("Full name is required");

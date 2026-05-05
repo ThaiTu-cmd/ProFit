@@ -4,6 +4,8 @@
 //   - navigate: chuyển trang
 // =====================================================
 
+import { Target, Lightbulb, Handshake, Leaf, User } from "lucide-react";
+
 const AboutPage = ({ navigate }) => {
   return (
     <div>
@@ -35,7 +37,7 @@ const AboutPage = ({ navigate }) => {
             </p>
           </div>
           <div className="about-image">
-            <div style={{ fontSize: 120, textAlign: "center" }}>🏋️</div>
+            <img src="/images/whey/iso100-whey.png" alt="About Us" style={{ width: "100%", borderRadius: "16px", objectFit: "cover" }} />
           </div>
         </div>
       </section>
@@ -62,10 +64,10 @@ const AboutPage = ({ navigate }) => {
         </div>
         <div className="values-grid">
           {[
-            { icon: "🎯", title: "Chính trực",    desc: "Luôn trung thực với khách hàng về nguồn gốc, thành phần và hiệu quả của sản phẩm." },
-            { icon: "💡", title: "Kiến thức",     desc: "Đội ngũ chuyên gia luôn cập nhật kiến thức mới nhất về dinh dưỡng thể thao." },
-            { icon: "🤝", title: "Đồng hành",     desc: "Không chỉ bán sản phẩm, chúng tôi đồng hành cùng bạn trên hành trình chinh phục mục tiêu." },
-            { icon: "🌱", title: "Phát triển bền vững", desc: "Ưu tiên sản phẩm thân thiện môi trường và đóng góp vào cộng đồng thể thao lành mạnh." },
+            { icon: <Target size={36} color="var(--primary)" />, title: "Chính trực",    desc: "Luôn trung thực với khách hàng về nguồn gốc, thành phần và hiệu quả của sản phẩm." },
+            { icon: <Lightbulb size={36} color="var(--primary)" />, title: "Kiến thức",     desc: "Đội ngũ chuyên gia luôn cập nhật kiến thức mới nhất về dinh dưỡng thể thao." },
+            { icon: <Handshake size={36} color="var(--primary)" />, title: "Đồng hành",     desc: "Không chỉ bán sản phẩm, chúng tôi đồng hành cùng bạn trên hành trình chinh phục mục tiêu." },
+            { icon: <Leaf size={36} color="var(--primary)" />, title: "Phát triển bền vững", desc: "Ưu tiên sản phẩm thân thiện môi trường và đóng góp vào cộng đồng thể thao lành mạnh." },
           ].map((v) => (
             <div className="feature-card" key={v.title}>
               <div className="feature-icon">{v.icon}</div>
@@ -83,9 +85,9 @@ const AboutPage = ({ navigate }) => {
         </div>
         <div className="team-grid">
           {[
-            { emoji: "👨‍💼", name: "Trần Minh Khoa",   role: "CEO & Founder",        desc: "10 năm kinh nghiệm trong lĩnh vực thể thao và dinh dưỡng." },
-            { emoji: "👩‍⚕️", name: "Nguyễn Thị Hương", role: "Chuyên gia dinh dưỡng", desc: "Thạc sĩ Dinh dưỡng học, 7 năm tư vấn cho vận động viên chuyên nghiệp." },
-            { emoji: "👨‍🔬", name: "Lê Văn Đức",       role: "Kiểm định chất lượng",  desc: "Kỹ sư hóa học, đảm bảo 100% sản phẩm đạt tiêu chuẩn chính hãng." },
+            { emoji: <User size={40} color="var(--primary)" />, name: "Trần Minh Khoa",   role: "CEO & Founder",        desc: "10 năm kinh nghiệm trong lĩnh vực thể thao và dinh dưỡng." },
+            { emoji: <User size={40} color="var(--primary)" />, name: "Nguyễn Thị Hương", role: "Chuyên gia dinh dưỡng", desc: "Thạc sĩ Dinh dưỡng học, 7 năm tư vấn cho vận động viên chuyên nghiệp." },
+            { emoji: <User size={40} color="var(--primary)" />, name: "Lê Văn Đức",       role: "Kiểm định chất lượng",  desc: "Kỹ sư hóa học, đảm bảo 100% sản phẩm đạt tiêu chuẩn chính hãng." },
           ].map((m) => (
             <div className="team-card" key={m.name}>
               <div className="team-avatar">{m.emoji}</div>

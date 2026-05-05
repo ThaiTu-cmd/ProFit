@@ -15,7 +15,7 @@ const ProductCard = ({ product, onAddToCart, onViewDetail }) => {
       <div className="product-img-wrap">
         {product.badge === "SALE" && <span className="badge-sale">SALE</span>}
         {product.badge === "NEW"  && <span className="badge-new">MỚI</span>}
-        {product.emoji}
+        <img src={product.image} alt={product.name} style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "12px", position: "absolute", top: 0, left: 0 }} />
       </div>
 
       {/* Thông tin sản phẩm */}

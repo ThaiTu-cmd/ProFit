@@ -5,6 +5,7 @@
 
 import { useState } from "react";
 import { formatPrice } from "../data/products";
+import { Package, Inbox } from "lucide-react";
 
 // Nhãn trạng thái đơn hàng
 const STATUS_LABEL = {
@@ -24,7 +25,7 @@ const OrderPage = ({ orders = [], navigate, onViewOrderDetail }) => {
     return (
       <div className="section">
         <div className="empty-state">
-          <div className="empty-icon">📦</div>
+          <div className="empty-icon"><Package size={64} color="var(--primary)" /></div>
           <h3>Chưa có đơn hàng nào</h3>
           <p>Hãy mua sắm và theo dõi đơn hàng của bạn tại đây.</p>
           <button className="btn-primary" onClick={() => navigate("products")}>Mua sắm ngay</button>
@@ -63,7 +64,7 @@ const OrderPage = ({ orders = [], navigate, onViewOrderDetail }) => {
         {/* Danh sách đơn */}
         {filtered.length === 0 ? (
           <div className="empty-state" style={{ padding: "40px 0" }}>
-            <div className="empty-icon">📭</div>
+            <div className="empty-icon"><Inbox size={64} color="var(--gray)" /></div>
             <h3>Không có đơn hàng</h3>
           </div>
         ) : (

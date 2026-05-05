@@ -4,17 +4,17 @@
 // =====================================================
 
 export const categories = [
-  { id: 1, name: "Tất cả",      icon: "🏪", count: 165 },
-  { id: 2, name: "Whey Protein", icon: "🥛", count: 48  },
-  { id: 3, name: "Creatine",     icon: "⚡", count: 22  },
-  { id: 4, name: "Pre-Workout",  icon: "🔥", count: 35  },
-  { id: 5, name: "Vitamin & BCAA",icon: "💊", count: 60 },
+  { id: 1, name: "Tất cả", icon: "🏪", count: 165 },
+  { id: 2, name: "Whey Protein", icon: "🥛", count: 48 },
+  { id: 3, name: "Creatine", icon: "⚡", count: 22 },
+  { id: 4, name: "Pre-Workout", icon: "🔥", count: 35 },
+  { id: 5, name: "Vitamin & BCAA", icon: "💊", count: 60 },
 ];
 
 export const products = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1599599810694-b5ac4dd3fd45?w=500&h=500&fit=crop",
+    image: "/images/whey/whey-gold.png",
     emoji: "🥛",
     brand: "Optimum Nutrition",
     name: "Gold Standard Whey 2.27kg",
@@ -33,7 +33,7 @@ export const products = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1598103442097-8b74394b95c6?w=500&h=500&fit=crop",
+    image: "/images/creatin/creatine-platinum.png",
     emoji: "⚡",
     brand: "MuscleTech",
     name: "Platinum Creatine 400g",
@@ -52,7 +52,7 @@ export const products = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1599599810772-2268c95dbf55?w=500&h=500&fit=crop",
+    image: "/images/pre-workout/c4-preworkout.png",
     emoji: "🔥",
     brand: "C4",
     name: "Original Pre-Workout 60 lần dùng",
@@ -71,7 +71,7 @@ export const products = [
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1599599810989-b5f83f3e3f5d?w=500&h=500&fit=crop",
+    image: "/images/vitamin/optimen-vitamin.png",
     emoji: "💊",
     brand: "Optimum Nutrition",
     name: "Opti-Men Vitamin tổng hợp",
@@ -90,7 +90,7 @@ export const products = [
   },
   {
     id: 5,
-    image: "https://images.unsplash.com/photo-1599599812139-e6f8c3693aab?w=500&h=500&fit=crop",
+    image: "/images/whey/iso100-whey.png",
     emoji: "🥛",
     brand: "Dymatize",
     name: "ISO100 Hydrolyzed Whey 2.27kg",
@@ -109,7 +109,7 @@ export const products = [
   },
   {
     id: 6,
-    image: "https://images.unsplash.com/photo-1599599810947-ed0c3e00a7b9?w=500&h=500&fit=crop",
+    image: "/images/pre-workout/legion-pulse.png",
     emoji: "🔥",
     brand: "Legion",
     name: "Pulse Pre-Workout 20 lần dùng",
@@ -128,7 +128,7 @@ export const products = [
   },
   {
     id: 7,
-    image: "https://images.unsplash.com/photo-1599599811000-9b6d1d5e3d5f?w=500&h=500&fit=crop",
+    image: "/images/creatin/allmax-creatine.png",
     emoji: "⚡",
     brand: "Allmax",
     name: "Creatine HMB 315g",
@@ -147,7 +147,7 @@ export const products = [
   },
   {
     id: 8,
-    image: "https://images.unsplash.com/photo-1599599811111-9c1e1e5e3d5f?w=500&h=500&fit=crop",
+    image: "/images/vitamin/now-bcaa.png",
     emoji: "💊",
     brand: "NOW Foods",
     name: "BCAA 2:1:1 Powder 340g",
@@ -175,3 +175,21 @@ export const formatPrice = (price) => {
 export const renderStars = (rating) => {
   return '★'.repeat(rating) + '☆'.repeat(5 - rating);
 };
+
+// =====================================================
+// Dữ liệu Banners
+// =====================================================
+export const banners = [
+  {
+    id: 1,
+    title: "Summer Sale",
+    image: "/images/banners/banner-sale.png",
+    link: "/sale"
+  },
+  {
+    id: 2,
+    title: "New Arrivals - Whey Protein",
+    image: "/images/banners/banner-new.png",
+    link: "/new-arrivals"
+  }
+];

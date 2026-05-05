@@ -24,7 +24,7 @@ const Navbar = ({ currentPage, navigate, cartCount, user, onLogout }) => {
         onClick={() => navigate("home")}
         style={{ cursor: "pointer" }}
       >
-        Power<span>Fuel</span>
+        Pro<span>Fit</span>
       </div>
 
       {/* Menu */}

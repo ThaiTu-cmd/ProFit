@@ -5,10 +5,18 @@ server:
 
 spring:
   datasource:
-    url: "jdbc:mysql://localhost:3306/ProFitSuppsDB"
+    #  LƯU Ý :
+    # KHÔNG sửa password trực tiếp vào file application.yaml này để tránh bị đẩy lên Git.
+    # Hãy copy file application-local.yaml.example thành application-local.yaml 
+    # và điền password thực tế của bạn vào file đó. Nó sẽ tự động ghi đè file này khi chạy!
+    url: "jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true"
     username: root
-    password: root
+    password: password
+  sql:
+    init:
+      mode: always
   jpa:
+    defer-datasource-initialization: true
     hibernate:
       ddl-auto: update
     show-sql: true

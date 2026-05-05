@@ -1,6 +1,6 @@
 package com.doan.ProFit.security.dto;
 
-public class AdminLoginRequest {
+public class LoginRequest {
     private String username;
     private String password;
     private boolean rememberMe;
