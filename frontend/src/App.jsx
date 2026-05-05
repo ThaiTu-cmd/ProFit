@@ -2,7 +2,7 @@
 // App.jsx – Ứng dụng chính, quản lý routing và state toàn cục
 
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Navbar  from "./components/Navbar";
 import Footer  from "./components/Footer";
@@ -34,16 +34,52 @@ const App = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedOrder, setSelectedOrder]     = useState(null);
 
-  // ── [MỚI] Auth state ─────────────────────────────
+  // ── Auth state ──────────────────────────────────────
   // user = null khi chưa đăng nhập
   // user = { id, name, email, phone, role: "user" | "admin" } khi đã đăng nhập
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    const saved = localStorage.getItem("user");
+    return saved ? JSON.parse(saved) : null;
+  });
 
-  // ── Giỏ hàng ─────────────────────────────────────
-  const [cart, setCart] = useState([]);
+  // ── Giỏ hàng (Persistent - Lưu vào localStorage) ─────
+  const [cart, setCart] = useState(() => {
+    try {
+      const saved = localStorage.getItem("cart");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  // Sync cart với localStorage mỗi khi thay đổi
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  // Sync user với localStorage mỗi khi thay đổi
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    } else {
+      localStorage.removeItem("user");
+    }
+  }, [user]);
 
   // ── [MỚI] Đơn hàng ───────────────────────────────
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState(() => {
+    try {
+      const saved = localStorage.getItem("orders");
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  // Sync orders với localStorage
+  useEffect(() => {
+    localStorage.setItem("orders", JSON.stringify(orders));
+  }, [orders]);
 
   // ── Toast ─────────────────────────────────────────
   const [toast, setToast] = useState({ visible: false, message: "" });
@@ -104,12 +140,19 @@ const App = () => {
   };
 
   // [MỚI] Login / Logout
-  const handleLogin  = (userData) => {
+  const handleLogin = (userData) => {
     setUser(userData);
-    showToast(`👋 Xin chào, ${userData.name}!`);
+    showToast(`👋 Xin chào, ${userData.name || userData.email}!`);
   };
+
   const handleLogout = () => {
     setUser(null);
+    setCart([]);
+    setOrders([]);
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("cart");
+    localStorage.removeItem("orders");
     navigate("home");
     showToast("Đã đăng xuất.");
   };
@@ -189,7 +232,7 @@ const App = () => {
       case "orders":
         return (
           <OrderPage
-            orders={orders}
+            user={user}
             navigate={navigate}
             onViewOrderDetail={handleViewOrder}
           />

@@ -1,14 +1,15 @@
 package com.doan.ProFit.service;
 
-import com.doan.ProFit.dto.request.OrderRequest;
+import com.doan.ProFit.dto.request.GuestOrderRequest;
+import com.doan.ProFit.dto.request.GuestOrderRequest;
 import com.doan.ProFit.dto.request.OrderItemRequest;
+import com.doan.ProFit.dto.request.OrderRequest;
 import com.doan.ProFit.dto.request.OrderStatusUpdateRequest;
 import com.doan.ProFit.dto.response.OrderItemResponse;
 import com.doan.ProFit.dto.response.OrderResponse;
 import com.doan.ProFit.entity.Order;
 import com.doan.ProFit.entity.OrderItem;
 import com.doan.ProFit.entity.Product;
-import com.doan.ProFit.entity.User;
 import com.doan.ProFit.repository.OrderRepository;
 import com.doan.ProFit.repository.ProductRepository;
 import com.doan.ProFit.repository.UserRepository;
@@ -98,6 +99,46 @@ public class OrderServiceImpl implements OrderService {
         order.setTotalAmount(total); // Ở đây đang tạm giản lược chưa cộng phí ship hay trừ mã giảm giá
 
         // 5. Lưu xuống Database (Nhờ cấu hình CascadeType.ALL, nó sẽ tự động lưu luôn các OrderItem bên trong)
+        Order saved = orderRepository.save(order);
+        return mapToResponse(saved);
+    }
+
+    @Override
+    public OrderResponse createGuestOrder(GuestOrderRequest request) {
+        // Khởi tạo đơn hàng cho khách vãng lai (không liên kết với user)
+        Order order = new Order();
+        order.setUser(null); // Khách vãng lai
+        order.setOrderCode("ORD-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase());
+        order.setRecipientName(request.getRecipientName());
+        order.setRecipientPhone(request.getRecipientPhone());
+        order.setShippingAddressLine1(request.getShippingAddressLine1());
+        order.setShippingCity(request.getShippingCity());
+        order.setShippingProvince(request.getShippingProvince());
+        order.setNote(request.getNote());
+
+        BigDecimal total = BigDecimal.ZERO;
+
+        // Duyệt qua từng sản phẩm
+        for (OrderItemRequest itemReq : request.getItems()) {
+            Product product = productRepository.findById(itemReq.getProductId())
+                    .orElseThrow(() -> new IllegalArgumentException("Product not found: " + itemReq.getProductId()));
+
+            OrderItem item = new OrderItem();
+            item.setOrder(order);
+            item.setProduct(product);
+            item.setProductName(product.getName());
+            item.setProductSku(product.getSku());
+            item.setQuantity(itemReq.getQuantity());
+            item.setUnitPrice(product.getPrice());
+            item.setLineTotal(product.getPrice().multiply(BigDecimal.valueOf(itemReq.getQuantity())));
+
+            order.getItems().add(item);
+            total = total.add(item.getLineTotal());
+        }
+
+        order.setSubtotal(total);
+        order.setTotalAmount(total);
+
         Order saved = orderRepository.save(order);
         return mapToResponse(saved);
     }

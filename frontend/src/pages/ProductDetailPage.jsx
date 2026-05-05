@@ -9,12 +9,23 @@
 import { useState } from "react";
 import { formatPrice, renderStars, products } from "../data/products";
 import ProductCard from "../components/ProductCard";
+import Reviews from "../components/Reviews";
 
 const ProductDetailPage = ({ product, onAddToCart, onViewDetail, navigate }) => {
   // State: số lượng muốn mua
   const [quantity, setQuantity] = useState(1);
   // State: hương vị đang chọn
   const [selectedFlavor, setSelectedFlavor] = useState(product.flavors[0]);
+
+  // Lấy user từ localStorage để truyền vào Reviews
+  const [user, setUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem("user");
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
 
   // Tính giá sau khi nhân số lượng
   const totalPrice = product.price * quantity;
@@ -148,6 +159,11 @@ const ProductDetailPage = ({ product, onAddToCart, onViewDetail, navigate }) => 
             </div>
           </div>
         </div>
+      </section>
+
+      {/* ===== ĐÁNH GIÁ SẢN PHẨM ===== */}
+      <section className="section" style={{ paddingTop: 0 }}>
+        <Reviews productId={product.id} user={user} />
       </section>
 
       {/* ===== SẢN PHẨM LIÊN QUAN ===== */}
