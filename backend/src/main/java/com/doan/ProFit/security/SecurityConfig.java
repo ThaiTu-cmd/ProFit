@@ -83,6 +83,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/public/**").permitAll()     // API công khai cho khách (Sản phẩm, Danh mục)
                         .requestMatchers("/api/reviews/product/**").permitAll()  // Xem reviews không cần login
                         .requestMatchers("/api/orders/guest").permitAll()  // Guest checkout không cần login
+                        .requestMatchers("/api/v1/payment/**").permitAll() // VNPay payment callback
                         .requestMatchers("/admin/login").permitAll()       // Trang đăng nhập admin
                         .requestMatchers("/admin/css/**", "/admin/js/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")

@@ -4,6 +4,7 @@
 // =====================================================
 
 import { useState } from "react";
+import { apiRegister } from "../utils/api";
 
 const RegisterPage = ({ onLogin, navigate }) => {
   const [form, setForm]   = useState({ fullName: "", email: "", phone: "", password: "", confirm: "" });
@@ -28,25 +29,8 @@ const RegisterPage = ({ onLogin, navigate }) => {
 
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8080/ProFitSuppsDB/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fullName,
-          email,
-          phone,
-          password_hash: password // send the raw password
-        })
-      });
-
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.message || "Đăng ký thất bại.");
-      }
-
-      // Đăng ký thành công -> Xóa bộ nhớ và chuyển qua trang đăng nhập
-      localStorage.removeItem("userInfo");
-      navigate("login"); // Hoặc có thể tự động login luôn, nhưng tốt nhất bắt đăng nhập lại
+      await apiRegister(fullName, email, phone, password);
+      navigate("login");
     } catch (err) {
       setError(err.message);
     } finally {

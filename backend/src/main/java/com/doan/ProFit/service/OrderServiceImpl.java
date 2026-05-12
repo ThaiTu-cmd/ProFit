@@ -1,7 +1,6 @@
 package com.doan.ProFit.service;
 
 import com.doan.ProFit.dto.request.GuestOrderRequest;
-import com.doan.ProFit.dto.request.GuestOrderRequest;
 import com.doan.ProFit.dto.request.OrderItemRequest;
 import com.doan.ProFit.dto.request.OrderRequest;
 import com.doan.ProFit.dto.request.OrderStatusUpdateRequest;
@@ -10,6 +9,7 @@ import com.doan.ProFit.dto.response.OrderResponse;
 import com.doan.ProFit.entity.Order;
 import com.doan.ProFit.entity.OrderItem;
 import com.doan.ProFit.entity.Product;
+import com.doan.ProFit.entity.User;
 import com.doan.ProFit.repository.OrderRepository;
 import com.doan.ProFit.repository.ProductRepository;
 import com.doan.ProFit.repository.UserRepository;

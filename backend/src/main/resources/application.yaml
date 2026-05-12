@@ -26,3 +26,16 @@ app:
     secret: "ProFitJwtSecretKeyMustBeAtLeastSixtyFourCharactersLongForHS512Secure"
     expiration-ms: 86400000
     remember-expiration-ms: 604800000
+  bootstrap:
+    admin:
+      enabled: true
+      full-name: Administrator
+      email: admin@profit.com
+      phone: "0123456789"
+      password: Admin@123
+  vnpay:
+    tmn-code: SY273SZH
+    hash-secret: I5JU5Q6OPF7FB0L1XJXDF5VT3ZVP93VO
+    payment-url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+    return-url: https://shrunk-down-accuracy.ngrok-free.dev/ProFitSuppsDB/api/v1/payment/vnpay-return
+    ipn-url: https://shrunk-down-accuracy.ngrok-free.dev/ProFitSuppsDB/api/v1/payment/vnpay-ipn

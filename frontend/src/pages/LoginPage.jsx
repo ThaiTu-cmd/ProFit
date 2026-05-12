@@ -38,7 +38,7 @@ const LoginPage = ({ onLogin, navigate }) => {
       };
 
       // Lưu user vào localStorage (App.jsx sẽ đọc và sync)
-      localStorage.setItem("pendingUser", JSON.stringify(userData));
+      localStorage.setItem("user", JSON.stringify(userData));
 
       // Update global state
       onLogin(userData);
@@ -78,14 +78,14 @@ const LoginPage = ({ onLogin, navigate }) => {
           <label className="form-label">Email</label>
           <input className="form-input" type="email" name="email" placeholder="email@example.com"
             value={form.email} onChange={handleChange}
-            onKeyDown={(e) => e.key === "Enter" && handleSubmit()} />
+            onKeyDown={(e) => { if (e.key === "Enter") handleSubmit(); }} />
         </div>
 
         <div className="form-group">
           <label className="form-label">Mật khẩu</label>
           <input className="form-input" type="password" name="password" placeholder="••••••••"
             value={form.password} onChange={handleChange}
-            onKeyDown={(e) => e.key === "Enter" && handleSubmit()} />
+            onKeyDown={(e) => { if (e.key === "Enter") handleSubmit(); }} />
         </div>
 
         {/* Quên mật khẩu */}

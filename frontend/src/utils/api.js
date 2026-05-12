@@ -2,7 +2,7 @@
 // utils/api.js – Các hàm gọi API tới Backend
 // =====================================================
 
-const API_BASE = "http://localhost:8080/ProFitSuppsDB/api";
+const API_BASE = "/api";
 
 // Lấy JWT token từ localStorage
 const getToken = () => localStorage.getItem("token");
