@@ -1,7 +1,11 @@
 package com.doan.ProFit.dto.request;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class OrderItemRequest {
+    @JsonProperty("product_id")
     private Long productId;
+
     private Integer quantity;
 
     public Long getProductId() { return productId; }

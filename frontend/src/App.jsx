@@ -14,7 +14,8 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 import CartPage          from "./pages/CartPage";
 import CheckoutPage      from "./pages/CheckoutPage";       
 import OrderPage         from "./pages/OrderPage";          
-import OrderDetailPage   from "./pages/OrderDetailPage";    
+import OrderDetailPage   from "./pages/OrderDetailPage";
+import PaymentResultPage from "./pages/PaymentResultPage";    
 import AboutPage         from "./pages/AboutPage";
 import ContactPage       from "./pages/ContactPage";
 import LoginPage         from "./pages/LoginPage";          
@@ -240,6 +241,9 @@ const App = () => {
 
       case "order-detail":
         return <OrderDetailPage order={selectedOrder} navigate={navigate} />;
+
+      case "payment-result":
+        return <PaymentResultPage navigate={navigate} />;
 
       case "about":
         return <AboutPage navigate={navigate} />;

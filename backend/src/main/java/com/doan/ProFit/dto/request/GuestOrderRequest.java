@@ -1,24 +1,34 @@
 package com.doan.ProFit.dto.request;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import java.util.List;
 
 public class GuestOrderRequest {
+    @JsonProperty("recipient_name")
     @NotBlank(message = "Recipient name is required")
     private String recipientName;
 
+    @JsonProperty("recipient_phone")
     @NotBlank(message = "Phone is required")
     private String recipientPhone;
 
+    @JsonProperty("shipping_address_line1")
     @NotBlank(message = "Address is required")
     private String shippingAddressLine1;
 
+    @JsonProperty("shipping_city")
     @NotBlank(message = "City is required")
     private String shippingCity;
 
+    @JsonProperty("shipping_province")
     private String shippingProvince;
+
     private String note;
+
+    @JsonProperty("pay_method")
+    private String payMethod;
 
     @NotEmpty(message = "Order must have at least one item")
     private List<OrderItemRequest> items;
@@ -42,6 +52,9 @@ public class GuestOrderRequest {
 
     public String getNote() { return note; }
     public void setNote(String note) { this.note = note; }
+
+    public String getPayMethod() { return payMethod; }
+    public void setPayMethod(String payMethod) { this.payMethod = payMethod; }
 
     public List<OrderItemRequest> getItems() { return items; }
     public void setItems(List<OrderItemRequest> items) { this.items = items; }

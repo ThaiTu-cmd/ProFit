@@ -1,0 +1,18 @@
+{
+  "name": "ProFit",
+  "description": "ProFit E-Commerce Backend",
+  "repository": "https://github.com/ThaiTu-cmd/ProFit",
+  "region": "singapore",
+  "plan": "free",
+  "rootDirectory": "backend",
+  "buildCommand": "./mvnw package -DskipTests",
+  "startCommand": "java -jar target/ProFit-0.0.1-SNAPSHOT.jar",
+  "healthCheckPath": "/ProFitSuppsDB/api/products",
+  "env": {
+    "SPRING_PROFILES_ACTIVE": "production",
+    "JAVA_OPTS": "-Xmx512m",
+    "SPRING_DATASOURCE_URL": "jdbc:mysql://38.242.229.65:3306/ProFitSuppsDB?characterEncoding=UTF-8&useUnicode=true",
+    "SPRING_DATASOURCE_USERNAME": "root",
+    "SPRING_DATASOURCE_PASSWORD": "your_mysql_password_here"
+  }
+}

@@ -1,7 +1,12 @@
 package com.doan.ProFit.dto.request;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class OrderStatusUpdateRequest {
+    @JsonProperty("order_status")
     private String status;
+
+    @JsonProperty("payment_status")
     private String paymentStatus;
 
     public String getStatus() { return status; }

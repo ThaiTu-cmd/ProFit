@@ -2,19 +2,19 @@ server:
   port: 8080
   servlet:
     context-path: /ProFitSuppsDB
+  encoding:
+    charset: UTF-8
+    enabled: true
+    force: true
 
 spring:
   profiles:
-    include: local
+    active: ${SPRING_PROFILES_ACTIVE:local}
 
   datasource:
-    #  LƯU Ý :
-    # KHÔNG sửa password trực tiếp vào file application.yaml này để tránh bị đẩy lên Git.
-    # Hãy copy file application-local.yaml.example thành application-local.yaml 
-    # và điền password thực tế của bạn vào file đó. Nó sẽ tự động ghi đè file này khi chạy!
-    url: "jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true"
-    username: root
-    password: password
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true&characterEncoding=UTF-8&useUnicode=true}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
   sql:
     init:
       mode: always
@@ -23,10 +23,19 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: non_null
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force-request: true
+      force-response: true
 
 app:
   jwt:
-    secret: "ProFitJwtSecretKeyMustBeAtLeastSixtyFourCharactersLongForHS512Secure"
+    secret: "ProFitJwtSecretKeyMustBeAtLeastSixtyFourCharactersLongForHS512SecureAndVeryStrong2026"
     expiration-ms: 86400000
     remember-expiration-ms: 604800000
   bootstrap:
@@ -36,9 +45,16 @@ app:
       email: admin@profit.com
       phone: "0123456789"
       password: Admin@123
+    customer:
+      enabled: false
+      full-name: Khách Hàng Test
+      email: khachhang@gmail.com
+      phone: "0987654321"
+      password: Customer@123
   vnpay:
     tmn-code: SY273SZH
     hash-secret: I5JU5Q6OPF7FB0L1XJXDF5VT3ZVP93VO
     payment-url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
-    return-url: https://shrunk-down-accuracy.ngrok-free.dev/ProFitSuppsDB/api/v1/payment/vnpay-return
-    ipn-url: https://shrunk-down-accuracy.ngrok-free.dev/ProFitSuppsDB/api/v1/payment/vnpay-ipn
+    return-url: https://powell-otherwise-race-guest.trycloudflare.com/ProFitSuppsDB/api/payment/vnpay-return
+    ipn-url: https://powell-otherwise-race-guest.trycloudflare.com/ProFitSuppsDB/api/payment/vnpay-ipn
+    frontend-url: https://powell-otherwise-race-guest.trycloudflare.com

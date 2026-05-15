@@ -12,7 +12,7 @@ import java.util.List;
 public interface ReviewRepository extends JpaRepository<Review, Long> {
     List<Review> findByProductIdOrderByCreatedAtDesc(Long productId);
     
-    List<Review> findByUserIdOrderByCreatedAtDesc(Long userId);
+    List<Review> findByUserIdAndDeletedAtIsNullOrderByCreatedAtDesc(Long userId);
     
     @Query("SELECT AVG(r.rating) FROM Review r WHERE r.product.id = ?1")
     BigDecimal getAverageRatingByProductId(Long productId);

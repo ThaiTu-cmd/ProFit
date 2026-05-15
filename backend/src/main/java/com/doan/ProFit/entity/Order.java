@@ -59,6 +59,9 @@ public class Order {
     @Column(name = "payment_status", nullable = false, length = 20)
     private String paymentStatus = "UNPAID";
 
+    @Column(name = "pay_method", nullable = false, length = 20)
+    private String payMethod = "cod";
+
     @Column(name = "note", length = 500)
     private String note;
 
@@ -108,6 +111,8 @@ public class Order {
     public void setStatus(String status) { this.status = status; }
     public String getPaymentStatus() { return paymentStatus; }
     public void setPaymentStatus(String paymentStatus) { this.paymentStatus = paymentStatus; }
+    public String getPayMethod() { return payMethod; }
+    public void setPayMethod(String payMethod) { this.payMethod = payMethod; }
     public String getNote() { return note; }
     public void setNote(String note) { this.note = note; }
     public LocalDateTime getPlacedAt() { return placedAt; }

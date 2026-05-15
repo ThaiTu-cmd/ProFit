@@ -1,54 +1,22 @@
-# ========================================
-# CẤU HÌNH IGNORE CHUNG CHO CẢ DỰ ÁN
-# ========================================
+# Temporary files
+__pycache__/
+*.pyc
+temp_docx_extract/
+*.docx
+~$*.docx
 
-# 1. Các thư mục build và thư viện (Tránh làm nặng repo)
-node_modules/
-target/
-dist/
-build/
-.mvn/wrapper/maven-wrapper.jar
-
-# 2. Các file log và cache
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.npm/
-.eslintcache
-.sts4-cache/
-
-# 3. Môi trường và cấu hình cá nhân (RẤT QUAN TRỌNG - Tránh lộ API Key, Password)
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-application-local.yml
-application-local.yaml
-application-local.properties
-
-# 4. Cấu hình của các IDE/Editor (Tránh xung đột môi trường code của mỗi người)
+# IDE
 .idea/
-.vscode/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-*.iws
 *.iml
-*.ipr
-.project
-.classpath
-.settings/
-.factorypath
-.springBeans
-.apt_generated/
+.vscode/
 
-# 5. Hệ điều hành
+# Build outputs
+backend/target/
+frontend/node_modules/
+
+# Logs
+*.log
+
+# OS
 .DS_Store
 Thumbs.db
-
-# Lưu ý: Các thư mục frontend/ và backend/ đã có .gitignore riêng,
-# file này đảm bảo các file rác sinh ra ở thư mục gốc (root) cũng bị bỏ qua.

@@ -15,6 +15,7 @@ public class OrderResponse {
     private BigDecimal totalAmount;
     private String status;
     private String paymentStatus;
+    private String payMethod;
     private LocalDateTime placedAt;
     private String userName;
     private List<OrderItemResponse> items;
@@ -39,6 +40,8 @@ public class OrderResponse {
     public void setStatus(String status) { this.status = status; }
     public String getPaymentStatus() { return paymentStatus; }
     public void setPaymentStatus(String paymentStatus) { this.paymentStatus = paymentStatus; }
+    public String getPayMethod() { return payMethod; }
+    public void setPayMethod(String payMethod) { this.payMethod = payMethod; }
     public LocalDateTime getPlacedAt() { return placedAt; }
     public void setPlacedAt(LocalDateTime placedAt) { this.placedAt = placedAt; }
     public String getUserName() { return userName; }

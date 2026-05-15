@@ -2,6 +2,7 @@
 // utils/api.js – Các hàm gọi API tới Backend
 // =====================================================
 
+// Proxy qua Vite dev server -> http://localhost:8080/ProFitSuppsDB
 const API_BASE = "/api";
 
 // Lấy JWT token từ localStorage
@@ -140,7 +141,7 @@ export const apiCreateReview = async ({ productId, rating, comment }) => {
   const response = await fetch(`${API_BASE}/reviews`, {
     method: "POST",
     headers: getAuthHeaders(),
-    body: JSON.stringify({ productId, rating, comment }),
+    body: JSON.stringify({ product_id: productId, rating, comment }),
   });
 
   if (!response.ok) {
@@ -182,6 +183,29 @@ export const apiGetProductById = async (id) => {
 
   if (!response.ok) {
     throw new Error("Không thể lấy thông tin sản phẩm");
+  }
+
+  return response.json();
+};
+
+// =====================================================
+// PAYMENT API (VNPay)
+// =====================================================
+
+/**
+ * Tạo URL thanh toán VNPay cho đơn hàng
+ * @param {number} orderId - ID của đơn hàng
+ * @returns {Promise<{paymentUrl: string}>} - URL thanh toán VNPay
+ */
+export const apiCreatePaymentUrl = async (orderId) => {
+  const response = await fetch(`${API_BASE}/payment/create/${orderId}`, {
+    method: "GET",
+    headers: getAuthHeaders(),
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ message: "Không thể tạo thanh toán" }));
+    throw new Error(err.message || "Không thể tạo thanh toán");
   }
 
   return response.json();

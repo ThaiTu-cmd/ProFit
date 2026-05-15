@@ -119,17 +119,16 @@ public class VNPayConfig {
     }
 
     public boolean validateSignature(Map<String, String> params, String serverHash) {
-        Map<String, String> fields = new HashMap<>(params);
-        fields.remove("vnp_SecureHash");
-        fields.remove("vnp_SecureHashType");
-
-        List<String> fieldNames = new ArrayList<>(fields.keySet());
-        Collections.sort(fieldNames);
         StringBuilder hashData = new StringBuilder();
+        List<String> fieldNames = new ArrayList<>(params.keySet());
+        Collections.sort(fieldNames);
         Iterator<String> itr = fieldNames.iterator();
         while (itr.hasNext()) {
             String fieldName = itr.next();
-            String value = fields.get(fieldName);
+            if ("vnp_SecureHash".equals(fieldName) || "vnp_SecureHashType".equals(fieldName)) {
+                continue;
+            }
+            String value = params.get(fieldName);
             if (value != null && !value.isEmpty()) {
                 hashData.append(fieldName).append('=').append(value);
                 if (itr.hasNext()) {

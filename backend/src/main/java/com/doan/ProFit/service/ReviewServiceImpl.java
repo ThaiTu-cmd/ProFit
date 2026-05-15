@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -65,7 +66,7 @@ public class ReviewServiceImpl implements ReviewService {
         User user = userRepository.findByEmailOrPhone(userEmail, userEmail)
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
 
-        return reviewRepository.findByUserIdOrderByCreatedAtDesc(user.getId())
+        return reviewRepository.findByUserIdAndDeletedAtIsNullOrderByCreatedAtDesc(user.getId())
                 .stream()
                 .map(this::mapToResponse)
                 .collect(Collectors.toList());
@@ -111,7 +112,8 @@ public class ReviewServiceImpl implements ReviewService {
         }
 
         Long productId = review.getProduct().getId();
-        reviewRepository.delete(review);
+        review.setDeletedAt(LocalDateTime.now());
+        reviewRepository.save(review);
         updateProductRating(productId);
     }
 

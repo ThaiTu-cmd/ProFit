@@ -3,17 +3,22 @@ package com.doan.ProFit.controller.api;
 import com.doan.ProFit.entity.Order;
 import com.doan.ProFit.repository.OrderRepository;
 import com.doan.ProFit.service.VNPayService;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1/payment")
+@RequestMapping("/api/payment")
 public class VNPayController {
 
     @Autowired
@@ -21,6 +26,12 @@ public class VNPayController {
 
     @Autowired
     private OrderRepository orderRepository;
+
+    @Value("${app.vnpay.return-url}")
+    private String vnpReturnUrl;
+
+    @Value("${app.vnpay.frontend-url}")
+    private String frontendUrl;
 
     @GetMapping("/create/{orderId}")
     public ResponseEntity<Map<String, String>> createPayment(@PathVariable Long orderId) {
@@ -36,34 +47,40 @@ public class VNPayController {
     }
 
     @GetMapping("/vnpay-return")
-    public ResponseEntity<Map<String, String>> vnpayReturn(
-            @RequestParam Map<String, String> params) {
-
-        Map<String, String> result = new HashMap<>();
+    public void vnpayReturn(
+            @RequestParam Map<String, String> params,
+            HttpServletResponse response) throws IOException {
 
         boolean isValid = vnPayService.validateReturn(params);
-        if (!isValid) {
-            result.put("status", "error");
-            result.put("message", "Chu ky khong hop le!");
-            return ResponseEntity.ok(result);
-        }
-
-        String vnpResponseCode = params.get("vnp_ResponseCode");
+        String status;
+        String message;
         String orderCode = params.get("vnp_TxnRef");
 
-        if ("00".equals(vnpResponseCode)) {
-            vnPayService.updateOrderPaymentStatus(orderCode, "PAID", params.get("vnp_TransactionNo"));
-            result.put("status", "success");
-            result.put("message", "Thanh toan thanh cong!");
-            result.put("orderCode", orderCode);
+        if (!isValid) {
+            status = "error";
+            message = "Chu ky khong hop le!";
         } else {
-            vnPayService.updateOrderPaymentStatus(orderCode, "FAILED", null);
-            result.put("status", "failed");
-            result.put("message", "Thanh toan that bai!");
-            result.put("orderCode", orderCode);
+            String vnpResponseCode = params.get("vnp_ResponseCode");
+
+            if ("00".equals(vnpResponseCode)) {
+                vnPayService.updateOrderPaymentStatus(orderCode, "PAID", params.get("vnp_TransactionNo"));
+                status = "success";
+                message = "Thanh toan thanh cong!";
+            } else {
+                vnPayService.updateOrderPaymentStatus(orderCode, "FAILED", null);
+                status = "failed";
+                message = "Thanh toan that bai! Ma loi: " + vnpResponseCode;
+            }
         }
 
-        return ResponseEntity.ok(result);
+        // Redirect ve frontend page voi query params
+        String frontendRedirectUrl = frontendUrl
+                + "/payment-result"
+                + "?status=" + status
+                + "&message=" + URLEncoder.encode(message, StandardCharsets.UTF_8)
+                + "&orderCode=" + URLEncoder.encode(orderCode != null ? orderCode : "", StandardCharsets.UTF_8);
+
+        response.sendRedirect(frontendRedirectUrl);
     }
 
     @PostMapping("/vnpay-ipn")

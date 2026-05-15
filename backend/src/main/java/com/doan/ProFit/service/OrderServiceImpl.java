@@ -55,11 +55,16 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderResponse createOrder(OrderRequest request, String email) {
-        // 1. Tìm user đang đặt hàng dựa vào email trong Token
+        // 1. Validate request
+        if (request.getItems() == null || request.getItems().isEmpty()) {
+            throw new IllegalArgumentException("Items cannot be null or empty");
+        }
+
+        // 2. Tìm user đang đặt hàng dựa vào email trong Token
         User user = userRepository.findByEmailOrPhone(email, email)
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
 
-        // 2. Khởi tạo một đơn hàng mới (Order) và điền thông tin giao hàng
+        // 3. Khởi tạo một đơn hàng mới (Order) và điền thông tin giao hàng
         Order order = new Order();
         order.setUser(user);
         // Tạo mã đơn hàng ngẫu nhiên (ví dụ: ORD-A1B2C3D4)
@@ -70,11 +75,20 @@ public class OrderServiceImpl implements OrderService {
         order.setShippingCity(request.getShippingCity());
         order.setShippingProvince(request.getShippingProvince());
         order.setNote(request.getNote());
+        order.setPayMethod(request.getPayMethod() != null ? request.getPayMethod() : "cod");
 
         BigDecimal total = BigDecimal.ZERO;
 
-        // 3. Duyệt qua từng sản phẩm trong giỏ hàng gửi lên
+        // 5. Duyệt qua từng sản phẩm trong giỏ hàng gửi lên
         for (OrderItemRequest itemReq : request.getItems()) {
+            // Validate productId
+            if (itemReq.getProductId() == null) {
+                throw new IllegalArgumentException("Product ID cannot be null");
+            }
+            if (itemReq.getQuantity() == null || itemReq.getQuantity() <= 0) {
+                throw new IllegalArgumentException("Quantity must be greater than 0");
+            }
+
             // Phải query thẳng vào DB để lấy giá sản phẩm chính xác, KHÔNG tin tưởng giá do FE gửi lên (chống hack)
             Product product = productRepository.findById(itemReq.getProductId())
                     .orElseThrow(() -> new IllegalArgumentException("Product not found: " + itemReq.getProductId()));
@@ -94,17 +108,22 @@ public class OrderServiceImpl implements OrderService {
             total = total.add(item.getLineTotal()); // Cộng dồn vào tổng tiền đơn hàng
         }
 
-        // 4. Lưu tổng tiền
+        // 5. Lưu tổng tiền
         order.setSubtotal(total);
         order.setTotalAmount(total); // Ở đây đang tạm giản lược chưa cộng phí ship hay trừ mã giảm giá
 
-        // 5. Lưu xuống Database (Nhờ cấu hình CascadeType.ALL, nó sẽ tự động lưu luôn các OrderItem bên trong)
+        // 6. Lưu xuống Database (Nhờ cấu hình CascadeType.ALL, nó sẽ tự động lưu luôn các OrderItem bên trong)
         Order saved = orderRepository.save(order);
         return mapToResponse(saved);
     }
 
     @Override
     public OrderResponse createGuestOrder(GuestOrderRequest request) {
+        // Validate request
+        if (request.getItems() == null || request.getItems().isEmpty()) {
+            throw new IllegalArgumentException("Items cannot be null or empty");
+        }
+
         // Khởi tạo đơn hàng cho khách vãng lai (không liên kết với user)
         Order order = new Order();
         order.setUser(null); // Khách vãng lai
@@ -115,11 +134,20 @@ public class OrderServiceImpl implements OrderService {
         order.setShippingCity(request.getShippingCity());
         order.setShippingProvince(request.getShippingProvince());
         order.setNote(request.getNote());
+        order.setPayMethod(request.getPayMethod() != null ? request.getPayMethod() : "cod");
 
         BigDecimal total = BigDecimal.ZERO;
 
         // Duyệt qua từng sản phẩm
         for (OrderItemRequest itemReq : request.getItems()) {
+            // Validate
+            if (itemReq.getProductId() == null) {
+                throw new IllegalArgumentException("Product ID cannot be null");
+            }
+            if (itemReq.getQuantity() == null || itemReq.getQuantity() <= 0) {
+                throw new IllegalArgumentException("Quantity must be greater than 0");
+            }
+
             Product product = productRepository.findById(itemReq.getProductId())
                     .orElseThrow(() -> new IllegalArgumentException("Product not found: " + itemReq.getProductId()));
 
@@ -171,6 +199,7 @@ public class OrderServiceImpl implements OrderService {
         response.setTotalAmount(order.getTotalAmount());
         response.setStatus(order.getStatus());
         response.setPaymentStatus(order.getPaymentStatus());
+        response.setPayMethod(order.getPayMethod());
         response.setPlacedAt(order.getPlacedAt());
         if (order.getUser() != null) {
             response.setUserName(order.getUser().getFullName());

@@ -30,13 +30,15 @@ public class VNPayService {
         String vnpIpAddr = "127.0.0.1";
         String vnpCurrCode = "VND";
         String vnpLocale = "vn";
-        long amountLong = amount.multiply(BigDecimal.valueOf(100)).longValue();
+        // Chuyển BigDecimal sang String, bỏ scale 2 (VD: 120000.00 -> "120000")
+        // KHONG nhan 100 - VNPay yeu cau so tien theo don vi VND, khong phai "xu"
+        String vnpAmount = amount.stripTrailingZeros().toPlainString();
 
         Map<String, String> vnpParams = new LinkedHashMap<>();
         vnpParams.put("vnp_Version", vnpVersion);
         vnpParams.put("vnp_Command", vnpCommand);
         vnpParams.put("vnp_TmnCode", vnPayConfig.getVnpTmnCode());
-        vnpParams.put("vnp_Amount", String.valueOf(amountLong));
+        vnpParams.put("vnp_Amount", vnpAmount);
         vnpParams.put("vnp_CurrCode", vnpCurrCode);
         vnpParams.put("vnp_TxnRef", vnpTxnRef);
         vnpParams.put("vnp_OrderType", vnpOrderType);
@@ -73,18 +75,22 @@ public class VNPayService {
     }
 
     public void updateOrderPaymentStatus(String orderCode, String paymentStatus, String transactionNo) {
-        List<Order> orders = orderRepository.findAll();
-        for (Order order : orders) {
-            if (order.getOrderCode().equals(orderCode)) {
-                order.setPaymentStatus(paymentStatus);
-                if ("PAID".equals(paymentStatus)) {
-                    order.setStatus("CONFIRMED");
-                }
-                orderRepository.save(order);
-                return;
-            }
+        Order order = orderRepository.findByOrderCode(orderCode)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found: " + orderCode));
+
+        // Tránh update trùng lặp IPN - nếu đơn đã được xử lý rồi thì bỏ qua
+        if ("PAID".equals(order.getPaymentStatus()) && "PAID".equals(paymentStatus)) {
+            return; // Đơn đã được thanh toán, bỏ qua duplicate IPN
         }
-        throw new IllegalArgumentException("Order not found: " + orderCode);
+        if ("FAILED".equals(order.getPaymentStatus()) && "FAILED".equals(paymentStatus)) {
+            return; // Đơn đã được đánh dấu thất bại, bỏ qua
+        }
+
+        order.setPaymentStatus(paymentStatus);
+        if ("PAID".equals(paymentStatus)) {
+            order.setStatus("CONFIRMED");
+        }
+        orderRepository.save(order);
     }
 
     public String getResponseCode(String vnpResponseCode) {

@@ -6,7 +6,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { formatPrice } from "../data/products";
 import { ShoppingCart, Loader2, Banknote, Landmark, Smartphone, AlertCircle } from "lucide-react";
-import { apiCreateOrder, apiCreateGuestOrder, isLoggedIn } from "../utils/api";
+import { apiCreateOrder, apiCreateGuestOrder, apiCreatePaymentUrl, isLoggedIn } from "../utils/api";
 
 const DEFAULT_USER_INFO = {
   fullName: "",
@@ -88,71 +88,55 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
     setOrderError(null);
 
     try {
-      // Nếu đã đăng nhập -> gọi API tạo đơn ở BE
-      if (isLoggedIn()) {
-        const orderData = {
-          recipientName: userInfo.fullName,
-          recipientPhone: userInfo.phone,
-          shippingAddressLine1: `${userInfo.address}${userInfo.district ? ', ' + userInfo.district : ''}`,
-          shippingCity: userInfo.city,
-          shippingProvince: userInfo.province || userInfo.city,
-          note: userInfo.note || "",
-          items: cart.map((item) => ({
-            productId: item.product.id,
-            quantity: item.qty,
-          })),
-        };
+      // Chuẩn bị dữ liệu order chung
+      const baseOrderData = {
+        recipient_name: userInfo.fullName,
+        recipient_phone: userInfo.phone,
+        shipping_address_line1: `${userInfo.address}${userInfo.district ? ', ' + userInfo.district : ''}`,
+        shipping_city: userInfo.city,
+        shipping_province: userInfo.province || userInfo.city,
+        note: userInfo.note || "",
+        pay_method: payMethod,
+        items: cart.map((item) => ({
+          product_id: item.product.id,
+          quantity: item.qty,
+        })),
+      };
 
-        const result = await apiCreateOrder(orderData);
+      // Tạo đơn hàng
+      const result = isLoggedIn()
+        ? await apiCreateOrder(baseOrderData)
+        : await apiCreateGuestOrder(baseOrderData);
 
-        // Lưu order vào local orders (để hiển thị trong OrderPage)
-        const localOrder = {
-          ...result,
-          localCreated: true,
-          placedAt: new Date().toISOString(),
-        };
-        const savedLocal = localStorage.getItem("localOrders");
-        const localOrders = savedLocal ? JSON.parse(savedLocal) : [];
-        localOrders.push(localOrder);
-        localStorage.setItem("localOrders", JSON.stringify(localOrders));
+      // Lưu order vào local orders (để hiển thị trong OrderPage)
+      const localOrder = {
+        ...result,
+        localCreated: true,
+        placedAt: new Date().toISOString(),
+        guestOrder: !isLoggedIn(),
+      };
+      const savedLocal = localStorage.getItem("localOrders");
+      const localOrders = savedLocal ? JSON.parse(savedLocal) : [];
+      localOrders.push(localOrder);
+      localStorage.setItem("localOrders", JSON.stringify(localOrders));
 
-        showToast("Đặt hàng thành công!");
-        onPlaceOrder(localOrder);
-        navigate("order-success");
+      // LƯU ORDER HIỆN TẠI VÀO SESSION ĐỂ XỬ LÝ SAU KHI VNPAY QUAY VỀ
+      sessionStorage.setItem("pendingOrderId", String(result.id));
+      sessionStorage.setItem("pendingOrderCode", result.order_code || result.orderCode);
+      sessionStorage.setItem("pendingPayMethod", payMethod);
 
-      } else {
-        // Guest checkout - gọi API không cần đăng nhập
-        const guestOrderData = {
-          recipientName: userInfo.fullName,
-          recipientPhone: userInfo.phone,
-          shippingAddressLine1: `${userInfo.address}${userInfo.district ? ', ' + userInfo.district : ''}`,
-          shippingCity: userInfo.city,
-          shippingProvince: userInfo.province || userInfo.city,
-          note: userInfo.note || "",
-          items: cart.map((item) => ({
-            productId: item.product.id,
-            quantity: item.qty,
-          })),
-        };
-
-        const result = await apiCreateGuestOrder(guestOrderData);
-
-        const localOrder = {
-          ...result,
-          localCreated: true,
-          placedAt: new Date().toISOString(),
-          guestOrder: true,
-        };
-
-        const savedLocal = localStorage.getItem("localOrders");
-        const localOrders = savedLocal ? JSON.parse(savedLocal) : [];
-        localOrders.push(localOrder);
-        localStorage.setItem("localOrders", JSON.stringify(localOrders));
-
-        showToast("Đặt hàng thành công! Cảm ơn bạn đã mua sắm.");
-        onPlaceOrder(localOrder);
-        navigate("order-success");
+      // Nếu chọn VNPay → redirect sang trang thanh toán VNPay
+      if (payMethod === "vnpay") {
+        const { paymentUrl } = await apiCreatePaymentUrl(result.id);
+        // Mở trang thanh toán VNPay
+        window.location.href = paymentUrl;
+        return; // Dừng ở đây, không chuyển trang
       }
+
+      // COD hoặc Banking → hiển thị thành công ngay
+      showToast("Đặt hàng thành công!");
+      onPlaceOrder(localOrder);
+      navigate("order-success");
 
     } catch (err) {
       console.error("Lỗi khi đặt hàng:", err);
