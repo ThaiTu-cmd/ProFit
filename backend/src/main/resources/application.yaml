@@ -4,6 +4,9 @@ server:
     context-path: /ProFitSuppsDB
 
 spring:
+  profiles:
+    include: local
+
   datasource:
     #  LƯU Ý :
     # KHÔNG sửa password trực tiếp vào file application.yaml này để tránh bị đẩy lên Git.

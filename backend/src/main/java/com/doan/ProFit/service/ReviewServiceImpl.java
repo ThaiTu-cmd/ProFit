@@ -54,7 +54,7 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public List<ReviewResponse> getReviewsByProductId(Long productId) {
-        return reviewRepository.findByProductIdAndDeletedAtIsNullOrderByCreatedAtDesc(productId)
+        return reviewRepository.findByProductIdOrderByCreatedAtDesc(productId)
                 .stream()
                 .map(this::mapToResponse)
                 .collect(Collectors.toList());

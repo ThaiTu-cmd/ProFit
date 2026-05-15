@@ -10,14 +10,14 @@ import java.util.List;
 
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Long> {
-    List<Review> findByProductIdAndDeletedAtIsNullOrderByCreatedAtDesc(Long productId);
+    List<Review> findByProductIdOrderByCreatedAtDesc(Long productId);
     
     List<Review> findByUserIdOrderByCreatedAtDesc(Long userId);
     
-    @Query("SELECT AVG(r.rating) FROM Review r WHERE r.product.id = ?1 AND r.deletedAt IS NULL")
+    @Query("SELECT AVG(r.rating) FROM Review r WHERE r.product.id = ?1")
     BigDecimal getAverageRatingByProductId(Long productId);
     
-    @Query("SELECT COUNT(r) FROM Review r WHERE r.product.id = ?1 AND r.deletedAt IS NULL")
+    @Query("SELECT COUNT(r) FROM Review r WHERE r.product.id = ?1")
     Long countByProductId(Long productId);
     
     boolean existsByProductIdAndUserId(Long productId, Long userId);
