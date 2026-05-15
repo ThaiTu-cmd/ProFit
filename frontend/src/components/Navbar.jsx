@@ -67,6 +67,17 @@ const Navbar = ({ currentPage, navigate, cartCount, user, onLogout }) => {
               </button>
             )}
 
+            {/* Đơn hàng */}
+            <button
+              type="button"
+              className="btn-outline"
+              style={{ padding: "8px 14px", fontSize: 13 }}
+              onClick={() => navigate("orders")}
+              title="Lịch sử đơn hàng"
+            >
+              📦 Đơn hàng
+            </button>
+
             {/* Hồ sơ người dùng */}
             <button
               type="button"

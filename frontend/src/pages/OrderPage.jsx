@@ -1,12 +1,12 @@
 // =====================================================
 // pages/OrderPage.jsx – Lịch sử đơn hàng của người dùng
-// Props: navigate, onViewOrderDetail, user
+// Props: navigate, onViewOrderDetail, user, showToast
 // =====================================================
 
 import { useState, useEffect } from "react";
 import { formatPrice } from "../data/products";
-import { Package, Inbox, RefreshCw, Loader2 } from "lucide-react";
-import { apiGetMyOrders, isLoggedIn } from "../utils/api";
+import { Package, Inbox, RefreshCw, Loader2, X, RotateCcw } from "lucide-react";
+import { apiGetMyOrders, apiCancelOrder, isLoggedIn } from "../utils/api";
 
 // Nhãn trạng thái đơn hàng
 const STATUS_LABEL = {
@@ -16,6 +16,9 @@ const STATUS_LABEL = {
   DELIVERED: { text: "Đã nhận",      color: "var(--green)" },
   CANCELLED: { text: "Đã hủy",       color: "var(--red)" },
 };
+
+// Các trạng thái cho phép hủy
+const CANCELLABLE_STATUSES = ["pending"];
 
 // Format ngày từ LocalDateTime của Java
 const formatDate = (dateStr) => {
@@ -72,12 +75,14 @@ const transformOrderFromBE = (beOrder) => {
   };
 };
 
-const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
+const OrderPage = ({ navigate, onViewOrderDetail, user, showToast }) => {
   const [filter, setFilter] = useState("all");
   const [orders, setOrders] = useState([]);
   const [localOrders, setLocalOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [cancellingId, setCancellingId] = useState(null); // ID đơn đang hủy
+  const [showCancelConfirm, setShowCancelConfirm] = useState(null); // ID đơn cần xác nhận hủy
 
   // Load orders từ BE khi user đã đăng nhập
   useEffect(() => {
@@ -130,6 +135,43 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
   });
 
   const filtered = filter === "all" ? sortedOrders : sortedOrders.filter((o) => o.status === filter);
+
+  // Xử lý hủy đơn hàng
+  const handleCancelOrder = async (orderId) => {
+    if (!isLoggedIn()) {
+      showToast("Vui lòng đăng nhập để hủy đơn!");
+      return;
+    }
+
+    setCancellingId(orderId);
+    try {
+      await apiCancelOrder(orderId);
+      
+      // Cập nhật lại state orders
+      setOrders(prev => prev.map(o => 
+        o.id === orderId ? { ...o, status: "cancelled" } : o
+      ));
+      
+      showToast("Đơn hàng đã được hủy. Tồn kho đã được hoàn lại.");
+      setShowCancelConfirm(null);
+    } catch (err) {
+      console.error("Lỗi khi hủy đơn:", err);
+      showToast(err.message || "Hủy đơn thất bại!");
+    } finally {
+      setCancellingId(null);
+    }
+  };
+
+  // Mở dialog xác nhận hủy
+  const openCancelConfirm = (orderId, e) => {
+    e?.stopPropagation();
+    setShowCancelConfirm(orderId);
+  };
+
+  // Đóng dialog xác nhận hủy
+  const closeCancelConfirm = () => {
+    setShowCancelConfirm(null);
+  };
 
   // Loading state
   if (loading) {
@@ -300,9 +342,36 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
                         {formatPrice(typeof order.totalAmount === 'number' ? order.totalAmount : parseFloat(order.totalAmount))}
                       </span>
                     </div>
-                    <div style={{ display: "flex", gap: 10 }}>
+                    <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+                      {/* Nút Hủy đơn - chỉ hiển thị khi đơn ở trạng thái cho phép hủy */}
+                      {CANCELLABLE_STATUSES.includes(order.status?.toLowerCase()) && !order.localCreated && (
+                        <button
+                          className="btn-outline"
+                          style={{
+                            padding: "8px 16px",
+                            fontSize: 13,
+                            borderColor: "var(--red)",
+                            color: "var(--red)",
+                          }}
+                          onClick={(e) => openCancelConfirm(order.id, e)}
+                          disabled={cancellingId === order.id}
+                        >
+                          {cancellingId === order.id ? (
+                            <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                              <Loader2 size={14} className="spinning" />
+                              Đang hủy...
+                            </span>
+                          ) : (
+                            <span style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                              <X size={14} />
+                              Hủy đơn
+                            </span>
+                          )}
+                        </button>
+                      )}
                       {order.status === "delivered" && (
                         <button className="btn-outline" style={{ padding: "8px 16px", fontSize: 13 }}>
+                          <RotateCcw size={14} style={{ marginRight: 4 }} />
                           Mua lại
                         </button>
                       )}
@@ -318,6 +387,89 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
           </div>
         )}
       </section>
+
+      {/* Dialog xác nhận hủy đơn */}
+      {showCancelConfirm && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: "rgba(0,0,0,0.7)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000,
+          }}
+          onClick={closeCancelConfirm}
+        >
+          <div
+            style={{
+              background: "var(--dark)",
+              border: "1px solid #333",
+              borderRadius: 12,
+              padding: 24,
+              maxWidth: 400,
+              width: "90%",
+              textAlign: "center",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{
+              width: 60,
+              height: 60,
+              borderRadius: "50%",
+              background: "rgba(239, 68, 68, 0.1)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              margin: "0 auto 16px",
+            }}>
+              <X size={32} color="var(--red)" />
+            </div>
+            <h3 style={{ margin: "0 0 8px", color: "var(--white)" }}>Xác nhận hủy đơn hàng?</h3>
+            <p style={{ color: "var(--gray)", marginBottom: 24 }}>
+              Khi hủy đơn, sản phẩm sẽ được hoàn lại vào kho. Bạn có chắc chắn muốn hủy đơn này không?
+            </p>
+            <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
+              <button
+                className="btn-outline"
+                style={{ padding: "10px 24px", flex: 1 }}
+                onClick={closeCancelConfirm}
+                disabled={cancellingId === showCancelConfirm}
+              >
+                Không, giữ đơn
+              </button>
+              <button
+                style={{
+                  padding: "10px 24px",
+                  flex: 1,
+                  background: "var(--red)",
+                  color: "white",
+                  border: "none",
+                  borderRadius: 6,
+                  fontWeight: 600,
+                  cursor: cancellingId === showCancelConfirm ? "not-allowed" : "pointer",
+                  opacity: cancellingId === showCancelConfirm ? 0.7 : 1,
+                }}
+                onClick={() => handleCancelOrder(showCancelConfirm)}
+                disabled={cancellingId === showCancelConfirm}
+              >
+                {cancellingId === showCancelConfirm ? (
+                  <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
+                    <Loader2 size={16} className="spinning" />
+                    Đang hủy...
+                  </span>
+                ) : (
+                  "Có, hủy đơn"
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

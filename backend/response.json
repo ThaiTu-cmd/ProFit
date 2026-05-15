@@ -1,0 +1,26 @@
+﻿{
+    "value":  [
+                  {
+                      "created_at":  "2026-05-13T22:06:59",
+                      "id":  1,
+                      "is_active":  true,
+                      "name":  "Whey Protein",
+                      "slug":  "whey-protein"
+                  },
+                  {
+                      "created_at":  "2026-05-13T22:06:59",
+                      "id":  2,
+                      "is_active":  true,
+                      "name":  "Pre-Workout",
+                      "slug":  "pre-workout"
+                  },
+                  {
+                      "created_at":  "2026-05-13T22:06:59",
+                      "id":  3,
+                      "is_active":  true,
+                      "name":  "Vitamin \u0026 KhoÃ¡ng Cháº¥t",
+                      "slug":  "vitamin"
+                  }
+              ],
+    "Count":  3
+}

@@ -15,6 +15,7 @@ import com.doan.ProFit.repository.ProductRepository;
 import com.doan.ProFit.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -54,6 +55,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public OrderResponse createOrder(OrderRequest request, String email) {
         // 1. Validate request
         if (request.getItems() == null || request.getItems().isEmpty()) {
@@ -76,6 +78,8 @@ public class OrderServiceImpl implements OrderService {
         order.setShippingProvince(request.getShippingProvince());
         order.setNote(request.getNote());
         order.setPayMethod(request.getPayMethod() != null ? request.getPayMethod() : "cod");
+        order.setStatus("PENDING");
+        order.setPaymentStatus("UNPAID");
 
         BigDecimal total = BigDecimal.ZERO;
 
@@ -92,6 +96,14 @@ public class OrderServiceImpl implements OrderService {
             // Phải query thẳng vào DB để lấy giá sản phẩm chính xác, KHÔNG tin tưởng giá do FE gửi lên (chống hack)
             Product product = productRepository.findById(itemReq.getProductId())
                     .orElseThrow(() -> new IllegalArgumentException("Product not found: " + itemReq.getProductId()));
+
+            // ====== KIỂM TRA & TRỪ TỒN KHO ======
+            if (product.getStockQuantity() < itemReq.getQuantity()) {
+                throw new IllegalArgumentException("Sản phẩm '" + product.getName() + "' chỉ còn " + product.getStockQuantity() + " trong kho. Vui lòng giảm số lượng.");
+            }
+            product.setStockQuantity(product.getStockQuantity() - itemReq.getQuantity());
+            productRepository.save(product);
+            // ====== KẾT THÚC TỒN KHO ======
             
             OrderItem item = new OrderItem();
             item.setOrder(order); // Liên kết item này thuộc về order nào
@@ -118,6 +130,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public OrderResponse createGuestOrder(GuestOrderRequest request) {
         // Validate request
         if (request.getItems() == null || request.getItems().isEmpty()) {
@@ -135,6 +148,8 @@ public class OrderServiceImpl implements OrderService {
         order.setShippingProvince(request.getShippingProvince());
         order.setNote(request.getNote());
         order.setPayMethod(request.getPayMethod() != null ? request.getPayMethod() : "cod");
+        order.setStatus("PENDING");
+        order.setPaymentStatus("UNPAID");
 
         BigDecimal total = BigDecimal.ZERO;
 
@@ -150,6 +165,14 @@ public class OrderServiceImpl implements OrderService {
 
             Product product = productRepository.findById(itemReq.getProductId())
                     .orElseThrow(() -> new IllegalArgumentException("Product not found: " + itemReq.getProductId()));
+
+            // ====== KIỂM TRA & TRỪ TỒN KHO ======
+            if (product.getStockQuantity() < itemReq.getQuantity()) {
+                throw new IllegalArgumentException("Sản phẩm '" + product.getName() + "' chỉ còn " + product.getStockQuantity() + " trong kho. Vui lòng giảm số lượng.");
+            }
+            product.setStockQuantity(product.getStockQuantity() - itemReq.getQuantity());
+            productRepository.save(product);
+            // ====== KẾT THÚC TỒN KHO ======
 
             OrderItem item = new OrderItem();
             item.setOrder(order);
@@ -172,9 +195,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional
     public OrderResponse updateOrderStatus(Long id, OrderStatusUpdateRequest request) {
         Order order = orderRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Order not found"));
+
+        String oldStatus = order.getStatus();
 
         if (request.getStatus() != null) {
             order.setStatus(request.getStatus());
@@ -182,6 +208,18 @@ public class OrderServiceImpl implements OrderService {
         if (request.getPaymentStatus() != null) {
             order.setPaymentStatus(request.getPaymentStatus());
         }
+
+        // ====== XỬ LÝ TỒN KHO KHI HỦY ĐƠN ======
+        if ("CANCELLED".equals(request.getStatus()) && !"CANCELLED".equals(oldStatus)) {
+            for (OrderItem item : order.getItems()) {
+                Product product = item.getProduct();
+                if (product != null) {
+                    product.setStockQuantity(product.getStockQuantity() + item.getQuantity());
+                    productRepository.save(product);
+                }
+            }
+        }
+        // ====== KẾT THÚC TỒN KHO ======
 
         Order saved = orderRepository.save(order);
         return mapToResponse(saved);

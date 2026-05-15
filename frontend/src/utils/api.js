@@ -114,6 +114,44 @@ export const apiGetMyOrders = async () => {
   return response.json();
 };
 
+/**
+ * Lấy đơn hàng theo ID
+ * @param {number} orderId - ID đơn hàng
+ * @returns {Promise} - Chi tiết đơn hàng
+ */
+export const apiGetOrderById = async (orderId) => {
+  const response = await fetch(`${API_BASE}/orders/${orderId}`, {
+    method: "GET",
+    headers: getAuthHeaders(),
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ message: "Không thể lấy thông tin đơn hàng" }));
+    throw new Error(err.message || "Không thể lấy thông tin đơn hàng");
+  }
+
+  return response.json();
+};
+
+/**
+ * Hủy đơn hàng (User)
+ * @param {number} orderId - ID đơn hàng cần hủy
+ * @returns {Promise} - Đơn hàng đã cập nhật
+ */
+export const apiCancelOrder = async (orderId) => {
+  const response = await fetch(`${API_BASE}/orders/${orderId}/cancel`, {
+    method: "PUT",
+    headers: getAuthHeaders(),
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ message: "Không thể hủy đơn hàng" }));
+    throw new Error(err.message || "Không thể hủy đơn hàng");
+  }
+
+  return response.json();
+};
+
 // =====================================================
 // REVIEW API
 // =====================================================
