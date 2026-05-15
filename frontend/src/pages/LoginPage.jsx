@@ -4,10 +4,11 @@
 // =====================================================
 
 import { useState } from "react";
+import { apiLogin } from "../utils/api";
 
 const LoginPage = ({ onLogin, navigate }) => {
-  const [form, setForm]     = useState({ email: "admin@profit.com", password: "Admin@123" });
-  const [error, setError]   = useState("");
+  const [form, setForm] = useState({ email: "admin@profit.com", password: "Admin@123" });
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
@@ -21,36 +22,34 @@ const LoginPage = ({ onLogin, navigate }) => {
 
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:8080/ProFitSuppsDB/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: form.email,
-          password: form.password,
-          rememberMe: false
-        })
-      });
+      const data = await apiLogin(form.email, form.password);
 
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.message || "Tài khoản hoặc mật khẩu không đúng.");
-      }
-
-      // Đăng nhập thành công -> Lưu JWT Token vào LocalStorage
+      // Đăng nhập thành công -> Lưu JWT Token
       localStorage.setItem("token", data.token);
-      
-      // Update global state based on role returned from backend
-      const userRole = data.role ? data.role.toLowerCase() : "user";
-      onLogin({ email: data.username, role: userRole, token: data.token });
-      
+
+      // Tạo user object với đầy đủ thông tin
+      const userData = {
+        email: data.username || form.email,
+        role: data.role ? data.role.toLowerCase() : "user",
+        token: data.token,
+        // Lưu thêm thông tin nếu BE trả về
+        name: data.fullName || data.name || data.username?.split('@')[0] || "",
+        phone: data.phone || "",
+      };
+
+      // Lưu user vào localStorage (App.jsx sẽ đọc và sync)
+      localStorage.setItem("user", JSON.stringify(userData));
+
+      // Update global state
+      onLogin(userData);
+
       // Chuyển hướng theo role
-      if (userRole === "admin") {
+      if (userData.role === "admin") {
         navigate("admin-dashboard");
       } else {
         navigate("home");
       }
-      
+
     } catch (err) {
       setError(err.message);
     } finally {
@@ -79,14 +78,14 @@ const LoginPage = ({ onLogin, navigate }) => {
           <label className="form-label">Email</label>
           <input className="form-input" type="email" name="email" placeholder="email@example.com"
             value={form.email} onChange={handleChange}
-            onKeyDown={(e) => e.key === "Enter" && handleSubmit()} />
+            onKeyDown={(e) => { if (e.key === "Enter") handleSubmit(); }} />
         </div>
 
         <div className="form-group">
           <label className="form-label">Mật khẩu</label>
           <input className="form-input" type="password" name="password" placeholder="••••••••"
             value={form.password} onChange={handleChange}
-            onKeyDown={(e) => e.key === "Enter" && handleSubmit()} />
+            onKeyDown={(e) => { if (e.key === "Enter") handleSubmit(); }} />
         </div>
 
         {/* Quên mật khẩu */}

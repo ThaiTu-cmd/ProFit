@@ -31,14 +31,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponse getUserProfile(String email) {
-        User user = userRepository.findByEmailOrPhone(email, email)
+        User user = userRepository.findByEmail(email.trim())
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
         return toResponse(user);
     }
 
     @Override
     public UserResponse updateUserProfile(String email, UserUpdateRequest request) {
-        User user = userRepository.findByEmailOrPhone(email, email)
+        User user = userRepository.findByEmail(email.trim())
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
 
         if (request.getFullName() != null && !request.getFullName().isBlank()) {

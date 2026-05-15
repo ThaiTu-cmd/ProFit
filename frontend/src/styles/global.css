@@ -370,6 +370,15 @@ footer {
   50%       { transform: translateY(-14px); }
 }
 
+/* Spinning animation for loaders */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
 /* ===== PRODUCT & CATEGORY GRIDS ===== */
 .product-grid  { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .category-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
