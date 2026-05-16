@@ -11,10 +11,10 @@ import { apiGetMyOrders, apiCancelOrder, isLoggedIn } from "../utils/api";
 // Nhãn trạng thái đơn hàng
 const STATUS_LABEL = {
   PENDING:   { text: "Chờ xác nhận", color: "#f59e0b" },
-  CONFIRMED: { text: "Đã xác nhận",  color: "#3b82f6" },
-  SHIPPING:  { text: "Đang giao",    color: "#8b5cf6" },
-  DELIVERED: { text: "Đã nhận",      color: "var(--green)" },
-  CANCELLED: { text: "Đã hủy",       color: "var(--red)" },
+  CONFIRMED: { text: "Đã xác nhận",  color: "#22c55e" },
+  SHIPPED:   { text: "Đang giao",    color: "#8b5cf6" },
+  COMPLETED: { text: "Hoàn tất",      color: "var(--green)" },
+  CANCELLED: { text: "Đã hủy",        color: "var(--red)" },
 };
 
 // Các trạng thái cho phép hủy
@@ -247,12 +247,12 @@ const OrderPage = ({ navigate, onViewOrderDetail, user, showToast }) => {
         {/* Filter tabs */}
         <div className="order-tabs">
           {[
-            { key: "all",       label: "Tất cả" },
-            { key: "pending",   label: "Chờ xác nhận" },
-            { key: "confirmed", label: "Đã xác nhận" },
-            { key: "shipping",  label: "Đang giao" },
-            { key: "delivered", label: "Đã nhận" },
-            { key: "cancelled", label: "Đã hủy" },
+            { key: "all",        label: "Tất cả" },
+            { key: "pending",    label: "Chờ xác nhận" },
+            { key: "confirmed",  label: "Đã xác nhận" },
+            { key: "shipped",    label: "Đang giao" },
+            { key: "completed",  label: "Hoàn tất" },
+            { key: "cancelled",  label: "Đã hủy" },
           ].map((tab) => (
             <button
               key={tab.key}
@@ -299,6 +299,24 @@ const OrderPage = ({ navigate, onViewOrderDetail, user, showToast }) => {
                       {st.text}
                     </div>
                   </div>
+
+                  {/* Thông báo khi đơn đã xác nhận */}
+                  {(order.status === "confirmed" || order.status === "CONFIRMED") && (
+                    <div style={{
+                      background: "rgba(59, 130, 246, 0.1)",
+                      borderLeft: "3px solid #3b82f6",
+                      padding: "12px 16px",
+                      margin: "0 16px 12px",
+                      borderRadius: "0 8px 8px 0",
+                    }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                        <span style={{ fontSize: 18 }}>✅</span>
+                        <span style={{ color: "var(--white)", fontSize: 13 }}>
+                          <strong>Admin đã xác nhận!</strong> Bạn sẽ chờ trong <strong>3-5 ngày</strong> để nhận hàng.
+                        </span>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Sản phẩm */}
                   <div className="order-items-preview">

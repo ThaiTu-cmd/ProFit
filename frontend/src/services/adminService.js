@@ -172,7 +172,7 @@ export const adminService = {
         const res = await fetch(`${ADMIN_API_URL}/order/${id}/status`, {
             method: 'PUT',
             headers: getDefaultHeaders(),
-            body: JSON.stringify(data)
+            body: JSON.stringify({ order_status: data.status, payment_status: data.paymentStatus })
         });
         if (!res.ok) throw new Error('Failed to update order status');
         return res.json();

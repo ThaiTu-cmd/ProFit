@@ -5,35 +5,46 @@ const formatPrice = (price) => {
   return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price || 0);
 };
 
+const formatDate = (dateStr) => {
+  if (!dateStr) return "—";
+  try {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("vi-VN", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  } catch {
+    return dateStr;
+  }
+};
+
 const STATUS_LIST = [
-  { key: "all",       label: "Tất cả"        },
-  { key: "PENDING",   label: "Chờ xác nhận"  },
-  { key: "PAID",      label: "Đã thanh toán" },
-  { key: "PROCESSING",label: "Đang xử lý"    },
-  { key: "SHIPPED",   label: "Đang giao"     },
-  { key: "COMPLETED", label: "Hoàn tất"      },
-  { key: "CANCELED",  label: "Đã hủy"        },
-  { key: "REFUNDED",  label: "Hoàn tiền"     },
+  { key: "all",       label: "Tất cả",       color: "var(--white)"      },
+  { key: "PENDING",   label: "Chờ xác nhận", color: "#f59e0b"          },
+  { key: "CONFIRMED", label: "Đã xác nhận",  color: "#22c55e"          },
+  { key: "SHIPPED",   label: "Đang giao",    color: "#8b5cf6"          },
+  { key: "COMPLETED", label: "Hoàn tất",      color: "var(--green)"      },
+  { key: "CANCELLED", label: "Đã hủy",       color: "var(--red)"        },
 ];
 
 const STATUS_NEXT = {
-  PENDING:   "PAID",
-  PAID:      "PROCESSING",
-  PROCESSING:"SHIPPED",
+  PENDING:   "CONFIRMED",
+  CONFIRMED: "SHIPPED",
   SHIPPED:   "COMPLETED",
 };
 
 const STATUS_COLOR = {
   PENDING:   "#f59e0b",
-  PAID:      "#3b82f6",
-  PROCESSING:"#8b5cf6",
-  SHIPPED:   "#10b981",
+  CONFIRMED: "#22c55e",
+  SHIPPED:   "#8b5cf6",
   COMPLETED: "var(--green)",
-  CANCELED:  "var(--red)",
-  REFUNDED:  "#ef4444",
+  CANCELLED: "var(--red)",
 };
 
-const OrderManagePage = ({ showToast }) => {
+const OrderManagePage = ({ showToast, navigate }) => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
@@ -79,7 +90,7 @@ const OrderManagePage = ({ showToast }) => {
   const handleCancel = async (orderId) => {
     if (!window.confirm("Bạn có chắc muốn hủy đơn hàng này?")) return;
     try {
-      await adminService.updateOrderStatus(orderId, { status: "CANCELED" });
+      await adminService.updateOrderStatus(orderId, { status: "CANCELLED" });
       showToast(`🗑 Đã hủy đơn #${orderId}`);
       fetchOrders();
     } catch (error) {
@@ -89,22 +100,52 @@ const OrderManagePage = ({ showToast }) => {
 
   return (
     <div className="section">
-      <div style={{ marginBottom: 28 }}>
+      <div style={{ marginBottom: 28, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <button
+          onClick={() => navigate("admin-dashboard")}
+          style={{
+            background: "transparent",
+            border: "1px solid var(--gray)",
+            color: "var(--gray)",
+            padding: "8px 16px",
+            borderRadius: 8,
+            cursor: "pointer",
+            fontSize: 14,
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
+          }}
+        >
+          ← Quay lại
+        </button>
         <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 32, letterSpacing: 2 }}>
           QUẢN LÝ <span style={{ color: "var(--primary)" }}>ĐƠN HÀNG</span>
         </h2>
+        <div style={{ width: 80 }}></div>
       </div>
 
       <div className="order-tabs" style={{ marginBottom: 20 }}>
-        {STATUS_LIST.map((tab) => (
-          <button key={tab.key} className={`order-tab ${filter === tab.key ? "active" : ""}`}
-            onClick={() => setFilter(tab.key)}>
-            {tab.label}
-            <span style={{ marginLeft: 6, fontSize: 11, background: "var(--dark3)", padding: "2px 7px", borderRadius: 10 }}>
-              {countByStatus(tab.key)}
-            </span>
-          </button>
-        ))}
+        {STATUS_LIST.map((tab) => {
+          const count = countByStatus(tab.key);
+          const isActive = filter === tab.key;
+          return (
+            <button key={tab.key} 
+              className={`order-tab ${isActive ? "active" : ""}`}
+              style={{
+                ...(isActive && tab.key !== "all" ? {
+                  background: `${tab.color}20`,
+                  borderColor: tab.color,
+                  color: tab.color,
+                } : {}),
+              }}
+              onClick={() => setFilter(tab.key)}>
+              {tab.label}
+              <span style={{ marginLeft: 6, fontSize: 11, background: "var(--dark3)", padding: "2px 7px", borderRadius: 10 }}>
+                {count}
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       <div className="filter-bar" style={{ marginBottom: 20 }}>
@@ -131,7 +172,7 @@ const OrderManagePage = ({ showToast }) => {
 
             return (
               <div key={order.id} style={{ background: "var(--card-bg)", borderRadius: 14, border: "1px solid #2a2a2a", overflow: "hidden" }}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr auto", gap: 16, padding: "16px 20px", alignItems: "center", cursor: "pointer" }}
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr auto", gap: 16, padding: "16px 20px", alignItems: "center", cursor: "pointer" }}
                   onClick={() => setExpandedId(isExpanded ? null : order.id)}>
 
                   <div>
@@ -144,8 +185,12 @@ const OrderManagePage = ({ showToast }) => {
                     <div style={{ fontSize: 12, color: "var(--gray)" }}>{order.recipientPhone}</div>
                   </div>
                   <div>
-                    <div style={{ fontSize: 13, color: "var(--gray)" }}>Tổng tiền</div>
-                    <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: "var(--primary)" }}>{formatPrice(order.totalAmount)}</div>
+                    <div style={{ fontSize: 13, color: "var(--gray)" }}>Người đặt</div>
+                    <div style={{ fontWeight: 600, color: "var(--white)" }}>{order.userName || "Khách vãng lai"}</div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: 13, color: "var(--gray)" }}>Ngày đặt</div>
+                    <div style={{ fontSize: 12, color: "var(--white)" }}>{formatDate(order.placedAt)}</div>
                   </div>
                   <div>
                     <div style={{ fontSize: 13, color: "var(--gray)", marginBottom: 4 }}>Trạng thái</div>
@@ -158,7 +203,8 @@ const OrderManagePage = ({ showToast }) => {
 
                 {isExpanded && (
                   <div style={{ borderTop: "1px solid #2a2a2a", padding: "20px 20px" }}>
-                    <div style={{ marginBottom: 20 }}>
+                    <div style={{ marginBottom: 16 }}>
+                      <div style={{ fontSize: 13, color: "var(--gray)", marginBottom: 8 }}>📦 Sản phẩm:</div>
                       {order.items?.map((item) => (
                         <div key={item.id} style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 10 }}>
                           <span style={{ flex: 1, fontSize: 13, color: "var(--white)" }}>{item.productName} (SKU: {item.productSku})</span>
@@ -168,18 +214,23 @@ const OrderManagePage = ({ showToast }) => {
                       ))}
                     </div>
 
-                    <div style={{ fontSize: 13, color: "var(--gray)", marginBottom: 20 }}>
-                      📍 {order.shippingAddressLine1}, {order.shippingCity}, {order.shippingProvince}
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
+                      <div style={{ fontSize: 13, color: "var(--gray)" }}>
+                        💰 <strong style={{ color: "var(--white)" }}>Tổng tiền:</strong> {formatPrice(order.totalAmount)}
+                      </div>
+                      <div style={{ fontSize: 13, color: "var(--gray)" }}>
+                        📍 <strong style={{ color: "var(--white)" }}>Địa chỉ:</strong> {order.shippingAddressLine1}, {order.shippingCity}, {order.shippingProvince}
+                      </div>
                     </div>
 
                     <div style={{ display: "flex", gap: 10 }}>
                       {nextStatus && (
                         <button className="btn-primary" style={{ padding: "10px 20px", fontSize: 13 }}
                           onClick={() => handleUpdateStatus(order.id, nextStatus)}>
-                          → Chuyển sang: {STATUS_LIST.find(s => s.key === nextStatus)?.label}
+                          ✓ Xác nhận đơn
                         </button>
                       )}
-                      {order.status !== "COMPLETED" && order.status !== "CANCELED" && order.status !== "REFUNDED" && (
+                      {order.status !== "COMPLETED" && order.status !== "CANCELLED" && order.status !== "REFUNDED" && (
                         <button className="btn-danger" onClick={() => handleCancel(order.id)}>Hủy đơn</button>
                       )}
                     </div>

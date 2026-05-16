@@ -82,5 +82,139 @@
 - [x] Test: Tạo data mẫu - HOÀN THÀNH
 
 ---
-Ngày cập nhật: 15/05/2026 - 23:17
-Người thực hiện: Thành viên 2 (Backend & Frontend)
+
+## PHẦN CẬP NHẬT: Issue #3.1 - Đơn giản hóa quy trình xác nhận đơn hàng
+
+### 1. Mô tả thay đổi
+- Đơn giản hóa luồng trạng thái đơn hàng cho admin
+- Thay vì: PENDING → PAID → PROCESSING → SHIPPED → COMPLETED
+- Thành: PENDING → CONFIRMED → SHIPPED → COMPLETED
+
+### 2. Thay đổi Backend
+- Không cần thay đổi code backend (đã dùng status động từ request)
+
+### 3. Thay đổi Frontend
+
+#### A. Admin - OrderManagePage.jsx
+- Loại bỏ: `PAID`, `PROCESSING`, `REFUNDED` khỏi STATUS_LIST
+- Thêm: `CONFIRMED` vào danh sách trạng thái
+- Cập nhật STATUS_NEXT:
+  ```
+  PENDING → CONFIRMED → SHIPPED → COMPLETED
+  ```
+- Cập nhật STATUS_COLOR:
+  ```
+  PENDING: "#f59e0b"
+  CONFIRMED: "#3b82f6"
+  SHIPPED: "#8b5cf6"
+  ```
+
+#### B. User - OrderPage.jsx
+- Thêm **thông báo xác nhận** hiển thị khi đơn ở trạng thái "Đã xác nhận":
+  > ✅ **Admin đã xác nhận!** Bạn sẽ chờ trong **3-5 ngày** để nhận hàng.
+- Cập nhật STATUS_LABEL:
+  ```
+  PENDING: "Chờ xác nhận"
+  CONFIRMED: "Đã xác nhận"
+  SHIPPED: "Đang giao"
+  COMPLETED: "Hoàn tất"
+  CANCELLED: "Đã hủy"
+  ```
+- Cập nhật filter tabs: "Đang giao" thay vì "Đang vận chuyển"
+
+### 4. Luồng hoạt động mới
+
+1. **Admin xác nhận đơn** (PENDING → CONFIRMED) → User thấy thông báo "Admin đã xác nhận, bạn sẽ chờ trong 3-5 ngày"
+2. **Admin chuyển giao hàng** (CONFIRMED → SHIPPED)
+3. **Admin hoàn tất** (SHIPPED → COMPLETED)
+
+### 5. Tóm tắt Files đã sửa
+| STT | File | Mô tả |
+|-----|------|--------|
+| 1 | OrderManagePage.jsx | Đơn giản hóa luồng trạng thái admin |
+| 2 | OrderPage.jsx | Thêm thông báo xác nhận cho user |
+
+### 6. Trạng thái hoàn thành
+- [x] Backend: Không cần thay đổi - HOÀN THÀNH
+- [x] Frontend: Đơn giản hóa admin - HOÀN THÀNH
+- [x] Frontend: Thêm thông báo user - HOÀN THÀNH
+
+---
+
+## PHẦN CẬP NHẬT: Issue #3.2 - Thêm nút "Quay lại" cho các trang Admin
+
+### 1. Mô tả
+- Thêm nút "← Quay lại" ở header các trang admin để người dùng có thể quay về Dashboard
+
+### 2. Thay đổi Files
+
+#### A. App.jsx
+- Truyền `navigate` props xuống OrderManagePage và ProductManagePage
+
+#### B. OrderManagePage.jsx
+- Thêm prop `navigate`
+- Thêm button "← Quay lại" ở header, quay về `admin-dashboard`
+
+#### C. ProductManagePage.jsx
+- Thêm prop `navigate`
+- Thêm button "← Quay lại" ở header, quay về `admin-dashboard`
+
+#### D. UserManagePage.jsx
+- Đã có sẵn nút "← Quay lại" (không cần thay đổi)
+
+### 3. Tóm tắt Files đã sửa
+| STT | File | Mô tả |
+|-----|------|--------|
+| 1 | App.jsx | Truyền navigate props |
+| 2 | OrderManagePage.jsx | Thêm nút Quay lại |
+| 3 | ProductManagePage.jsx | Thêm nút Quay lại |
+
+### 4. Trạng thái hoàn thành
+- [x] OrderManagePage - HOÀN THÀNH
+- [x] ProductManagePage - HOÀN THÀNH
+- [x] UserManagePage - Đã có sẵn
+
+---
+
+## PHẦN CẬP NHẬT: Issue #3.3 - Cải thiện hiển thị trạng thái & Reload đơn hàng
+
+### 1. Mô tả
+- Đảm bảo tab "Đã xác nhận" hiển thị màu xanh khi active
+- Đơn hàng đã xác nhận hiển thị trong lịch sử đơn hàng bên user
+- Force reload OrderPage khi user quay lại từ admin
+
+### 2. Thay đổi Files
+
+#### A. OrderManagePage.jsx
+- Thêm `color` vào STATUS_LIST để hiển thị màu theo trạng thái
+- CONFIRMED: màu xanh `#22c55e`
+- Tab active hiển thị màu nền và border theo trạng thái
+
+#### B. OrderPage.jsx (User)
+- Đổi màu CONFIRMED từ `#3b82f6` sang `#22c55e` (xanh lá)
+- Đơn hàng CONFIRMED hiển thị thông báo: "Admin đã xác nhận! Bạn sẽ chờ trong 3-5 ngày"
+
+#### C. App.jsx
+- Thêm `key="orders-page"` vào OrderPage để force remount khi navigate
+- Khi user quay từ admin về, OrderPage sẽ fetch lại data từ backend
+
+### 3. Luồng hoạt động
+1. Admin xác nhận đơn (PENDING → CONFIRMED)
+2. Admin click "Quay lại Dashboard"
+3. User click "Đơn hàng của tôi"
+4. OrderPage force remount → fetch API → hiển thị đơn CONFIRMED với thông báo
+
+### 4. Tóm tắt Files đã sửa
+| STT | File | Mô tả |
+|-----|------|--------|
+| 1 | OrderManagePage.jsx | Màu tab theo trạng thái |
+| 2 | OrderPage.jsx | Màu xanh CONFIRMED |
+| 3 | App.jsx | Force remount OrderPage |
+
+### 5. Trạng thái hoàn thành
+- [x] Hiển thị màu xanh cho "Đã xác nhận" - HOÀN THÀNH
+- [x] Reload đơn hàng khi quay lại - HOÀN THÀNH
+- [x] Thông báo "Admin đã xác nhận" - HOÀN THÀNH
+
+---
+Ngày cập nhật: 16/05/2026 - 11:19

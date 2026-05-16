@@ -10,7 +10,7 @@ const EMPTY_FORM = {
   price: 0, oldPrice: 0, stockQuantity: 0, categoryId: null, isActive: true
 };
 
-const ProductManagePage = ({ showToast }) => {
+const ProductManagePage = ({ showToast, navigate }) => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -103,6 +103,23 @@ const ProductManagePage = ({ showToast }) => {
   return (
     <div className="section">
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 28 }}>
+        <button
+          onClick={() => navigate("admin-dashboard")}
+          style={{
+            background: "transparent",
+            border: "1px solid var(--gray)",
+            color: "var(--gray)",
+            padding: "10px 20px",
+            borderRadius: 8,
+            cursor: "pointer",
+            fontSize: 14,
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
+          }}
+        >
+          ← Quay lại
+        </button>
         <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 32, letterSpacing: 2 }}>
           QUẢN LÝ <span style={{ color: "var(--primary)" }}>SẢN PHẨM</span>
         </h2>

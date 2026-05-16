@@ -233,6 +233,7 @@ const App = () => {
       case "orders":
         return (
           <OrderPage
+            key="orders-page"  // Force remount khi navigate
             user={user}
             navigate={navigate}
             onViewOrderDetail={handleViewOrder}
@@ -267,11 +268,11 @@ const App = () => {
 
       case "admin-products":
         if (!user || user.role !== "admin") { navigate("login"); return null; }
-        return <ProductManagePage showToast={showToast} />;
+        return <ProductManagePage showToast={showToast} navigate={navigate} />;
 
       case "admin-orders":
         if (!user || user.role !== "admin") { navigate("login"); return null; }
-        return <OrderManagePage orders={orders} onUpdateStatus={handleUpdateOrderStatus} showToast={showToast} />;
+        return <OrderManagePage orders={orders} onUpdateStatus={handleUpdateOrderStatus} showToast={showToast} navigate={navigate} />;
 
       case "admin-users":
         if (!user || user.role !== "admin") { navigate("login"); return null; }
