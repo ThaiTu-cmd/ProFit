@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import { adminService } from "../../services/adminService";
 
 const formatPrice = (price) => {
-  return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price || 0);
+  if (!price && price !== 0) return "0₫";
+  const num = typeof price === 'string' ? parseFloat(price) : Number(price);
+  if (isNaN(num)) return "0₫";
+  return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(num);
 };
 
 const formatDate = (dateStr) => {
@@ -22,25 +25,19 @@ const formatDate = (dateStr) => {
 };
 
 const STATUS_LIST = [
-  { key: "all",       label: "Tất cả",       color: "var(--white)"      },
-  { key: "PENDING",   label: "Chờ xác nhận", color: "#f59e0b"          },
-  { key: "CONFIRMED", label: "Đã xác nhận",  color: "#22c55e"          },
-  { key: "SHIPPED",   label: "Đang giao",    color: "#8b5cf6"          },
-  { key: "COMPLETED", label: "Hoàn tất",      color: "var(--green)"      },
-  { key: "CANCELLED", label: "Đã hủy",       color: "var(--red)"        },
+  { key: "all",       label: "Tất cả",       color: "var(--white)"  },
+  { key: "PENDING",   label: "Chờ xác nhận", color: "#f59e0b"      },
+  { key: "CONFIRMED", label: "Đã xác nhận",  color: "#22c55e"      },
+  { key: "CANCELLED", label: "Đã hủy",       color: "var(--red)"    },
 ];
 
 const STATUS_NEXT = {
-  PENDING:   "CONFIRMED",
-  CONFIRMED: "SHIPPED",
-  SHIPPED:   "COMPLETED",
+  PENDING: "CONFIRMED",
 };
 
 const STATUS_COLOR = {
   PENDING:   "#f59e0b",
   CONFIRMED: "#22c55e",
-  SHIPPED:   "#8b5cf6",
-  COMPLETED: "var(--green)",
   CANCELLED: "var(--red)",
 };
 
@@ -170,27 +167,44 @@ const OrderManagePage = ({ showToast, navigate }) => {
             const statusColor = STATUS_COLOR[order.status] ?? "var(--gray)";
             const statusLabel = STATUS_LIST.find(s => s.key === order.status)?.label ?? order.status;
 
+            // Tính lại lineTotal nếu bị 0
+            const getLineTotal = (item) => {
+              if (item.lineTotal && item.lineTotal > 0) return item.lineTotal;
+              if (item.unitPrice && item.quantity) {
+                return (typeof item.unitPrice === 'string' ? parseFloat(item.unitPrice) : item.unitPrice) * item.quantity;
+              }
+              return 0;
+            };
+
             return (
               <div key={order.id} style={{ background: "var(--card-bg)", borderRadius: 14, border: "1px solid #2a2a2a", overflow: "hidden" }}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr auto", gap: 16, padding: "16px 20px", alignItems: "center", cursor: "pointer" }}
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr 1fr 1fr auto", gap: 16, padding: "16px 20px", alignItems: "center", cursor: "pointer" }}
                   onClick={() => setExpandedId(isExpanded ? null : order.id)}>
 
                   <div>
                     <div style={{ fontSize: 13, color: "var(--gray)" }}>Mã đơn</div>
                     <div style={{ fontWeight: 700, color: "var(--white)" }}>{order.orderCode}</div>
+                    <div style={{ fontSize: 11, color: "var(--gray)" }}>{formatDate(order.placedAt)}</div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: 13, color: "var(--gray)" }}>Sản phẩm</div>
+                    {order.items?.slice(0, 2).map((item, idx) => (
+                      <div key={item.id} style={{ fontSize: 12, color: "var(--white)", marginTop: 2 }}>
+                        {idx + 1}. {item.productName} - {formatPrice(item.unitPrice)}
+                      </div>
+                    ))}
+                    {order.items?.length > 2 && (
+                      <div style={{ fontSize: 11, color: "var(--gray)" }}>+{order.items.length - 2} sản phẩm khác</div>
+                    )}
                   </div>
                   <div>
                     <div style={{ fontSize: 13, color: "var(--gray)" }}>Khách hàng</div>
-                    <div style={{ fontWeight: 700, color: "var(--white)" }}>{order.recipientName || "—"}</div>
-                    <div style={{ fontSize: 12, color: "var(--gray)" }}>{order.recipientPhone}</div>
+                    <div style={{ fontWeight: 600, color: "var(--white)" }}>{order.recipientName || "—"}</div>
+                    <div style={{ fontSize: 11, color: "var(--gray)" }}>{order.userName || order.userEmail || "Khách vãng lai"}</div>
                   </div>
                   <div>
-                    <div style={{ fontSize: 13, color: "var(--gray)" }}>Người đặt</div>
-                    <div style={{ fontWeight: 600, color: "var(--white)" }}>{order.userName || "Khách vãng lai"}</div>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: 13, color: "var(--gray)" }}>Ngày đặt</div>
-                    <div style={{ fontSize: 12, color: "var(--white)" }}>{formatDate(order.placedAt)}</div>
+                    <div style={{ fontSize: 13, color: "var(--gray)" }}>Tổng tiền</div>
+                    <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 20, color: "var(--primary)" }}>{formatPrice(order.totalAmount)}</div>
                   </div>
                   <div>
                     <div style={{ fontSize: 13, color: "var(--gray)", marginBottom: 4 }}>Trạng thái</div>
@@ -198,41 +212,42 @@ const OrderManagePage = ({ showToast, navigate }) => {
                       {statusLabel}
                     </span>
                   </div>
-                  <div style={{ fontSize: 18, color: "var(--gray)" }}>{isExpanded ? "▲" : "▼"}</div>
                 </div>
 
                 {isExpanded && (
                   <div style={{ borderTop: "1px solid #2a2a2a", padding: "20px 20px" }}>
                     <div style={{ marginBottom: 16 }}>
-                      <div style={{ fontSize: 13, color: "var(--gray)", marginBottom: 8 }}>📦 Sản phẩm:</div>
+                      <div style={{ fontSize: 13, color: "var(--gray)", marginBottom: 8 }}>📦 Chi tiết sản phẩm:</div>
                       {order.items?.map((item) => (
-                        <div key={item.id} style={{ display: "flex", gap: 12, alignItems: "center", marginBottom: 10 }}>
-                          <span style={{ flex: 1, fontSize: 13, color: "var(--white)" }}>{item.productName} (SKU: {item.productSku})</span>
-                          <span style={{ fontSize: 13, color: "var(--gray)" }}>x{item.quantity}</span>
-                          <span style={{ fontSize: 14, fontWeight: 700, color: "var(--primary)" }}>{formatPrice(item.lineTotal)}</span>
+                        <div key={item.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8, padding: "6px 10px", background: "var(--dark)", borderRadius: 6 }}>
+                          <span style={{ fontSize: 13, color: "var(--white)" }}>{item.productName}</span>
+                          <span style={{ fontSize: 14, fontWeight: 600, color: "var(--primary)" }}>{formatPrice(item.unitPrice)}</span>
                         </div>
                       ))}
                     </div>
 
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
                       <div style={{ fontSize: 13, color: "var(--gray)" }}>
-                        💰 <strong style={{ color: "var(--white)" }}>Tổng tiền:</strong> {formatPrice(order.totalAmount)}
+                        👤 <strong style={{ color: "var(--white)" }}>Người nhận:</strong> {order.recipientName} - {order.recipientPhone}
                       </div>
                       <div style={{ fontSize: 13, color: "var(--gray)" }}>
                         📍 <strong style={{ color: "var(--white)" }}>Địa chỉ:</strong> {order.shippingAddressLine1}, {order.shippingCity}, {order.shippingProvince}
                       </div>
                     </div>
 
-                    <div style={{ display: "flex", gap: 10 }}>
+                    <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
                       {nextStatus && (
                         <button className="btn-primary" style={{ padding: "10px 20px", fontSize: 13 }}
                           onClick={() => handleUpdateStatus(order.id, nextStatus)}>
                           ✓ Xác nhận đơn
                         </button>
                       )}
-                      {order.status !== "COMPLETED" && order.status !== "CANCELLED" && order.status !== "REFUNDED" && (
+                      {order.status === "PENDING" && (
                         <button className="btn-danger" onClick={() => handleCancel(order.id)}>Hủy đơn</button>
                       )}
+                      <div style={{ marginLeft: "auto", fontSize: 18, fontWeight: 700, color: "var(--primary)" }}>
+                        Tổng: {formatPrice(order.totalAmount)}
+                      </div>
                     </div>
                   </div>
                 )}

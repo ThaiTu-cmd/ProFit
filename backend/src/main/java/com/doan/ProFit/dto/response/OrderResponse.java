@@ -18,6 +18,7 @@ public class OrderResponse {
     private String payMethod;
     private LocalDateTime placedAt;
     private String userName;
+    private String userEmail;
     private List<OrderItemResponse> items;
 
     public Long getId() { return id; }
@@ -46,6 +47,8 @@ public class OrderResponse {
     public void setPlacedAt(LocalDateTime placedAt) { this.placedAt = placedAt; }
     public String getUserName() { return userName; }
     public void setUserName(String userName) { this.userName = userName; }
+    public String getUserEmail() { return userEmail; }
+    public void setUserEmail(String userEmail) { this.userEmail = userEmail; }
     public List<OrderItemResponse> getItems() { return items; }
     public void setItems(List<OrderItemResponse> items) { this.items = items; }
 }

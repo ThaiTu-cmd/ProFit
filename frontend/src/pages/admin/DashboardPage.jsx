@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import { adminService } from "../../services/adminService";
 
 const formatPrice = (price) => {
-  return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price || 0);
+  if (!price && price !== 0) return "0₫";
+  const num = typeof price === 'string' ? parseFloat(price) : Number(price);
+  if (isNaN(num)) return "0₫";
+  return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(num);
 };
 
 const DashboardPage = ({ navigate }) => {
@@ -23,7 +26,13 @@ const DashboardPage = ({ navigate }) => {
     fetchData();
   }, []);
 
-  const totalRevenue  = orders.filter(o => o.status === "COMPLETED").reduce((s, o) => s + o.totalAmount, 0);
+  // Chỉ tính doanh thu từ đơn đã xác nhận (CONFIRMED)
+  const totalRevenue  = orders
+    .filter(o => o.status === "CONFIRMED")
+    .reduce((s, o) => {
+      const amount = typeof o.totalAmount === 'string' ? parseFloat(o.totalAmount) : (o.totalAmount || 0);
+      return s + amount;
+    }, 0);
   const totalOrders   = orders.length;
   const pendingOrders = orders.filter(o => o.status === "PENDING").length;
   
@@ -35,12 +44,8 @@ const DashboardPage = ({ navigate }) => {
 
   const STATUS_LABEL = {
     PENDING:   { text: "Chờ xác nhận", color: "#f59e0b" },
-    PAID:      { text: "Đã thanh toán",color: "#3b82f6" },
-    PROCESSING:{ text: "Đang xử lý",   color: "#8b5cf6" },
-    SHIPPED:   { text: "Đang giao",    color: "#10b981" },
-    COMPLETED: { text: "Hoàn tất",     color: "var(--green)" },
-    CANCELED:  { text: "Đã hủy",       color: "var(--red)" },
-    REFUNDED:  { text: "Hoàn tiền",    color: "#ef4444" },
+    CONFIRMED: { text: "Đã xác nhận",  color: "#22c55e" },
+    CANCELLED: { text: "Đã hủy",       color: "var(--red)" },
   };
 
   return (
@@ -83,7 +88,7 @@ const DashboardPage = ({ navigate }) => {
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
               <thead>
                 <tr style={{ borderBottom: "1px solid #2a2a2a" }}>
-                  {["Mã đơn", "Khách hàng", "Tổng tiền", "Ngày đặt", "Trạng thái"].map(h => (
+                  {["Mã đơn", "Khách hàng", "Sản phẩm", "Tổng tiền", "Trạng thái"].map(h => (
                     <th key={h} style={{ padding: "8px 12px", textAlign: "left", color: "var(--gray)", fontWeight: 700, fontSize: 12, textTransform: "uppercase", letterSpacing: 1 }}>{h}</th>
                   ))}
                 </tr>
@@ -91,15 +96,20 @@ const DashboardPage = ({ navigate }) => {
               <tbody>
                 {recentOrders.map((order) => {
                   const st = STATUS_LABEL[order.status] ?? STATUS_LABEL.PENDING;
+                  const firstItem = order.items && order.items.length > 0 ? order.items[0] : null;
                   return (
                     <tr key={order.id} style={{ borderBottom: "1px solid #1a1a1a", cursor: "pointer" }}
                       onClick={() => navigate("admin-orders")}>
                       <td style={{ padding: "12px 12px", color: "var(--white)", fontWeight: 700 }}>{order.orderCode}</td>
-                      <td style={{ padding: "12px 12px", color: "var(--white)" }}>{order.recipientName || "—"}</td>
-                      <td style={{ padding: "12px 12px", color: "var(--primary)", fontFamily: "'Bebas Neue', sans-serif", fontSize: 18 }}>{formatPrice(order.totalAmount)}</td>
-                      <td style={{ padding: "12px 12px", color: "var(--gray)" }}>
-                        {order.placedAt ? new Date(order.placedAt).toLocaleString("vi-VN") : "—"}
+                      <td style={{ padding: "12px 12px", color: "var(--white)" }}>
+                        <div>{order.userName || order.userEmail || "Khách vãng lai"}</div>
+                        <div style={{ fontSize: 11, color: "var(--gray)" }}>{order.recipientName}</div>
                       </td>
+                      <td style={{ padding: "12px 12px", color: "var(--white)", fontSize: 12 }}>
+                        {firstItem ? `${firstItem.productName}` : "—"}
+                        {(order.items?.length || 0) > 1 && <span style={{ color: "var(--gray)" }}> +{order.items.length - 1}</span>}
+                      </td>
+                      <td style={{ padding: "12px 12px", color: "var(--primary)", fontFamily: "'Bebas Neue', sans-serif", fontSize: 18 }}>{formatPrice(order.totalAmount)}</td>
                       <td style={{ padding: "12px 12px" }}>
                         <span style={{ fontSize: 12, fontWeight: 700, color: st.color, border: `1px solid ${st.color}`, padding: "3px 10px", borderRadius: 6 }}>{st.text}</span>
                       </td>

@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import org.springframework.transaction.annotation.Transactional;
+
 @Service
 public class OrderServiceImpl implements OrderService {
     @Autowired
@@ -34,6 +36,7 @@ public class OrderServiceImpl implements OrderService {
     private ProductRepository productRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public List<OrderResponse> getAllOrders() {
         return orderRepository.findAllByOrderByCreatedAtDesc().stream()
                 .map(this::mapToResponse)
@@ -41,6 +44,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public OrderResponse getOrderById(Long id) {
         Order order = orderRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Order not found"));
@@ -241,6 +245,7 @@ public class OrderServiceImpl implements OrderService {
         response.setPlacedAt(order.getPlacedAt());
         if (order.getUser() != null) {
             response.setUserName(order.getUser().getFullName());
+            response.setUserEmail(order.getUser().getEmail());
         }
         if (order.getItems() != null) {
             List<OrderItemResponse> itemResponses = order.getItems().stream().map(this::mapItemToResponse).collect(Collectors.toList());
@@ -252,12 +257,40 @@ public class OrderServiceImpl implements OrderService {
     private OrderItemResponse mapItemToResponse(OrderItem item) {
         OrderItemResponse response = new OrderItemResponse();
         response.setId(item.getId());
-        response.setProductId(item.getProduct() != null ? item.getProduct().getId() : null);
-        response.setProductName(item.getProductName());
-        response.setProductSku(item.getProductSku());
-        response.setQuantity(item.getQuantity());
-        response.setUnitPrice(item.getUnitPrice());
-        response.setLineTotal(item.getLineTotal());
+        
+        // Lấy product info - ưu tiên từ cached fields, fallback vào Product entity
+        Product product = item.getProduct();
+        String productName = item.getProductName();
+        String productSku = item.getProductSku();
+        BigDecimal unitPrice = item.getUnitPrice();
+        BigDecimal lineTotal = item.getLineTotal();
+        
+        // Fallback: Nếu productName null, thử lấy từ Product entity
+        if ((productName == null || productName.isEmpty()) && product != null) {
+            productName = product.getName();
+        }
+        // Fallback: Nếu productSku null, thử lấy từ Product entity
+        if ((productSku == null || productSku.isEmpty()) && product != null) {
+            productSku = product.getSku();
+        }
+        // Fallback: Nếu unitPrice null, thử lấy từ Product entity và tính lại lineTotal
+        if (unitPrice == null && product != null) {
+            unitPrice = product.getPrice();
+            if (item.getQuantity() != null && unitPrice != null) {
+                lineTotal = unitPrice.multiply(BigDecimal.valueOf(item.getQuantity()));
+            }
+        }
+        // Fallback: Nếu lineTotal null hoặc 0, tính lại
+        if ((lineTotal == null || lineTotal.compareTo(BigDecimal.ZERO) == 0) && unitPrice != null && item.getQuantity() != null) {
+            lineTotal = unitPrice.multiply(BigDecimal.valueOf(item.getQuantity()));
+        }
+        
+        response.setProductId(product != null ? product.getId() : null);
+        response.setProductName(productName != null ? productName : "Sản phẩm đã xóa");
+        response.setProductSku(productSku != null ? productSku : "N/A");
+        response.setQuantity(item.getQuantity() != null ? item.getQuantity() : 0);
+        response.setUnitPrice(unitPrice != null ? unitPrice : BigDecimal.ZERO);
+        response.setLineTotal(lineTotal != null ? lineTotal : BigDecimal.ZERO);
         return response;
     }
 }
