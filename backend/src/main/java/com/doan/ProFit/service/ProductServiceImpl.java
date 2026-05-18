@@ -70,7 +70,7 @@ public class ProductServiceImpl implements ProductService {
         product.setActive(request.getIsActive() != null ? request.getIsActive() : true);
 
         if (request.getCategoryId() != null) {
-            Category category = categoryRepository.findById(request.getCategoryId())
+            Category category = categoryRepository.findByIdAndDeletedAtIsNull(request.getCategoryId())
                     .orElseThrow(() -> new IllegalArgumentException("Category not found"));
             product.setCategory(category);
         }
@@ -91,11 +91,13 @@ public class ProductServiceImpl implements ProductService {
         product.setDescription(request.getDescription());
         product.setPrice(request.getPrice());
         product.setOldPrice(request.getOldPrice());
-        if (request.getStockQuantity() != null) product.setStockQuantity(request.getStockQuantity());
-        if (request.getIsActive() != null) product.setActive(request.getIsActive());
+        if (request.getStockQuantity() != null)
+            product.setStockQuantity(request.getStockQuantity());
+        if (request.getIsActive() != null)
+            product.setActive(request.getIsActive());
 
         if (request.getCategoryId() != null) {
-            Category category = categoryRepository.findById(request.getCategoryId())
+            Category category = categoryRepository.findByIdAndDeletedAtIsNull(request.getCategoryId())
                     .orElseThrow(() -> new IllegalArgumentException("Category not found"));
             product.setCategory(category);
         } else {

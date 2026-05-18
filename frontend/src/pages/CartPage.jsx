@@ -7,24 +7,28 @@
 //   - navigate: chuyển trang
 // =====================================================
 
-
 // CẬP NHẬT: nút "Thanh toán" đã navigate đúng sang checkout
 //           bỏ ô mã giảm giá (đã chuyển sang CheckoutPage)
 
-import { formatPrice } from "../data/products";
+import { formatPrice } from "../utils/productHelpers";
 import { ShoppingCart } from "lucide-react";
 
 const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
-  const subtotal = cart.reduce((sum, item) => sum + item.product.price * item.qty, 0);
+  const subtotal = cart.reduce(
+    (sum, item) => sum + item.product.price * item.qty,
+    0,
+  );
   const shipping = subtotal >= 500000 ? 0 : 30000;
-  const total    = subtotal + shipping;
+  const total = subtotal + shipping;
 
   // Giỏ rỗng
   if (cart.length === 0) {
     return (
       <div className="section">
         <div className="empty-state">
-          <div className="empty-icon"><ShoppingCart size={64} color="var(--gray)" /></div>
+          <div className="empty-icon">
+            <ShoppingCart size={64} color="var(--gray)" />
+          </div>
           <h3>Giỏ hàng trống</h3>
           <p>Bạn chưa thêm sản phẩm nào vào giỏ hàng.</p>
           <button className="btn-primary" onClick={() => navigate("products")}>
@@ -38,13 +42,14 @@ const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
   return (
     <div>
       <div className="page-hero">
-        <h1>GIỎ <span>HÀNG</span></h1>
+        <h1>
+          GIỎ <span>HÀNG</span>
+        </h1>
         <p>{cart.length} sản phẩm đang chờ bạn thanh toán</p>
       </div>
 
       <section className="section">
         <div className="cart-layout">
-
           {/* Danh sách sản phẩm */}
           <div className="cart-items">
             <div className="cart-header">
@@ -59,8 +64,24 @@ const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
               <div className="cart-row" key={item.product.id}>
                 {/* Ảnh + tên */}
                 <div className="cart-product">
-                  <div className="cart-emoji" style={{ padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <img src={item.product.image} alt={item.product.name} style={{ width: "50px", height: "50px", objectFit: "contain" }} />
+                  <div
+                    className="cart-emoji"
+                    style={{
+                      padding: 4,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <img
+                      src={item.product.image}
+                      alt={item.product.name}
+                      style={{
+                        width: "50px",
+                        height: "50px",
+                        objectFit: "contain",
+                      }}
+                    />
                   </div>
                   <div>
                     <div className="cart-name">{item.product.name}</div>
@@ -69,22 +90,45 @@ const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
                 </div>
 
                 {/* Giá đơn */}
-                <div className="cart-price">{formatPrice(item.product.price)}</div>
+                <div className="cart-price">
+                  {formatPrice(item.product.price)}
+                </div>
 
                 {/* Số lượng */}
                 <div className="quantity-control">
-                  <button className="qty-btn" onClick={() => onUpdateQty(item.product.id, item.qty - 1)}>−</button>
+                  <button
+                    className="qty-btn"
+                    onClick={() => onUpdateQty(item.product.id, item.qty - 1)}
+                  >
+                    −
+                  </button>
                   <span className="qty-value">{item.qty}</span>
-                  <button className="qty-btn" onClick={() => onUpdateQty(item.product.id, item.qty + 1)}>+</button>
+                  <button
+                    className="qty-btn"
+                    onClick={() => onUpdateQty(item.product.id, item.qty + 1)}
+                  >
+                    +
+                  </button>
                 </div>
 
                 {/* Thành tiền */}
-                <div style={{ color: "var(--primary)", fontFamily: "'Bebas Neue', sans-serif", fontSize: 20 }}>
+                <div
+                  style={{
+                    color: "var(--primary)",
+                    fontFamily: "'Bebas Neue', sans-serif",
+                    fontSize: 20,
+                  }}
+                >
                   {formatPrice(item.product.price * item.qty)}
                 </div>
 
                 {/* Xóa */}
-                <button className="btn-danger" onClick={() => onRemove(item.product.id)}>🗑</button>
+                <button
+                  className="btn-danger"
+                  onClick={() => onRemove(item.product.id)}
+                >
+                  🗑
+                </button>
               </div>
             ))}
           </div>
@@ -99,7 +143,9 @@ const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
             </div>
             <div className="summary-row">
               <span>Phí vận chuyển</span>
-              <span style={{ color: shipping === 0 ? "var(--green)" : "inherit" }}>
+              <span
+                style={{ color: shipping === 0 ? "var(--green)" : "inherit" }}
+              >
                 {shipping === 0 ? "Miễn phí" : formatPrice(shipping)}
               </span>
             </div>
@@ -124,7 +170,12 @@ const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
             {/* Nút tiến hành thanh toán – navigate đúng sang CheckoutPage */}
             <button
               className="btn-primary"
-              style={{ width: "100%", padding: "16px 0", marginTop: 20, fontSize: 16 }}
+              style={{
+                width: "100%",
+                padding: "16px 0",
+                marginTop: 20,
+                fontSize: 16,
+              }}
               onClick={() => navigate("checkout")}
             >
               Tiến hành thanh toán →
@@ -132,7 +183,12 @@ const CartPage = ({ cart, onUpdateQty, onRemove, navigate }) => {
 
             <button
               className="btn-outline"
-              style={{ width: "100%", padding: "12px 0", marginTop: 10, fontSize: 14 }}
+              style={{
+                width: "100%",
+                padding: "12px 0",
+                marginTop: 10,
+                fontSize: 14,
+              }}
               onClick={() => navigate("products")}
             >
               ← Tiếp tục mua sắm

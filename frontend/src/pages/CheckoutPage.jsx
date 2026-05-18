@@ -4,8 +4,15 @@
 // =====================================================
 
 import { useEffect, useMemo, useState } from "react";
-import { formatPrice } from "../data/products";
-import { ShoppingCart, Loader2, Banknote, Landmark, Smartphone, AlertCircle } from "lucide-react";
+import { formatPrice } from "../utils/productHelpers";
+import {
+  ShoppingCart,
+  Loader2,
+  Banknote,
+  Landmark,
+  Smartphone,
+  AlertCircle,
+} from "lucide-react";
 import { apiCreateOrder, apiCreateGuestOrder, isLoggedIn } from "../utils/api";
 
 const DEFAULT_USER_INFO = {
@@ -19,7 +26,13 @@ const DEFAULT_USER_INFO = {
   note: "",
 };
 
-const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) => {
+const CheckoutPage = ({
+  cart = [],
+  user,
+  onPlaceOrder,
+  navigate,
+  showToast,
+}) => {
   const [userInfo, setUserInfo] = useState(DEFAULT_USER_INFO);
   const [payMethod, setPayMethod] = useState("cod");
   const [loadingProfile, setLoadingProfile] = useState(true);
@@ -42,7 +55,7 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
           ...DEFAULT_USER_INFO,
           fullName: user.name || "",
           email: user.email || "",
-          phone: user.phone || ""
+          phone: user.phone || "",
         });
       }
     } catch (error) {
@@ -93,7 +106,7 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
         const orderData = {
           recipientName: userInfo.fullName,
           recipientPhone: userInfo.phone,
-          shippingAddressLine1: `${userInfo.address}${userInfo.district ? ', ' + userInfo.district : ''}`,
+          shippingAddressLine1: `${userInfo.address}${userInfo.district ? ", " + userInfo.district : ""}`,
           shippingCity: userInfo.city,
           shippingProvince: userInfo.province || userInfo.city,
           note: userInfo.note || "",
@@ -119,13 +132,12 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
         showToast("Đặt hàng thành công!");
         onPlaceOrder(localOrder);
         navigate("order-success");
-
       } else {
         // Guest checkout - gọi API không cần đăng nhập
         const guestOrderData = {
           recipientName: userInfo.fullName,
           recipientPhone: userInfo.phone,
-          shippingAddressLine1: `${userInfo.address}${userInfo.district ? ', ' + userInfo.district : ''}`,
+          shippingAddressLine1: `${userInfo.address}${userInfo.district ? ", " + userInfo.district : ""}`,
           shippingCity: userInfo.city,
           shippingProvince: userInfo.province || userInfo.city,
           note: userInfo.note || "",
@@ -153,7 +165,6 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
         onPlaceOrder(localOrder);
         navigate("order-success");
       }
-
     } catch (err) {
       console.error("Lỗi khi đặt hàng:", err);
       setOrderError(err.message || "Đặt hàng thất bại. Vui lòng thử lại.");
@@ -168,7 +179,9 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
     return (
       <div className="section">
         <div className="empty-state">
-          <div className="empty-icon"><ShoppingCart size={64} color="var(--gray)" /></div>
+          <div className="empty-icon">
+            <ShoppingCart size={64} color="var(--gray)" />
+          </div>
           <h3>Giỏ hàng trống</h3>
           <p>Vui lòng thêm sản phẩm trước khi thanh toán.</p>
           <button className="btn-primary" onClick={() => navigate("products")}>
@@ -209,7 +222,9 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
               <h3 className="checkout-card-title">📦 Thông tin giao hàng</h3>
 
               {hasRequiredInfo ? (
-                <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                <div
+                  style={{ display: "flex", flexDirection: "column", gap: 12 }}
+                >
                   <div className="summary-row">
                     <span>Họ và tên</span>
                     <span>{userInfo.fullName}</span>
@@ -225,17 +240,28 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
                     <span>{userInfo.email || "Chưa cập nhật"}</span>
                   </div>
 
-                  <div className="summary-row" style={{ alignItems: "flex-start" }}>
+                  <div
+                    className="summary-row"
+                    style={{ alignItems: "flex-start" }}
+                  >
                     <span>Địa chỉ</span>
                     <span style={{ textAlign: "right", maxWidth: "60%" }}>
-                      {[userInfo.address, userInfo.district, userInfo.city, userInfo.province]
+                      {[
+                        userInfo.address,
+                        userInfo.district,
+                        userInfo.city,
+                        userInfo.province,
+                      ]
                         .filter(Boolean)
                         .join(", ")}
                     </span>
                   </div>
 
                   {userInfo.note && (
-                    <div className="summary-row" style={{ alignItems: "flex-start" }}>
+                    <div
+                      className="summary-row"
+                      style={{ alignItems: "flex-start" }}
+                    >
                       <span>Ghi chú</span>
                       <span style={{ textAlign: "right", maxWidth: "60%" }}>
                         {userInfo.note}
@@ -244,21 +270,41 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
                   )}
 
                   {!isLoggedIn() && (
-                    <div style={{
-                      background: "rgba(245, 158, 11, 0.1)",
-                      border: "1px solid #f59e0b",
-                      borderRadius: 8,
-                      padding: "12px",
-                      marginTop: 8,
-                    }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 8, color: "#f59e0b", marginBottom: 8 }}>
+                    <div
+                      style={{
+                        background: "rgba(245, 158, 11, 0.1)",
+                        border: "1px solid #f59e0b",
+                        borderRadius: 8,
+                        padding: "12px",
+                        marginTop: 8,
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 8,
+                          color: "#f59e0b",
+                          marginBottom: 8,
+                        }}
+                      >
                         <AlertCircle size={18} />
                         <strong>Lưu ý</strong>
                       </div>
-                      <p style={{ fontSize: 13, color: "var(--gray)", margin: 0 }}>
+                      <p
+                        style={{
+                          fontSize: 13,
+                          color: "var(--gray)",
+                          margin: 0,
+                        }}
+                      >
                         Bạn chưa đăng nhập. Đơn hàng sẽ được lưu tạm thời.{" "}
                         <span
-                          style={{ color: "var(--primary)", cursor: "pointer", fontWeight: 600 }}
+                          style={{
+                            color: "var(--primary)",
+                            cursor: "pointer",
+                            fontWeight: 600,
+                          }}
                           onClick={() => navigate("login")}
                         >
                           Đăng nhập ngay
@@ -281,7 +327,10 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
                   <div className="empty-icon">👤</div>
                   <h3>Chưa có thông tin giao hàng</h3>
                   <p>Vui lòng lưu thông tin cá nhân để đặt hàng nhanh hơn.</p>
-                  <button className="btn-primary" onClick={() => navigate("profile")}>
+                  <button
+                    className="btn-primary"
+                    onClick={() => navigate("profile")}
+                  >
                     Cập nhật thông tin
                   </button>
                 </div>
@@ -294,9 +343,21 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
 
               <div className="pay-methods">
                 {[
-                  { id: "cod", icon: <Banknote size={24} />, label: "Thanh toán khi nhận hàng (COD)" },
-                  { id: "banking", icon: <Landmark size={24} />, label: "Chuyển khoản ngân hàng" },
-                  { id: "vnpay", icon: <Smartphone size={24} />, label: "VNPay / Ví điện tử" },
+                  {
+                    id: "cod",
+                    icon: <Banknote size={24} />,
+                    label: "Thanh toán khi nhận hàng (COD)",
+                  },
+                  {
+                    id: "banking",
+                    icon: <Landmark size={24} />,
+                    label: "Chuyển khoản ngân hàng",
+                  },
+                  {
+                    id: "vnpay",
+                    icon: <Smartphone size={24} />,
+                    label: "VNPay / Ví điện tử",
+                  },
                 ].map((m) => (
                   <label
                     key={m.id}
@@ -313,7 +374,11 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
                     <span className="pay-icon">{m.icon}</span>
                     <span className="pay-label">{m.label}</span>
                     {payMethod === m.id && (
-                      <span style={{ marginLeft: "auto", color: "var(--green)" }}>✓</span>
+                      <span
+                        style={{ marginLeft: "auto", color: "var(--green)" }}
+                      >
+                        ✓
+                      </span>
                     )}
                   </label>
                 ))}
@@ -322,16 +387,18 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
 
             {/* Error message */}
             {orderError && (
-              <div style={{
-                background: "rgba(239, 68, 68, 0.1)",
-                border: "1px solid var(--red)",
-                borderRadius: 8,
-                padding: "12px 16px",
-                display: "flex",
-                alignItems: "center",
-                gap: 12,
-                color: "var(--red)",
-              }}>
+              <div
+                style={{
+                  background: "rgba(239, 68, 68, 0.1)",
+                  border: "1px solid var(--red)",
+                  borderRadius: 8,
+                  padding: "12px 16px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 12,
+                  color: "var(--red)",
+                }}
+              >
                 <AlertCircle size={18} />
                 <span>{orderError}</span>
               </div>
@@ -354,8 +421,12 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
                     marginBottom: 12,
                   }}
                 >
-                  <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                    <span style={{ fontSize: 28 }}>{item.product.emoji || "🏋️"}</span>
+                  <div
+                    style={{ display: "flex", gap: 10, alignItems: "center" }}
+                  >
+                    <span style={{ fontSize: 28 }}>
+                      {item.product.emoji || "🏋️"}
+                    </span>
                     <div>
                       <div
                         style={{
@@ -396,7 +467,9 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
 
             <div className="summary-row">
               <span>Phí vận chuyển</span>
-              <span style={{ color: shipping === 0 ? "var(--green)" : "inherit" }}>
+              <span
+                style={{ color: shipping === 0 ? "var(--green)" : "inherit" }}
+              >
                 {shipping === 0 ? "Miễn phí" : formatPrice(shipping)}
               </span>
             </div>
@@ -411,12 +484,24 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
             {/* Nút đặt hàng */}
             <button
               className="btn-primary"
-              style={{ width: "100%", padding: "16px 0", marginTop: 20, fontSize: 16 }}
+              style={{
+                width: "100%",
+                padding: "16px 0",
+                marginTop: 20,
+                fontSize: 16,
+              }}
               onClick={handlePlaceOrder}
               disabled={!hasRequiredInfo || placing}
             >
               {placing ? (
-                <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+                <span
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 8,
+                  }}
+                >
                   <Loader2 size={18} className="spinning" />
                   Đang xử lý...
                 </span>
@@ -426,7 +511,14 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
             </button>
 
             {placing && (
-              <p style={{ textAlign: "center", fontSize: 12, color: "var(--gray)", marginTop: 8 }}>
+              <p
+                style={{
+                  textAlign: "center",
+                  fontSize: 12,
+                  color: "var(--gray)",
+                  marginTop: 8,
+                }}
+              >
                 Vui lòng chờ, không tắt trình duyệt...
               </p>
             )}

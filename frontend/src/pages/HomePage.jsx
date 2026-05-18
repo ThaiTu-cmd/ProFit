@@ -6,41 +6,91 @@
 //   - onViewDetail: xem chi tiết sản phẩm
 // =====================================================
 
-import { products, categories, formatPrice, renderStars, banners } from "../data/products";
+import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import CategoryCard from "../components/CategoryCard";
-import { CheckCircle, Truck, RefreshCw, MessageCircle, User } from "lucide-react";
+import {
+  CheckCircle,
+  Truck,
+  RefreshCw,
+  MessageCircle,
+  User,
+} from "lucide-react";
+import { getProductUiData } from "../services/productService";
+import { renderStars } from "../utils/productHelpers";
 
 const HomePage = ({ navigate, onAddToCart, onViewDetail }) => {
-  // Chỉ lấy 4 sản phẩm đầu để hiển thị ở trang chủ
-  const featuredProducts = products.slice(0, 4);
-  // Chỉ lấy danh mục (bỏ "Tất cả")
-  const mainCategories = categories.filter((c) => c.id !== 1);
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [mainCategories, setMainCategories] = useState([]);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadData = async () => {
+      try {
+        const { products, categories } = await getProductUiData(200);
+        if (!isMounted) return;
+
+        setFeaturedProducts(products.slice(0, 4));
+        setMainCategories(categories.filter((c) => c.id !== 0));
+      } catch (error) {
+        console.error("Không thể tải dữ liệu trang chủ:", error);
+      }
+    };
+
+    loadData();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <div>
       {/* ===== HERO ===== */}
       <section className="hero">
         <div className="hero-text">
-          <span className="hero-badge">🔥 Chính hãng – Nhập khẩu trực tiếp</span>
+          <span className="hero-badge">
+            🔥 Chính hãng – Nhập khẩu trực tiếp
+          </span>
           <h1 className="hero-title">
-            NÂNG CẤP<br />CƠ THỂ<br /><span>CỦA BẠN</span>
+            NÂNG CẤP
+            <br />
+            CƠ THỂ
+            <br />
+            <span>CỦA BẠN</span>
           </h1>
           <p className="hero-desc">
             Cung cấp thực phẩm bổ sung chính hãng: Whey Protein, Creatine,
             Pre-Workout và hơn thế nữa. Hiệu quả thật sự – giá cả thật sự.
           </p>
           <div className="hero-buttons">
-            <button className="btn-primary" onClick={() => navigate("products")}>
+            <button
+              className="btn-primary"
+              onClick={() => navigate("products")}
+            >
               Mua ngay
             </button>
-            <button className="btn-outline" onClick={() => navigate("products")}>
+            <button
+              className="btn-outline"
+              onClick={() => navigate("products")}
+            >
               Xem danh mục
             </button>
           </div>
         </div>
         <div className="hero-image">
-          <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1000&auto=format&fit=crop" alt="Fitness Athlete" style={{ width: '100%', height: '100%', maxHeight: '500px', borderRadius: '24px', objectFit: 'cover', filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.3))' }} />
+          <img
+            src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1000&auto=format&fit=crop"
+            alt="Fitness Athlete"
+            style={{
+              width: "100%",
+              height: "100%",
+              maxHeight: "500px",
+              borderRadius: "24px",
+              objectFit: "cover",
+              filter: "drop-shadow(0 20px 30px rgba(0,0,0,0.3))",
+            }}
+          />
         </div>
       </section>
 
@@ -62,8 +112,12 @@ const HomePage = ({ navigate, onAddToCart, onViewDetail }) => {
       {/* ===== DANH MỤC ===== */}
       <section className="section">
         <div className="section-header">
-          <h2 className="section-title">DANH MỤC <span>NỔI BẬT</span></h2>
-          <span className="see-all" onClick={() => navigate("products")}>Xem tất cả →</span>
+          <h2 className="section-title">
+            DANH MỤC <span>NỔI BẬT</span>
+          </h2>
+          <span className="see-all" onClick={() => navigate("products")}>
+            Xem tất cả →
+          </span>
         </div>
         <div className="category-grid">
           {mainCategories.map((cat) => (
@@ -80,8 +134,12 @@ const HomePage = ({ navigate, onAddToCart, onViewDetail }) => {
       {/* ===== SẢN PHẨM BÁN CHẠY ===== */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="section-header">
-          <h2 className="section-title">SẢN PHẨM <span>BÁN CHẠY</span></h2>
-          <span className="see-all" onClick={() => navigate("products")}>Xem tất cả →</span>
+          <h2 className="section-title">
+            SẢN PHẨM <span>BÁN CHẠY</span>
+          </h2>
+          <span className="see-all" onClick={() => navigate("products")}>
+            Xem tất cả →
+          </span>
         </div>
         <div className="product-grid">
           {featuredProducts.map((product) => (
@@ -98,14 +156,32 @@ const HomePage = ({ navigate, onAddToCart, onViewDetail }) => {
       {/* ===== TẠI SAO CHỌN CHÚNG TÔI ===== */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="section-header">
-          <h2 className="section-title">TẠI SAO CHỌN <span>CHÚNG TÔI?</span></h2>
+          <h2 className="section-title">
+            TẠI SAO CHỌN <span>CHÚNG TÔI?</span>
+          </h2>
         </div>
         <div className="features-grid">
           {[
-            { icon: <CheckCircle size={36} color="var(--primary)" />, title: "Chính hãng 100%", desc: "Nhập khẩu trực tiếp từ nhà sản xuất, có tem chống hàng giả." },
-            { icon: <Truck size={36} color="var(--primary)" />, title: "Giao hàng nhanh", desc: "Giao trong 2–4 giờ tại TP.HCM, 1–2 ngày toàn quốc." },
-            { icon: <RefreshCw size={36} color="var(--primary)" />, title: "Đổi trả dễ dàng", desc: "Đổi trả miễn phí trong 7 ngày nếu sản phẩm có lỗi." },
-            { icon: <MessageCircle size={36} color="var(--primary)" />, title: "Tư vấn miễn phí", desc: "Chuyên gia dinh dưỡng tư vấn lộ trình phù hợp với bạn." },
+            {
+              icon: <CheckCircle size={36} color="var(--primary)" />,
+              title: "Chính hãng 100%",
+              desc: "Nhập khẩu trực tiếp từ nhà sản xuất, có tem chống hàng giả.",
+            },
+            {
+              icon: <Truck size={36} color="var(--primary)" />,
+              title: "Giao hàng nhanh",
+              desc: "Giao trong 2–4 giờ tại TP.HCM, 1–2 ngày toàn quốc.",
+            },
+            {
+              icon: <RefreshCw size={36} color="var(--primary)" />,
+              title: "Đổi trả dễ dàng",
+              desc: "Đổi trả miễn phí trong 7 ngày nếu sản phẩm có lỗi.",
+            },
+            {
+              icon: <MessageCircle size={36} color="var(--primary)" />,
+              title: "Tư vấn miễn phí",
+              desc: "Chuyên gia dinh dưỡng tư vấn lộ trình phù hợp với bạn.",
+            },
           ].map((f) => (
             <div className="feature-card" key={f.title}>
               <div className="feature-icon">{f.icon}</div>
@@ -119,7 +195,9 @@ const HomePage = ({ navigate, onAddToCart, onViewDetail }) => {
       {/* ===== TESTIMONIALS ===== */}
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="section-header">
-          <h2 className="section-title">KHÁCH HÀNG <span>NÓI GÌ?</span></h2>
+          <h2 className="section-title">
+            KHÁCH HÀNG <span>NÓI GÌ?</span>
+          </h2>
         </div>
         <div className="testimonial-grid">
           {[

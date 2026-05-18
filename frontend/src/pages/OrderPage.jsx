@@ -4,17 +4,17 @@
 // =====================================================
 
 import { useState, useEffect } from "react";
-import { formatPrice } from "../data/products";
+import { formatPrice } from "../utils/productHelpers";
 import { Package, Inbox, RefreshCw, Loader2 } from "lucide-react";
 import { apiGetMyOrders, isLoggedIn } from "../utils/api";
 
 // Nhãn trạng thái đơn hàng
 const STATUS_LABEL = {
-  PENDING:   { text: "Chờ xác nhận", color: "#f59e0b" },
-  CONFIRMED: { text: "Đã xác nhận",  color: "#3b82f6" },
-  SHIPPING:  { text: "Đang giao",    color: "#8b5cf6" },
-  DELIVERED: { text: "Đã nhận",      color: "var(--green)" },
-  CANCELLED: { text: "Đã hủy",       color: "var(--red)" },
+  PENDING: { text: "Chờ xác nhận", color: "#f59e0b" },
+  CONFIRMED: { text: "Đã xác nhận", color: "#3b82f6" },
+  SHIPPING: { text: "Đang giao", color: "#8b5cf6" },
+  DELIVERED: { text: "Đã nhận", color: "var(--green)" },
+  CANCELLED: { text: "Đã hủy", color: "var(--red)" },
 };
 
 // Format ngày từ LocalDateTime của Java
@@ -64,7 +64,10 @@ const transformOrderFromBE = (beOrder) => {
         id: item.productId,
         name: item.productName,
         sku: item.productSku,
-        price: typeof item.unitPrice === 'number' ? item.unitPrice : parseFloat(item.unitPrice),
+        price:
+          typeof item.unitPrice === "number"
+            ? item.unitPrice
+            : parseFloat(item.unitPrice),
         // emoji mặc định nếu không có
         emoji: "🏋️",
       },
@@ -118,9 +121,12 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
   }, []);
 
   // Kết hợp orders từ BE và local orders
-  const allOrders = [...orders, ...localOrders.filter(
-    lo => !orders.some(ro => ro.orderCode === lo.orderCode)
-  )];
+  const allOrders = [
+    ...orders,
+    ...localOrders.filter(
+      (lo) => !orders.some((ro) => ro.orderCode === lo.orderCode),
+    ),
+  ];
 
   // Sort theo ngày mới nhất
   const sortedOrders = [...allOrders].sort((a, b) => {
@@ -129,14 +135,19 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
     return dateB - dateA;
   });
 
-  const filtered = filter === "all" ? sortedOrders : sortedOrders.filter((o) => o.status === filter);
+  const filtered =
+    filter === "all"
+      ? sortedOrders
+      : sortedOrders.filter((o) => o.status === filter);
 
   // Loading state
   if (loading) {
     return (
       <div className="section">
         <div className="page-hero">
-          <h1>ĐƠN HÀNG <span>CỦA TÔI</span></h1>
+          <h1>
+            ĐƠN HÀNG <span>CỦA TÔI</span>
+          </h1>
         </div>
         <div className="empty-state">
           <Loader2 size={48} color="var(--primary)" className="spinning" />
@@ -150,13 +161,23 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
     return (
       <div className="section">
         <div className="page-hero">
-          <h1>ĐƠN HÀNG <span>CỦA TÔI</span></h1>
+          <h1>
+            ĐƠN HÀNG <span>CỦA TÔI</span>
+          </h1>
         </div>
         <div className="empty-state">
-          <div className="empty-icon"><Package size={64} color="var(--primary)" /></div>
+          <div className="empty-icon">
+            <Package size={64} color="var(--primary)" />
+          </div>
           <h3>Chưa có đơn hàng nào</h3>
-          <p>{isLoggedIn() ? "Hãy mua sắm và theo dõi đơn hàng của bạn tại đây." : "Đăng nhập để xem đơn hàng của bạn."}</p>
-          <button className="btn-primary" onClick={() => navigate("products")}>Mua sắm ngay</button>
+          <p>
+            {isLoggedIn()
+              ? "Hãy mua sắm và theo dõi đơn hàng của bạn tại đây."
+              : "Đăng nhập để xem đơn hàng của bạn."}
+          </p>
+          <button className="btn-primary" onClick={() => navigate("products")}>
+            Mua sắm ngay
+          </button>
         </div>
       </div>
     );
@@ -165,24 +186,28 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
   return (
     <div>
       <div className="page-hero">
-        <h1>ĐƠN HÀNG <span>CỦA TÔI</span></h1>
+        <h1>
+          ĐƠN HÀNG <span>CỦA TÔI</span>
+        </h1>
         <p>{sortedOrders.length} đơn hàng</p>
       </div>
 
       <section className="section">
         {/* Error banner nếu có */}
         {error && (
-          <div style={{
-            background: "rgba(239, 68, 68, 0.1)",
-            border: "1px solid var(--red)",
-            borderRadius: 8,
-            padding: "12px 16px",
-            marginBottom: 20,
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-            color: "var(--red)",
-          }}>
+          <div
+            style={{
+              background: "rgba(239, 68, 68, 0.1)",
+              border: "1px solid var(--red)",
+              borderRadius: 8,
+              padding: "12px 16px",
+              marginBottom: 20,
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              color: "var(--red)",
+            }}
+          >
             <RefreshCw size={18} />
             <span>{error} - Hiển thị đơn hàng đã lưu cục bộ.</span>
             <button
@@ -205,10 +230,10 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
         {/* Filter tabs */}
         <div className="order-tabs">
           {[
-            { key: "all",       label: "Tất cả" },
-            { key: "pending",   label: "Chờ xác nhận" },
+            { key: "all", label: "Tất cả" },
+            { key: "pending", label: "Chờ xác nhận" },
             { key: "confirmed", label: "Đã xác nhận" },
-            { key: "shipping",  label: "Đang giao" },
+            { key: "shipping", label: "Đang giao" },
             { key: "delivered", label: "Đã nhận" },
             { key: "cancelled", label: "Đã hủy" },
           ].map((tab) => (
@@ -225,35 +250,56 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
         {/* Danh sách đơn */}
         {filtered.length === 0 ? (
           <div className="empty-state" style={{ padding: "40px 0" }}>
-            <div className="empty-icon"><Inbox size={64} color="var(--gray)" /></div>
+            <div className="empty-icon">
+              <Inbox size={64} color="var(--gray)" />
+            </div>
             <h3>Không có đơn hàng</h3>
           </div>
         ) : (
-          <div style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 24 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 16,
+              marginTop: 24,
+            }}
+          >
             {filtered.map((order) => {
-              const st = STATUS_LABEL[order.status?.toUpperCase()] ?? STATUS_LABEL.PENDING;
+              const st =
+                STATUS_LABEL[order.status?.toUpperCase()] ??
+                STATUS_LABEL.PENDING;
               return (
                 <div key={order.id || order.orderCode} className="order-card">
                   {/* Header đơn */}
                   <div className="order-card-header">
                     <div>
-                      <span style={{ fontSize: 13, color: "var(--gray)" }}>Mã đơn: </span>
-                      <span style={{ fontSize: 13, fontWeight: 700, color: "var(--white)" }}>
+                      <span style={{ fontSize: 13, color: "var(--gray)" }}>
+                        Mã đơn:{" "}
+                      </span>
+                      <span
+                        style={{
+                          fontSize: 13,
+                          fontWeight: 700,
+                          color: "var(--white)",
+                        }}
+                      >
                         {order.orderCode || `#${order.id}`}
                       </span>
                     </div>
                     <div style={{ fontSize: 13, color: "var(--gray)" }}>
                       {formatDate(order.placedAt || order.createdAt)}
                     </div>
-                    <div style={{
-                      fontSize: 13,
-                      fontWeight: 700,
-                      color: st.color,
-                      padding: "4px 12px",
-                      borderRadius: 6,
-                      border: `1px solid ${st.color}`,
-                      textTransform: "uppercase"
-                    }}>
+                    <div
+                      style={{
+                        fontSize: 13,
+                        fontWeight: 700,
+                        color: st.color,
+                        padding: "4px 12px",
+                        borderRadius: 6,
+                        border: `1px solid ${st.color}`,
+                        textTransform: "uppercase",
+                      }}
+                    >
                       {st.text}
                     </div>
                   </div>
@@ -268,25 +314,52 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
                           alignItems: "center",
                           gap: 12,
                           padding: "10px 0",
-                          borderBottom: idx < Math.min(order.items.length, 3) - 1 ? "1px solid #2a2a2a" : "none"
+                          borderBottom:
+                            idx < Math.min(order.items.length, 3) - 1
+                              ? "1px solid #2a2a2a"
+                              : "none",
                         }}
                       >
-                        <span style={{ fontSize: 36 }}>{item.product?.emoji || "🏋️"}</span>
+                        <span style={{ fontSize: 36 }}>
+                          {item.product?.emoji || "🏋️"}
+                        </span>
                         <div style={{ flex: 1 }}>
-                          <div style={{ fontSize: 14, fontWeight: 700, color: "var(--white)" }}>
+                          <div
+                            style={{
+                              fontSize: 14,
+                              fontWeight: 700,
+                              color: "var(--white)",
+                            }}
+                          >
                             {item.productName || item.product?.name}
                           </div>
                           <div style={{ fontSize: 12, color: "var(--gray)" }}>
                             x{item.quantity}
                           </div>
                         </div>
-                        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 18, color: "var(--primary)" }}>
-                          {formatPrice(typeof item.lineTotal === 'number' ? item.lineTotal : parseFloat(item.lineTotal))}
+                        <div
+                          style={{
+                            fontFamily: "'Bebas Neue', sans-serif",
+                            fontSize: 18,
+                            color: "var(--primary)",
+                          }}
+                        >
+                          {formatPrice(
+                            typeof item.lineTotal === "number"
+                              ? item.lineTotal
+                              : parseFloat(item.lineTotal),
+                          )}
                         </div>
                       </div>
                     ))}
                     {order.items.length > 3 && (
-                      <div style={{ fontSize: 13, color: "var(--gray)", padding: "8px 0" }}>
+                      <div
+                        style={{
+                          fontSize: 13,
+                          color: "var(--gray)",
+                          padding: "8px 0",
+                        }}
+                      >
                         +{order.items.length - 3} sản phẩm khác
                       </div>
                     )}
@@ -295,19 +368,37 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
                   {/* Footer đơn */}
                   <div className="order-card-footer">
                     <div>
-                      <span style={{ fontSize: 14, color: "var(--gray)" }}>Tổng: </span>
-                      <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 22, color: "var(--primary)" }}>
-                        {formatPrice(typeof order.totalAmount === 'number' ? order.totalAmount : parseFloat(order.totalAmount))}
+                      <span style={{ fontSize: 14, color: "var(--gray)" }}>
+                        Tổng:{" "}
+                      </span>
+                      <span
+                        style={{
+                          fontFamily: "'Bebas Neue', sans-serif",
+                          fontSize: 22,
+                          color: "var(--primary)",
+                        }}
+                      >
+                        {formatPrice(
+                          typeof order.totalAmount === "number"
+                            ? order.totalAmount
+                            : parseFloat(order.totalAmount),
+                        )}
                       </span>
                     </div>
                     <div style={{ display: "flex", gap: 10 }}>
                       {order.status === "delivered" && (
-                        <button className="btn-outline" style={{ padding: "8px 16px", fontSize: 13 }}>
+                        <button
+                          className="btn-outline"
+                          style={{ padding: "8px 16px", fontSize: 13 }}
+                        >
                           Mua lại
                         </button>
                       )}
-                      <button className="btn-primary" style={{ padding: "8px 20px", fontSize: 13 }}
-                        onClick={() => onViewOrderDetail(order)}>
+                      <button
+                        className="btn-primary"
+                        style={{ padding: "8px 20px", fontSize: 13 }}
+                        onClick={() => onViewOrderDetail(order)}
+                      >
                         Xem chi tiết
                       </button>
                     </div>

@@ -5,79 +5,107 @@
 // =====================================================
 
 import { useState, useEffect } from "react";
-import { products, categories } from "../data/products";
 import ProductCard from "../components/ProductCard";
 import CategoryCard from "../components/CategoryCard";
+import { getProductUiData } from "../services/productService";
+
+const ALL_CATEGORY = { id: 0, name: "Tất cả", count: 0, icon: "" };
 
 const ProductListPage = ({ onAddToCart, onViewDetail, initialCategoryId }) => {
-  const [activeCategory, setActiveCategory] = useState(
-    initialCategoryId ? (categories.find(c => c.id === initialCategoryId) || categories[0]) : categories[0]
-  );
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([ALL_CATEGORY]);
+  const [activeCategory, setActiveCategory] = useState(ALL_CATEGORY);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (initialCategoryId) {
-      setActiveCategory(categories.find(c => c.id === initialCategoryId) || categories[0]);
-    } else {
-      setActiveCategory(categories[0]);
-    }
+    let isMounted = true;
+
+    const loadData = async () => {
+      try {
+        const { products: productData, categories: categoryData } =
+          await getProductUiData(300);
+        if (!isMounted) return;
+
+        setProducts(productData);
+        setCategories(categoryData.length > 0 ? categoryData : [ALL_CATEGORY]);
+
+        if (initialCategoryId) {
+          const selected =
+            categoryData.find((c) => c.id === initialCategoryId) ||
+            categoryData[0] ||
+            ALL_CATEGORY;
+          setActiveCategory(selected);
+        } else {
+          setActiveCategory(categoryData[0] || ALL_CATEGORY);
+        }
+      } catch (error) {
+        console.error("Không thể tải dữ liệu sản phẩm:", error);
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    };
+
+    loadData();
+    return () => {
+      isMounted = false;
+    };
   }, [initialCategoryId]);
-  const [searchText, setSearchText]         = useState("");
-  const [sortBy, setSortBy]                 = useState("default");
-  const [showNearExpiry, setShowNearExpiry] = useState(false);
+
+  const [searchText, setSearchText] = useState("");
+  const [sortBy, setSortBy] = useState("default");
 
   // Lọc sản phẩm
   let filtered = products.filter((p) => {
-    const matchCat    = activeCategory.id === 1 || p.categoryId === activeCategory.id;
-    const matchSearch = p.name.toLowerCase().includes(searchText.toLowerCase()) ||
-                        p.brand.toLowerCase().includes(searchText.toLowerCase());
-    const matchExpiry = showNearExpiry ? p.nearExpiry === true : true;
-    return matchCat && matchSearch && matchExpiry;
+    const matchCat =
+      activeCategory.id === 0 || p.categoryId === activeCategory.id;
+    const matchSearch =
+      p.name.toLowerCase().includes(searchText.toLowerCase()) ||
+      p.brand.toLowerCase().includes(searchText.toLowerCase());
+    return matchCat && matchSearch;
   });
 
   // Sắp xếp
-  if (sortBy === "price-asc")  filtered = [...filtered].sort((a, b) => a.price - b.price);
-  if (sortBy === "price-desc") filtered = [...filtered].sort((a, b) => b.price - a.price);
-  if (sortBy === "rating")     filtered = [...filtered].sort((a, b) => b.rating - a.rating);
-
-  const nearExpiryCount = products.filter((p) => p.nearExpiry).length;
+  if (sortBy === "price-asc")
+    filtered = [...filtered].sort((a, b) => a.price - b.price);
+  if (sortBy === "price-desc")
+    filtered = [...filtered].sort((a, b) => b.price - a.price);
+  if (sortBy === "rating")
+    filtered = [...filtered].sort((a, b) => b.rating - a.rating);
 
   return (
     <div>
       {/* Tiêu đề trang */}
       <div className="page-hero">
-        <h1>TẤT CẢ <span>SẢN PHẨM</span></h1>
+        <h1>
+          TẤT CẢ <span>SẢN PHẨM</span>
+        </h1>
         <p>Hơn 165 sản phẩm chính hãng từ các thương hiệu hàng đầu thế giới</p>
       </div>
 
-      {/* Banner cận date */}
-      {nearExpiryCount > 0 && (
-        <div
-          className="near-expiry-banner"
-          onClick={() => setShowNearExpiry(!showNearExpiry)}
-        >
-          <span>🔥 Có {nearExpiryCount} sản phẩm cận date – giảm đến 30%</span>
-          <span className="near-expiry-toggle">
-            {showNearExpiry ? "Xem tất cả" : "Xem ngay →"}
-          </span>
-        </div>
-      )}
-
       {/* Danh mục */}
       <section className="section" style={{ paddingBottom: 0 }}>
-        <div className="category-grid" style={{ gridTemplateColumns: "repeat(5, 1fr)" }}>
+        <div
+          className="category-grid"
+          style={{ gridTemplateColumns: "repeat(5, 1fr)" }}
+        >
           {categories.map((cat) => (
             <CategoryCard
               key={cat.id}
               category={cat}
               isActive={activeCategory.id === cat.id}
-              onClick={() => { setActiveCategory(cat); setShowNearExpiry(false); }}
+              onClick={() => {
+                setActiveCategory(cat);
+              }}
             />
           ))}
         </div>
       </section>
 
       {/* Filter bar */}
-      <section className="section" style={{ paddingTop: 24, paddingBottom: 24 }}>
+      <section
+        className="section"
+        style={{ paddingTop: 24, paddingBottom: 24 }}
+      >
         <div className="filter-bar">
           <div className="search-wrap">
             <span className="search-icon">🔍</span>
@@ -91,8 +119,16 @@ const ProductListPage = ({ onAddToCart, onViewDetail, initialCategoryId }) => {
           </div>
 
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <span style={{ color: "var(--gray)", fontSize: 14, fontWeight: 600 }}>Sắp xếp:</span>
-            <select className="sort-select" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+            <span
+              style={{ color: "var(--gray)", fontSize: 14, fontWeight: 600 }}
+            >
+              Sắp xếp:
+            </span>
+            <select
+              className="sort-select"
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+            >
               <option value="default">Mặc định</option>
               <option value="price-asc">Giá tăng dần</option>
               <option value="price-desc">Giá giảm dần</option>
@@ -100,32 +136,30 @@ const ProductListPage = ({ onAddToCart, onViewDetail, initialCategoryId }) => {
             </select>
           </div>
 
-          {/* Toggle cận date */}
-          <button
-            onClick={() => setShowNearExpiry(!showNearExpiry)}
-            style={{
-              background: showNearExpiry ? "var(--primary)" : "var(--dark3)",
-              border: "1px solid " + (showNearExpiry ? "var(--primary)" : "#444"),
-              color: "var(--white)", padding: "10px 16px",
-              borderRadius: 8, fontSize: 13, fontWeight: 700,
-              cursor: "pointer", transition: "all 0.2s", fontFamily: "inherit",
-            }}
-          >
-            🕐 Cận date {showNearExpiry ? "✓" : ""}
-          </button>
-
           <div style={{ color: "var(--gray)", fontSize: 14 }}>
-            Tìm thấy <strong style={{ color: "var(--white)" }}>{filtered.length}</strong> sản phẩm
+            Tìm thấy{" "}
+            <strong style={{ color: "var(--white)" }}>{filtered.length}</strong>{" "}
+            sản phẩm
           </div>
         </div>
       </section>
 
       {/* Danh sách sản phẩm */}
       <section className="section" style={{ paddingTop: 0 }}>
+        {loading && (
+          <div className="empty-state" style={{ marginBottom: 24 }}>
+            <h3>Đang tải sản phẩm...</h3>
+          </div>
+        )}
         {filtered.length > 0 ? (
           <div className="product-grid">
             {filtered.map((p) => (
-              <ProductCard key={p.id} product={p} onAddToCart={onAddToCart} onViewDetail={onViewDetail} />
+              <ProductCard
+                key={p.id}
+                product={p}
+                onAddToCart={onAddToCart}
+                onViewDetail={onViewDetail}
+              />
             ))}
           </div>
         ) : (
@@ -133,7 +167,13 @@ const ProductListPage = ({ onAddToCart, onViewDetail, initialCategoryId }) => {
             <div className="empty-icon">🔍</div>
             <h3>Không tìm thấy sản phẩm</h3>
             <p>Thử từ khoá khác hoặc chọn danh mục khác.</p>
-            <button className="btn-primary" onClick={() => { setSearchText(""); setActiveCategory(categories[0]); setShowNearExpiry(false); }}>
+            <button
+              className="btn-primary"
+              onClick={() => {
+                setSearchText("");
+                setActiveCategory(categories[0] || ALL_CATEGORY);
+              }}
+            >
               Xem tất cả
             </button>
           </div>

@@ -52,15 +52,14 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList(
-            "http://localhost:5173",
-            "http://localhost:5174",
-            "http://localhost:3000"
-        ));
+                "http://localhost:5173",
+                "http://localhost:5174",
+                "http://localhost:3000"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
         configuration.setMaxAge(3600L);
-        
+
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
@@ -79,17 +78,18 @@ public class SecurityConfig {
                     }
                 }))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()       // API đăng nhập/logout
-                        .requestMatchers("/api/public/**").permitAll()     // API công khai cho khách (Sản phẩm, Danh mục)
-                        .requestMatchers("/api/reviews/product/**").permitAll()  // Xem reviews không cần login
-                        .requestMatchers("/api/orders/guest").permitAll()  // Guest checkout không cần login
+                        .requestMatchers("/api/auth/**").permitAll() // API đăng nhập/logout
+                        .requestMatchers("/api/public/**").permitAll() // API công khai cho khách (Sản phẩm, Danh mục)
+                        .requestMatchers("/api/v1/products/**", "/api/v1/categories/**").permitAll() // API public phiên
+                                                                                                     // bản v1
+                        .requestMatchers("/api/reviews/product/**").permitAll() // Xem reviews không cần login
+                        .requestMatchers("/api/orders/guest").permitAll() // Guest checkout không cần login
                         .requestMatchers("/api/v1/payment/**").permitAll() // VNPay payment callback
-                        .requestMatchers("/admin/login").permitAll()       // Trang đăng nhập admin
+                        .requestMatchers("/admin/login").permitAll() // Trang đăng nhập admin
                         .requestMatchers("/admin/css/**", "/admin/js/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/admin/**").permitAll() // Tạm thời cho phép tất cả để Test kết nối FE -> BE
-                        .anyRequest().authenticated()
-                )
+                        .anyRequest().authenticated())
                 .addFilterBefore(authTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

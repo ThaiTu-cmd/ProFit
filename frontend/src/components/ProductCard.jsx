@@ -6,7 +6,7 @@
 //   - onViewDetail: hàm xem chi tiết
 // =====================================================
 
-import { formatPrice, renderStars } from "../data/products";
+import { formatPrice, renderStars } from "../utils/productHelpers";
 
 const ProductCard = ({ product, onAddToCart, onViewDetail }) => {
   return (
@@ -14,8 +14,20 @@ const ProductCard = ({ product, onAddToCart, onViewDetail }) => {
       {/* Ảnh / Emoji sản phẩm */}
       <div className="product-img-wrap">
         {product.badge === "SALE" && <span className="badge-sale">SALE</span>}
-        {product.badge === "NEW"  && <span className="badge-new">MỚI</span>}
-        <img src={product.image} alt={product.name} style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "12px", position: "absolute", top: 0, left: 0 }} />
+        {product.badge === "NEW" && <span className="badge-new">MỚI</span>}
+        <img
+          src={product.image}
+          alt={product.name}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+            borderRadius: "12px",
+            position: "absolute",
+            top: 0,
+            left: 0,
+          }}
+        />
       </div>
 
       {/* Thông tin sản phẩm */}
@@ -34,7 +46,9 @@ const ProductCard = ({ product, onAddToCart, onViewDetail }) => {
           <div>
             <span className="product-price">{formatPrice(product.price)}</span>
             {product.oldPrice && (
-              <span className="product-price-old">{formatPrice(product.oldPrice)}</span>
+              <span className="product-price-old">
+                {formatPrice(product.oldPrice)}
+              </span>
             )}
           </div>
 
@@ -56,7 +70,14 @@ const ProductCard = ({ product, onAddToCart, onViewDetail }) => {
 
         {/* Trạng thái hết hàng */}
         {!product.inStock && (
-          <div style={{ marginTop: 8, fontSize: 12, color: "#ef4444", fontWeight: 700 }}>
+          <div
+            style={{
+              marginTop: 8,
+              fontSize: 12,
+              color: "#ef4444",
+              fontWeight: 700,
+            }}
+          >
             Tạm hết hàng
           </div>
         )}

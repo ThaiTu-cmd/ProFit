@@ -29,9 +29,9 @@ public class CategoryServiceImpl implements CategoryService {
         category.setName(request.getName());
         category.setSlug(request.getSlug());
         category.setActive(request.getIsActive() != null ? request.getIsActive() : true);
-        
+
         if (request.getParentId() != null) {
-            Category parent = categoryRepository.findById(request.getParentId())
+            Category parent = categoryRepository.findByIdAndDeletedAtIsNull(request.getParentId())
                     .orElseThrow(() -> new IllegalArgumentException("Parent category not found"));
             category.setParent(parent);
         }
@@ -47,10 +47,11 @@ public class CategoryServiceImpl implements CategoryService {
 
         category.setName(request.getName());
         category.setSlug(request.getSlug());
-        if (request.getIsActive() != null) category.setActive(request.getIsActive());
+        if (request.getIsActive() != null)
+            category.setActive(request.getIsActive());
 
         if (request.getParentId() != null) {
-            Category parent = categoryRepository.findById(request.getParentId())
+            Category parent = categoryRepository.findByIdAndDeletedAtIsNull(request.getParentId())
                     .orElseThrow(() -> new IllegalArgumentException("Parent category not found"));
             category.setParent(parent);
         } else {
