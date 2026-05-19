@@ -5,6 +5,7 @@ import com.doan.ProFit.dto.response.ProductResponse;
 import com.doan.ProFit.entity.Category;
 import com.doan.ProFit.entity.Product;
 import com.doan.ProFit.repository.CategoryRepository;
+import com.doan.ProFit.repository.ProductImageRepository;
 import com.doan.ProFit.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private ProductImageRepository productImageRepository;
 
     @Override
     public List<ProductResponse> getAllProducts() {
@@ -123,6 +127,7 @@ public class ProductServiceImpl implements ProductService {
         response.setSku(product.getSku());
         response.setSlug(product.getSlug());
         response.setName(product.getName());
+        response.setImageUrl(productImageRepository.findBestImageUrlByProductId(product.getId()).orElse(null));
         response.setShortDescription(product.getShortDescription());
         response.setDescription(product.getDescription());
         response.setPrice(product.getPrice());

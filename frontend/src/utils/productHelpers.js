@@ -29,6 +29,7 @@ export const mapProductFromApi = (item) => {
   const ratingAvg = Number(item?.ratingAvg ?? 0);
   const ratingCount = Number(item?.ratingCount ?? 0);
   const stockQuantity = Number(item?.stockQuantity ?? 0);
+  const imageUrl = item?.imageUrl?.trim();
 
   return {
     id: item?.id,
@@ -38,7 +39,7 @@ export const mapProductFromApi = (item) => {
     brand: item?.sku ? item.sku.split("-")[0] : "ProFit",
     shortDesc: item?.shortDescription || "",
     fullDesc: item?.description || item?.shortDescription || "",
-    image: pickProductImageByCategory(item?.categoryName),
+    image: imageUrl || pickProductImageByCategory(item?.categoryName),
     price,
     oldPrice,
     rating: Math.round(ratingAvg),
