@@ -41,6 +41,7 @@ const ProductDetailPage = ({
   const [selectedFlavor, setSelectedFlavor] = useState(
     (product.flavors && product.flavors[0]) || "Mặc định",
   );
+  const [imageSrc, setImageSrc] = useState(product.image);
   const [related, setRelated] = useState([]);
 
   // Lấy user từ localStorage để truyền vào Reviews
@@ -60,6 +61,10 @@ const ProductDetailPage = ({
   const discount = product.oldPrice
     ? Math.round((1 - product.price / product.oldPrice) * 100)
     : null;
+
+  useEffect(() => {
+    setImageSrc(product.image);
+  }, [product.image, product.id]);
 
   useEffect(() => {
     let isMounted = true;
@@ -116,8 +121,13 @@ const ProductDetailPage = ({
               style={{ padding: 0, overflow: "hidden" }}
             >
               <img
-                src={product.image}
+                src={imageSrc}
                 alt={product.name}
+                onError={() => {
+                  if (imageSrc !== product.imageFallback) {
+                    setImageSrc(product.imageFallback);
+                  }
+                }}
                 style={{
                   width: "100%",
                   height: "100%",
@@ -138,6 +148,36 @@ const ProductDetailPage = ({
               {product.brand}
             </div>
             <h1 className="detail-title">{product.name}</h1>
+            {product.categoryName && (
+              <div style={{ color: "var(--gray)", marginBottom: 8, fontSize: 14 }}>
+                Danh mục: <strong style={{ color: "var(--white)" }}>{product.categoryName}</strong>
+              </div>
+            )}
+            {Array.isArray(product.tags) && product.tags.length > 0 && (
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: 8,
+                  marginBottom: 12,
+                }}
+              >
+                {product.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    style={{
+                      fontSize: 12,
+                      padding: "4px 10px",
+                      borderRadius: 999,
+                      border: "1px solid rgba(234,179,8,0.45)",
+                      color: "var(--primary)",
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
 
             {/* Đánh giá */}
             <div className="product-rating" style={{ marginBottom: 16 }}>

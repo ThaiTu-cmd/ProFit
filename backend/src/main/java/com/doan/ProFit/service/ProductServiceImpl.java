@@ -7,6 +7,7 @@ import com.doan.ProFit.entity.Product;
 import com.doan.ProFit.repository.CategoryRepository;
 import com.doan.ProFit.repository.ProductImageRepository;
 import com.doan.ProFit.repository.ProductRepository;
+import com.doan.ProFit.repository.ProductTagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,9 +29,12 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductImageRepository productImageRepository;
 
+    @Autowired
+    private ProductTagRepository productTagRepository;
+
     @Override
     public List<ProductResponse> getAllProducts() {
-        return productRepository.findByIsActiveTrueAndDeletedAtIsNull().stream()
+        return productRepository.findAllForAdmin().stream()
                 .map(this::mapToResponse)
                 .collect(Collectors.toList());
     }
@@ -141,6 +145,7 @@ public class ProductServiceImpl implements ProductService {
             response.setCategoryId(product.getCategory().getId());
             response.setCategoryName(product.getCategory().getName());
         }
+        response.setTags(productTagRepository.findDisplayNamesByProductId(product.getId()));
         return response;
     }
 }

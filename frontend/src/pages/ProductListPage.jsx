@@ -32,7 +32,6 @@ const ProductListPage = ({ onAddToCart, onViewDetail, initialCategoryId }) => {
         if (initialCategoryId) {
           const selected =
             categoryData.find((c) => c.id === initialCategoryId) ||
-            categoryData[0] ||
             ALL_CATEGORY;
           setActiveCategory(selected);
         } else {

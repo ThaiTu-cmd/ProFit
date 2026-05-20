@@ -6,9 +6,16 @@
 //   - onViewDetail: hàm xem chi tiết
 // =====================================================
 
+import { useEffect, useState } from "react";
 import { formatPrice, renderStars } from "../utils/productHelpers";
 
 const ProductCard = ({ product, onAddToCart, onViewDetail }) => {
+  const [imageSrc, setImageSrc] = useState(product.image);
+
+  useEffect(() => {
+    setImageSrc(product.image);
+  }, [product.image]);
+
   return (
     <div className="product-card" onClick={() => onViewDetail(product)}>
       {/* Ảnh / Emoji sản phẩm */}
@@ -16,8 +23,13 @@ const ProductCard = ({ product, onAddToCart, onViewDetail }) => {
         {product.badge === "SALE" && <span className="badge-sale">SALE</span>}
         {product.badge === "NEW" && <span className="badge-new">MỚI</span>}
         <img
-          src={product.image}
+          src={imageSrc}
           alt={product.name}
+          onError={() => {
+            if (imageSrc !== product.imageFallback) {
+              setImageSrc(product.imageFallback);
+            }
+          }}
           style={{
             width: "100%",
             height: "100%",
@@ -34,6 +46,29 @@ const ProductCard = ({ product, onAddToCart, onViewDetail }) => {
       <div className="product-info">
         <div className="product-brand">{product.brand}</div>
         <div className="product-name">{product.name}</div>
+        {product.categoryName && (
+          <div style={{ fontSize: 12, color: "var(--gray)", marginBottom: 6 }}>
+            {product.categoryName}
+          </div>
+        )}
+        {Array.isArray(product.tags) && product.tags.length > 0 && (
+          <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 8 }}>
+            {product.tags.slice(0, 2).map((tag) => (
+              <span
+                key={tag}
+                style={{
+                  fontSize: 11,
+                  padding: "2px 8px",
+                  borderRadius: 999,
+                  border: "1px solid rgba(234,179,8,0.45)",
+                  color: "var(--primary)",
+                }}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
 
         {/* Đánh giá sao */}
         <div className="product-rating">

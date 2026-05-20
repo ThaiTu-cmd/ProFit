@@ -102,9 +102,6 @@ public class UserServiceImpl implements UserService {
         if (request.getStatus() != null) {
             user.setStatus(request.getStatus());
         }
-        if (request.getPasswordHash() != null && !request.getPasswordHash().isBlank()) {
-            user.setPasswordHash(passwordEncoder.encode(request.getPasswordHash()));
-        }
 
         User savedUser = userRepository.save(user);
         return toResponse(savedUser);

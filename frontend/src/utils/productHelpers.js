@@ -22,6 +22,15 @@ const pickProductImageByCategory = (categoryName = "") => {
   return "/images/banners/banner-new.png";
 };
 
+const getPreferredImageUrl = (imageUrl = "") => {
+  if (!imageUrl) return imageUrl;
+
+  // Prefer larger source when provider exposes both /small|/resized and original.
+  return imageUrl
+    .replace("/small/", "/")
+    .replace("/resized/", "/");
+};
+
 export const mapProductFromApi = (item) => {
   const price = Number(item?.price ?? 0);
   const oldPriceRaw = item?.oldPrice == null ? null : Number(item.oldPrice);
@@ -29,7 +38,9 @@ export const mapProductFromApi = (item) => {
   const ratingAvg = Number(item?.ratingAvg ?? 0);
   const ratingCount = Number(item?.ratingCount ?? 0);
   const stockQuantity = Number(item?.stockQuantity ?? 0);
-  const imageUrl = item?.imageUrl?.trim();
+  const rawImageUrl = item?.imageUrl?.trim();
+  const fallbackImage = rawImageUrl || pickProductImageByCategory(item?.categoryName);
+  const preferredImage = getPreferredImageUrl(rawImageUrl) || fallbackImage;
 
   return {
     id: item?.id,
@@ -39,7 +50,8 @@ export const mapProductFromApi = (item) => {
     brand: item?.sku ? item.sku.split("-")[0] : "ProFit",
     shortDesc: item?.shortDescription || "",
     fullDesc: item?.description || item?.shortDescription || "",
-    image: imageUrl || pickProductImageByCategory(item?.categoryName),
+    image: preferredImage,
+    imageFallback: fallbackImage,
     price,
     oldPrice,
     rating: Math.round(ratingAvg),
@@ -47,6 +59,7 @@ export const mapProductFromApi = (item) => {
     badge: oldPrice ? "SALE" : "",
     categoryId: item?.categoryId,
     categoryName: item?.categoryName || "Khác",
+    tags: Array.isArray(item?.tags) ? item.tags : [],
     inStock: stockQuantity > 0,
     stockQuantity,
     isActive: Boolean(item?.isActive),
