@@ -11,6 +11,7 @@ import com.doan.ProFit.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.security.access.AccessDeniedException;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -81,7 +82,7 @@ public class ReviewServiceImpl implements ReviewService {
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
 
         if (!review.getUser().getId().equals(user.getId())) {
-            throw new IllegalArgumentException("You can only update your own reviews");
+            throw new AccessDeniedException("You can only update your own reviews");
         }
 
         if (request.getRating() != null) {
@@ -107,7 +108,7 @@ public class ReviewServiceImpl implements ReviewService {
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
 
         if (!review.getUser().getId().equals(user.getId())) {
-            throw new IllegalArgumentException("You can only delete your own reviews");
+            throw new AccessDeniedException("You can only delete your own reviews");
         }
 
         Long productId = review.getProduct().getId();

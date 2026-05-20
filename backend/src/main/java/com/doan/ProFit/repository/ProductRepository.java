@@ -15,6 +15,13 @@ import java.util.Optional;
 public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("""
             SELECT p FROM Product p
+            WHERE p.deletedAt IS NULL
+            ORDER BY p.createdAt DESC
+            """)
+    List<Product> findAllForAdmin();
+
+    @Query("""
+            SELECT p FROM Product p
             WHERE p.isActive = true
                 AND p.deletedAt IS NULL
                 AND p.category IS NOT NULL

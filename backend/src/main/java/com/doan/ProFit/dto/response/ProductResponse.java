@@ -1,6 +1,8 @@
 package com.doan.ProFit.dto.response;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductResponse {
     private Long id;
@@ -18,6 +20,7 @@ public class ProductResponse {
     private Boolean isActive;
     private Long categoryId;
     private String categoryName;
+    private List<String> tags = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -137,5 +140,13 @@ public class ProductResponse {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
 }
