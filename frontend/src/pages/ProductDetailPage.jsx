@@ -1,27 +1,14 @@
 // =====================================================
-// pages/ProductDetailPage.jsx – Trang chi tiết sản phẩm
-// Props:
-//   - product: sản phẩm cần hiển thị
-//   - onAddToCart: hàm thêm vào giỏ
-//   - navigate: hàm chuyển trang
+// pages/ProductDetailPage.jsx – Chi tiết sản phẩm Premium
 // =====================================================
 
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import Reviews from "../components/Reviews";
 import { getProductsFromApi } from "../services/productService";
-import {
-  formatPrice,
-  mapProductFromApi,
-  renderStars,
-} from "../utils/productHelpers";
+import { formatPrice, mapProductFromApi, renderStars } from "../utils/productHelpers";
 
-const ProductDetailPage = ({
-  product,
-  onAddToCart,
-  onViewDetail,
-  navigate,
-}) => {
+const ProductDetailPage = ({ product, onAddToCart, onViewDetail, navigate }) => {
   if (!product) {
     return (
       <div className="section">
@@ -35,74 +22,56 @@ const ProductDetailPage = ({
     );
   }
 
-  // State: số lượng muốn mua
   const [quantity, setQuantity] = useState(1);
-  // State: hương vị đang chọn
   const [selectedFlavor, setSelectedFlavor] = useState(
-    (product.flavors && product.flavors[0]) || "Mặc định",
+    (product.flavors && product.flavors[0]) || "Mặc định"
   );
   const [imageSrc, setImageSrc] = useState(product.image);
   const [related, setRelated] = useState([]);
-
-  // Lấy user từ localStorage để truyền vào Reviews
-  const [user, setUser] = useState(() => {
-    try {
-      const saved = localStorage.getItem("user");
-      return saved ? JSON.parse(saved) : null;
-    } catch {
-      return null;
-    }
+  const [user] = useState(() => {
+    try { return JSON.parse(localStorage.getItem("user")) || null; } catch { return null; }
   });
+  const [added, setAdded] = useState(false);
 
-  // Tính giá sau khi nhân số lượng
   const totalPrice = product.price * quantity;
-
-  // Tính % giảm giá
   const discount = product.oldPrice
     ? Math.round((1 - product.price / product.oldPrice) * 100)
     : null;
 
   useEffect(() => {
     setImageSrc(product.image);
-  }, [product.image, product.id]);
+    setQuantity(1);
+  }, [product.id]);
 
   useEffect(() => {
     let isMounted = true;
-
     const loadRelatedProducts = async () => {
-      if (!product.categoryId) {
-        setRelated([]);
-        return;
-      }
-
+      if (!product.categoryId) { setRelated([]); return; }
       try {
-        const page = await getProductsFromApi({
-          categoryId: product.categoryId,
-          page: 0,
-          size: 12,
-        });
+        const page = await getProductsFromApi({ categoryId: product.categoryId, page: 0, size: 12 });
         if (!isMounted) return;
-
         const relatedProducts = page.content
           .map(mapProductFromApi)
           .filter((p) => p.id !== product.id)
           .slice(0, 4);
-
         setRelated(relatedProducts);
       } catch (error) {
         console.error("Không thể tải sản phẩm liên quan:", error);
       }
     };
-
     loadRelatedProducts();
-    return () => {
-      isMounted = false;
-    };
+    return () => { isMounted = false; };
   }, [product.id, product.categoryId]);
+
+  const handleAdd = () => {
+    for (let i = 0; i < quantity; i++) onAddToCart(product);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1800);
+  };
 
   return (
     <div>
-      {/* Breadcrumb điều hướng */}
+      {/* Breadcrumb */}
       <div className="breadcrumb">
         <span onClick={() => navigate("home")}>Trang chủ</span>
         <span> / </span>
@@ -111,94 +80,87 @@ const ProductDetailPage = ({
         <span style={{ color: "var(--primary)" }}>{product.name}</span>
       </div>
 
-      {/* ===== CHI TIẾT SẢN PHẨM ===== */}
+      {/* ===== CHI TIẾT ===== */}
       <section className="section">
         <div className="detail-layout">
-          {/* Cột trái: ảnh sản phẩm */}
+          {/* Cột trái: ảnh */}
           <div className="detail-image-wrap">
-            <div
-              className="detail-image"
-              style={{ padding: 0, overflow: "hidden" }}
-            >
-              <img
-                src={imageSrc}
-                alt={product.name}
-                onError={() => {
-                  if (imageSrc !== product.imageFallback) {
-                    setImageSrc(product.imageFallback);
-                  }
-                }}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "contain",
-                  display: "block",
-                }}
-              />
-            </div>
-            {discount && <div className="detail-discount">-{discount}%</div>}
+            {discount && (
+              <div className="detail-discount">-{discount}%</div>
+            )}
+            <img
+              src={imageSrc}
+              alt={product.name}
+              onError={() => {
+                if (imageSrc !== product.imageFallback) setImageSrc(product.imageFallback);
+              }}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                display: "block",
+                position: "relative",
+                zIndex: 1,
+                borderRadius: "var(--radius-lg)",
+              }}
+            />
           </div>
 
           {/* Cột phải: thông tin */}
-          <div className="detail-info">
-            <div
-              className="product-brand"
-              style={{ fontSize: 14, marginBottom: 8 }}
-            >
+          <div>
+            {/* Brand */}
+            <div style={{
+              fontFamily: "'Exo 2', sans-serif",
+              fontSize: 12,
+              color: "var(--primary)",
+              fontWeight: 800,
+              textTransform: "uppercase",
+              letterSpacing: "2px",
+              marginBottom: 10,
+            }}>
               {product.brand}
             </div>
+
             <h1 className="detail-title">{product.name}</h1>
+
+            {/* Category */}
             {product.categoryName && (
-              <div style={{ color: "var(--gray)", marginBottom: 8, fontSize: 14 }}>
+              <div style={{ color: "var(--gray)", marginBottom: 10, fontSize: 14 }}>
                 Danh mục: <strong style={{ color: "var(--white)" }}>{product.categoryName}</strong>
               </div>
             )}
+
+            {/* Tags */}
             {Array.isArray(product.tags) && product.tags.length > 0 && (
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: 8,
-                  marginBottom: 12,
-                }}
-              >
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 14 }}>
                 {product.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    style={{
-                      fontSize: 12,
-                      padding: "4px 10px",
-                      borderRadius: 999,
-                      border: "1px solid rgba(234,179,8,0.45)",
-                      color: "var(--primary)",
-                    }}
-                  >
+                  <span key={tag} style={{
+                    fontSize: 11,
+                    padding: "4px 12px",
+                    borderRadius: 999,
+                    border: "1px solid rgba(255,92,0,0.25)",
+                    color: "var(--primary)",
+                    fontWeight: 700,
+                  }}>
                     {tag}
                   </span>
                 ))}
               </div>
             )}
 
-            {/* Đánh giá */}
-            <div className="product-rating" style={{ marginBottom: 16 }}>
-              <span className="stars">{renderStars(product.rating)}</span>
-              <span className="rating-count">({product.reviews} đánh giá)</span>
+            {/* Rating */}
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
+              <span style={{ color: "#f59e0b", fontSize: 15 }}>{renderStars(product.rating)}</span>
+              <span style={{ fontSize: 13, color: "var(--gray)" }}>({product.reviews} đánh giá)</span>
+              <span style={{
+                width: 2, height: 12, background: "rgba(255,255,255,0.1)", borderRadius: 1, margin: "0 4px",
+              }} />
               {product.inStock ? (
-                <span
-                  style={{
-                    color: "var(--green)",
-                    fontWeight: 700,
-                    fontSize: 13,
-                  }}
-                >
+                <span style={{ color: "var(--green)", fontWeight: 700, fontSize: 13 }}>
                   ✓ Còn hàng
                 </span>
               ) : (
-                <span
-                  style={{ color: "var(--red)", fontWeight: 700, fontSize: 13 }}
-                >
-                  ✗ Hết hàng
-                </span>
+                <span style={{ color: "var(--red)", fontWeight: 700, fontSize: 13 }}>✗ Hết hàng</span>
               )}
             </div>
 
@@ -206,16 +168,27 @@ const ProductDetailPage = ({
             <div className="detail-price-wrap">
               <span className="detail-price">{formatPrice(product.price)}</span>
               {product.oldPrice && (
-                <span className="detail-price-old">
-                  {formatPrice(product.oldPrice)}
-                </span>
+                <>
+                  <span className="detail-price-old">{formatPrice(product.oldPrice)}</span>
+                  <span style={{
+                    background: "rgba(239,68,68,0.1)",
+                    color: "var(--red)",
+                    border: "1px solid rgba(239,68,68,0.2)",
+                    padding: "3px 10px",
+                    borderRadius: 6,
+                    fontSize: 12,
+                    fontWeight: 700,
+                  }}>
+                    -{discount}%
+                  </span>
+                </>
               )}
             </div>
 
             {/* Mô tả */}
             <p className="detail-desc">{product.fullDesc}</p>
 
-            {/* Thông số nhanh */}
+            {/* Thông số */}
             <div className="detail-specs">
               <div className="spec-item">
                 <span>⚖️ Trọng lượng</span>
@@ -225,10 +198,14 @@ const ProductDetailPage = ({
                 <span>🥄 Khẩu phần</span>
                 <strong>{product.servings} lần dùng</strong>
               </div>
+              <div className="spec-item">
+                <span>⭐ Đánh giá</span>
+                <strong>{product.rating}/5</strong>
+              </div>
             </div>
 
             {/* Chọn hương vị */}
-            {product.flavors.length > 1 && (
+            {product.flavors && product.flavors.length > 1 && (
               <div className="detail-flavors">
                 <div className="detail-label">Hương vị:</div>
                 <div className="flavor-list">
@@ -245,27 +222,17 @@ const ProductDetailPage = ({
               </div>
             )}
 
-            {/* Chọn số lượng */}
+            {/* Số lượng */}
             <div className="detail-quantity">
               <div className="detail-label">Số lượng:</div>
               <div className="quantity-control">
-                <button
-                  className="qty-btn"
-                  onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                >
-                  −
-                </button>
+                <button className="qty-btn" onClick={() => setQuantity((q) => Math.max(1, q - 1))}>−</button>
                 <span className="qty-value">{quantity}</span>
-                <button
-                  className="qty-btn"
-                  onClick={() => setQuantity((q) => q + 1)}
-                >
-                  +
-                </button>
+                <button className="qty-btn" onClick={() => setQuantity((q) => q + 1)}>+</button>
               </div>
               <span style={{ color: "var(--gray)", fontSize: 14 }}>
                 Tổng:{" "}
-                <strong style={{ color: "var(--primary)" }}>
+                <strong style={{ color: "var(--primary)", fontFamily: "'Bebas Neue', sans-serif", fontSize: 20 }}>
                   {formatPrice(totalPrice)}
                 </strong>
               </span>
@@ -275,10 +242,10 @@ const ProductDetailPage = ({
             <div className="detail-actions">
               <button
                 className="btn-primary"
-                style={{ flex: 1, padding: "14px 0" }}
+                style={{ flex: 1, padding: "16px 0", fontSize: 16 }}
                 disabled={!product.inStock}
                 onClick={() => {
-                  for (let i = 0; i < quantity; i++) onAddToCart(product);
+                  handleAdd();
                   navigate("cart");
                 }}
               >
@@ -286,20 +253,18 @@ const ProductDetailPage = ({
               </button>
               <button
                 className="btn-outline"
-                style={{ flex: 1, padding: "14px 0" }}
+                style={{ flex: 1, padding: "16px 0", fontSize: 16, transition: "all 0.3s" }}
                 disabled={!product.inStock}
-                onClick={() => {
-                  for (let i = 0; i < quantity; i++) onAddToCart(product);
-                }}
+                onClick={handleAdd}
               >
-                + Thêm giỏ hàng
+                {added ? "✓ Đã thêm!" : "+ Thêm giỏ hàng"}
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== ĐÁNH GIÁ SẢN PHẨM ===== */}
+      {/* ===== ĐÁNH GIÁ ===== */}
       <section className="section" style={{ paddingTop: 0 }}>
         <Reviews productId={product.id} user={user} />
       </section>
@@ -308,18 +273,11 @@ const ProductDetailPage = ({
       {related.length > 0 && (
         <section className="section" style={{ paddingTop: 0 }}>
           <div className="section-header">
-            <h2 className="section-title">
-              SẢN PHẨM <span>LIÊN QUAN</span>
-            </h2>
+            <h2 className="section-title">SẢN PHẨM <span>LIÊN QUAN</span></h2>
           </div>
           <div className="product-grid">
             {related.map((p) => (
-              <ProductCard
-                key={p.id}
-                product={p}
-                onAddToCart={onAddToCart}
-                onViewDetail={onViewDetail}
-              />
+              <ProductCard key={p.id} product={p} onAddToCart={onAddToCart} onViewDetail={onViewDetail} />
             ))}
           </div>
         </section>

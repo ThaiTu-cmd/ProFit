@@ -12,17 +12,25 @@ spring:
     # KHÔNG sửa password trực tiếp vào file application.yaml này để tránh bị đẩy lên Git.
     # Hãy copy file application-local.yaml.example thành application-local.yaml 
     # và điền password thực tế của bạn vào file đó. Nó sẽ tự động ghi đè file này khi chạy!
-    url: "jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true"
+    url: "jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Ho_Chi_Minh&connectionCharacterSet=UTF-8"
     username: root
     password: password
   sql:
     init:
       mode: always
+      continue-on-error: true
   jpa:
     defer-datasource-initialization: true
     hibernate:
       ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 25
+        connection:
+          characterEncoding: utf8
+        format_sql: true
 
 app:
   jwt:

@@ -2,11 +2,13 @@
 // App.jsx – Ứng dụng chính, quản lý routing và state toàn cục
 
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import Navbar  from "./components/Navbar";
 import Footer  from "./components/Footer";
 import Toast   from "./components/Toast";
+import Particles from "./components/Particles";
+import BackButton from "./components/BackButton";
 
 import HomePage          from "./pages/HomePage";
 import ProductListPage   from "./pages/ProductListPage";   
@@ -33,6 +35,13 @@ const App = () => {
   const [currentPage, setCurrentPage]         = useState("home");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedOrder, setSelectedOrder]     = useState(null);
+
+  // ── Navigation History (Back Button) ──────────────
+  // Những trang KHÔNG có trong lịch sử back (trang gốc)
+  const TOP_LEVEL_PAGES = new Set([
+    "home", "products", "about", "contact", "login", "register", "profile",
+  ]);
+  const [history, setHistory] = useState(["home"]);
 
   // ── Auth state ──────────────────────────────────────
   // user = null khi chưa đăng nhập
@@ -92,6 +101,18 @@ const App = () => {
   const [targetCategory, setTargetCategory] = useState(null);
 
   const navigate = (page, params = {}) => {
+    // Push trang hiện tại vào history (nếu không phải trang top-level)
+    if (!TOP_LEVEL_PAGES.has(page)) {
+      setHistory((prev) => {
+        // Tránh duplicate nếu click liên tục cùng trang
+        if (prev[prev.length - 1] === currentPage) return prev;
+        return [...prev, currentPage];
+      });
+    } else {
+      // Nếu về trang top-level → reset history
+      setHistory(["home"]);
+    }
+
     setCurrentPage(page);
     if (page === "products" && params.categoryId) {
       setTargetCategory(params.categoryId);
@@ -156,6 +177,19 @@ const App = () => {
     navigate("home");
     showToast("Đã đăng xuất.");
   };
+
+  const goBack = () => {
+    setHistory((prev) => {
+      if (prev.length <= 1) return prev;
+      const newHistory = prev.slice(0, -1);
+      const previousPage = newHistory[newHistory.length - 1];
+      setCurrentPage(previousPage);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return newHistory;
+    });
+  };
+
+  const canGoBack = history.length > 1;
 
   const cartCount = cart.reduce((s, i) => s + i.qty, 0);
 
@@ -282,6 +316,10 @@ const App = () => {
 
   return (
     <div>
+      <Particles />
+
+      <BackButton goBack={goBack} canGoBack={canGoBack} />
+
       {/* [SỬA] Truyền thêm user + onLogout */}
       <Navbar
         currentPage={currentPage}

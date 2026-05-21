@@ -20,10 +20,17 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/create")
-    public ResponseEntity<OrderResponse> createOrder(@Valid @RequestBody OrderRequest request, Authentication authentication) {
+    public ResponseEntity<?> createOrder(@Valid @RequestBody OrderRequest request, Authentication authentication) {
+        if (authentication == null || authentication.getName() == null) {
+            return ResponseEntity.status(401).body(java.util.Map.of("error", "Unauthorized", "message", "Vui lòng đăng nhập để đặt hàng"));
+        }
         String email = authentication.getName();
-        OrderResponse response = orderService.createOrder(request, email);
-        return ResponseEntity.ok(response);
+        try {
+            OrderResponse response = orderService.createOrder(request, email);
+            return ResponseEntity.ok(response);
+        } catch (IllegalArgumentException ex) {
+            return ResponseEntity.badRequest().body(java.util.Map.of("error", "Bad Request", "message", ex.getMessage()));
+        }
     }
 
     @PostMapping("/guest")
@@ -33,7 +40,10 @@ public class OrderController {
     }
 
     @GetMapping("/my-orders")
-    public ResponseEntity<List<OrderResponse>> getMyOrders(Authentication authentication) {
+    public ResponseEntity<?> getMyOrders(Authentication authentication) {
+        if (authentication == null || authentication.getName() == null) {
+            return ResponseEntity.status(401).body(java.util.Map.of("error", "Unauthorized", "message", "Vui lòng đăng nhập"));
+        }
         String email = authentication.getName();
         List<OrderResponse> response = orderService.getMyOrders(email);
         return ResponseEntity.ok(response);

@@ -24,9 +24,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             SELECT p FROM Product p
             WHERE p.isActive = true
                 AND p.deletedAt IS NULL
-                AND p.category IS NOT NULL
-                AND p.category.isActive = true
-                AND p.category.deletedAt IS NULL
+                AND (p.category IS NULL OR (p.category.isActive = true AND p.category.deletedAt IS NULL))
             """)
     List<Product> findByIsActiveTrueAndDeletedAtIsNull();
 
@@ -34,9 +32,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             SELECT p FROM Product p
             WHERE p.isActive = true
                 AND p.deletedAt IS NULL
-                AND p.category IS NOT NULL
-                AND p.category.isActive = true
-                AND p.category.deletedAt IS NULL
+                AND (p.category IS NULL OR (p.category.isActive = true AND p.category.deletedAt IS NULL))
             """)
     Page<Product> findByIsActiveTrueAndDeletedAtIsNull(Pageable pageable);
 
@@ -56,9 +52,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :name, '%'))
                 AND p.isActive = true
                 AND p.deletedAt IS NULL
-                AND p.category IS NOT NULL
-                AND p.category.isActive = true
-                AND p.category.deletedAt IS NULL
+                AND (p.category IS NULL OR (p.category.isActive = true AND p.category.deletedAt IS NULL))
             """)
     Page<Product> findByNameContainingIgnoreCaseAndIsActiveTrueAndDeletedAtIsNull(@Param("name") String name,
             Pageable pageable);
@@ -68,9 +62,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             WHERE p.id = :id
                 AND p.isActive = true
                 AND p.deletedAt IS NULL
-                AND p.category IS NOT NULL
-                AND p.category.isActive = true
-                AND p.category.deletedAt IS NULL
+                AND (p.category IS NULL OR (p.category.isActive = true AND p.category.deletedAt IS NULL))
             """)
     Optional<Product> findByIdAndIsActiveTrueAndDeletedAtIsNull(@Param("id") Long id);
 

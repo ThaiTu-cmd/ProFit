@@ -1,172 +1,192 @@
 // =====================================================
-// pages/ContactPage.jsx – Trang liên hệ
+// pages/ContactPage.jsx – Liên hệ Premium
 // =====================================================
 
 import { useState } from "react";
-import { MapPin, Phone, Mail, ThumbsUp } from "lucide-react";
 
-const ContactPage = ({ showToast }) => {
-  // State form
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+const ContactPage = ({ navigate, showToast }) => {
+  const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-  // Cập nhật giá trị khi người dùng gõ
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  // Xử lý gửi form (giả lập – chưa kết nối backend)
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (!form.name || !form.email || !form.message) {
-      showToast("⚠️ Vui lòng điền đầy đủ thông tin!");
+      showToast("Vui lòng điền đầy đủ thông tin!");
       return;
     }
-    showToast("✅ Gửi thành công! Chúng tôi sẽ liên hệ sớm.");
-    setForm({ name: "", email: "", phone: "", message: "" });
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+      showToast("Gửi liên hệ thành công!");
+    }, 1200);
   };
+
+  const contactItems = [
+    {
+      icon: "📍",
+      label: "Địa chỉ",
+      value: "123 Nguyễn Trãi, Quận 1, TP. Hồ Chí Minh",
+    },
+    {
+      icon: "📞",
+      label: "Điện thoại",
+      value: "0901 234 567",
+    },
+    {
+      icon: "✉️",
+      label: "Email",
+      value: "hello@profit.vn",
+    },
+    {
+      icon: "⏰",
+      label: "Giờ làm việc",
+      value: "8:00 — 22:00 (Thứ 2 — CN)",
+    },
+  ];
 
   return (
     <div>
-      {/* Tiêu đề */}
       <div className="page-hero">
         <h1>LIÊN <span>HỆ</span></h1>
-        <p>Chúng tôi luôn sẵn sàng hỗ trợ bạn 24/7</p>
+        <p>Đội ngũ ProFit luôn sẵn sàng hỗ trợ bạn 24/7</p>
       </div>
 
       <section className="section">
         <div className="contact-layout">
-          {/* ===== THÔNG TIN LIÊN HỆ ===== */}
-          <div className="contact-info">
-            <h3 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 28, letterSpacing: 1, marginBottom: 24, color: "var(--white)" }}>
-              THÔNG TIN LIÊN HỆ
-            </h3>
+          {/* Cột trái: thông tin */}
+          <div>
+            <h2 style={{
+              fontFamily: "'Bebas Neue', sans-serif",
+              fontSize: 36,
+              letterSpacing: 2,
+              color: "var(--white)",
+              marginBottom: 8,
+            }}>
+              KẾT NỐI VỚI CHÚNG TÔI
+            </h2>
+            <p style={{ color: "var(--gray)", fontSize: 15, marginBottom: 36, lineHeight: 1.7 }}>
+              Bạn có câu hỏi, góp ý hoặc cần tư vấn? Đội ngũ của chúng tôi luôn
+              sẵn sàng lắng nghe và hỗ trợ bạn.
+            </p>
 
-            {[
-              { icon: <MapPin size={24} color="var(--primary)" />, label: "Địa chỉ", value: "123 Nguyễn Đình Chiểu, Quận 3, TP. HCM" },
-              { icon: <Phone size={24} color="var(--primary)" />, label: "Hotline", value: "0901 234 567 (8:00 – 22:00)" },
-              { icon: <Mail size={24} color="var(--primary)" />, label: "Email", value: "hello@powerfuel.vn" },
-              { icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>, label: "Facebook", value: "fb.com/powerfuel.vn" },
-            ].map((info) => (
-              <div className="contact-item" key={info.label}>
-                <div className="contact-icon">{info.icon}</div>
+            {contactItems.map((item) => (
+              <div key={item.label} className="contact-item">
+                <div className="contact-icon">{item.icon}</div>
                 <div>
-                  <div className="contact-label">{info.label}</div>
-                  <div className="contact-value">{info.value}</div>
+                  <div className="contact-label">{item.label}</div>
+                  <div className="contact-value">{item.value}</div>
                 </div>
               </div>
             ))}
 
-            {/* Giờ làm việc */}
-            <div className="working-hours">
-              <h4>Giờ làm việc</h4>
-              <div className="hours-row"><span>Thứ 2 – Thứ 6</span><span>8:00 – 22:00</span></div>
-              <div className="hours-row"><span>Thứ 7 – Chủ nhật</span><span>9:00 – 20:00</span></div>
+            {/* Social */}
+            <div style={{ marginTop: 32 }}>
+              <div style={{ fontSize: 13, color: "var(--gray)", fontWeight: 700, textTransform: "uppercase", letterSpacing: 2, marginBottom: 16 }}>
+                Theo dõi chúng tôi
+              </div>
+              <div style={{ display: "flex", gap: 12 }}>
+                {[
+                  { icon: "📘", label: "Facebook" },
+                  { icon: "📸", label: "Instagram" },
+                  { icon: "▶️", label: "YouTube" },
+                  { icon: "💬", label: "Zalo" },
+                ].map((s) => (
+                  <div key={s.label} className="social-btn" title={s.label}>
+                    {s.icon}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* ===== FORM LIÊN HỆ ===== */}
+          {/* Cột phải: form */}
           <div className="contact-form">
-            <h3 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 28, letterSpacing: 1, marginBottom: 24, color: "var(--white)" }}>
-              GỬI TIN NHẮN
-            </h3>
-
-            <div className="form-row">
-              <div className="form-group">
-                <label className="form-label">Họ và tên *</label>
-                <input
-                  className="form-input"
-                  type="text"
-                  name="name"
-                  placeholder="Nguyễn Văn A"
-                  value={form.name}
-                  onChange={handleChange}
-                />
+            {submitted ? (
+              <div style={{ textAlign: "center", padding: "60px 0" }}>
+                <div style={{ fontSize: 72, marginBottom: 20 }}>✅</div>
+                <h3 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 32, color: "var(--white)", marginBottom: 12 }}>
+                  GỬI THÀNH CÔNG!
+                </h3>
+                <p style={{ color: "var(--gray)", fontSize: 15, lineHeight: 1.7, marginBottom: 28 }}>
+                  Cảm ơn bạn đã liên hệ. Đội ngũ ProFit sẽ phản hồi trong vòng 24 giờ.
+                </p>
+                <button className="btn-primary" onClick={() => { setSubmitted(false); setForm({ name: "", email: "", phone: "", subject: "", message: "" }); }}>
+                  Gửi liên hệ khác
+                </button>
               </div>
-              <div className="form-group">
-                <label className="form-label">Số điện thoại</label>
-                <input
-                  className="form-input"
-                  type="tel"
-                  name="phone"
-                  placeholder="0901 234 567"
-                  value={form.phone}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
+            ) : (
+              <>
+                <h3 style={{
+                  fontFamily: "'Bebas Neue', sans-serif",
+                  fontSize: 28,
+                  letterSpacing: 1,
+                  color: "var(--white)",
+                  marginBottom: 28,
+                }}>
+                  GỬI TIN NHẮN
+                </h3>
 
-            <div className="form-group">
-              <label className="form-label">Email *</label>
-              <input
-                className="form-input"
-                type="email"
-                name="email"
-                placeholder="email@example.com"
-                value={form.email}
-                onChange={handleChange}
-              />
-            </div>
+                <form onSubmit={handleSubmit}>
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label className="form-label">Họ và tên *</label>
+                      <input className="form-input" name="name" placeholder="Nguyễn Văn A"
+                        value={form.name} onChange={handleChange} />
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label">Email *</label>
+                      <input className="form-input" type="email" name="email" placeholder="email@example.com"
+                        value={form.email} onChange={handleChange} />
+                    </div>
+                  </div>
 
-            <div className="form-group">
-              <label className="form-label">Tin nhắn *</label>
-              <textarea
-                className="form-input form-textarea"
-                name="message"
-                placeholder="Tôi cần tư vấn về sản phẩm..."
-                value={form.message}
-                onChange={handleChange}
-              />
-            </div>
+                  <div className="form-row">
+                    <div className="form-group">
+                      <label className="form-label">Số điện thoại</label>
+                      <input className="form-input" name="phone" placeholder="0901 234 567"
+                        value={form.phone} onChange={handleChange} />
+                    </div>
+                    <div className="form-group">
+                      <label className="form-label">Chủ đề</label>
+                      <input className="form-input" name="subject" placeholder="Tư vấn sản phẩm"
+                        value={form.subject} onChange={handleChange} />
+                    </div>
+                  </div>
 
-            <button className="btn-primary" style={{ width: "100%", padding: "14px 0", fontSize: 16 }} onClick={handleSubmit}>
-              Gửi tin nhắn ✉️
-            </button>
+                  <div className="form-group">
+                    <label className="form-label">Nội dung *</label>
+                    <textarea
+                      className="form-input form-textarea"
+                      name="message"
+                      placeholder="Viết nội dung tin nhắn của bạn..."
+                      value={form.message}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="btn-primary"
+                    style={{ width: "100%", padding: "16px 0", fontSize: 16 }}
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+                        <span className="spinning" style={{ display: "inline-block", width: 18, height: 18, border: "2px solid rgba(255,255,255,0.3)", borderTopColor: "white", borderRadius: "50%" }} />
+                        Đang gửi...
+                      </span>
+                    ) : "Gửi liên hệ ngay →"}
+                  </button>
+                </form>
+              </>
+            )}
           </div>
         </div>
       </section>
-
-      {/* ===== FAQ ===== */}
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="section-header">
-          <h2 className="section-title">CÂU HỎI <span>THƯỜNG GẶP</span></h2>
-        </div>
-        <div className="faq-list">
-          {[
-            {
-              q: "Sản phẩm có chính hãng không?",
-              a: "100% sản phẩm được nhập khẩu trực tiếp từ nhà sản xuất hoặc nhà phân phối chính thức. Mỗi sản phẩm đều có tem chống hàng giả và có thể kiểm tra trên website của hãng.",
-            },
-            {
-              q: "Chính sách đổi trả như thế nào?",
-              a: "Chúng tôi hỗ trợ đổi trả trong vòng 7 ngày nếu sản phẩm bị lỗi do nhà sản xuất, hàng sai so với đơn đặt hoặc bị hư hỏng trong quá trình vận chuyển.",
-            },
-            {
-              q: "Giao hàng mất bao lâu?",
-              a: "Tại TP.HCM: 2–4 giờ (đơn trong giờ hành chính). Các tỉnh thành khác: 1–3 ngày làm việc.",
-            },
-            {
-              q: "Tôi cần tư vấn sản phẩm phù hợp thì làm sao?",
-              a: "Bạn có thể nhắn tin Facebook, gọi hotline hoặc để lại tin nhắn qua form này. Chuyên gia dinh dưỡng của chúng tôi sẽ tư vấn miễn phí và đề xuất sản phẩm phù hợp với mục tiêu của bạn.",
-            },
-          ].map((item, index) => (
-            <FaqItem key={index} question={item.q} answer={item.a} />
-          ))}
-        </div>
-      </section>
-    </div>
-  );
-};
-
-// Component con: một câu hỏi FAQ có thể mở/đóng
-const FaqItem = ({ question, answer }) => {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className={`faq-item ${open ? "open" : ""}`}>
-      <button className="faq-question" onClick={() => setOpen(!open)}>
-        <span>{question}</span>
-        <span className="faq-icon">{open ? "−" : "+"}</span>
-      </button>
-      {open && <div className="faq-answer">{answer}</div>}
     </div>
   );
 };

@@ -36,6 +36,9 @@ public class User {
     @Column(nullable = false, length = 10)
     private Status status = Status.ACTIVE;
 
+    @Column(name = "email_verified_at")
+    private LocalDateTime emailVerifiedAt;
+
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
 
@@ -113,6 +116,14 @@ public class User {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public LocalDateTime getEmailVerifiedAt() {
+        return emailVerifiedAt;
+    }
+
+    public void setEmailVerifiedAt(LocalDateTime emailVerifiedAt) {
+        this.emailVerifiedAt = emailVerifiedAt;
     }
 
     public LocalDateTime getDeletedAt() {

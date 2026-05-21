@@ -19,12 +19,19 @@ public class ReviewController {
     private ReviewService reviewService;
 
     @PostMapping
-    public ResponseEntity<ReviewResponse> createReview(
+    public ResponseEntity<?> createReview(
             @Valid @RequestBody ReviewRequest request,
             Authentication authentication) {
+        if (authentication == null || authentication.getName() == null) {
+            return ResponseEntity.status(401).body(java.util.Map.of("error", "Unauthorized", "message", "Vui lòng đăng nhập"));
+        }
         String email = authentication.getName();
-        ReviewResponse response = reviewService.createReview(request, email);
-        return ResponseEntity.ok(response);
+        try {
+            ReviewResponse response = reviewService.createReview(request, email);
+            return ResponseEntity.ok(response);
+        } catch (IllegalArgumentException ex) {
+            return ResponseEntity.badRequest().body(java.util.Map.of("error", "Bad Request", "message", ex.getMessage()));
+        }
     }
 
     @GetMapping("/product/{productId}")
@@ -34,26 +41,39 @@ public class ReviewController {
     }
 
     @GetMapping("/my-reviews")
-    public ResponseEntity<List<ReviewResponse>> getMyReviews(Authentication authentication) {
+    public ResponseEntity<?> getMyReviews(Authentication authentication) {
+        if (authentication == null || authentication.getName() == null) {
+            return ResponseEntity.status(401).body(java.util.Map.of("error", "Unauthorized", "message", "Vui lòng đăng nhập"));
+        }
         String email = authentication.getName();
         List<ReviewResponse> reviews = reviewService.getMyReviews(email);
         return ResponseEntity.ok(reviews);
     }
 
     @PutMapping("/{reviewId}")
-    public ResponseEntity<ReviewResponse> updateReview(
+    public ResponseEntity<?> updateReview(
             @PathVariable Long reviewId,
             @Valid @RequestBody ReviewRequest request,
             Authentication authentication) {
+        if (authentication == null || authentication.getName() == null) {
+            return ResponseEntity.status(401).body(java.util.Map.of("error", "Unauthorized", "message", "Vui lòng đăng nhập"));
+        }
         String email = authentication.getName();
-        ReviewResponse response = reviewService.updateReview(reviewId, request, email);
-        return ResponseEntity.ok(response);
+        try {
+            ReviewResponse response = reviewService.updateReview(reviewId, request, email);
+            return ResponseEntity.ok(response);
+        } catch (IllegalArgumentException ex) {
+            return ResponseEntity.badRequest().body(java.util.Map.of("error", "Bad Request", "message", ex.getMessage()));
+        }
     }
 
     @DeleteMapping("/{reviewId}")
     public ResponseEntity<Void> deleteReview(
             @PathVariable Long reviewId,
             Authentication authentication) {
+        if (authentication == null || authentication.getName() == null) {
+            return ResponseEntity.status(401).body(null);
+        }
         String email = authentication.getName();
         reviewService.deleteReview(reviewId, email);
         return ResponseEntity.noContent().build();

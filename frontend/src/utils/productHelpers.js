@@ -1,6 +1,10 @@
 export const formatPrice = (price) => {
   const safePrice = Number(price) || 0;
-  return `${safePrice.toLocaleString("vi-VN")}đ`;
+  // Format số với dấu chấm phân cách hàng nghìn
+  const formatted = safePrice
+    .toFixed(0)  // bỏ phần thập phân
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return `${formatted}đ`;
 };
 
 export const renderStars = (rating) => {
@@ -11,15 +15,19 @@ export const renderStars = (rating) => {
 const pickProductImageByCategory = (categoryName = "") => {
   const normalized = categoryName.toLowerCase();
 
-  if (normalized.includes("whey")) return "/images/whey/whey-gold.png";
+  if (normalized.includes("whey")) return "/images/whey/whey-default.png";
   if (normalized.includes("creatine") || normalized.includes("creatin"))
-    return "/images/creatin/creatine-platinum.png";
+    return "/images/creatin/creatin-default.png";
   if (normalized.includes("pre"))
-    return "/images/pre-workout/c4-preworkout.png";
+    return "/images/pre-workout/pre-workout-default.png";
   if (normalized.includes("vitamin") || normalized.includes("bcaa"))
-    return "/images/vitamin/optimen-vitamin.png";
+    return "/images/vitamin/vitamin-default.png";
+  if (normalized.includes("meal") || normalized.includes("replacement"))
+    return "/images/meal-replacement/meal-default.png";
+  if (normalized.includes("bar") || normalized.includes("cookie"))
+    return "/images/protein-bars/bars-default.png";
 
-  return "/images/banners/banner-new.png";
+  return "/images/banners/banner-default.png";
 };
 
 const getPreferredImageUrl = (imageUrl = "") => {
