@@ -51,9 +51,10 @@ const LoginPage = ({ onLogin, navigate }) => {
     }
   };
 
-  const inputStyle = (focused) => ({
+  const inputStyle = (focused, extra = {}) => ({
     width: "100%",
     padding: "14px 18px",
+    paddingRight: 48,
     borderRadius: "var(--radius-lg)",
     border: focused
       ? "1px solid rgba(255,92,0,0.5)"
@@ -65,6 +66,7 @@ const LoginPage = ({ onLogin, navigate }) => {
     outline: "none",
     transition: "all 0.35s",
     boxShadow: focused ? "0 0 0 3px rgba(255,92,0,0.1), 0 0 24px rgba(255,92,0,0.06)" : "none",
+    ...extra,
   });
 
   return (
@@ -151,10 +153,7 @@ const LoginPage = ({ onLogin, navigate }) => {
                 placeholder="••••••••"
                 value={form.password}
                 onChange={handleChange}
-                style={{
-                  ...inputStyle(false),
-                  paddingRight: 48,
-                }}
+                style={(focused) => inputStyle(focused, { paddingRight: 48 })}
               />
               <button
                 type="button"
@@ -289,10 +288,11 @@ const LoginPage = ({ onLogin, navigate }) => {
 // ── FocusedInput: input tự động bắt focus highlight ──
 const FocusedInput = ({ style, ...props }) => {
   const [focused, setFocused] = useState(false);
+  const resolvedStyle = typeof style === "function" ? style(focused) : { ...style };
   return (
     <input
       {...props}
-      style={style(focused)}
+      style={resolvedStyle}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
     />

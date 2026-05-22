@@ -46,4 +46,7 @@ public class UserDetailsImpl implements UserDetails {
     public boolean isCredentialsNonExpired() {
         return true;
     }
+
+    public String getFullName() { return user.getFullName(); }
+    public String getPhone() { return user.getPhone(); }
 }

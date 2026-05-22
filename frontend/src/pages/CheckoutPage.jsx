@@ -76,19 +76,25 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
         ? await apiCreateOrder(buildOrderData())
         : await apiCreateGuestOrder(buildOrderData());
 
-      const localOrder = {
-        ...result, localCreated: true,
+      const orderForStorage = {
+        ...result,
+        total: result.totalAmount ?? total,
+        subtotal,
+        shipping,
+        discount: 0,
+        info: userInfo,
+        payMethod,
         placedAt: new Date().toISOString(),
         guestOrder: !isLoggedIn(),
       };
 
       const savedLocal = localStorage.getItem("localOrders");
       const localOrders = savedLocal ? JSON.parse(savedLocal) : [];
-      localOrders.push(localOrder);
+      localOrders.push(orderForStorage);
       localStorage.setItem("localOrders", JSON.stringify(localOrders));
 
       showToast(isLoggedIn() ? "Đặt hàng thành công!" : "Đặt hàng thành công! Cảm ơn bạn.");
-      onPlaceOrder(localOrder);
+      onPlaceOrder(orderForStorage);
       navigate("order-success");
     } catch (err) {
       console.error("Lỗi khi đặt hàng:", err);

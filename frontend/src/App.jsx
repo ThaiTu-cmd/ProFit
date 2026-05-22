@@ -2,7 +2,7 @@
 // App.jsx – Ứng dụng chính, quản lý routing và state toàn cục
 
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 import Navbar  from "./components/Navbar";
 import Footer  from "./components/Footer";
@@ -29,6 +29,7 @@ import OrderManagePage   from "./pages/admin/OrderManagePage";
 import UserManagePage    from "./pages/admin/UserManagePage";
 
 import "./styles/global.css";
+import { transformOrderFromBE } from "./utils/orderHelpers";
 
 const App = () => {
   // ── Routing ──────────────────────────────────────
@@ -124,7 +125,7 @@ const App = () => {
 
   // ── Handlers ──────────────────────────────────────
   const handleViewDetail = (product) => { setSelectedProduct(product); navigate("detail"); };
-  const handleViewOrder  = (order)   => { setSelectedOrder(order);     navigate("order-detail"); };
+  const handleViewOrder  = (order)   => { setSelectedOrder(transformOrderFromBE(order)); navigate("order-detail"); };
 
   const handleAddToCart = (product) => {
     setCart((prev) => {
@@ -148,6 +149,8 @@ const App = () => {
 
   // [MỚI] Đặt hàng thành công: xóa giỏ, lưu đơn
   const handlePlaceOrder = (order) => {
+    // order từ CheckoutPage đã là FE-format (có info, total, subtotal...)
+    // nên KHÔNG cần transform lại
     setOrders((prev) => [...prev, order]);
     setCart([]);
     showToast("🎉 Đặt hàng thành công!");
@@ -273,7 +276,7 @@ const App = () => {
         );
 
       case "order-detail":
-        return <OrderDetailPage order={selectedOrder} navigate={navigate} />;
+        return <OrderDetailPage order={selectedOrder} navigate={navigate} onAddToCart={handleAddToCart} />;
 
       case "about":
         return <AboutPage navigate={navigate} />;

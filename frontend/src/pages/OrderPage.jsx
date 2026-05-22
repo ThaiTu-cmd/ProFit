@@ -5,16 +5,19 @@
 
 import { useState, useEffect } from "react";
 import { formatPrice } from "../utils/productHelpers";
+import { transformOrderFromBE } from "../utils/orderHelpers";
 import { Package, Inbox, RefreshCw, Loader2 } from "lucide-react";
 import { apiGetMyOrders, isLoggedIn } from "../utils/api";
 
 // Nhãn trạng thái đơn hàng
 const STATUS_LABEL = {
-  PENDING: { text: "Chờ xác nhận", color: "#f59e0b" },
-  CONFIRMED: { text: "Đã xác nhận", color: "#3b82f6" },
-  SHIPPING: { text: "Đang giao", color: "#8b5cf6" },
-  DELIVERED: { text: "Đã nhận", color: "var(--green)" },
-  CANCELLED: { text: "Đã hủy", color: "var(--red)" },
+  PENDING:   { text: "Chờ xác nhận", color: "#f59e0b" },
+  CONFIRMED: { text: "Đã xác nhận", color: "var(--green)" },
+  CANCELLED: { text: "Đã hủy",      color: "var(--red)" },
+  // fallback lowercase
+  pending:   { text: "Chờ xác nhận", color: "#f59e0b" },
+  confirmed:  { text: "Đã xác nhận",  color: "var(--green)" },
+  cancelled: { text: "Đã hủy",        color: "var(--red)" },
 };
 
 // Format ngày từ LocalDateTime của Java
@@ -34,46 +37,8 @@ const formatDate = (dateStr) => {
   }
 };
 
-// Chuyển đổi dữ liệu từ BE (snake_case) sang format FE (camelCase)
-const transformOrderFromBE = (beOrder) => {
-  return {
-    id: beOrder.id,
-    orderCode: beOrder.orderCode,
-    recipientName: beOrder.recipientName,
-    recipientPhone: beOrder.recipientPhone,
-    shippingAddress: beOrder.shippingAddressLine1,
-    city: beOrder.shippingCity,
-    province: beOrder.shippingProvince,
-    total: beOrder.totalAmount,
-    status: beOrder.status?.toLowerCase() || "pending",
-    paymentStatus: beOrder.paymentStatus,
-    createdAt: beOrder.placedAt || beOrder.createdAt,
-    placedAt: beOrder.placedAt,
-    userName: beOrder.userName,
-    // Chuyển items từ BE format
-    items: (beOrder.items || []).map((item) => ({
-      id: item.id,
-      productId: item.productId,
-      productName: item.productName,
-      productSku: item.productSku,
-      quantity: item.quantity,
-      unitPrice: item.unitPrice,
-      lineTotal: item.lineTotal,
-      // Tạo object product tương thích với UI cũ
-      product: {
-        id: item.productId,
-        name: item.productName,
-        sku: item.productSku,
-        price:
-          typeof item.unitPrice === "number"
-            ? item.unitPrice
-            : parseFloat(item.unitPrice),
-        // emoji mặc định nếu không có
-        emoji: "🏋️",
-      },
-    })),
-  };
-};
+// (remove the local transformOrderFromBE function from OrderPage.jsx)
+// The shared transformOrderFromBE from ../utils/orderHelpers is now used instead
 
 const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
   const [filter, setFilter] = useState("all");
@@ -138,7 +103,7 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
   const filtered =
     filter === "all"
       ? sortedOrders
-      : sortedOrders.filter((o) => o.status === filter);
+      : sortedOrders.filter((o) => o.status?.toLowerCase() === filter.toLowerCase());
 
   // Loading state
   if (loading) {
@@ -233,8 +198,6 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
             { key: "all", label: "Tất cả" },
             { key: "pending", label: "Chờ xác nhận" },
             { key: "confirmed", label: "Đã xác nhận" },
-            { key: "shipping", label: "Đang giao" },
-            { key: "delivered", label: "Đã nhận" },
             { key: "cancelled", label: "Đã hủy" },
           ].map((tab) => (
             <button
@@ -378,15 +341,11 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
                           color: "var(--primary)",
                         }}
                       >
-                        {formatPrice(
-                          typeof order.totalAmount === "number"
-                            ? order.totalAmount
-                            : parseFloat(order.totalAmount),
-                        )}
+                        {formatPrice(order.total)}
                       </span>
                     </div>
                     <div style={{ display: "flex", gap: 10 }}>
-                      {order.status === "delivered" && (
+                      {order.status?.toLowerCase() === "confirmed" && (
                         <button
                           className="btn-outline"
                           style={{ padding: "8px 16px", fontSize: 13 }}

@@ -228,10 +228,11 @@ const RegisterPage = ({ onLogin, navigate }) => {
 
 const FocusedInput = ({ style, ...props }) => {
   const [focused, setFocused] = useState(false);
+  const resolvedStyle = typeof style === "function" ? style(focused) : { ...style };
   return (
     <input
       {...props}
-      style={style(focused)}
+      style={resolvedStyle}
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
     />

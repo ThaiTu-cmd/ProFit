@@ -200,6 +200,42 @@ const Navbar = ({ currentPage, navigate, cartCount, user, onLogout }) => {
 
         {user ? (
           <>
+            {/* Lịch sử đơn hàng */}
+            <button
+              type="button"
+              onClick={() => navigate("orders")}
+              style={{
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                color: "var(--white)",
+                padding: "9px 16px",
+                borderRadius: "50px",
+                fontSize: 14,
+                fontWeight: 700,
+                cursor: "pointer",
+                transition: "all 0.35s",
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
+                fontFamily: "'Exo 2', sans-serif",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255,92,0,0.4)";
+                e.currentTarget.style.background = "rgba(255,92,0,0.08)";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 4px 16px rgba(255,92,0,0.15)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              <span>📋</span>
+              <span>Lịch sử đơn hàng</span>
+            </button>
+
             {/* Admin */}
             {user.role === "admin" && (
               <button

@@ -384,13 +384,9 @@ const Reviews = ({ productId, user, onReviewAdded }) => {
 
               {/* Comment */}
               {review.comment && (
-                <p style={{
-                  margin: 0,
-                  color: "var(--light-gray)",
-                  lineHeight: 1.6,
-                }}>
+                <div style={{ fontSize: 12, color: "var(--gray)", lineHeight: 1.6 }}>
                   {review.comment}
-                </p>
+                </div>
               )}
             </div>
           ))}

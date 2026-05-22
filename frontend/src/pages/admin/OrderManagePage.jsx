@@ -8,29 +8,18 @@ const formatPrice = (price) => {
 const STATUS_LIST = [
   { key: "all",       label: "Tất cả"        },
   { key: "PENDING",   label: "Chờ xác nhận"  },
-  { key: "PAID",      label: "Đã thanh toán" },
-  { key: "PROCESSING",label: "Đang xử lý"    },
-  { key: "SHIPPED",   label: "Đang giao"     },
-  { key: "COMPLETED", label: "Hoàn tất"      },
-  { key: "CANCELED",  label: "Đã hủy"        },
-  { key: "REFUNDED",  label: "Hoàn tiền"     },
+  { key: "CONFIRMED", label: "Đã xác nhận"   },
+  { key: "CANCELLED", label: "Đã hủy"        },
 ];
 
 const STATUS_NEXT = {
-  PENDING:   "PAID",
-  PAID:      "PROCESSING",
-  PROCESSING:"SHIPPED",
-  SHIPPED:   "COMPLETED",
+  PENDING: "CONFIRMED",
 };
 
 const STATUS_COLOR = {
   PENDING:   "#f59e0b",
-  PAID:      "#3b82f6",
-  PROCESSING:"#8b5cf6",
-  SHIPPED:   "#10b981",
-  COMPLETED: "var(--green)",
-  CANCELED:  "var(--red)",
-  REFUNDED:  "#ef4444",
+  CONFIRMED: "var(--green)",
+  CANCELLED: "var(--red)",
 };
 
 const OrderManagePage = ({ showToast }) => {
@@ -79,7 +68,7 @@ const OrderManagePage = ({ showToast }) => {
   const handleCancel = async (orderId) => {
     if (!window.confirm("Bạn có chắc muốn hủy đơn hàng này?")) return;
     try {
-      await adminService.updateOrderStatus(orderId, { status: "CANCELED" });
+      await adminService.updateOrderStatus(orderId, { status: "CANCELLED" });
       showToast(`🗑 Đã hủy đơn #${orderId}`);
       fetchOrders();
     } catch (error) {
@@ -176,10 +165,10 @@ const OrderManagePage = ({ showToast }) => {
                       {nextStatus && (
                         <button className="btn-primary" style={{ padding: "10px 20px", fontSize: 13 }}
                           onClick={() => handleUpdateStatus(order.id, nextStatus)}>
-                          → Chuyển sang: {STATUS_LIST.find(s => s.key === nextStatus)?.label}
+                          ✓ Xác nhận thanh toán
                         </button>
                       )}
-                      {order.status !== "COMPLETED" && order.status !== "CANCELED" && order.status !== "REFUNDED" && (
+                      {order.status === "PENDING" && (
                         <button className="btn-danger" onClick={() => handleCancel(order.id)}>Hủy đơn</button>
                       )}
                     </div>
