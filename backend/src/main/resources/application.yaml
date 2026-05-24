@@ -17,10 +17,10 @@ spring:
     password: password
   sql:
     init:
-      mode: always
+      mode: never
       continue-on-error: true
   jpa:
-    defer-datasource-initialization: true
+    defer-datasource-initialization: false
     hibernate:
       ddl-auto: update
     show-sql: true

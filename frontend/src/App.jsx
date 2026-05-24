@@ -37,12 +37,7 @@ const App = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedOrder, setSelectedOrder]     = useState(null);
 
-  // ── Navigation History (Back Button) ──────────────
-  // Những trang KHÔNG có trong lịch sử back (trang gốc)
-  const TOP_LEVEL_PAGES = new Set([
-    "home", "products", "about", "contact", "login", "register", "profile",
-  ]);
-  const [history, setHistory] = useState(["home"]);
+
 
   // ── Auth state ──────────────────────────────────────
   // user = null khi chưa đăng nhập
@@ -91,6 +86,33 @@ const App = () => {
     localStorage.setItem("orders", JSON.stringify(orders));
   }, [orders]);
 
+  // Sync với Browser Back/Forward buttons (History API)
+  useEffect(() => {
+    if (!window.history.state) {
+      window.history.replaceState({ page: "home" }, "", "");
+    }
+
+    const handlePopState = (event) => {
+      if (event.state && event.state.page) {
+        setCurrentPage(event.state.page);
+        if (event.state.selectedProduct) {
+          setSelectedProduct(event.state.selectedProduct);
+        }
+        if (event.state.selectedOrder) {
+          setSelectedOrder(event.state.selectedOrder);
+        }
+        if (event.state.targetCategory !== undefined) {
+          setTargetCategory(event.state.targetCategory);
+        }
+      } else {
+        setCurrentPage("home");
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
   // ── Toast ─────────────────────────────────────────
   const [toast, setToast] = useState({ visible: false, message: "" });
   const showToast = (msg) => {
@@ -102,17 +124,13 @@ const App = () => {
   const [targetCategory, setTargetCategory] = useState(null);
 
   const navigate = (page, params = {}) => {
-    // Push trang hiện tại vào history (nếu không phải trang top-level)
-    if (!TOP_LEVEL_PAGES.has(page)) {
-      setHistory((prev) => {
-        // Tránh duplicate nếu click liên tục cùng trang
-        if (prev[prev.length - 1] === currentPage) return prev;
-        return [...prev, currentPage];
-      });
-    } else {
-      // Nếu về trang top-level → reset history
-      setHistory(["home"]);
-    }
+    if (page === currentPage) return;
+
+    const stateToPush = { 
+      page, 
+      targetCategory: page === "products" ? params.categoryId || null : null 
+    };
+    window.history.pushState(stateToPush, "", "");
 
     setCurrentPage(page);
     if (page === "products" && params.categoryId) {
@@ -124,8 +142,20 @@ const App = () => {
   };
 
   // ── Handlers ──────────────────────────────────────
-  const handleViewDetail = (product) => { setSelectedProduct(product); navigate("detail"); };
-  const handleViewOrder  = (order)   => { setSelectedOrder(transformOrderFromBE(order)); navigate("order-detail"); };
+  const handleViewDetail = (product) => {
+    setSelectedProduct(product);
+    window.history.pushState({ page: "detail", selectedProduct: product }, "", "");
+    setCurrentPage("detail");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleViewOrder = (order) => {
+    const transformed = transformOrderFromBE(order);
+    setSelectedOrder(transformed);
+    window.history.pushState({ page: "order-detail", selectedOrder: transformed }, "", "");
+    setCurrentPage("order-detail");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const handleAddToCart = (product) => {
     setCart((prev) => {
@@ -182,17 +212,10 @@ const App = () => {
   };
 
   const goBack = () => {
-    setHistory((prev) => {
-      if (prev.length <= 1) return prev;
-      const newHistory = prev.slice(0, -1);
-      const previousPage = newHistory[newHistory.length - 1];
-      setCurrentPage(previousPage);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return newHistory;
-    });
+    window.history.back();
   };
 
-  const canGoBack = history.length > 1;
+  const canGoBack = currentPage !== "home";
 
   const cartCount = cart.reduce((s, i) => s + i.qty, 0);
 
