@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VNPay Test - Complete</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; background: #4CAF50; color: white; border: none; border-radius: 5px; }
+        button:hover { background: #45a049; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; word-wrap: break-word; }
+        a { display: inline-block; margin-top: 10px; padding: 10px 20px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px; }
+        a:hover { background: #0b7dda; }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>VNPay Payment URL Generator</h1>
+    <p>Click button để tạo URL thanh toán với thời gian HIỆN TẠI</p>
+    <button onclick="generateURL()">Generate Payment URL</button>
+    <hr>
+    <h3>Kết quả:</h3>
+    <pre id="result">Chưa tạo URL</pre>
+    <div id="linkContainer"></div>
+
+    <script>
+        function hmacSHA512(data, key) {
+            return CryptoJS.HmacSHA512(data, key).toString(CryptoJS.enc.Hex);
+        }
+
+        function padZero(num, size) {
+            let s = num + "";
+            while (s.length < size) s = "0" + s;
+            return s;
+        }
+
+        function getCurrentDateTime() {
+            const now = new Date();
+            return now.getFullYear() + 
+                padZero(now.getMonth() + 1, 2) + 
+                padZero(now.getDate(), 2) + 
+                padZero(now.getHours(), 2) + 
+                padZero(now.getMinutes(), 2) + 
+                padZero(now.getSeconds(), 2);
+        }
+
+        function getExpireDateTime() {
+            const now = new Date();
+            now.setMinutes(now.getMinutes() + 15);
+            return now.getFullYear() + 
+                padZero(now.getMonth() + 1, 2) + 
+                padZero(now.getDate(), 2) + 
+                padZero(now.getHours(), 2) + 
+                padZero(now.getMinutes(), 2) + 
+                padZero(now.getSeconds(), 2);
+        }
+
+        function generateURL() {
+            // Config - CHÍNH XÁC như trong application.yaml
+            const tmnCode = "SY273SZH";
+            const hashSecret = "SFP53JL1Z5AS4O5WFIEBMEARJAEMDTBT";
+            const paymentUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+            const returnUrl = encodeURIComponent("http://localhost:8080/ProFitSuppsDB/api/v1/payment/vnpay-return");
+
+            // Get current time
+            const createDate = getCurrentDateTime();
+            const expireDate = getExpireDateTime();
+
+            // Params - ĐẦY ĐỦ như backend code
+            const params = {
+                "vnp_Version": "2.1.0",
+                "vnp_Command": "pay",
+                "vnp_TmnCode": tmnCode,
+                "vnp_Amount": "1000000", // 10,000 VND (×100)
+                "vnp_CurrCode": "VND",
+                "vnp_TxnRef": "TEST123",
+                "vnp_OrderType": "other",
+                "vnp_Locale": "vn",
+                "vnp_ReturnUrl": returnUrl,
+                "vnp_IpAddr": "127.0.0.1",
+                "vnp_CreateDate": createDate,
+                "vnp_ExpireDate": expireDate
+            };
+
+            // Sort keys alphabetically
+            const sortedKeys = Object.keys(params).sort();
+            
+            // Build hash data - GIỐNG HỆT backend
+            let hashData = "";
+            let query = "";
+            for (let i = 0; i < sortedKeys.length; i++) {
+                const key = sortedKeys[i];
+                const value = params[key];
+                if (hashData.length > 0) {
+                    hashData += "&";
+                    query += "&";
+                }
+                hashData += key + "=" + value;
+                query += encodeURIComponent(key) + "=" + encodeURIComponent(value);
+            }
+
+            // Calculate hash
+            const secureHash = hmacSHA512(hashData, hashSecret);
+
+            // Build final URL
+            const finalUrl = paymentUrl + "?" + query + "&vnp_SecureHash=" + secureHash;
+
+            // Display results
+            document.getElementById("result").innerHTML = 
+                "<span class='success'>✓ URL được tạo thành công!</span>\n\n" +
+                "Thời gian tạo: " + createDate + "\n" +
+                "Thời gian hết hạn: " + expireDate + "\n\n" +
+                "<strong>Hash Data:</strong>\n" + hashData + "\n\n" +
+                "<strong>Hash (SHA512):</strong>\n" + secureHash + "\n\n" +
+                "<strong>Final URL:</strong>\n" + finalUrl;
+            
+            // Add clickable link
+            document.getElementById("linkContainer").innerHTML = 
+                "<a href='" + finalUrl + "' target='_blank'>🚀 CLICK HERE TO TEST PAYMENT</a><br><br>" +
+                "<small>Nếu click không hoạt động, copy URL ở trên và paste vào tab mới</small>";
+        }
+
+        // Auto-generate on load
+        window.onload = generateURL;
+    </script>
+</body>
+</html>

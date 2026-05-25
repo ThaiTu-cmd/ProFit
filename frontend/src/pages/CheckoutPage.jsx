@@ -5,7 +5,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { formatPrice } from "../utils/productHelpers";
 import { ShoppingCart, Loader2, Banknote, Landmark, Smartphone, AlertCircle } from "lucide-react";
-import { apiCreateOrder, apiCreateGuestOrder, isLoggedIn } from "../utils/api";
+import { apiCreateOrder, apiCreateGuestOrder, apiCreatePayment, isLoggedIn } from "../utils/api";
 
 const DEFAULT_USER_INFO = {
   fullName: "", phone: "", email: "", address: "", district: "", city: "", province: "", note: "",
@@ -76,9 +76,11 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
         ? await apiCreateOrder(buildOrderData())
         : await apiCreateGuestOrder(buildOrderData());
 
+      // LUÔN sử dụng total từ FE (đã bao gồm subtotal + shipping)
+      // KHÔNG dùng result.totalAmount vì backend chỉ tính subtotal
       const orderForStorage = {
         ...result,
-        total: result.totalAmount ?? total,
+        total: total, // FE tính: subtotal + shipping
         subtotal,
         shipping,
         discount: 0,
@@ -92,6 +94,32 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
       const localOrders = savedLocal ? JSON.parse(savedLocal) : [];
       localOrders.push(orderForStorage);
       localStorage.setItem("localOrders", JSON.stringify(localOrders));
+
+      // Banking: hiện màn hình QR code
+      if (payMethod === "banking") {
+        showToast("Đang chuyển đến trang thanh toán...");
+        // Lưu order để hiển thị QR
+        localStorage.setItem("pendingBankingOrder", JSON.stringify(orderForStorage));
+        // KHÔNG gọi onPlaceOrder ở đây vì chưa thanh toán thành công
+        // Giỏ hàng sẽ được xóa KHI nút "Đã thanh toán" được nhấn trên BankingQRPage
+        navigate("banking-qr");
+        return;
+      }
+
+      // VNPay: lấy payment URL và redirect
+      if (payMethod === "vnpay") {
+        showToast("Đang chuyển sang VNPay...");
+        try {
+          const { paymentUrl } = await apiCreatePayment(result.id);
+          // Lưu order đang chờ thanh toán để reload sau khi quay về
+          localStorage.setItem("pendingVnpayOrder", JSON.stringify(orderForStorage));
+          window.location.href = paymentUrl;
+          return;
+        } catch (vnpayErr) {
+          // Nếu không lấy được URL, vẫn hiển thị thành công nhưng cảnh báo
+          showToast("Tạo đơn thành công nhưng không thể kết nối VNPay. Vui lòng thanh toán sau.");
+        }
+      }
 
       showToast(isLoggedIn() ? "Đặt hàng thành công!" : "Đặt hàng thành công! Cảm ơn bạn.");
       onPlaceOrder(orderForStorage);

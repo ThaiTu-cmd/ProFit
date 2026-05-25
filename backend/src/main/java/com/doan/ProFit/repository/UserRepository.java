@@ -14,5 +14,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	Optional<User> findByEmailOrPhone(String email, String phone);
 
+	Optional<User> findByResetToken(String resetToken);
+
 	boolean existsByRoleAndDeletedAtIsNull(com.doan.ProFit.enums.Role role);
 }

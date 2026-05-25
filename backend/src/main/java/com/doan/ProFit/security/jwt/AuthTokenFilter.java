@@ -5,6 +5,8 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +19,8 @@ import java.io.IOException;
 
 @Component
 public class AuthTokenFilter extends OncePerRequestFilter {
+	private static final Logger logger = LoggerFactory.getLogger(AuthTokenFilter.class);
+	
 	@Autowired
 	private JwtUtils jwtUtils;
 
@@ -28,9 +32,14 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 			throws ServletException, IOException {
 		try {
 			String jwt = jwtUtils.getJwtFromRequest(request);
+			logger.debug("JWT from request: {}", jwt != null ? "present (length=" + jwt.length() + ")" : "null");
+			
 			if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
 				String username = jwtUtils.getUserNameFromJwtToken(jwt);
+				logger.debug("JWT username extracted: {}", username);
+				
 				UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+				logger.debug("User loaded: {}", userDetails.getUsername());
 
 				UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
 						userDetails,
@@ -40,8 +49,12 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 				authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
 				SecurityContextHolder.getContext().setAuthentication(authentication);
+				logger.debug("Security context set for user: {}", username);
+			} else {
+				logger.debug("JWT is null or invalid");
 			}
-		} catch (Exception ignored) {
+		} catch (Exception e) {
+			logger.error("Cannot set user authentication: {}", e.getMessage(), e);
 			SecurityContextHolder.clearContext();
 		}
 

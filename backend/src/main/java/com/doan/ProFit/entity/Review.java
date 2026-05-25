@@ -29,6 +29,9 @@ public class Review {
     @Column(name = "is_verified_purchase")
     private Boolean isVerifiedPurchase = false;
 
+    @Column(name = "phone")
+    private String phone;
+
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
@@ -52,6 +55,9 @@ public class Review {
 
     public Boolean getIsVerifiedPurchase() { return isVerifiedPurchase; }
     public void setIsVerifiedPurchase(Boolean isVerifiedPurchase) { this.isVerifiedPurchase = isVerifiedPurchase; }
+
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }

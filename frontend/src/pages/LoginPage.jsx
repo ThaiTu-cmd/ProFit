@@ -1,16 +1,17 @@
 // =====================================================
 // pages/LoginPage.jsx – Trang đăng nhập Premium
-// Glass card, animated, gradient glow
 // =====================================================
 
 import { useState } from "react";
 import { apiLogin } from "../utils/api";
+import ForgotPasswordModal from "../components/ForgotPasswordModal";
 
 const LoginPage = ({ onLogin, navigate }) => {
   const [form, setForm] = useState({ email: "admin@profit.com", password: "Admin@123" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
+  const [showForgot, setShowForgot] = useState(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -51,6 +52,10 @@ const LoginPage = ({ onLogin, navigate }) => {
     }
   };
 
+  const handleGoogleLogin = () => {
+    window.location.href = "http://localhost:8080/ProFitSuppsDB/oauth2/authorization/google";
+  };
+
   const inputStyle = (focused, extra = {}) => ({
     width: "100%",
     padding: "14px 18px",
@@ -81,15 +86,20 @@ const LoginPage = ({ onLogin, navigate }) => {
         zIndex: 10,
       }}
     >
+      {showForgot && (
+        <ForgotPasswordModal
+          onClose={() => setShowForgot(false)}
+          onSwitch={() => setShowForgot(false)}
+        />
+      )}
+
       {/* Ambient glow */}
       <div style={{
         position: "absolute",
-        width: 600,
-        height: 600,
+        width: 600, height: 600,
         borderRadius: "50%",
         background: "radial-gradient(circle, rgba(255,92,0,0.08) 0%, transparent 70%)",
-        top: "50%",
-        left: "50%",
+        top: "50%", left: "50%",
         transform: "translate(-50%, -50%)",
         pointerEvents: "none",
       }} />
@@ -106,20 +116,18 @@ const LoginPage = ({ onLogin, navigate }) => {
 
         {/* Logo */}
         <div style={{ textAlign: "center", marginBottom: 32 }}>
-          <div
-            style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: 36,
-              color: "var(--primary)",
-              letterSpacing: 3,
-              textShadow: "0 0 20px rgba(255,92,0,0.3)",
-              marginBottom: 8,
-            }}
-          >
+          <div style={{
+            fontFamily: "'Bebas Neue', sans-serif",
+            fontSize: 36,
+            color: "var(--primary)",
+            letterSpacing: 3,
+            textShadow: "0 0 20px rgba(255,92,0,0.3)",
+            marginBottom: 8,
+          }}>
             Pro<span style={{ color: "var(--white)" }}>Fit</span>
           </div>
           <p style={{ color: "var(--gray)", fontSize: 14, fontWeight: 600 }}>
-            Chào mừng bạn quay trở lại 👋
+            Chào mừng bạn quay trở lại
           </p>
         </div>
 
@@ -130,7 +138,6 @@ const LoginPage = ({ onLogin, navigate }) => {
 
         {/* Form */}
         <div style={{ marginBottom: 20 }}>
-          {/* Email */}
           <div className="form-group">
             <label className="form-label" style={{ display: "block", marginBottom: 10 }}>Email</label>
             <FocusedInput
@@ -143,7 +150,6 @@ const LoginPage = ({ onLogin, navigate }) => {
             />
           </div>
 
-          {/* Password */}
           <div className="form-group">
             <label className="form-label" style={{ display: "block", marginBottom: 10 }}>Mật khẩu</label>
             <div style={{ position: "relative" }}>
@@ -160,14 +166,10 @@ const LoginPage = ({ onLogin, navigate }) => {
                 onClick={() => setShowPass(!showPass)}
                 style={{
                   position: "absolute",
-                  right: 14,
-                  top: "50%",
+                  right: 14, top: "50%",
                   transform: "translateY(-50%)",
-                  background: "none",
-                  border: "none",
-                  color: "var(--gray)",
-                  fontSize: 18,
-                  cursor: "pointer",
+                  background: "none", border: "none",
+                  color: "var(--gray)", fontSize: 18, cursor: "pointer",
                   transition: "color 0.3s",
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.color = "var(--primary)"}
@@ -182,13 +184,8 @@ const LoginPage = ({ onLogin, navigate }) => {
         {/* Quên mật khẩu */}
         <div style={{ textAlign: "right", marginBottom: 20 }}>
           <span
-            style={{
-              fontSize: 13,
-              color: "var(--primary)",
-              cursor: "pointer",
-              fontWeight: 700,
-              transition: "opacity 0.3s",
-            }}
+            style={{ fontSize: 13, color: "var(--primary)", cursor: "pointer", fontWeight: 700, transition: "opacity 0.3s" }}
+            onClick={() => setShowForgot(true)}
             onMouseEnter={(e) => e.currentTarget.style.opacity = "0.7"}
             onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
           >
@@ -206,13 +203,7 @@ const LoginPage = ({ onLogin, navigate }) => {
         {/* Nút đăng nhập */}
         <button
           className="btn-primary"
-          style={{
-            width: "100%",
-            padding: "16px 0",
-            fontSize: 16,
-            position: "relative",
-            overflow: "hidden",
-          }}
+          style={{ width: "100%", padding: "16px 0", fontSize: 16, position: "relative", overflow: "hidden" }}
           onClick={handleSubmit}
           disabled={loading}
         >
@@ -221,9 +212,7 @@ const LoginPage = ({ onLogin, navigate }) => {
               <span className="spinning" style={{ display: "inline-block", width: 18, height: 18, border: "2px solid rgba(255,255,255,0.3)", borderTopColor: "white", borderRadius: "50%" }} />
               Đang đăng nhập...
             </span>
-          ) : (
-            "Đăng nhập ngay"
-          )}
+          ) : "Đăng nhập ngay"}
         </button>
 
         {/* Divider */}
@@ -232,22 +221,16 @@ const LoginPage = ({ onLogin, navigate }) => {
         {/* Google button */}
         <button
           style={{
-            width: "100%",
-            padding: "14px 0",
+            width: "100%", padding: "14px 0",
             borderRadius: "var(--radius-lg)",
             border: "1px solid rgba(255,255,255,0.08)",
             background: "rgba(255,255,255,0.04)",
-            color: "var(--white)",
-            fontSize: 15,
-            fontWeight: 700,
-            cursor: "pointer",
-            transition: "all 0.3s",
+            color: "var(--white)", fontSize: 15, fontWeight: 700,
+            cursor: "pointer", transition: "all 0.3s",
             fontFamily: "'Nunito', sans-serif",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 10,
+            display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
           }}
+          onClick={handleGoogleLogin}
           onMouseEnter={(e) => {
             e.currentTarget.style.background = "rgba(255,255,255,0.08)";
             e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
@@ -267,12 +250,7 @@ const LoginPage = ({ onLogin, navigate }) => {
         <div style={{ textAlign: "center", fontSize: 14, color: "var(--gray)", marginTop: 24 }}>
           Chưa có tài khoản?{" "}
           <span
-            style={{
-              color: "var(--primary)",
-              fontWeight: 800,
-              cursor: "pointer",
-              transition: "opacity 0.3s",
-            }}
+            style={{ color: "var(--primary)", fontWeight: 800, cursor: "pointer", transition: "opacity 0.3s" }}
             onClick={() => navigate("register")}
             onMouseEnter={(e) => e.currentTarget.style.opacity = "0.7"}
             onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}

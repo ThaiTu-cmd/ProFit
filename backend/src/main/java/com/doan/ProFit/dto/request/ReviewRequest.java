@@ -3,6 +3,7 @@ package com.doan.ProFit.dto.request;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 public class ReviewRequest {
     @NotNull(message = "Product ID is required")
@@ -15,6 +16,9 @@ public class ReviewRequest {
 
     private String comment;
 
+    @Pattern(regexp = "^$|^[0-9]{10}$", message = "Phone must be 10 digits")
+    private String phone;
+
     public ReviewRequest() {}
 
     public Long getProductId() { return productId; }
@@ -25,4 +29,7 @@ public class ReviewRequest {
 
     public String getComment() { return comment; }
     public void setComment(String comment) { this.comment = comment; }
+
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
 }

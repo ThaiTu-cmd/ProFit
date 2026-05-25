@@ -176,5 +176,69 @@ export const adminService = {
         });
         if (!res.ok) throw new Error('Failed to update order status');
         return res.json();
-    }
+    },
+
+    // ==========================================
+    // MESSAGE (CONTACT INBOX) APIs
+    // ==========================================
+// ==========================================
+// MESSAGE APIs (Contact Inbox)
+// ==========================================
+    /**
+     * Lấy tất cả tin nhắn liên hệ
+     * GET /api/messages/admin/all
+     */
+    getAllMessages: async () => {
+        const res = await fetch(`${API_BASE_URL}/api/messages/admin/all`, {
+            headers: getDefaultHeaders()
+        });
+        if (!res.ok) throw new Error('Failed to fetch messages');
+        return res.json();
+    },
+    getMessage: async (id) => {
+        const res = await fetch(`${API_BASE_URL}/api/messages/admin/${id}`, {
+            headers: getDefaultHeaders()
+        });
+        if (!res.ok) throw new Error('Failed to fetch message');
+        return res.json();
+    },
+    replyMessage: async (id, data) => {
+        const res = await fetch(`${API_BASE_URL}/api/messages/admin/${id}/reply`, {
+            method: 'POST',
+            headers: getDefaultHeaders(),
+            body: JSON.stringify(data)
+        });
+        if (!res.ok) throw new Error('Failed to reply');
+        return res.json();
+    },
+    markMessageRead: async (id) => {
+        const res = await fetch(`${API_BASE_URL}/api/messages/admin/${id}/read`, {
+            method: 'POST',
+            headers: getDefaultHeaders()
+        });
+        if (!res.ok) throw new Error('Failed to mark as read');
+        return res.json();
+    },
+    getUnreadCount: async () => {
+        const res = await fetch(`${API_BASE_URL}/api/messages/admin/unread-count`, {
+            headers: getDefaultHeaders()
+        });
+        if (!res.ok) throw new Error('Failed to get unread count');
+        return res.json();
+    },
+
+    // ==========================================
+    // NOTIFICATION APIs
+    // ==========================================
+    /**
+     * Lấy tất cả thông báo chưa đọc cho admin
+     * Bao gồm: tin nhắn liên hệ + đơn hàng chờ xác nhận
+     */
+    getAllNotifications: async () => {
+        const res = await fetch(`${ADMIN_API_URL}/notifications`, {
+            headers: getDefaultHeaders()
+        });
+        if (!res.ok) throw new Error('Failed to get notifications');
+        return res.json();
+    },
 };

@@ -11,13 +11,15 @@ import { apiGetMyOrders, isLoggedIn } from "../utils/api";
 
 // Nhãn trạng thái đơn hàng
 const STATUS_LABEL = {
-  PENDING:   { text: "Chờ xác nhận", color: "#f59e0b" },
-  CONFIRMED: { text: "Đã xác nhận", color: "var(--green)" },
-  CANCELLED: { text: "Đã hủy",      color: "var(--red)" },
+  PENDING:        { text: "Chờ xác nhận", color: "#f59e0b" },
+  CONFIRMED:      { text: "Đã xác nhận",  color: "var(--green)" },
+  CANCELLED:      { text: "Đã hủy",        color: "var(--red)" },
+  PENDING_CONFIRM: { text: "Chờ thanh toán", color: "#3b82f6" },
   // fallback lowercase
-  pending:   { text: "Chờ xác nhận", color: "#f59e0b" },
-  confirmed:  { text: "Đã xác nhận",  color: "var(--green)" },
-  cancelled: { text: "Đã hủy",        color: "var(--red)" },
+  pending:         { text: "Chờ xác nhận",  color: "#f59e0b" },
+  confirmed:        { text: "Đã xác nhận",   color: "var(--green)" },
+  cancelled:        { text: "Đã hủy",         color: "var(--red)" },
+  pending_confirm:  { text: "Chờ thanh toán", color: "#3b82f6" },
 };
 
 // Format ngày từ LocalDateTime của Java
@@ -103,7 +105,12 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
   const filtered =
     filter === "all"
       ? sortedOrders
-      : sortedOrders.filter((o) => o.status?.toLowerCase() === filter.toLowerCase());
+      : sortedOrders.filter((o) => {
+          if (filter === "pending_confirm") {
+            return o.paymentStatus?.toUpperCase() === "PENDING_CONFIRM" || o.status?.toUpperCase() === "PENDING_CONFIRM";
+          }
+          return o.status?.toLowerCase() === filter.toLowerCase();
+        });
 
   // Loading state
   if (loading) {
@@ -197,6 +204,7 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
           {[
             { key: "all", label: "Tất cả" },
             { key: "pending", label: "Chờ xác nhận" },
+            { key: "pending_confirm", label: "Chờ thanh toán" },
             { key: "confirmed", label: "Đã xác nhận" },
             { key: "cancelled", label: "Đã hủy" },
           ].map((tab) => (
@@ -228,8 +236,12 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
             }}
           >
             {filtered.map((order) => {
+              // Hiển thị trạng thái thanh toán nếu là PENDING_CONFIRM
+              const displayStatus = order.paymentStatus?.toUpperCase() === "PENDING_CONFIRM" 
+                ? "PENDING_CONFIRM" 
+                : order.status?.toUpperCase();
               const st =
-                STATUS_LABEL[order.status?.toUpperCase()] ??
+                STATUS_LABEL[displayStatus] ??
                 STATUS_LABEL.PENDING;
               return (
                 <div key={order.id || order.orderCode} className="order-card">

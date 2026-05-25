@@ -59,6 +59,15 @@ public class Order {
     @Column(name = "payment_status", nullable = false, length = 20)
     private String paymentStatus = "UNPAID";
 
+    @Column(name = "payment_attempts", nullable = false)
+    private int paymentAttempts = 0;
+
+    @Column(name = "bank_transfer_slip", length = 500)
+    private String bankTransferSlip;
+
+    @Column(name = "paid_at")
+    private LocalDateTime paidAt;
+
     @Column(name = "note", length = 500)
     private String note;
 
@@ -108,6 +117,13 @@ public class Order {
     public void setStatus(String status) { this.status = status; }
     public String getPaymentStatus() { return paymentStatus; }
     public void setPaymentStatus(String paymentStatus) { this.paymentStatus = paymentStatus; }
+    public int getPaymentAttempts() { return paymentAttempts; }
+    public void setPaymentAttempts(int paymentAttempts) { this.paymentAttempts = paymentAttempts; }
+    public void incrementPaymentAttempts() { this.paymentAttempts++; }
+    public String getBankTransferSlip() { return bankTransferSlip; }
+    public void setBankTransferSlip(String bankTransferSlip) { this.bankTransferSlip = bankTransferSlip; }
+    public LocalDateTime getPaidAt() { return paidAt; }
+    public void setPaidAt(LocalDateTime paidAt) { this.paidAt = paidAt; }
     public String getNote() { return note; }
     public void setNote(String note) { this.note = note; }
     public LocalDateTime getPlacedAt() { return placedAt; }

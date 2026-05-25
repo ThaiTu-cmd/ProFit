@@ -153,10 +153,42 @@ public class OrderServiceImpl implements OrderService {
         }
         if (request.getPaymentStatus() != null) {
             order.setPaymentStatus(request.getPaymentStatus());
+            // Nếu admin xác nhận thanh toán PENDING_CONFIRM -> PAID thì cập nhật luôn order status
+            if ("PAID".equals(request.getPaymentStatus())) {
+                order.setStatus("CONFIRMED");
+            }
         }
 
         Order saved = orderRepository.save(order);
         return mapToResponse(saved);
+    }
+
+    @Override
+    public OrderResponse confirmBankingPayment(Long orderId, String userEmail) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found"));
+
+        // Kiểm tra quyền: chỉ chủ đơn hoặc admin mới được xác nhận
+        if (order.getUser() != null && !order.getUser().getEmail().equals(userEmail)) {
+            throw new IllegalArgumentException("Bạn không có quyền xác nhận đơn hàng này");
+        }
+
+        // Chỉ cho phép xác nhận khi đơn đang ở trạng thái UNPAID (chưa thanh toán)
+        if (!"UNPAID".equals(order.getPaymentStatus())) {
+            throw new IllegalArgumentException("Đơn hàng không ở trạng thái chờ thanh toán");
+        }
+
+        // Cập nhật trạng thái thanh toán thành PENDING_CONFIRM
+        order.setPaymentStatus("PENDING_CONFIRM");
+        order.setPaidAt(java.time.LocalDateTime.now());
+
+        Order saved = orderRepository.save(order);
+        return mapToResponse(saved);
+    }
+
+    @Override
+    public long countPendingConfirmOrders() {
+        return orderRepository.countByPaymentStatus("PENDING_CONFIRM");
     }
 
     private OrderResponse mapToResponse(Order order) {
@@ -172,6 +204,7 @@ public class OrderServiceImpl implements OrderService {
         response.setStatus(order.getStatus());
         response.setPaymentStatus(order.getPaymentStatus());
         response.setPlacedAt(order.getPlacedAt());
+        response.setPaidAt(order.getPaidAt());
         if (order.getUser() != null) {
             response.setUserName(order.getUser().getFullName());
         }

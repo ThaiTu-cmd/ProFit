@@ -16,9 +16,13 @@ const Reviews = ({ productId, user, onReviewAdded }) => {
   const [showForm, setShowForm] = useState(false);
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState("");
+  const [phone, setPhone] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  // Check if current user is admin
+  const isAdmin = user && user.role === "admin";
 
   // Load reviews
   useEffect(() => {
@@ -45,6 +49,7 @@ const Reviews = ({ productId, user, onReviewAdded }) => {
   // Submit review
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Submitting review:", { productId, rating, comment, phone });
     if (rating < 1 || rating > 5) return;
 
     setSubmitting(true);
@@ -56,12 +61,15 @@ const Reviews = ({ productId, user, onReviewAdded }) => {
         productId,
         rating,
         comment,
+        phone,
       });
+      console.log("Review submitted successfully:", newReview);
 
       setReviews([newReview, ...reviews]);
       setSubmitSuccess(true);
       setRating(5);
       setComment("");
+      setPhone("");
       setShowForm(false);
 
       if (onReviewAdded) {
@@ -69,7 +77,7 @@ const Reviews = ({ productId, user, onReviewAdded }) => {
       }
     } catch (err) {
       console.error("Lỗi khi gửi đánh giá:", err);
-      setSubmitError(err.message || "Gửi đánh giá thất bại");
+      setSubmitError(err.message || "Gửi đánh giá thất bại. Vui lòng thử lại.");
     } finally {
       setSubmitting(false);
     }
@@ -209,6 +217,34 @@ const Reviews = ({ productId, user, onReviewAdded }) => {
             />
           </div>
 
+          {/* Phone */}
+          <div style={{ marginBottom: 16 }}>
+            <label style={{ display: "block", marginBottom: 8, color: "var(--gray)" }}>
+              Số điện thoại (để admin hỗ trợ khi cần):
+            </label>
+            <input
+              type="tel"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="Nhập số điện thoại của bạn"
+              maxLength={10}
+              pattern="[0-9]{10}"
+              style={{
+                width: "100%",
+                padding: 12,
+                background: "var(--dark3)",
+                border: "1px solid #444",
+                borderRadius: 8,
+                color: "var(--white)",
+                fontSize: 14,
+                fontFamily: "inherit",
+              }}
+            />
+            <div style={{ fontSize: 11, color: "var(--gray)", marginTop: 4 }}>
+              Số điện thoại sẽ được ẩn với người dùng khác. Chỉ admin mới thấy để hỗ trợ bạn.
+            </div>
+          </div>
+
           {/* Error/Success */}
           {submitError && (
             <div style={{
@@ -257,6 +293,7 @@ const Reviews = ({ productId, user, onReviewAdded }) => {
               onClick={() => {
                 setShowForm(false);
                 setComment("");
+                setPhone("");
                 setRating(5);
                 setSubmitError(null);
               }}
@@ -386,6 +423,14 @@ const Reviews = ({ productId, user, onReviewAdded }) => {
               {review.comment && (
                 <div style={{ fontSize: 12, color: "var(--gray)", lineHeight: 1.6 }}>
                   {review.comment}
+                </div>
+              )}
+
+              {/* Phone - only visible to admin */}
+              {isAdmin && review.phone && (
+                <div style={{ fontSize: 12, color: "var(--primary)", marginTop: 8, display: "flex", alignItems: "center", gap: 6 }}>
+                  <span>📞</span>
+                  <span>SĐT khách hàng: <strong>{review.phone}</strong></span>
                 </div>
               )}
             </div>

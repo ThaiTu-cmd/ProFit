@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VNPay Test v3 - Debug</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        body { font-family: 'Courier New', monospace; padding: 20px; background: #1e1e1e; color: #d4d4d4; }
+        button { padding: 15px 30px; font-size: 16px; cursor: pointer; background: #0e639c; color: white; border: none; border-radius: 4px; }
+        pre { background: #2d2d2d; padding: 15px; border-radius: 5px; overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
+        .link { display: inline-block; margin: 10px 0; padding: 15px 25px; background: #4CAF50; color: white; text-decoration: none; border-radius: 5px; font-size: 18px; }
+        .success { color: #4ec9b0; }
+        .error { color: #f14c4c; }
+        input { padding: 10px; width: 100%; margin: 5px 0; background: #2d2d2d; color: #d4d4d4; border: 1px solid #3e3e42; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1 style="color: #569cd6;">VNPay Test v3 - Debug Version</h1>
+    
+    <h3>1. Cấu hình</h3>
+    <p><strong>TMN Code (Mã Merchant):</strong></p>
+    <input type="text" id="tmnCodeInput" value="SY273SZH" placeholder="Mã merchant từ VNPay">
+    
+    <p><strong>Hash Secret (Secure Secret):</strong></p>
+    <input type="text" id="hashSecretInput" value="SFP53JL1Z5AS4O5WFIEBMEARJAEMDTBT" placeholder="Secure Secret">
+    
+    <p><strong>Return URL:</strong></p>
+    <input type="text" id="returnUrlInput" placeholder="Để trống = dùng URL mặc định">
+    <p style="font-size: 12px; color: #888;">Để trống = https://sandbox.vnpayment.vn/test-return</p>
+    <br>
+    <button onclick="generateAndShowURL()">Generate Payment URL</button>
+    
+    <h3>2. Kết quả:</h3>
+    <pre id="result">Chưa tạo</pre>
+    
+    <h3>3. Link thanh toán:</h3>
+    <a id="paymentLink" href="#" target="_blank" class="link" style="display:none;">🚀 CLICK ĐỂ THANH TOÁN</a>
+    
+    <h3>4. Copy link thủ công:</h3>
+    <input type="text" id="urlInput" readonly placeholder="URL sẽ hiện ở đây...">
+
+    <script>
+        function hmacSHA512(data, key) {
+            return CryptoJS.HmacSHA512(data, key).toString(CryptoJS.enc.Hex).toUpperCase();
+        }
+
+        function pad(n) { return n < 10 ? '0' + n : n; }
+
+        function getDateTime() {
+            const d = new Date();
+            return d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate()) + pad(d.getHours()) + pad(d.getMinutes()) + pad(d.getSeconds());
+        }
+
+        function generateAndShowURL() {
+            // Lấy giá trị từ input
+            const tmnCode = document.getElementById("tmnCodeInput").value.trim() || "SY273SZH";
+            const hashSecret = document.getElementById("hashSecretInput").value.trim() || "SFP53JL1Z5AS4O5WFIEBMEARJAEMDTBT";
+            const returnUrlInputVal = document.getElementById("returnUrlInput").value.trim();
+            
+            // Return URL
+            let returnUrl = returnUrlInputVal || "https://sandbox.vnpayment.vn/test-return";
+            
+            const paymentUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+            const createDate = getDateTime();
+            
+            // Expire +15 phút
+            const d = new Date();
+            d.setMinutes(d.getMinutes() + 15);
+            const expireDate = d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate()) + pad(d.getHours()) + pad(d.getMinutes()) + pad(d.getSeconds());
+
+            // Tạo TxnRef unique
+            const txnRef = new Date().getTime().toString();
+            
+            // Params - phải theo đúng thứ tự alphabet cho hash
+            const params = {};
+            params["vnp_Amount"] = "1000000";  // 10,000 VND (integer)
+            params["vnp_Command"] = "pay";
+            params["vnp_CreateDate"] = createDate;
+            params["vnp_CurrCode"] = "VND";
+            params["vnp_ExpireDate"] = expireDate;
+            params["vnp_IpAddr"] = "127.0.0.1";
+            params["vnp_Locale"] = "vn";
+            params["vnp_OrderType"] = "other";
+            params["vnp_ReturnUrl"] = returnUrl;
+            params["vnp_TmnCode"] = tmnCode;
+            params["vnp_TxnRef"] = txnRef;
+            params["vnp_Version"] = "2.1.0";
+
+            // Build hash data - SORT theo key (alphabetically)
+            const sortedKeys = Object.keys(params).sort();
+            let hashData = "";
+            let query = "";
+            
+            for (let i = 0; i < sortedKeys.length; i++) {
+                const key = sortedKeys[i];
+                const value = params[key];
+                if (i > 0) {
+                    hashData += "&";
+                    query += "&";
+                }
+                hashData += key + "=" + value;
+                query += encodeURIComponent(key) + "=" + encodeURIComponent(value);
+            }
+
+            console.log("Hash Data:", hashData);
+            console.log("Hash Secret:", hashSecret);
+            
+            const hash = hmacSHA512(hashData, hashSecret);
+            const url = paymentUrl + "?" + query + "&vnp_SecureHash=" + hash;
+
+            // Show results
+            document.getElementById("result").innerHTML = 
+                '<span class="success">✅ URL tạo thành công!</span>\n\n' +
+                'Thời gian: ' + createDate + '\n' +
+                'Expire: ' + expireDate + '\n' +
+                'TxnRef: ' + txnRef + '\n\n' +
+                '<span class="success">--- Hash Data ---</span>\n' + hashData + '\n\n' +
+                '<span class="success">--- Hash (SHA512) ---</span>\n' + hash + '\n\n' +
+                '<span class="success">--- Full URL ---</span>\n' + url;
+            
+            // Update link
+            const link = document.getElementById("paymentLink");
+            link.href = url;
+            link.style.display = "inline-block";
+            
+            // Update input
+            document.getElementById("urlInput").value = url;
+            
+            console.log("Final URL:", url);
+        }
+
+        window.onload = generateAndShowURL;
+    </script>
+</body>
+</html>

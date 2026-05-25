@@ -14,4 +14,6 @@ public interface OrderService {
     OrderResponse createGuestOrder(GuestOrderRequest request);
     List<OrderResponse> getMyOrders(String email);
     OrderResponse updateOrderStatus(Long id, OrderStatusUpdateRequest request);
+    OrderResponse confirmBankingPayment(Long orderId, String userEmail);
+    long countPendingConfirmOrders();
 }

@@ -19,14 +19,19 @@ import OrderPage         from "./pages/OrderPage";
 import OrderDetailPage   from "./pages/OrderDetailPage";    
 import AboutPage         from "./pages/AboutPage";
 import ContactPage       from "./pages/ContactPage";
-import LoginPage         from "./pages/LoginPage";          
-import RegisterPage      from "./pages/RegisterPage"; 
-import ProfilePage       from "./pages/ProfilePage";      
+import LoginPage         from "./pages/LoginPage";
+import RegisterPage      from "./pages/RegisterPage";
+import ProfilePage       from "./pages/ProfilePage";
+import PaymentResultPage from "./pages/PaymentResultPage";
+import OAuthCallback     from "./pages/OAuthCallback";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
+import BankingQRPage    from "./pages/BankingQRPage";
 
 import DashboardPage     from "./pages/admin/DashboardPage";
 import ProductManagePage from "./pages/admin/ProductManagePage";
 import OrderManagePage   from "./pages/admin/OrderManagePage";
 import UserManagePage    from "./pages/admin/UserManagePage";
+import ContactInboxPage  from "./pages/admin/ContactInboxPage";
 
 import "./styles/global.css";
 import { transformOrderFromBE } from "./utils/orderHelpers";
@@ -36,8 +41,42 @@ const App = () => {
   const [currentPage, setCurrentPage]         = useState("home");
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedOrder, setSelectedOrder]     = useState(null);
+  const [pendingBankingOrder, setPendingBankingOrder] = useState(null); // Đơn hàng đang chờ thanh toán banking
 
+  // Detect URL path on mount (for direct navigation via redirect links)
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (path === "/" || path === "") {
+      setCurrentPage("home");
+    } else if (path === "/auth-callback" || path.startsWith("/auth-callback")) {
+      setCurrentPage("oauth-callback");
+    } else if (path === "/payment-result" || path.startsWith("/payment-result")) {
+      setCurrentPage("payment-result");
+    } else if (path === "/reset-password" || path.startsWith("/reset-password")) {
+      setCurrentPage("reset-password");
+    } else if (path === "/banking-qr") {
+      setCurrentPage("banking-qr");
+    } else if (path === "/login") {
+      setCurrentPage("login");
+    } else if (path === "/register") {
+      setCurrentPage("register");
+    } else if (path === "/contact") {
+      setCurrentPage("contact");
+    } else if (path === "/products") {
+      setCurrentPage("products");
+    } else if (path === "/about") {
+      setCurrentPage("about");
+    } else if (path === "/profile") {
+      setCurrentPage("profile");
+    }
+  }, []);
 
+  // ── Navigation History (Back Button) ──────────────
+  // Những trang KHÔNG có trong lịch sử back (trang gốc)
+  const TOP_LEVEL_PAGES = new Set([
+    "home", "products", "about", "contact", "login", "register", "profile",
+  ]);
+  const [history, setHistory] = useState(["home"]);
 
   // ── Auth state ──────────────────────────────────────
   // user = null khi chưa đăng nhập
@@ -81,37 +120,27 @@ const App = () => {
     }
   });
 
+  // Lấy đơn banking từ localStorage khi cần
+  const [currentBankingOrder, setCurrentBankingOrder] = useState(() => {
+    try {
+      const saved = localStorage.getItem("pendingBankingOrder");
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
+
   // Sync orders với localStorage
   useEffect(() => {
     localStorage.setItem("orders", JSON.stringify(orders));
   }, [orders]);
 
-  // Sync với Browser Back/Forward buttons (History API)
+  // Sync pendingBankingOrder với localStorage
   useEffect(() => {
-    if (!window.history.state) {
-      window.history.replaceState({ page: "home" }, "", "");
+    if (currentBankingOrder) {
+      localStorage.setItem("pendingBankingOrder", JSON.stringify(currentBankingOrder));
     }
-
-    const handlePopState = (event) => {
-      if (event.state && event.state.page) {
-        setCurrentPage(event.state.page);
-        if (event.state.selectedProduct) {
-          setSelectedProduct(event.state.selectedProduct);
-        }
-        if (event.state.selectedOrder) {
-          setSelectedOrder(event.state.selectedOrder);
-        }
-        if (event.state.targetCategory !== undefined) {
-          setTargetCategory(event.state.targetCategory);
-        }
-      } else {
-        setCurrentPage("home");
-      }
-    };
-
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
-  }, []);
+  }, [currentBankingOrder]);
 
   // ── Toast ─────────────────────────────────────────
   const [toast, setToast] = useState({ visible: false, message: "" });
@@ -124,13 +153,15 @@ const App = () => {
   const [targetCategory, setTargetCategory] = useState(null);
 
   const navigate = (page, params = {}) => {
-    if (page === currentPage) return;
-
-    const stateToPush = { 
-      page, 
-      targetCategory: page === "products" ? params.categoryId || null : null 
-    };
-    window.history.pushState(stateToPush, "", "");
+    // Push trang hiện tại vào history (nếu không phải trang top-level)
+    if (!TOP_LEVEL_PAGES.has(page)) {
+      setHistory((prev) => {
+        if (prev[prev.length - 1] === currentPage) return prev;
+        return [...prev, currentPage];
+      });
+    } else {
+      setHistory(["home"]);
+    }
 
     setCurrentPage(page);
     if (page === "products" && params.categoryId) {
@@ -142,20 +173,8 @@ const App = () => {
   };
 
   // ── Handlers ──────────────────────────────────────
-  const handleViewDetail = (product) => {
-    setSelectedProduct(product);
-    window.history.pushState({ page: "detail", selectedProduct: product }, "", "");
-    setCurrentPage("detail");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleViewOrder = (order) => {
-    const transformed = transformOrderFromBE(order);
-    setSelectedOrder(transformed);
-    window.history.pushState({ page: "order-detail", selectedOrder: transformed }, "", "");
-    setCurrentPage("order-detail");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const handleViewDetail = (product) => { setSelectedProduct(product); navigate("detail"); };
+  const handleViewOrder  = (order)   => { setSelectedOrder(transformOrderFromBE(order)); navigate("order-detail"); };
 
   const handleAddToCart = (product) => {
     setCart((prev) => {
@@ -212,10 +231,17 @@ const App = () => {
   };
 
   const goBack = () => {
-    window.history.back();
+    setHistory((prev) => {
+      if (prev.length <= 1) return prev;
+      const newHistory = prev.slice(0, -1);
+      const previousPage = newHistory[newHistory.length - 1];
+      setCurrentPage(previousPage);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return newHistory;
+    });
   };
 
-  const canGoBack = currentPage !== "home";
+  const canGoBack = history.length > 1;
 
   const cartCount = cart.reduce((s, i) => s + i.qty, 0);
 
@@ -292,6 +318,7 @@ const App = () => {
       case "orders":
         return (
           <OrderPage
+            key={orders.length + Date.now()}
             user={user}
             navigate={navigate}
             onViewOrderDetail={handleViewOrder}
@@ -315,6 +342,27 @@ const App = () => {
 
       case "profile":
         return <ProfilePage navigate={navigate} user={user} />;
+
+      case "payment-result":
+        return <PaymentResultPage navigate={navigate} onPlaceOrder={handlePlaceOrder} />;
+
+      case "oauth-callback":
+        return <OAuthCallback onLogin={handleLogin} />;
+
+      case "reset-password":
+        return <ResetPasswordPage showToast={showToast} />;
+
+      case "banking-qr": {
+        // LUÔN đọc order mới nhất từ localStorage
+        const pendingOrder = (() => {
+          try {
+            const saved = localStorage.getItem("pendingBankingOrder");
+            return saved ? JSON.parse(saved) : null;
+          } catch { return null; }
+        })();
+        return <BankingQRPage order={pendingOrder} navigate={navigate} showToast={showToast} onPlaceOrder={handlePlaceOrder} onClearCart={() => setCart([])} />;
+      }
+
       // ── Admin (guard quyền) ───────────────────────
       case "admin-dashboard":
         if (!user || user.role !== "admin") { navigate("login"); return null; }
@@ -331,6 +379,10 @@ const App = () => {
       case "admin-users":
         if (!user || user.role !== "admin") { navigate("login"); return null; }
         return <UserManagePage showToast={showToast} navigate={navigate} />;
+
+      case "admin-contact":
+        if (!user || user.role !== "admin") { navigate("login"); return null; }
+        return <ContactInboxPage showToast={showToast} />;
 
       default:
         return <HomePage navigate={navigate} onAddToCart={handleAddToCart} onViewDetail={handleViewDetail} />;
