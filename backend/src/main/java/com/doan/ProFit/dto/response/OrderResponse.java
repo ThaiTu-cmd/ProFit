@@ -17,6 +17,8 @@ public class OrderResponse {
     private String paymentStatus;
     private LocalDateTime placedAt;
     private LocalDateTime paidAt;
+    private LocalDateTime deliveredAt;
+    private LocalDateTime completedAt;
     private String userName;
     private List<OrderItemResponse> items;
 
@@ -44,6 +46,10 @@ public class OrderResponse {
     public void setPlacedAt(LocalDateTime placedAt) { this.placedAt = placedAt; }
     public LocalDateTime getPaidAt() { return paidAt; }
     public void setPaidAt(LocalDateTime paidAt) { this.paidAt = paidAt; }
+    public LocalDateTime getDeliveredAt() { return deliveredAt; }
+    public void setDeliveredAt(LocalDateTime deliveredAt) { this.deliveredAt = deliveredAt; }
+    public LocalDateTime getCompletedAt() { return completedAt; }
+    public void setCompletedAt(LocalDateTime completedAt) { this.completedAt = completedAt; }
     public String getUserName() { return userName; }
     public void setUserName(String userName) { this.userName = userName; }
     public List<OrderItemResponse> getItems() { return items; }

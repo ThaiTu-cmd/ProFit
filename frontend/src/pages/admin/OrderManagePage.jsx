@@ -9,6 +9,8 @@ const STATUS_LIST = [
   { key: "all",            label: "Tất cả"         },
   { key: "PENDING",        label: "Chờ xác nhận"   },
   { key: "CONFIRMED",      label: "Đã xác nhận"    },
+  { key: "DELIVERED",      label: "Đã giao hàng"   },
+  { key: "COMPLETED",      label: "Hoàn thành"     },
   { key: "CANCELLED",      label: "Đã hủy"         },
   { key: "PENDING_CONFIRM", label: "Chờ thanh toán" },
 ];
@@ -16,11 +18,15 @@ const STATUS_LIST = [
 const STATUS_NEXT = {
   PENDING: "CONFIRMED",
   PENDING_CONFIRM: "CONFIRMED", // Admin confirm banking payment
+  CONFIRMED: "DELIVERED",       // Shipper marks as delivered
+  DELIVERED: "COMPLETED",       // Admin confirms customer received (reduces stock)
 };
 
 const STATUS_COLOR = {
   PENDING:        "#f59e0b",
-  CONFIRMED:      "var(--green)",
+  CONFIRMED:      "#8b5cf6",    // Purple for confirmed
+  DELIVERED:      "#3b82f6",    // Blue for delivered
+  COMPLETED:      "var(--green)",
   CANCELLED:      "var(--red)",
   PENDING_CONFIRM: "#3b82f6", // Blue for banking payment pending
 };
@@ -192,7 +198,7 @@ const OrderManagePage = ({ onUpdateStatus, showToast }) => {
                       📍 {order.shippingAddressLine1}, {order.shippingCity}, {order.shippingProvince}
                     </div>
 
-                    <div style={{ display: "flex", gap: 10 }}>
+                    <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
                       {/* Nút xác nhận thanh toán cho banking */}
                       {order.paymentStatus === "PENDING_CONFIRM" && (
                         <button className="btn-primary" style={{ padding: "10px 20px", fontSize: 13, background: "var(--green)" }}
@@ -203,13 +209,21 @@ const OrderManagePage = ({ onUpdateStatus, showToast }) => {
                       {nextStatus && order.paymentStatus !== "PENDING_CONFIRM" && (
                         <button className="btn-primary" style={{ padding: "10px 20px", fontSize: 13 }}
                           onClick={() => handleUpdateStatus(order.id, { status: nextStatus })}>
-                          ✓ Xác nhận đơn hàng
+                          {order.status === "CONFIRMED" ? "🚚 Đã giao hàng" : 
+                           order.status === "DELIVERED" ? "✓ Xác nhận hoàn thành" : 
+                           "✓ Xác nhận đơn hàng"}
                         </button>
                       )}
                       {order.status === "PENDING" && order.paymentStatus !== "PENDING_CONFIRM" && (
                         <button className="btn-danger" onClick={() => handleCancel(order.id)}>Hủy đơn</button>
                       )}
                     </div>
+                    {/* Thông báo trạng thái kho */}
+                    {order.status === "DELIVERED" && (
+                      <div style={{ marginTop: 12, fontSize: 12, color: "var(--amber)", background: "rgba(251,191,36,0.1)", padding: "10px 14px", borderRadius: 8 }}>
+                        ⚠️ Khi xác nhận hoàn thành, số lượng sản phẩm trong kho sẽ được trừ đi.
+                      </div>
+                    )}
                   </div>
                 )}
               </div>

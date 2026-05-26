@@ -148,8 +148,24 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Order not found"));
 
+        String oldStatus = order.getStatus();
+        String newStatus = request.getStatus();
+
         if (request.getStatus() != null) {
             order.setStatus(request.getStatus());
+
+            // Khi shipper xác nhận đã giao hàng thành công -> COMPLETED
+            if ("COMPLETED".equals(newStatus)) {
+                order.setCompletedAt(java.time.LocalDateTime.now());
+                reduceStock(order);
+            }
+
+            // Khi đơn hàng bị hủy -> Khôi phục lại stock
+            if ("CANCELLED".equals(oldStatus) && !"CANCELLED".equals(newStatus)) {
+                // Không cần làm gì vì stock chưa bị trừ
+            } else if ("CANCELLED".equals(newStatus) && !"CANCELLED".equals(oldStatus)) {
+                restoreStock(order);
+            }
         }
         if (request.getPaymentStatus() != null) {
             order.setPaymentStatus(request.getPaymentStatus());
@@ -161,6 +177,37 @@ public class OrderServiceImpl implements OrderService {
 
         Order saved = orderRepository.save(order);
         return mapToResponse(saved);
+    }
+
+    /**
+     * Trừ số lượng sản phẩm trong kho khi đơn hàng hoàn thành
+     */
+    private void reduceStock(Order order) {
+        for (OrderItem item : order.getItems()) {
+            if (item.getProduct() != null) {
+                Product product = item.getProduct();
+                int currentStock = product.getStockQuantity() != null ? product.getStockQuantity() : 0;
+                int orderedQty = item.getQuantity() != null ? item.getQuantity() : 0;
+                int newStock = currentStock - orderedQty;
+                product.setStockQuantity(Math.max(0, newStock)); // Không cho phép âm
+                productRepository.save(product);
+            }
+        }
+    }
+
+    /**
+     * Khôi phục số lượng sản phẩm trong kho khi đơn hàng bị hủy
+     */
+    private void restoreStock(Order order) {
+        for (OrderItem item : order.getItems()) {
+            if (item.getProduct() != null) {
+                Product product = item.getProduct();
+                int currentStock = product.getStockQuantity() != null ? product.getStockQuantity() : 0;
+                int orderedQty = item.getQuantity() != null ? item.getQuantity() : 0;
+                product.setStockQuantity(currentStock + orderedQty);
+                productRepository.save(product);
+            }
+        }
     }
 
     @Override
@@ -205,6 +252,8 @@ public class OrderServiceImpl implements OrderService {
         response.setPaymentStatus(order.getPaymentStatus());
         response.setPlacedAt(order.getPlacedAt());
         response.setPaidAt(order.getPaidAt());
+        response.setDeliveredAt(order.getDeliveredAt());
+        response.setCompletedAt(order.getCompletedAt());
         if (order.getUser() != null) {
             response.setUserName(order.getUser().getFullName());
         }

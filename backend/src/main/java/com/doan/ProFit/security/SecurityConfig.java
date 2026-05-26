@@ -1,7 +1,6 @@
 package com.doan.ProFit.security;
 
 import com.doan.ProFit.security.jwt.AuthTokenFilter;
-import com.doan.ProFit.security.oauth2.OAuth2AuthenticationSuccessHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -32,11 +31,9 @@ public class SecurityConfig {
 	private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
     private final AuthTokenFilter authTokenFilter;
-    private final OAuth2AuthenticationSuccessHandler oAuth2SuccessHandler;
 
-    public SecurityConfig(AuthTokenFilter authTokenFilter, OAuth2AuthenticationSuccessHandler oAuth2SuccessHandler) {
+    public SecurityConfig(AuthTokenFilter authTokenFilter) {
         this.authTokenFilter = authTokenFilter;
-        this.oAuth2SuccessHandler = oAuth2SuccessHandler;
     }
 
     @Bean
@@ -86,8 +83,6 @@ public class SecurityConfig {
             }))
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
-                    // OAuth2 endpoints
-                    .requestMatchers("/oauth2/authorization/**", "/login/oauth2/code/**").permitAll()
                     // Auth
                     .requestMatchers("/api/auth/**").permitAll()
                     // Public
@@ -111,11 +106,6 @@ public class SecurityConfig {
                     // Admin page templates
                     .requestMatchers("/admin/auth/**").permitAll()
                     .anyRequest().authenticated())
-            .oauth2Login(oauth2 -> oauth2
-                    .authorizationEndpoint(authorization -> authorization.baseUri("/oauth2/authorization/google"))
-                    .redirectionEndpoint(redirection -> redirection.baseUri("/login/oauth2/code/*"))
-                    .successHandler(oAuth2SuccessHandler)
-            )
             .addFilterBefore(authTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

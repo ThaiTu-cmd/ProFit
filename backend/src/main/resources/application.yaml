@@ -7,9 +7,9 @@ spring:
   profiles:
     include: local
   datasource:
-    url: "jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Ho_Chi_Minh&connectionCharacterSet=UTF-8"
-    username: root
-    password: password
+    url: ${DB_URL:jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Ho_Chi_Minh&connectionCharacterSet=UTF-8}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
   sql:
     init:
       mode: never
@@ -29,27 +29,12 @@ spring:
   jackson:
     deserialization:
       fail-on-unknown-properties: false
-  security:
-    oauth2:
-      client:
-        registration:
-          google:
-            client-id: YOUR_GOOGLE_CLIENT_ID
-            client-secret: YOUR_GOOGLE_CLIENT_SECRET
-            scope: openid,profile,email
-            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
-        provider:
-          google:
-            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
-            token-uri: https://oauth2.googleapis.com/token
-            user-info-uri: https://openidconnect.googleapis.com/openid-connect/v1/userinfo
-            user-name-attribute: "email"
 
 app:
   jwt:
-    secret: "ProFitJwtSecretKeyMustBeAtLeastSixtyFourCharactersLongForHS512Secure"
-    expiration-ms: 86400000
-    remember-expiration-ms: 604800000
+    secret: ${JWT_SECRET:ProFitSecretKeyForJWTTokenGenerationMustBeAtLeast256BitsLong2024}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+    remember-expiration-ms: ${JWT_REMEMBER_EXPIRATION_MS:604800000}
   bootstrap:
     admin:
       enabled: true
@@ -58,10 +43,10 @@ app:
       phone: "0123456789"
       password: Admin@123
   vnpay:
-    tmn-code: SY273SZH
-    hash-secret: SFP53JL1Z5AS4O5WFIEBMEARJAEMDTBT
+    tmn-code: ${VNPAY_TMN_CODE:}
+    hash-secret: ${VNPAY_HASH_SECRET:}
     payment-url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
-    return-url: http://localhost:8080/ProFitSuppsDB/api/v1/payment/vnpay-return
-    ipn-url: http://localhost:8080/ProFitSuppsDB/api/v1/payment/vnpay-ipn
+    return-url: ${VNPAY_RETURN_URL:http://localhost:8080/ProFitSuppsDB/api/v1/payment/vnpay-return}
+    ipn-url: ${VNPAY_IPN_URL:http://localhost:8080/ProFitSuppsDB/api/v1/payment/vnpay-ipn}
   frontend:
     base-url: "http://localhost:5173"

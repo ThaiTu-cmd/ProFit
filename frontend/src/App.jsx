@@ -23,7 +23,6 @@ import LoginPage         from "./pages/LoginPage";
 import RegisterPage      from "./pages/RegisterPage";
 import ProfilePage       from "./pages/ProfilePage";
 import PaymentResultPage from "./pages/PaymentResultPage";
-import OAuthCallback     from "./pages/OAuthCallback";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import BankingQRPage    from "./pages/BankingQRPage";
 
@@ -48,8 +47,6 @@ const App = () => {
     const path = window.location.pathname;
     if (path === "/" || path === "") {
       setCurrentPage("home");
-    } else if (path === "/auth-callback" || path.startsWith("/auth-callback")) {
-      setCurrentPage("oauth-callback");
     } else if (path === "/payment-result" || path.startsWith("/payment-result")) {
       setCurrentPage("payment-result");
     } else if (path === "/reset-password" || path.startsWith("/reset-password")) {
@@ -345,9 +342,6 @@ const App = () => {
 
       case "payment-result":
         return <PaymentResultPage navigate={navigate} onPlaceOrder={handlePlaceOrder} />;
-
-      case "oauth-callback":
-        return <OAuthCallback onLogin={handleLogin} />;
 
       case "reset-password":
         return <ResetPasswordPage showToast={showToast} />;
