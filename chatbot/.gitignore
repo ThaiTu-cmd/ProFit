@@ -1,0 +1,44 @@
+# Environment variables (Crucial: contains API Keys, passwords, secrets)
+.env
+.env.local
+.env.*
+!.env.example
+
+# Python virtual environment (Large, local dependencies)
+venv/
+.venv/
+env/
+ENV/
+bin/
+lib/
+include/
+
+# Python caching & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Custom local configs (Exclude local custom configs, push only *.example templates)
+config/routes.yaml
+config/prompts.yaml
+
+# Data/Database files (Exclude vector store/local DB if generated)
+# chroma/
+# faiss/
+*.db
+*.sqlite

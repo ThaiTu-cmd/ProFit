@@ -1,0 +1,3822 @@
+[
+    {
+        "orderCode":  "ORD-IFD0TV",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Trần Văn Cường",
+        "recipientPhone":  "0962657744",
+        "shippingAddressLine1":  "760 Lý Tự Trọng",
+        "shippingCity":  "Hà Nội",
+        "shippingProvince":  "Ba Đình",
+        "note":  "Giao sau 18h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  2,
+                          "lineTotal":  3300000
+                      }
+                  ],
+        "subtotalAmount":  3300000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  3300000
+    },
+    {
+        "orderCode":  "ORD-H1DNMM",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Võ Thị Châu",
+        "recipientPhone":  "0795935868",
+        "shippingAddressLine1":  "285 Võ Văn Tần",
+        "shippingCity":  "Huế",
+        "shippingProvince":  "Phú Hiệp",
+        "note":  "Giao tối sau 19h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  12,
+                          "productSku":  "SKU-BSN-SYNTHA6-012",
+                          "productName":  "BSN Syntha-6",
+                          "unitPrice":  1450000,
+                          "quantity":  1,
+                          "lineTotal":  1450000
+                      },
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  2,
+                          "lineTotal":  1700000
+                      }
+                  ],
+        "subtotalAmount":  3150000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  3150000
+    },
+    {
+        "orderCode":  "ORD-5NQ4FM",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Võ Đức Xuân",
+        "recipientPhone":  "0351713965",
+        "shippingAddressLine1":  "876 Hai Bà Trưng",
+        "shippingCity":  "Hải Phòng",
+        "shippingProvince":  "Hồng Bàng",
+        "note":  "Giao trước 12h trưa",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  14,
+                          "productSku":  "SKU-GHOST-WHEY-PROTEIN-014",
+                          "productName":  "Ghost Whey Protein",
+                          "unitPrice":  1100000,
+                          "quantity":  1,
+                          "lineTotal":  1100000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  2,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  1,
+                          "lineTotal":  1750000
+                      }
+                  ],
+        "subtotalAmount":  6150000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  6150000
+    },
+    {
+        "orderCode":  "ORD-H75LXO",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Dương Quốc Khoa",
+        "recipientPhone":  "0942525832",
+        "shippingAddressLine1":  "275 Trần Hưng Đạo",
+        "shippingCity":  "Biên Hòa",
+        "shippingProvince":  "Hố Nai",
+        "note":  "Để hàng trước cửa nếu không có người",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  2,
+                          "lineTotal":  1700000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  2,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  4,
+                          "lineTotal":  6600000
+                      },
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  5,
+                          "lineTotal":  8750000
+                      }
+                  ],
+        "subtotalAmount":  20350000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  20350000
+    },
+    {
+        "orderCode":  "ORD-9T84AZ",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Mai Bá Duy",
+        "recipientPhone":  "0353210779",
+        "shippingAddressLine1":  "391 Tôn Đức Thắng",
+        "shippingCity":  "Hà Nội",
+        "shippingProvince":  "Long Biên",
+        "note":  "Giao trong giờ nghỉ trưa 12-13h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  3,
+                          "lineTotal":  5250000
+                      },
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  5,
+                          "lineTotal":  4250000
+                      }
+                  ],
+        "subtotalAmount":  9500000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  9500000
+    },
+    {
+        "orderCode":  "ORD-1T2TAL",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Nguyễn Minh Mỹ",
+        "recipientPhone":  "0768830890",
+        "shippingAddressLine1":  "157 Hoàng Sa",
+        "shippingCity":  "Đà Lạt",
+        "shippingProvince":  "Phường 2",
+        "note":  "Để lại hàng trước cổng",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  5,
+                          "lineTotal":  8250000
+                      }
+                  ],
+        "subtotalAmount":  8250000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  8250000
+    },
+    {
+        "orderCode":  "ORD-8FSV87",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Phan Ngọc Oanh",
+        "recipientPhone":  "0366451235",
+        "shippingAddressLine1":  "676 Nam Kỳ Khởi Nghĩa",
+        "shippingCity":  "Đà Nẵng",
+        "shippingProvince":  "Thanh Khê",
+        "note":  "Không giao vào thứ 7 và Chủ nhật",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      },
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  2,
+                          "lineTotal":  1700000
+                      }
+                  ],
+        "subtotalAmount":  3350000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  3350000
+    },
+    {
+        "orderCode":  "ORD-CIYHE7",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Trịnh Khoa Sơn",
+        "recipientPhone":  "0977810444",
+        "shippingAddressLine1":  "881 Trường Sa",
+        "shippingCity":  "Hà Nội",
+        "shippingProvince":  "Ba Đình",
+        "note":  "Liên hệ Zalo trước khi giao",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  1,
+                          "lineTotal":  2050000
+                      }
+                  ],
+        "subtotalAmount":  2050000,
+        "shippingFee":  30000,
+        "discountAmount":  0,
+        "totalAmount":  2080000
+    },
+    {
+        "orderCode":  "ORD-2DGTFG",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Dương Hữu Khánh",
+        "recipientPhone":  "0924850989",
+        "shippingAddressLine1":  "746 Trường Sa",
+        "shippingCity":  "Hồ Chí Minh",
+        "shippingProvince":  "Bình Thạnh",
+        "note":  "Không cần hóa đơn, giao nhanh là được",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  4,
+                          "lineTotal":  3800000
+                      },
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  4,
+                          "lineTotal":  5400000
+                      }
+                  ],
+        "subtotalAmount":  9200000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  9200000
+    },
+    {
+        "orderCode":  "ORD-FAO72K",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Mai Hà Em",
+        "recipientPhone":  "0962955705",
+        "shippingAddressLine1":  "925 Lê Lợi",
+        "shippingCity":  "Cần Thơ",
+        "shippingProvince":  "Ô Môn",
+        "note":  "Giao vào ngày thường",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      },
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  2,
+                          "lineTotal":  3500000
+                      }
+                  ],
+        "subtotalAmount":  5150000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  5150000
+    },
+    {
+        "orderCode":  "ORD-5O7UUB",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Lê Bích Zung",
+        "recipientPhone":  "0335326321",
+        "shippingAddressLine1":  "70 Alexandre de Rhodes",
+        "shippingCity":  "Hà Nội",
+        "shippingProvince":  "Bắc Từ Liêm",
+        "note":  "Vui lòng bấm chuông",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  1,
+                          "lineTotal":  1450000
+                      },
+                      {
+                          "productId":  6,
+                          "productSku":  "SKU-ORGAIN-PLANTBASED-PROTEIN-POWDER-006",
+                          "productName":  "Orgain Plant-Based Protein Powder",
+                          "unitPrice":  1100000,
+                          "quantity":  1,
+                          "lineTotal":  1100000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  4,
+                          "lineTotal":  6600000
+                      }
+                  ],
+        "subtotalAmount":  9150000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  9150000
+    },
+    {
+        "orderCode":  "ORD-TSEMCI",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Đặng Thanh Quân",
+        "recipientPhone":  "0597696082",
+        "shippingAddressLine1":  "103 Trần Hưng Đạo",
+        "shippingCity":  "Đà Lạt",
+        "shippingProvince":  "Phường 5",
+        "note":  "Giao trước 12h trưa",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  2,
+                          "lineTotal":  3500000
+                      }
+                  ],
+        "subtotalAmount":  3500000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  3500000
+    },
+    {
+        "orderCode":  "ORD-0FKHMY",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Võ Anh Sơn",
+        "recipientPhone":  "0989804207",
+        "shippingAddressLine1":  "912 Điện Biên Phủ",
+        "shippingCity":  "Hải Phòng",
+        "shippingProvince":  "Hồng Bàng",
+        "note":  "Vui lòng bấm chuông",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  5,
+                          "lineTotal":  4750000
+                      },
+                      {
+                          "productId":  12,
+                          "productSku":  "SKU-BSN-SYNTHA6-012",
+                          "productName":  "BSN Syntha-6",
+                          "unitPrice":  1450000,
+                          "quantity":  4,
+                          "lineTotal":  5800000
+                      },
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  5,
+                          "lineTotal":  7250000
+                      }
+                  ],
+        "subtotalAmount":  17800000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  17800000
+    },
+    {
+        "orderCode":  "ORD-YFBNTP",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Trần Ngọc Nam",
+        "recipientPhone":  "0918221784",
+        "shippingAddressLine1":  "78 Nguyễn Bỉnh Khiêm",
+        "shippingCity":  "Hồ Chí Minh",
+        "shippingProvince":  "Quận 4",
+        "note":  "Giao bất kỳ giờ nào trong ngày",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  2,
+                          "lineTotal":  3500000
+                      },
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  2,
+                          "lineTotal":  2500000
+                      }
+                  ],
+        "subtotalAmount":  6000000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  6000000
+    },
+    {
+        "orderCode":  "ORD-72OY0I",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Huỳnh Minh Oanh",
+        "recipientPhone":  "0918284372",
+        "shippingAddressLine1":  "184 Đồng Khởi",
+        "shippingCity":  "Huế",
+        "shippingProvince":  "Phú Hội",
+        "note":  "Giao vào giờ hành chính",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  3,
+                          "lineTotal":  4050000
+                      },
+                      {
+                          "productId":  6,
+                          "productSku":  "SKU-ORGAIN-PLANTBASED-PROTEIN-POWDER-006",
+                          "productName":  "Orgain Plant-Based Protein Powder",
+                          "unitPrice":  1100000,
+                          "quantity":  1,
+                          "lineTotal":  1100000
+                      }
+                  ],
+        "subtotalAmount":  5150000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  5150000
+    },
+    {
+        "orderCode":  "ORD-O9T7E8",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Huỳnh Khoa Khoa",
+        "recipientPhone":  "0911473653",
+        "shippingAddressLine1":  "657 Sư Vạn Hạnh",
+        "shippingCity":  "Hải Phòng",
+        "shippingProvince":  "Lê Chân",
+        "note":  "Giao tối sau 19h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  5,
+                          "productSku":  "SKU-NAKED-EGG-WHITE-PROTEIN-005",
+                          "productName":  "Naked Egg White Protein Powder",
+                          "unitPrice":  1800000,
+                          "quantity":  4,
+                          "lineTotal":  7200000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      }
+                  ],
+        "subtotalAmount":  8850000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  8850000
+    },
+    {
+        "orderCode":  "ORD-70HP87",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Đoàn Kim Zung",
+        "recipientPhone":  "0937334421",
+        "shippingAddressLine1":  "704 Đồng Khởi",
+        "shippingCity":  "Vũng Tàu",
+        "shippingProvince":  "Phường 5",
+        "note":  "Hàng dễ vỡ, vui lòng nhẹ tay",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  5,
+                          "lineTotal":  10250000
+                      },
+                      {
+                          "productId":  12,
+                          "productSku":  "SKU-BSN-SYNTHA6-012",
+                          "productName":  "BSN Syntha-6",
+                          "unitPrice":  1450000,
+                          "quantity":  3,
+                          "lineTotal":  4350000
+                      },
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  4,
+                          "lineTotal":  3800000
+                      },
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  5,
+                          "lineTotal":  5750000
+                      }
+                  ],
+        "subtotalAmount":  24150000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  24150000
+    },
+    {
+        "orderCode":  "ORD-PUXQPH",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Lý Thanh Zung",
+        "recipientPhone":  "0922660923",
+        "shippingAddressLine1":  "294 Nguyễn Thị Minh Khai",
+        "shippingCity":  "Hồ Chí Minh",
+        "shippingProvince":  "Quận 10",
+        "note":  "Hàng fragile, cẩn thận khi vận chuyển",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  1,
+                          "lineTotal":  950000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  2,
+                          "lineTotal":  3300000
+                      }
+                  ],
+        "subtotalAmount":  4250000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  4250000
+    },
+    {
+        "orderCode":  "ORD-COWGZR",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Vũ Quốc Yến",
+        "recipientPhone":  "0370771419",
+        "shippingAddressLine1":  "871 Ngô Đức Kế",
+        "shippingCity":  "Nha Trang",
+        "shippingProvince":  "Vĩnh Thọ",
+        "note":  "Giao vào ngày thường",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  4,
+                          "lineTotal":  6600000
+                      },
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  2,
+                          "lineTotal":  3500000
+                      },
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  4,
+                          "lineTotal":  5000000
+                      },
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  5,
+                          "lineTotal":  4250000
+                      }
+                  ],
+        "subtotalAmount":  19350000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  19350000
+    },
+    {
+        "orderCode":  "ORD-6WZS3T",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Huỳnh Hà Quân",
+        "recipientPhone":  "0987827424",
+        "shippingAddressLine1":  "325 Ngô Đức Kế",
+        "shippingCity":  "Vũng Tàu",
+        "shippingProvince":  "Phường 5",
+        "note":  "Đặt hàng làm quà tặng, đóng gói đẹp",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  3,
+                          "lineTotal":  3750000
+                      },
+                      {
+                          "productId":  5,
+                          "productSku":  "SKU-NAKED-EGG-WHITE-PROTEIN-005",
+                          "productName":  "Naked Egg White Protein Powder",
+                          "unitPrice":  1800000,
+                          "quantity":  5,
+                          "lineTotal":  9000000
+                      },
+                      {
+                          "productId":  6,
+                          "productSku":  "SKU-ORGAIN-PLANTBASED-PROTEIN-POWDER-006",
+                          "productName":  "Orgain Plant-Based Protein Powder",
+                          "unitPrice":  1100000,
+                          "quantity":  1,
+                          "lineTotal":  1100000
+                      }
+                  ],
+        "subtotalAmount":  13850000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  13850000
+    },
+    {
+        "orderCode":  "ORD-YZCOTO",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Phan Bích Oanh",
+        "recipientPhone":  "0395687303",
+        "shippingAddressLine1":  "237 Nguyễn Văn Cừ",
+        "shippingCity":  "Đà Nẵng",
+        "shippingProvince":  "Thanh Khê",
+        "note":  "Giao trong giờ nghỉ trưa 12-13h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  14,
+                          "productSku":  "SKU-GHOST-WHEY-PROTEIN-014",
+                          "productName":  "Ghost Whey Protein",
+                          "unitPrice":  1100000,
+                          "quantity":  5,
+                          "lineTotal":  5500000
+                      },
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  5,
+                          "lineTotal":  8750000
+                      },
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  2,
+                          "lineTotal":  2700000
+                      },
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  4,
+                          "lineTotal":  7000000
+                      }
+                  ],
+        "subtotalAmount":  23950000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  23950000
+    },
+    {
+        "orderCode":  "ORD-BMYOFQ",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Hoàng Linh Uy",
+        "recipientPhone":  "0909560481",
+        "shippingAddressLine1":  "447 Nam Kỳ Khởi Nghĩa",
+        "shippingCity":  "Cần Thơ",
+        "shippingProvince":  "Cái Răng",
+        "note":  "Giao sau 18h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  6,
+                          "productSku":  "SKU-ORGAIN-PLANTBASED-PROTEIN-POWDER-006",
+                          "productName":  "Orgain Plant-Based Protein Powder",
+                          "unitPrice":  1100000,
+                          "quantity":  3,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  4,
+                          "lineTotal":  5000000
+                      },
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  3,
+                          "lineTotal":  4350000
+                      },
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  4,
+                          "lineTotal":  7000000
+                      }
+                  ],
+        "subtotalAmount":  19650000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  19650000
+    },
+    {
+        "orderCode":  "ORD-0B8IC8",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Trần Văn Hải",
+        "recipientPhone":  "0968624194",
+        "shippingAddressLine1":  "482 Nguyễn Huệ",
+        "shippingCity":  "Hải Phòng",
+        "shippingProvince":  "Hồng Bàng",
+        "note":  "Giao sau 18h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  1,
+                          "lineTotal":  950000
+                      },
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  2,
+                          "lineTotal":  2300000
+                      },
+                      {
+                          "productId":  14,
+                          "productSku":  "SKU-GHOST-WHEY-PROTEIN-014",
+                          "productName":  "Ghost Whey Protein",
+                          "unitPrice":  1100000,
+                          "quantity":  3,
+                          "lineTotal":  3300000
+                      }
+                  ],
+        "subtotalAmount":  6550000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  6550000
+    },
+    {
+        "orderCode":  "ORD-LY8OZC",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Vũ Minh Bảo",
+        "recipientPhone":  "0393687505",
+        "shippingAddressLine1":  "27 Mạc Đĩnh Chi",
+        "shippingCity":  "Hà Nội",
+        "shippingProvince":  "Bắc Từ Liêm",
+        "note":  "Giao trước 12h trưa",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  3,
+                          "lineTotal":  2550000
+                      },
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  1,
+                          "lineTotal":  1750000
+                      },
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  4,
+                          "lineTotal":  8200000
+                      }
+                  ],
+        "subtotalAmount":  12500000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  12500000
+    },
+    {
+        "orderCode":  "ORD-W3ZP08",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Võ Linh Đạt",
+        "recipientPhone":  "0597485329",
+        "shippingAddressLine1":  "444 Hoàng Sa",
+        "shippingCity":  "Nha Trang",
+        "shippingProvince":  "Vĩnh Hải",
+        "note":  "Giao sau 18h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  5,
+                          "lineTotal":  6250000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  4,
+                          "lineTotal":  6600000
+                      },
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  3,
+                          "lineTotal":  4350000
+                      },
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  1,
+                          "lineTotal":  1150000
+                      }
+                  ],
+        "subtotalAmount":  18350000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  18350000
+    },
+    {
+        "orderCode":  "ORD-H2M5ZJ",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Nguyễn Anh Giang",
+        "recipientPhone":  "0922452474",
+        "shippingAddressLine1":  "187 Nam Kỳ Khởi Nghĩa",
+        "shippingCity":  "Nha Trang",
+        "shippingProvince":  "Phước Long",
+        "note":  "Giao vào giờ hành chính",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  5,
+                          "productSku":  "SKU-NAKED-EGG-WHITE-PROTEIN-005",
+                          "productName":  "Naked Egg White Protein Powder",
+                          "unitPrice":  1800000,
+                          "quantity":  2,
+                          "lineTotal":  3600000
+                      }
+                  ],
+        "subtotalAmount":  3600000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  3600000
+    },
+    {
+        "orderCode":  "ORD-URTP0L",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Dương Bá Linh",
+        "recipientPhone":  "0982737961",
+        "shippingAddressLine1":  "314 Alexandre de Rhodes",
+        "shippingCity":  "Huế",
+        "shippingProvince":  "Phú Nhuận",
+        "note":  "Liên hệ Zalo trước khi giao",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  5,
+                          "productSku":  "SKU-NAKED-EGG-WHITE-PROTEIN-005",
+                          "productName":  "Naked Egg White Protein Powder",
+                          "unitPrice":  1800000,
+                          "quantity":  5,
+                          "lineTotal":  9000000
+                      },
+                      {
+                          "productId":  12,
+                          "productSku":  "SKU-BSN-SYNTHA6-012",
+                          "productName":  "BSN Syntha-6",
+                          "unitPrice":  1450000,
+                          "quantity":  3,
+                          "lineTotal":  4350000
+                      },
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  1,
+                          "lineTotal":  1150000
+                      },
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  2,
+                          "lineTotal":  3500000
+                      }
+                  ],
+        "subtotalAmount":  18000000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  18000000
+    },
+    {
+        "orderCode":  "ORD-KZEBBK",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Hoàng Hà Dũng",
+        "recipientPhone":  "0905441094",
+        "shippingAddressLine1":  "370 Cách Mạng Tháng 8",
+        "shippingCity":  "Hải Phòng",
+        "shippingProvince":  "Ngô Quyền",
+        "note":  "Giao vào thứ 2 đầu tuần",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  4,
+                          "lineTotal":  5400000
+                      }
+                  ],
+        "subtotalAmount":  5400000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  5400000
+    },
+    {
+        "orderCode":  "ORD-BFUK9E",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Ngô Linh Xuân",
+        "recipientPhone":  "0342544893",
+        "shippingAddressLine1":  "645 Alexandre de Rhodes",
+        "shippingCity":  "Hà Nội",
+        "shippingProvince":  "Bắc Từ Liêm",
+        "note":  "Giao bất kỳ giờ nào trong ngày",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  1,
+                          "lineTotal":  1150000
+                      }
+                  ],
+        "subtotalAmount":  1150000,
+        "shippingFee":  30000,
+        "discountAmount":  0,
+        "totalAmount":  1180000
+    },
+    {
+        "orderCode":  "ORD-CITFOY",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Lý Ngọc Bình",
+        "recipientPhone":  "0972280227",
+        "shippingAddressLine1":  "271 Alexandre de Rhodes",
+        "shippingCity":  "Cần Thơ",
+        "shippingProvince":  "Bình Thủy",
+        "note":  "Giao tối sau 19h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  5,
+                          "lineTotal":  6750000
+                      },
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  2,
+                          "lineTotal":  1700000
+                      }
+                  ],
+        "subtotalAmount":  8450000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  8450000
+    },
+    {
+        "orderCode":  "ORD-CFL0UK",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Phạm Lan Bảo",
+        "recipientPhone":  "0996954004",
+        "shippingAddressLine1":  "847 Võ Văn Tần",
+        "shippingCity":  "Đà Nẵng",
+        "shippingProvince":  "Sơn Trà",
+        "note":  "Nhờ giao cho bảo vệ nếu vắng",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  5,
+                          "lineTotal":  8250000
+                      },
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  5,
+                          "lineTotal":  4250000
+                      },
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  1,
+                          "lineTotal":  1250000
+                      }
+                  ],
+        "subtotalAmount":  13750000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  13750000
+    },
+    {
+        "orderCode":  "ORD-1QX6GV",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Lý Đức Sơn",
+        "recipientPhone":  "0764311446",
+        "shippingAddressLine1":  "42 Ngô Đức Kế",
+        "shippingCity":  "Hải Phòng",
+        "shippingProvince":  "Đồ Sơn",
+        "note":  "Yêu cầu đóng gói cẩn thận",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  1,
+                          "lineTotal":  1450000
+                      }
+                  ],
+        "subtotalAmount":  1450000,
+        "shippingFee":  30000,
+        "discountAmount":  0,
+        "totalAmount":  1480000
+    },
+    {
+        "orderCode":  "ORD-8OS9XT",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Ngô Thị Giang",
+        "recipientPhone":  "0583767259",
+        "shippingAddressLine1":  "332 Điện Biên Phủ",
+        "shippingCity":  "Biên Hòa",
+        "shippingProvince":  "Tân Mai",
+        "note":  "Giao sáng sớm trước 8h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  2,
+                          "lineTotal":  1700000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  2,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  3,
+                          "lineTotal":  6150000
+                      },
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  5,
+                          "lineTotal":  5750000
+                      }
+                  ],
+        "subtotalAmount":  16900000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  16900000
+    },
+    {
+        "orderCode":  "ORD-I4E8XF",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Đặng Anh Bảo",
+        "recipientPhone":  "0984444115",
+        "shippingAddressLine1":  "418 Trần Hưng Đạo",
+        "shippingCity":  "Hồ Chí Minh",
+        "shippingProvince":  "Thủ Đức",
+        "note":  "Liên hệ Zalo trước khi giao",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  14,
+                          "productSku":  "SKU-GHOST-WHEY-PROTEIN-014",
+                          "productName":  "Ghost Whey Protein",
+                          "unitPrice":  1100000,
+                          "quantity":  3,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  4,
+                          "lineTotal":  3400000
+                      }
+                  ],
+        "subtotalAmount":  6700000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  6700000
+    },
+    {
+        "orderCode":  "ORD-A04UX5",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Dương Tuấn Sơn",
+        "recipientPhone":  "0763739892",
+        "shippingAddressLine1":  "274 Phan Bội Châu",
+        "shippingCity":  "Biên Hòa",
+        "shippingProvince":  "Long Bình",
+        "note":  "Yêu cầu đóng gói cẩn thận",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  14,
+                          "productSku":  "SKU-GHOST-WHEY-PROTEIN-014",
+                          "productName":  "Ghost Whey Protein",
+                          "unitPrice":  1100000,
+                          "quantity":  4,
+                          "lineTotal":  4400000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      }
+                  ],
+        "subtotalAmount":  6050000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  6050000
+    },
+    {
+        "orderCode":  "ORD-3NX39R",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Trần Quốc Tâm",
+        "recipientPhone":  "0333180901",
+        "shippingAddressLine1":  "723 Mạc Đĩnh Chi",
+        "shippingCity":  "Biên Hòa",
+        "shippingProvince":  "Hố Nai",
+        "note":  "Giao cuối tháng",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  3,
+                          "lineTotal":  2550000
+                      },
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  3,
+                          "lineTotal":  4350000
+                      }
+                  ],
+        "subtotalAmount":  6900000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  6900000
+    },
+    {
+        "orderCode":  "ORD-CLYT8W",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Lý Tuấn Bình",
+        "recipientPhone":  "0340699740",
+        "shippingAddressLine1":  "408 Pasteur",
+        "shippingCity":  "Đà Lạt",
+        "shippingProvince":  "Phường 6",
+        "note":  "Vui lòng bấm chuông",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  2,
+                          "lineTotal":  2900000
+                      }
+                  ],
+        "subtotalAmount":  2900000,
+        "shippingFee":  30000,
+        "discountAmount":  0,
+        "totalAmount":  2930000
+    },
+    {
+        "orderCode":  "ORD-2KNFTU",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Huỳnh Thanh Phúc",
+        "recipientPhone":  "0926364526",
+        "shippingAddressLine1":  "48 Trường Sa",
+        "shippingCity":  "Hải Phòng",
+        "shippingProvince":  "Hồng Bàng",
+        "note":  "Giao sáng sớm trước 8h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  4,
+                          "lineTotal":  8200000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  3,
+                          "lineTotal":  4950000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  5,
+                          "lineTotal":  8250000
+                      }
+                  ],
+        "subtotalAmount":  21400000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  21400000
+    },
+    {
+        "orderCode":  "ORD-9K8YQK",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Hồ Hà Dũng",
+        "recipientPhone":  "0973326083",
+        "shippingAddressLine1":  "453 Hoàng Sa",
+        "shippingCity":  "Đà Nẵng",
+        "shippingProvince":  "Hải Châu",
+        "note":  "Giao vào giờ hành chính",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  5,
+                          "lineTotal":  8750000
+                      }
+                  ],
+        "subtotalAmount":  8750000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  8750000
+    },
+    {
+        "orderCode":  "ORD-I2HGJ1",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Hoàng Minh Long",
+        "recipientPhone":  "0356345702",
+        "shippingAddressLine1":  "795 Huỳnh Thúc Kháng",
+        "shippingCity":  "Nha Trang",
+        "shippingProvince":  "Phước Long",
+        "note":  "Liên hệ Zalo trước khi giao",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  3,
+                          "lineTotal":  2850000
+                      },
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  5,
+                          "lineTotal":  6250000
+                      },
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  5,
+                          "lineTotal":  8750000
+                      },
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  3,
+                          "lineTotal":  5250000
+                      }
+                  ],
+        "subtotalAmount":  23100000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  23100000
+    },
+    {
+        "orderCode":  "ORD-78K52Q",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Lê Quốc Duy",
+        "recipientPhone":  "0978799837",
+        "shippingAddressLine1":  "936 Phan Bội Châu",
+        "shippingCity":  "Đà Nẵng",
+        "shippingProvince":  "Sơn Trà",
+        "note":  "Giao vào giờ hành chính",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  3,
+                          "lineTotal":  5250000
+                      },
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  3,
+                          "lineTotal":  2550000
+                      },
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  5,
+                          "lineTotal":  7250000
+                      }
+                  ],
+        "subtotalAmount":  15050000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  15050000
+    },
+    {
+        "orderCode":  "ORD-IA5U6H",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Lê Lan Mỹ",
+        "recipientPhone":  "0373419340",
+        "shippingAddressLine1":  "111 Alexandre de Rhodes",
+        "shippingCity":  "Huế",
+        "shippingProvince":  "Phú Hiệp",
+        "note":  "Giao kèm hóa đơn VAT",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  3,
+                          "lineTotal":  4050000
+                      },
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  5,
+                          "lineTotal":  7250000
+                      }
+                  ],
+        "subtotalAmount":  11300000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  11300000
+    },
+    {
+        "orderCode":  "ORD-FODRO8",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Trần Thu Giang",
+        "recipientPhone":  "0794239396",
+        "shippingAddressLine1":  "761 Đồng Khởi",
+        "shippingCity":  "Huế",
+        "shippingProvince":  "Tây Lộc",
+        "note":  "Giao buổi sáng trước 10h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  5,
+                          "productSku":  "SKU-NAKED-EGG-WHITE-PROTEIN-005",
+                          "productName":  "Naked Egg White Protein Powder",
+                          "unitPrice":  1800000,
+                          "quantity":  1,
+                          "lineTotal":  1800000
+                      },
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  2,
+                          "lineTotal":  2500000
+                      },
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  5,
+                          "lineTotal":  4250000
+                      },
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  1,
+                          "lineTotal":  1450000
+                      }
+                  ],
+        "subtotalAmount":  10000000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  10000000
+    },
+    {
+        "orderCode":  "ORD-2H3TV3",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Vũ Kim Duy",
+        "recipientPhone":  "0947529957",
+        "shippingAddressLine1":  "250 Võ Văn Tần",
+        "shippingCity":  "Hồ Chí Minh",
+        "shippingProvince":  "Quận 11",
+        "note":  "Gọi trước khi giao 30 phút",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  1,
+                          "lineTotal":  950000
+                      }
+                  ],
+        "subtotalAmount":  950000,
+        "shippingFee":  30000,
+        "discountAmount":  0,
+        "totalAmount":  980000
+    },
+    {
+        "orderCode":  "ORD-AJEPEC",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Dương Thu Tâm",
+        "recipientPhone":  "0331590785",
+        "shippingAddressLine1":  "603 Trường Sa",
+        "shippingCity":  "Biên Hòa",
+        "shippingProvince":  "Tân Phong",
+        "note":  "Giao sáng sớm trước 8h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  4,
+                          "lineTotal":  6600000
+                      }
+                  ],
+        "subtotalAmount":  6600000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  6600000
+    },
+    {
+        "orderCode":  "ORD-R6CCVC",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Võ Linh Yến",
+        "recipientPhone":  "0335395460",
+        "shippingAddressLine1":  "703 Điện Biên Phủ",
+        "shippingCity":  "Huế",
+        "shippingProvince":  "Thuận Hòa",
+        "note":  "Đặt hàng làm quà tặng, đóng gói đẹp",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  14,
+                          "productSku":  "SKU-GHOST-WHEY-PROTEIN-014",
+                          "productName":  "Ghost Whey Protein",
+                          "unitPrice":  1100000,
+                          "quantity":  5,
+                          "lineTotal":  5500000
+                      }
+                  ],
+        "subtotalAmount":  5500000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  5500000
+    },
+    {
+        "orderCode":  "ORD-IMQODP",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Võ Thu Em",
+        "recipientPhone":  "0369080078",
+        "shippingAddressLine1":  "463 Nguyễn Bỉnh Khiêm",
+        "shippingCity":  "Cần Thơ",
+        "shippingProvince":  "Ô Môn",
+        "note":  "Ưu tiên giao sáng",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  5,
+                          "lineTotal":  5750000
+                      }
+                  ],
+        "subtotalAmount":  5750000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  5750000
+    },
+    {
+        "orderCode":  "ORD-O57P6B",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Đặng Linh Linh",
+        "recipientPhone":  "0761514835",
+        "shippingAddressLine1":  "687 Điện Biên Phủ",
+        "shippingCity":  "Vũng Tàu",
+        "shippingProvince":  "Phường 3",
+        "note":  "Gọi trước khi giao 30 phút",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  4,
+                          "lineTotal":  4600000
+                      },
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  5,
+                          "lineTotal":  6250000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  5,
+                          "lineTotal":  8250000
+                      }
+                  ],
+        "subtotalAmount":  19100000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  19100000
+    },
+    {
+        "orderCode":  "ORD-A73JGZ",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Đặng Kim Nam",
+        "recipientPhone":  "0901160790",
+        "shippingAddressLine1":  "659 Bùi Thị Xuân",
+        "shippingCity":  "Đà Lạt",
+        "shippingProvince":  "Phường 6",
+        "note":  "Giao vào ngày thường",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  4,
+                          "lineTotal":  5400000
+                      },
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  3,
+                          "lineTotal":  5250000
+                      }
+                  ],
+        "subtotalAmount":  10650000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  10650000
+    },
+    {
+        "orderCode":  "ORD-L7V5F1",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Trần Đức Khoa",
+        "recipientPhone":  "0796442714",
+        "shippingAddressLine1":  "320 Đồng Khởi",
+        "shippingCity":  "Đà Nẵng",
+        "shippingProvince":  "Sơn Trà",
+        "note":  "Liên hệ trước khi đến",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  2,
+                          "lineTotal":  3500000
+                      },
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  4,
+                          "lineTotal":  8200000
+                      },
+                      {
+                          "productId":  5,
+                          "productSku":  "SKU-NAKED-EGG-WHITE-PROTEIN-005",
+                          "productName":  "Naked Egg White Protein Powder",
+                          "unitPrice":  1800000,
+                          "quantity":  5,
+                          "lineTotal":  9000000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      }
+                  ],
+        "subtotalAmount":  22350000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  22350000
+    },
+    {
+        "orderCode":  "ORD-11KERP",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Hoàng Phương Uy",
+        "recipientPhone":  "0372563374",
+        "shippingAddressLine1":  "309 Nguyễn Thị Minh Khai",
+        "shippingCity":  "Hồ Chí Minh",
+        "shippingProvince":  "Quận 7",
+        "note":  "Giao sáng sớm trước 8h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  14,
+                          "productSku":  "SKU-GHOST-WHEY-PROTEIN-014",
+                          "productName":  "Ghost Whey Protein",
+                          "unitPrice":  1100000,
+                          "quantity":  3,
+                          "lineTotal":  3300000
+                      }
+                  ],
+        "subtotalAmount":  3300000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  3300000
+    },
+    {
+        "orderCode":  "ORD-ZPEAL2",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Đoàn Lan Hòa",
+        "recipientPhone":  "0379082553",
+        "shippingAddressLine1":  "588 Nguyễn Văn Cừ",
+        "shippingCity":  "Đà Lạt",
+        "shippingProvince":  "Phường 4",
+        "note":  "Liên hệ trước khi đến",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  2,
+                          "lineTotal":  2500000
+                      },
+                      {
+                          "productId":  6,
+                          "productSku":  "SKU-ORGAIN-PLANTBASED-PROTEIN-POWDER-006",
+                          "productName":  "Orgain Plant-Based Protein Powder",
+                          "unitPrice":  1100000,
+                          "quantity":  1,
+                          "lineTotal":  1100000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  5,
+                          "lineTotal":  8250000
+                      }
+                  ],
+        "subtotalAmount":  11850000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  11850000
+    },
+    {
+        "orderCode":  "ORD-6M033I",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Hoàng Bá Giang",
+        "recipientPhone":  "0956761747",
+        "shippingAddressLine1":  "523 Nguyễn Thị Minh Khai",
+        "shippingCity":  "Hà Nội",
+        "shippingProvince":  "Nam Từ Liêm",
+        "note":  "Giao trong giờ nghỉ trưa 12-13h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  5,
+                          "lineTotal":  10250000
+                      },
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  3,
+                          "lineTotal":  3450000
+                      },
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  3,
+                          "lineTotal":  5250000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  2,
+                          "lineTotal":  3300000
+                      }
+                  ],
+        "subtotalAmount":  22250000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  22250000
+    },
+    {
+        "orderCode":  "ORD-W2VMCQ",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Trần Thị Nam",
+        "recipientPhone":  "0990886545",
+        "shippingAddressLine1":  "481 Trần Quốc Thảo",
+        "shippingCity":  "Nha Trang",
+        "shippingProvince":  "Vĩnh Hải",
+        "note":  "Hàng fragile, cẩn thận khi vận chuyển",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  5,
+                          "lineTotal":  7250000
+                      }
+                  ],
+        "subtotalAmount":  7250000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  7250000
+    },
+    {
+        "orderCode":  "ORD-S8Q349",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Lê Anh Yến",
+        "recipientPhone":  "0950795639",
+        "shippingAddressLine1":  "620 Nam Kỳ Khởi Nghĩa",
+        "shippingCity":  "Cần Thơ",
+        "shippingProvince":  "Cái Răng",
+        "note":  "Yêu cầu đóng gói cẩn thận",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      },
+                      {
+                          "productId":  6,
+                          "productSku":  "SKU-ORGAIN-PLANTBASED-PROTEIN-POWDER-006",
+                          "productName":  "Orgain Plant-Based Protein Powder",
+                          "unitPrice":  1100000,
+                          "quantity":  3,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  1,
+                          "lineTotal":  2050000
+                      },
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  3,
+                          "lineTotal":  3450000
+                      }
+                  ],
+        "subtotalAmount":  10450000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  10450000
+    },
+    {
+        "orderCode":  "ORD-K0X65M",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Trịnh Quốc Mỹ",
+        "recipientPhone":  "0763661705",
+        "shippingAddressLine1":  "695 Nguyễn Văn Cừ",
+        "shippingCity":  "Hà Nội",
+        "shippingProvince":  "Nam Từ Liêm",
+        "note":  "Vui lòng bấm chuông",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  14,
+                          "productSku":  "SKU-GHOST-WHEY-PROTEIN-014",
+                          "productName":  "Ghost Whey Protein",
+                          "unitPrice":  1100000,
+                          "quantity":  5,
+                          "lineTotal":  5500000
+                      },
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  1,
+                          "lineTotal":  950000
+                      },
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  4,
+                          "lineTotal":  8200000
+                      }
+                  ],
+        "subtotalAmount":  14650000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  14650000
+    },
+    {
+        "orderCode":  "ORD-L8M1G9",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Hoàng Đức Linh",
+        "recipientPhone":  "0935575686",
+        "shippingAddressLine1":  "19 Hoàng Sa",
+        "shippingCity":  "Vũng Tàu",
+        "shippingProvince":  "Phường 3",
+        "note":  "Giao bất kỳ giờ nào trong ngày",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  5,
+                          "lineTotal":  4750000
+                      },
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  2,
+                          "lineTotal":  3500000
+                      },
+                      {
+                          "productId":  14,
+                          "productSku":  "SKU-GHOST-WHEY-PROTEIN-014",
+                          "productName":  "Ghost Whey Protein",
+                          "unitPrice":  1100000,
+                          "quantity":  4,
+                          "lineTotal":  4400000
+                      },
+                      {
+                          "productId":  12,
+                          "productSku":  "SKU-BSN-SYNTHA6-012",
+                          "productName":  "BSN Syntha-6",
+                          "unitPrice":  1450000,
+                          "quantity":  1,
+                          "lineTotal":  1450000
+                      }
+                  ],
+        "subtotalAmount":  14100000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  14100000
+    },
+    {
+        "orderCode":  "ORD-IPK0QT",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Đặng Hà Long",
+        "recipientPhone":  "0963994235",
+        "shippingAddressLine1":  "693 Đồng Khởi",
+        "shippingCity":  "Huế",
+        "shippingProvince":  "Phú Hiệp",
+        "note":  "Giao cuối tuần",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  2,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  3,
+                          "lineTotal":  3450000
+                      }
+                  ],
+        "subtotalAmount":  6750000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  6750000
+    },
+    {
+        "orderCode":  "ORD-TD44K1",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Võ Lan Long",
+        "recipientPhone":  "0581492430",
+        "shippingAddressLine1":  "896 Hoàng Sa",
+        "shippingCity":  "Hồ Chí Minh",
+        "shippingProvince":  "Tân Bình",
+        "note":  "Giao buổi sáng trước 10h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  1,
+                          "lineTotal":  1750000
+                      },
+                      {
+                          "productId":  6,
+                          "productSku":  "SKU-ORGAIN-PLANTBASED-PROTEIN-POWDER-006",
+                          "productName":  "Orgain Plant-Based Protein Powder",
+                          "unitPrice":  1100000,
+                          "quantity":  3,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  2,
+                          "lineTotal":  2500000
+                      },
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  1,
+                          "lineTotal":  1350000
+                      }
+                  ],
+        "subtotalAmount":  8900000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  8900000
+    },
+    {
+        "orderCode":  "ORD-X2EK3Z",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Hoàng Hà Quân",
+        "recipientPhone":  "0340028575",
+        "shippingAddressLine1":  "860 Lê Duẩn",
+        "shippingCity":  "Biên Hòa",
+        "shippingProvince":  "Trung Dũng",
+        "note":  "Gọi trước khi giao 30 phút",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  1,
+                          "lineTotal":  1250000
+                      },
+                      {
+                          "productId":  5,
+                          "productSku":  "SKU-NAKED-EGG-WHITE-PROTEIN-005",
+                          "productName":  "Naked Egg White Protein Powder",
+                          "unitPrice":  1800000,
+                          "quantity":  2,
+                          "lineTotal":  3600000
+                      },
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  4,
+                          "lineTotal":  3400000
+                      }
+                  ],
+        "subtotalAmount":  8250000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  8250000
+    },
+    {
+        "orderCode":  "ORD-4RTWUZ",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Đặng Bích An",
+        "recipientPhone":  "0343516539",
+        "shippingAddressLine1":  "65 Điện Biên Phủ",
+        "shippingCity":  "Đà Lạt",
+        "shippingProvince":  "Phường 4",
+        "note":  "Ưu tiên giao sáng",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  4,
+                          "lineTotal":  5400000
+                      }
+                  ],
+        "subtotalAmount":  5400000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  5400000
+    },
+    {
+        "orderCode":  "ORD-0MCIXD",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Trịnh Kim Em",
+        "recipientPhone":  "0913368694",
+        "shippingAddressLine1":  "383 Lý Tự Trọng",
+        "shippingCity":  "Hồ Chí Minh",
+        "shippingProvince":  "Bình Thạnh",
+        "note":  "Giao cuối tuần",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  4,
+                          "lineTotal":  3400000
+                      },
+                      {
+                          "productId":  12,
+                          "productSku":  "SKU-BSN-SYNTHA6-012",
+                          "productName":  "BSN Syntha-6",
+                          "unitPrice":  1450000,
+                          "quantity":  1,
+                          "lineTotal":  1450000
+                      }
+                  ],
+        "subtotalAmount":  4850000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  4850000
+    },
+    {
+        "orderCode":  "ORD-HB7S9T",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Võ Thị Duy",
+        "recipientPhone":  "0351378313",
+        "shippingAddressLine1":  "45 Huỳnh Thúc Kháng",
+        "shippingCity":  "Hải Phòng",
+        "shippingProvince":  "Ngô Quyền",
+        "note":  "Giao kèm hóa đơn VAT",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  12,
+                          "productSku":  "SKU-BSN-SYNTHA6-012",
+                          "productName":  "BSN Syntha-6",
+                          "unitPrice":  1450000,
+                          "quantity":  2,
+                          "lineTotal":  2900000
+                      },
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  4,
+                          "lineTotal":  5800000
+                      },
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  4,
+                          "lineTotal":  5400000
+                      },
+                      {
+                          "productId":  6,
+                          "productSku":  "SKU-ORGAIN-PLANTBASED-PROTEIN-POWDER-006",
+                          "productName":  "Orgain Plant-Based Protein Powder",
+                          "unitPrice":  1100000,
+                          "quantity":  3,
+                          "lineTotal":  3300000
+                      }
+                  ],
+        "subtotalAmount":  17400000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  17400000
+    },
+    {
+        "orderCode":  "ORD-0CV3TL",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Lê Kim Zung",
+        "recipientPhone":  "0993646308",
+        "shippingAddressLine1":  "821 Trần Hưng Đạo",
+        "shippingCity":  "Vũng Tàu",
+        "shippingProvince":  "Phường 3",
+        "note":  "Giao buổi trưa 11h-13h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  5,
+                          "productSku":  "SKU-NAKED-EGG-WHITE-PROTEIN-005",
+                          "productName":  "Naked Egg White Protein Powder",
+                          "unitPrice":  1800000,
+                          "quantity":  1,
+                          "lineTotal":  1800000
+                      },
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  4,
+                          "lineTotal":  8200000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  3,
+                          "lineTotal":  4950000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  5,
+                          "lineTotal":  8250000
+                      }
+                  ],
+        "subtotalAmount":  23200000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  23200000
+    },
+    {
+        "orderCode":  "ORD-V2BC2N",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Hồ Khoa Bình",
+        "recipientPhone":  "0341434013",
+        "shippingAddressLine1":  "147 Đinh Tiên Hoàng",
+        "shippingCity":  "Đà Nẵng",
+        "shippingProvince":  "Hải Châu",
+        "note":  "Nhờ giao cho bảo vệ nếu vắng",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  2,
+                          "lineTotal":  2500000
+                      },
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  4,
+                          "lineTotal":  3400000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  5,
+                          "lineTotal":  8250000
+                      }
+                  ],
+        "subtotalAmount":  14150000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  14150000
+    },
+    {
+        "orderCode":  "ORD-1ZHWY9",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Phan Minh Em",
+        "recipientPhone":  "0924840683",
+        "shippingAddressLine1":  "121 Lý Tự Trọng",
+        "shippingCity":  "Huế",
+        "shippingProvince":  "Tây Lộc",
+        "note":  "Giao buổi trưa 11h-13h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  5,
+                          "lineTotal":  8750000
+                      }
+                  ],
+        "subtotalAmount":  8750000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  8750000
+    },
+    {
+        "orderCode":  "ORD-Z7W2SE",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Phan Quốc Hải",
+        "recipientPhone":  "0560538560",
+        "shippingAddressLine1":  "872 Cách Mạng Tháng 8",
+        "shippingCity":  "Hải Phòng",
+        "shippingProvince":  "Lê Chân",
+        "note":  "Liên hệ trước khi đến",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  12,
+                          "productSku":  "SKU-BSN-SYNTHA6-012",
+                          "productName":  "BSN Syntha-6",
+                          "unitPrice":  1450000,
+                          "quantity":  4,
+                          "lineTotal":  5800000
+                      },
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  4,
+                          "lineTotal":  7000000
+                      },
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  5,
+                          "lineTotal":  7250000
+                      },
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  1,
+                          "lineTotal":  1750000
+                      }
+                  ],
+        "subtotalAmount":  21800000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  21800000
+    },
+    {
+        "orderCode":  "ORD-QYM52X",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Huỳnh Quốc Phong",
+        "recipientPhone":  "0589011137",
+        "shippingAddressLine1":  "658 Trần Hưng Đạo",
+        "shippingCity":  "Đà Nẵng",
+        "shippingProvince":  "Sơn Trà",
+        "note":  "Giao buổi trưa 11h-13h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  14,
+                          "productSku":  "SKU-GHOST-WHEY-PROTEIN-014",
+                          "productName":  "Ghost Whey Protein",
+                          "unitPrice":  1100000,
+                          "quantity":  2,
+                          "lineTotal":  2200000
+                      },
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  5,
+                          "lineTotal":  4250000
+                      },
+                      {
+                          "productId":  5,
+                          "productSku":  "SKU-NAKED-EGG-WHITE-PROTEIN-005",
+                          "productName":  "Naked Egg White Protein Powder",
+                          "unitPrice":  1800000,
+                          "quantity":  3,
+                          "lineTotal":  5400000
+                      }
+                  ],
+        "subtotalAmount":  11850000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  11850000
+    },
+    {
+        "orderCode":  "ORD-TSG7FX",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Đoàn Kim Hòa",
+        "recipientPhone":  "0330809722",
+        "shippingAddressLine1":  "311 Tôn Đức Thắng",
+        "shippingCity":  "Đà Nẵng",
+        "shippingProvince":  "Cẩm Lệ",
+        "note":  "Giao tối sau 19h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  5,
+                          "lineTotal":  5750000
+                      },
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  3,
+                          "lineTotal":  6150000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  3,
+                          "lineTotal":  4950000
+                      },
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  4,
+                          "lineTotal":  5800000
+                      }
+                  ],
+        "subtotalAmount":  22650000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  22650000
+    },
+    {
+        "orderCode":  "ORD-CCPRHV",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Bùi Kim Châu",
+        "recipientPhone":  "0769135342",
+        "shippingAddressLine1":  "305 Trần Quốc Thảo",
+        "shippingCity":  "Cần Thơ",
+        "shippingProvince":  "Ô Môn",
+        "note":  "Không giao vào thứ 7 và Chủ nhật",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  3,
+                          "lineTotal":  2550000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  4,
+                          "lineTotal":  6600000
+                      }
+                  ],
+        "subtotalAmount":  9150000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  9150000
+    },
+    {
+        "orderCode":  "ORD-637ZGF",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Đinh Lan Sơn",
+        "recipientPhone":  "0994034250",
+        "shippingAddressLine1":  "255 Đinh Tiên Hoàng",
+        "shippingCity":  "Đà Lạt",
+        "shippingProvince":  "Phường 4",
+        "note":  "Liên hệ trước khi đến",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  4,
+                          "lineTotal":  4600000
+                      },
+                      {
+                          "productId":  14,
+                          "productSku":  "SKU-GHOST-WHEY-PROTEIN-014",
+                          "productName":  "Ghost Whey Protein",
+                          "unitPrice":  1100000,
+                          "quantity":  3,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  5,
+                          "lineTotal":  10250000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      }
+                  ],
+        "subtotalAmount":  19800000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  19800000
+    },
+    {
+        "orderCode":  "ORD-JNOBBU",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Đỗ Tuấn Linh",
+        "recipientPhone":  "0923458661",
+        "shippingAddressLine1":  "138 Nguyễn Bỉnh Khiêm",
+        "shippingCity":  "Hà Nội",
+        "shippingProvince":  "Long Biên",
+        "note":  "Gọi trước khi giao 30 phút",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  6,
+                          "productSku":  "SKU-ORGAIN-PLANTBASED-PROTEIN-POWDER-006",
+                          "productName":  "Orgain Plant-Based Protein Powder",
+                          "unitPrice":  1100000,
+                          "quantity":  3,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  2,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  2,
+                          "lineTotal":  3500000
+                      },
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  5,
+                          "lineTotal":  8750000
+                      }
+                  ],
+        "subtotalAmount":  18850000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  18850000
+    },
+    {
+        "orderCode":  "ORD-BELRQV",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Đinh Quốc Minh",
+        "recipientPhone":  "0343368555",
+        "shippingAddressLine1":  "513 Lê Lợi",
+        "shippingCity":  "Vũng Tàu",
+        "shippingProvince":  "Phường 4",
+        "note":  "Để lại hàng trước cổng",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  3,
+                          "lineTotal":  4350000
+                      },
+                      {
+                          "productId":  14,
+                          "productSku":  "SKU-GHOST-WHEY-PROTEIN-014",
+                          "productName":  "Ghost Whey Protein",
+                          "unitPrice":  1100000,
+                          "quantity":  3,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      }
+                  ],
+        "subtotalAmount":  9300000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  9300000
+    },
+    {
+        "orderCode":  "ORD-65WVJX",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Trịnh Khoa Hải",
+        "recipientPhone":  "0380457738",
+        "shippingAddressLine1":  "316 Huỳnh Thúc Kháng",
+        "shippingCity":  "Huế",
+        "shippingProvince":  "Tây Lộc",
+        "note":  "Không giao vào thứ 7 và Chủ nhật",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  1,
+                          "lineTotal":  1150000
+                      }
+                  ],
+        "subtotalAmount":  1150000,
+        "shippingFee":  30000,
+        "discountAmount":  0,
+        "totalAmount":  1180000
+    },
+    {
+        "orderCode":  "ORD-POHSWQ",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Trần Quốc Tâm",
+        "recipientPhone":  "0965943945",
+        "shippingAddressLine1":  "452 Trường Sa",
+        "shippingCity":  "Cần Thơ",
+        "shippingProvince":  "Ninh Kiều",
+        "note":  "Ưu tiên giao sáng",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  3,
+                          "lineTotal":  6150000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  5,
+                          "lineTotal":  8250000
+                      },
+                      {
+                          "productId":  12,
+                          "productSku":  "SKU-BSN-SYNTHA6-012",
+                          "productName":  "BSN Syntha-6",
+                          "unitPrice":  1450000,
+                          "quantity":  4,
+                          "lineTotal":  5800000
+                      }
+                  ],
+        "subtotalAmount":  20200000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  20200000
+    },
+    {
+        "orderCode":  "ORD-K791ZY",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Lý Kim Sơn",
+        "recipientPhone":  "0765972558",
+        "shippingAddressLine1":  "286 Bùi Thị Xuân",
+        "shippingCity":  "Cần Thơ",
+        "shippingProvince":  "Bình Thủy",
+        "note":  "Yêu cầu đóng gói cẩn thận",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  3,
+                          "lineTotal":  4950000
+                      },
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  1,
+                          "lineTotal":  1750000
+                      },
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  3,
+                          "lineTotal":  2850000
+                      }
+                  ],
+        "subtotalAmount":  9550000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  9550000
+    },
+    {
+        "orderCode":  "ORD-X0H3JU",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Võ Quốc Dũng",
+        "recipientPhone":  "0347209221",
+        "shippingAddressLine1":  "947 Trần Quốc Thảo",
+        "shippingCity":  "Hà Nội",
+        "shippingProvince":  "Thanh Xuân",
+        "note":  "Nhờ giao cho bảo vệ nếu vắng",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  1,
+                          "lineTotal":  850000
+                      },
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  5,
+                          "lineTotal":  10250000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  2,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  4,
+                          "lineTotal":  3800000
+                      }
+                  ],
+        "subtotalAmount":  18200000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  18200000
+    },
+    {
+        "orderCode":  "ORD-1KKC1X",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Vũ Tuấn Châu",
+        "recipientPhone":  "0388094890",
+        "shippingAddressLine1":  "667 Nguyễn Thị Minh Khai",
+        "shippingCity":  "Nha Trang",
+        "shippingProvince":  "Ngọc Hiệp",
+        "note":  "Giao vào thứ 2 đầu tuần",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  3,
+                          "lineTotal":  4950000
+                      },
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  1,
+                          "lineTotal":  1450000
+                      },
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  1,
+                          "lineTotal":  950000
+                      },
+                      {
+                          "productId":  12,
+                          "productSku":  "SKU-BSN-SYNTHA6-012",
+                          "productName":  "BSN Syntha-6",
+                          "unitPrice":  1450000,
+                          "quantity":  3,
+                          "lineTotal":  4350000
+                      }
+                  ],
+        "subtotalAmount":  11700000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  11700000
+    },
+    {
+        "orderCode":  "ORD-9K9TR7",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Đinh Lan Khoa",
+        "recipientPhone":  "0968376703",
+        "shippingAddressLine1":  "110 Mạc Đĩnh Chi",
+        "shippingCity":  "Đà Lạt",
+        "shippingProvince":  "Phường 5",
+        "note":  "Liên hệ trước khi đến",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  4,
+                          "lineTotal":  3800000
+                      },
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  4,
+                          "lineTotal":  4600000
+                      }
+                  ],
+        "subtotalAmount":  8400000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  8400000
+    },
+    {
+        "orderCode":  "ORD-YGFLIJ",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Vũ Lan Duy",
+        "recipientPhone":  "0989370660",
+        "shippingAddressLine1":  "89 Nguyễn Văn Cừ",
+        "shippingCity":  "Vũng Tàu",
+        "shippingProvince":  "Phường 3",
+        "note":  "Gọi trước khi giao 30 phút",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  5,
+                          "productSku":  "SKU-NAKED-EGG-WHITE-PROTEIN-005",
+                          "productName":  "Naked Egg White Protein Powder",
+                          "unitPrice":  1800000,
+                          "quantity":  5,
+                          "lineTotal":  9000000
+                      },
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  3,
+                          "lineTotal":  2850000
+                      },
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  1,
+                          "lineTotal":  1350000
+                      },
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  3,
+                          "lineTotal":  6150000
+                      }
+                  ],
+        "subtotalAmount":  19350000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  19350000
+    },
+    {
+        "orderCode":  "ORD-8RQ9NZ",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Lý Tuấn Đạt",
+        "recipientPhone":  "0368765755",
+        "shippingAddressLine1":  "227 Hai Bà Trưng",
+        "shippingCity":  "Biên Hòa",
+        "shippingProvince":  "Long Bình",
+        "note":  "Giao buổi trưa 11h-13h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  5,
+                          "lineTotal":  8750000
+                      }
+                  ],
+        "subtotalAmount":  8750000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  8750000
+    },
+    {
+        "orderCode":  "ORD-6HTF4P",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Phan Khoa Sơn",
+        "recipientPhone":  "0928401455",
+        "shippingAddressLine1":  "849 Bùi Thị Xuân",
+        "shippingCity":  "Hà Nội",
+        "shippingProvince":  "Ba Đình",
+        "note":  "Giao trước 12h trưa",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  12,
+                          "productSku":  "SKU-BSN-SYNTHA6-012",
+                          "productName":  "BSN Syntha-6",
+                          "unitPrice":  1450000,
+                          "quantity":  3,
+                          "lineTotal":  4350000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      },
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  2,
+                          "lineTotal":  2700000
+                      }
+                  ],
+        "subtotalAmount":  8700000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  8700000
+    },
+    {
+        "orderCode":  "ORD-MC97C7",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Trần Ngọc Phong",
+        "recipientPhone":  "0957796493",
+        "shippingAddressLine1":  "47 Lê Văn Sỹ",
+        "shippingCity":  "Đà Lạt",
+        "shippingProvince":  "Phường 1",
+        "note":  "Giao cuối tháng",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  5,
+                          "lineTotal":  6750000
+                      },
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  2,
+                          "lineTotal":  1700000
+                      },
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  3,
+                          "lineTotal":  6150000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      }
+                  ],
+        "subtotalAmount":  16250000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  16250000
+    },
+    {
+        "orderCode":  "ORD-E9419Q",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Mai Bích Uy",
+        "recipientPhone":  "0778232971",
+        "shippingAddressLine1":  "403 Sư Vạn Hạnh",
+        "shippingCity":  "Đà Nẵng",
+        "shippingProvince":  "Liên Chiểu",
+        "note":  "Hàng fragile, cẩn thận khi vận chuyển",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  2,
+                          "lineTotal":  2300000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      },
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  5,
+                          "lineTotal":  6250000
+                      }
+                  ],
+        "subtotalAmount":  11850000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  11850000
+    },
+    {
+        "orderCode":  "ORD-ZB0OIH",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Trần Quốc Tâm",
+        "recipientPhone":  "0992955782",
+        "shippingAddressLine1":  "613 Alexandre de Rhodes",
+        "shippingCity":  "Hồ Chí Minh",
+        "shippingProvince":  "Phú Nhuận",
+        "note":  "Giao kèm hóa đơn VAT",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  2,
+                          "lineTotal":  4100000
+                      },
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  4,
+                          "lineTotal":  7000000
+                      }
+                  ],
+        "subtotalAmount":  11100000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  11100000
+    },
+    {
+        "orderCode":  "ORD-856WPR",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Đỗ Phương Đạt",
+        "recipientPhone":  "0583413748",
+        "shippingAddressLine1":  "63 Bùi Thị Xuân",
+        "shippingCity":  "Hải Phòng",
+        "shippingProvince":  "Lê Chân",
+        "note":  "Liên hệ trước khi đến",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      },
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  5,
+                          "lineTotal":  7250000
+                      }
+                  ],
+        "subtotalAmount":  8900000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  8900000
+    },
+    {
+        "orderCode":  "ORD-EIHX74",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Lê Tuấn Châu",
+        "recipientPhone":  "0960360085",
+        "shippingAddressLine1":  "571 Sư Vạn Hạnh",
+        "shippingCity":  "Huế",
+        "shippingProvince":  "Thuận Hòa",
+        "note":  "Giao trước 12h trưa",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  3,
+                          "lineTotal":  4350000
+                      },
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  3,
+                          "lineTotal":  3750000
+                      }
+                  ],
+        "subtotalAmount":  8100000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  8100000
+    },
+    {
+        "orderCode":  "ORD-8E9RIV",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Phan Phương Mỹ",
+        "recipientPhone":  "0975735325",
+        "shippingAddressLine1":  "960 Nguyễn Thị Minh Khai",
+        "shippingCity":  "Hồ Chí Minh",
+        "shippingProvince":  "Quận 7",
+        "note":  "Để lại hàng trước cổng",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  3,
+                          "lineTotal":  2550000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  2,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  12,
+                          "productSku":  "SKU-BSN-SYNTHA6-012",
+                          "productName":  "BSN Syntha-6",
+                          "unitPrice":  1450000,
+                          "quantity":  3,
+                          "lineTotal":  4350000
+                      },
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  3,
+                          "lineTotal":  4350000
+                      }
+                  ],
+        "subtotalAmount":  14550000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  14550000
+    },
+    {
+        "orderCode":  "ORD-HFJ7UP",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Hoàng Thành Minh",
+        "recipientPhone":  "0973846628",
+        "shippingAddressLine1":  "577 Đinh Tiên Hoàng",
+        "shippingCity":  "Huế",
+        "shippingProvince":  "Phú Hội",
+        "note":  "Liên hệ Zalo trước khi giao",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  2,
+                          "lineTotal":  2900000
+                      },
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  2,
+                          "lineTotal":  1900000
+                      },
+                      {
+                          "productId":  12,
+                          "productSku":  "SKU-BSN-SYNTHA6-012",
+                          "productName":  "BSN Syntha-6",
+                          "unitPrice":  1450000,
+                          "quantity":  5,
+                          "lineTotal":  7250000
+                      },
+                      {
+                          "productId":  6,
+                          "productSku":  "SKU-ORGAIN-PLANTBASED-PROTEIN-POWDER-006",
+                          "productName":  "Orgain Plant-Based Protein Powder",
+                          "unitPrice":  1100000,
+                          "quantity":  4,
+                          "lineTotal":  4400000
+                      }
+                  ],
+        "subtotalAmount":  16450000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  16450000
+    },
+    {
+        "orderCode":  "ORD-S4C3BA",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Hoàng Hữu Cường",
+        "recipientPhone":  "0371240699",
+        "shippingAddressLine1":  "658 Lê Lợi",
+        "shippingCity":  "Đà Nẵng",
+        "shippingProvince":  "Liên Chiểu",
+        "note":  "Giao trước 12h trưa",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  4,
+                          "lineTotal":  6600000
+                      },
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  1,
+                          "lineTotal":  1750000
+                      },
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  1,
+                          "lineTotal":  1750000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  5,
+                          "lineTotal":  8250000
+                      }
+                  ],
+        "subtotalAmount":  18350000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  18350000
+    },
+    {
+        "orderCode":  "ORD-SZP7G7",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Đinh Quốc Hải",
+        "recipientPhone":  "0966237094",
+        "shippingAddressLine1":  "294 Nguyễn Huệ",
+        "shippingCity":  "Hải Phòng",
+        "shippingProvince":  "Đồ Sơn",
+        "note":  "Không giao vào thứ 7 và Chủ nhật",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  5,
+                          "productSku":  "SKU-NAKED-EGG-WHITE-PROTEIN-005",
+                          "productName":  "Naked Egg White Protein Powder",
+                          "unitPrice":  1800000,
+                          "quantity":  1,
+                          "lineTotal":  1800000
+                      },
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  1,
+                          "lineTotal":  2050000
+                      }
+                  ],
+        "subtotalAmount":  3850000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  3850000
+    },
+    {
+        "orderCode":  "ORD-TCAGRP",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Bùi Khoa Khánh",
+        "recipientPhone":  "0938929652",
+        "shippingAddressLine1":  "389 Nguyễn Văn Cừ",
+        "shippingCity":  "Hà Nội",
+        "shippingProvince":  "Long Biên",
+        "note":  "Không cần hóa đơn, giao nhanh là được",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  3,
+                          "lineTotal":  6150000
+                      }
+                  ],
+        "subtotalAmount":  6150000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  6150000
+    },
+    {
+        "orderCode":  "ORD-G4AHF3",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Hồ Đức Linh",
+        "recipientPhone":  "0955586537",
+        "shippingAddressLine1":  "674 Lê Lợi",
+        "shippingCity":  "Vũng Tàu",
+        "shippingProvince":  "Phường 5",
+        "note":  "Hàng fragile, cẩn thận khi vận chuyển",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  3,
+                          "lineTotal":  5250000
+                      }
+                  ],
+        "subtotalAmount":  5250000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  5250000
+    },
+    {
+        "orderCode":  "ORD-4M18O1",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Nguyễn Bá Đạt",
+        "recipientPhone":  "0794394660",
+        "shippingAddressLine1":  "448 Hai Bà Trưng",
+        "shippingCity":  "Hồ Chí Minh",
+        "shippingProvince":  "Quận 4",
+        "note":  "Giao bất kỳ giờ nào trong ngày",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      },
+                      {
+                          "productId":  4,
+                          "productSku":  "SKU-MYPROTEIN-IMPACT-WHEY-ISOLATE-004",
+                          "productName":  "MyProtein Impact Whey Isolate",
+                          "unitPrice":  1250000,
+                          "quantity":  1,
+                          "lineTotal":  1250000
+                      },
+                      {
+                          "productId":  12,
+                          "productSku":  "SKU-BSN-SYNTHA6-012",
+                          "productName":  "BSN Syntha-6",
+                          "unitPrice":  1450000,
+                          "quantity":  3,
+                          "lineTotal":  4350000
+                      }
+                  ],
+        "subtotalAmount":  7250000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  7250000
+    },
+    {
+        "orderCode":  "ORD-W0LDAL",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Đỗ Bá Dũng",
+        "recipientPhone":  "0940455105",
+        "shippingAddressLine1":  "729 Huỳnh Thúc Kháng",
+        "shippingCity":  "Đà Nẵng",
+        "shippingProvince":  "Ngũ Hành Sơn",
+        "note":  "Giao bất kỳ giờ nào trong ngày",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  14,
+                          "productSku":  "SKU-GHOST-WHEY-PROTEIN-014",
+                          "productName":  "Ghost Whey Protein",
+                          "unitPrice":  1100000,
+                          "quantity":  3,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  4,
+                          "lineTotal":  5400000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  4,
+                          "lineTotal":  6600000
+                      }
+                  ],
+        "subtotalAmount":  15300000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  15300000
+    },
+    {
+        "orderCode":  "ORD-UGNEKR",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Lê Thanh Phong",
+        "recipientPhone":  "0984402265",
+        "shippingAddressLine1":  "927 Hai Bà Trưng",
+        "shippingCity":  "Hà Nội",
+        "shippingProvince":  "Nam Từ Liêm",
+        "note":  "Giao nhanh trong ngày",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  4,
+                          "lineTotal":  3400000
+                      },
+                      {
+                          "productId":  3,
+                          "productSku":  "SKU-PREMIER-PROTEIN-CHOCOLATE-MILKSHAKE-003",
+                          "productName":  "Premier Protein Chocolate Milkshake",
+                          "unitPrice":  950000,
+                          "quantity":  3,
+                          "lineTotal":  2850000
+                      },
+                      {
+                          "productId":  5,
+                          "productSku":  "SKU-NAKED-EGG-WHITE-PROTEIN-005",
+                          "productName":  "Naked Egg White Protein Powder",
+                          "unitPrice":  1800000,
+                          "quantity":  5,
+                          "lineTotal":  9000000
+                      },
+                      {
+                          "productId":  1,
+                          "productSku":  "SKU-OPTIMUM-NUTRITION-100-GOLD-001",
+                          "productName":  "Optimum Nutrition 100% Gold Standard Whey",
+                          "unitPrice":  1650000,
+                          "quantity":  4,
+                          "lineTotal":  6600000
+                      }
+                  ],
+        "subtotalAmount":  21850000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  21850000
+    },
+    {
+        "orderCode":  "ORD-349EL8",
+        "orderStatus":  "đang chờ xác nhận",
+        "recipientName":  "Phan Hà Minh",
+        "recipientPhone":  "0959926452",
+        "shippingAddressLine1":  "343 Lê Văn Sỹ",
+        "shippingCity":  "Biên Hòa",
+        "shippingProvince":  "Hố Nai",
+        "note":  "Yêu cầu đóng gói cẩn thận",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  14,
+                          "productSku":  "SKU-GHOST-WHEY-PROTEIN-014",
+                          "productName":  "Ghost Whey Protein",
+                          "unitPrice":  1100000,
+                          "quantity":  3,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  1,
+                          "lineTotal":  1650000
+                      },
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  5,
+                          "lineTotal":  6750000
+                      }
+                  ],
+        "subtotalAmount":  11700000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  11700000
+    },
+    {
+        "orderCode":  "ORD-YT8QZP",
+        "orderStatus":  "chờ lấy hàng",
+        "recipientName":  "Đặng Đức Hòa",
+        "recipientPhone":  "0786132143",
+        "shippingAddressLine1":  "559 Cách Mạng Tháng 8",
+        "shippingCity":  "Cần Thơ",
+        "shippingProvince":  "Thốt Nốt",
+        "note":  "Giao sáng sớm trước 8h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  4,
+                          "lineTotal":  4600000
+                      },
+                      {
+                          "productId":  7,
+                          "productSku":  "SKU-BLOOM-WHEY-PROTEIN-ISOLATE-007",
+                          "productName":  "Bloom Whey Protein Isolate",
+                          "unitPrice":  1350000,
+                          "quantity":  5,
+                          "lineTotal":  6750000
+                      },
+                      {
+                          "productId":  9,
+                          "productSku":  "SKU-KLEAN-ATHLETE-KLEAN-ISOLATE-009",
+                          "productName":  "Klean Athlete Klean Isolate",
+                          "unitPrice":  1750000,
+                          "quantity":  1,
+                          "lineTotal":  1750000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  3,
+                          "lineTotal":  4950000
+                      }
+                  ],
+        "subtotalAmount":  18050000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  18050000
+    },
+    {
+        "orderCode":  "ORD-D1XMXB",
+        "orderStatus":  "chờ giao hàng",
+        "recipientName":  "Hồ Kim Đạt",
+        "recipientPhone":  "0781027562",
+        "shippingAddressLine1":  "654 Mạc Đĩnh Chi",
+        "shippingCity":  "Vũng Tàu",
+        "shippingProvince":  "Phường 5",
+        "note":  "Giao buổi trưa 11h-13h",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  8,
+                          "productSku":  "SKU-NOW-SPORTS-WHEY-PROTEIN-008",
+                          "productName":  "NOW Sports Whey Protein Isolate",
+                          "unitPrice":  1450000,
+                          "quantity":  5,
+                          "lineTotal":  7250000
+                      },
+                      {
+                          "productId":  13,
+                          "productSku":  "SKU-MUSCLETECH-NITROTECH-013",
+                          "productName":  "MuscleTech Nitro-Tech",
+                          "unitPrice":  1650000,
+                          "quantity":  2,
+                          "lineTotal":  3300000
+                      },
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  3,
+                          "lineTotal":  6150000
+                      },
+                      {
+                          "productId":  10,
+                          "productSku":  "SKU-RAW-ORGANIC-GRASSFED-WHEY-010",
+                          "productName":  "Raw Organic Grass-Fed Whey Protein",
+                          "unitPrice":  1150000,
+                          "quantity":  1,
+                          "lineTotal":  1150000
+                      }
+                  ],
+        "subtotalAmount":  17850000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  17850000
+    },
+    {
+        "orderCode":  "ORD-7D30MM",
+        "orderStatus":  "đã giao",
+        "recipientName":  "Phan Anh Sơn",
+        "recipientPhone":  "0764463381",
+        "shippingAddressLine1":  "303 Lê Văn Sỹ",
+        "shippingCity":  "Nha Trang",
+        "shippingProvince":  "Vĩnh Hải",
+        "note":  "Giao cuối tháng",
+        "currency":  "VND",
+        "items":  [
+                      {
+                          "productId":  11,
+                          "productSku":  "SKU-DYMATIZE-ISO100-011",
+                          "productName":  "Dymatize ISO100",
+                          "unitPrice":  2050000,
+                          "quantity":  2,
+                          "lineTotal":  4100000
+                      },
+                      {
+                          "productId":  2,
+                          "productSku":  "SKU-TRUE-NUTRITION-RBGHSOY-FREE-002",
+                          "productName":  "True Nutrition rBGH/Soy Free Whey Protein",
+                          "unitPrice":  850000,
+                          "quantity":  2,
+                          "lineTotal":  1700000
+                      },
+                      {
+                          "productId":  15,
+                          "productSku":  "SKU-RULE-1-R1-PROTEIN-015",
+                          "productName":  "Rule 1 R1 Protein",
+                          "unitPrice":  1750000,
+                          "quantity":  5,
+                          "lineTotal":  8750000
+                      }
+                  ],
+        "subtotalAmount":  14550000,
+        "shippingFee":  0,
+        "discountAmount":  0,
+        "totalAmount":  14550000
+    }
+]

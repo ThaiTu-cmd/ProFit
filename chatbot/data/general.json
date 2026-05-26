@@ -1,0 +1,902 @@
+[
+  {
+    "question": "[001] Giờ mở cửa showroom Hà Nội?",
+    "answer": "Dạ showroom Hà Nội mở 9:00–21:00 hằng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-26"
+  },
+  {
+    "question": "[002] Hotline FitStore Vietnam là gì?",
+    "answer": "Dạ hotline 1900 6868, email hotro@fitstore.vn ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-25"
+  },
+  {
+    "question": "[003] Chương trình tích điểm thành viên?",
+    "answer": "Dạ mỗi 10.000đ tích 1 điểm, 100 điểm giảm 50.000đ ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-24"
+  },
+  {
+    "question": "[004] Có tư vấn online qua Zalo không?",
+    "answer": "Dạ có, quét QR Zalo trên website hoặc nhắn fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-23"
+  },
+  {
+    "question": "[005] Showroom có bán thử mẫu whey không?",
+    "answer": "Dạ một số mùi có mẫu thử tại quầy, tùy tồn kho ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-22"
+  },
+  {
+    "question": "[006] Có hóa đơn VAT công ty không?",
+    "answer": "Dạ hỗ trợ xuất VAT khi khách cung cấp thông tin trước 17:00 cùng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-21"
+  },
+  {
+    "question": "[007] Ứng dụng mobile của FitStore Vietnam?",
+    "answer": "Dạ app FitStore có trên iOS/Android để theo dõi đơn và ưu đãi ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-20"
+  },
+  {
+    "question": "[008] Chính sách bảo mật thông tin khách?",
+    "answer": "Dạ FitStore Vietnam không chia sẻ dữ liệu cá nhân cho bên thứ ba marketing ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-19"
+  },
+  {
+    "question": "[009] Có workshop dinh dưỡng miễn phí không?",
+    "answer": "Dạ tổ chức workshop online hàng tháng, đăng ký qua fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-18"
+  },
+  {
+    "question": "[010] Liên hệ hợp tác affiliate?",
+    "answer": "Dạ gửi email hotro@fitstore.vn tiêu đề 'Affiliate' để được tư vấn ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-17"
+  },
+  {
+    "question": "[011] Giờ mở cửa showroom TP.HCM?",
+    "answer": "Dạ showroom TP.HCM mở 9:00–21:00 hằng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-16"
+  },
+  {
+    "question": "[012] Hotline FitStore Vietnam là gì?",
+    "answer": "Dạ hotline 1900 6868, email hotro@fitstore.vn ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-15"
+  },
+  {
+    "question": "[013] Chương trình tích điểm thành viên?",
+    "answer": "Dạ mỗi 10.000đ tích 1 điểm, 100 điểm giảm 50.000đ ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-14"
+  },
+  {
+    "question": "[014] Có tư vấn online qua Zalo không?",
+    "answer": "Dạ có, quét QR Zalo trên website hoặc nhắn fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-13"
+  },
+  {
+    "question": "[015] Showroom có bán thử mẫu whey không?",
+    "answer": "Dạ một số mùi có mẫu thử tại quầy, tùy tồn kho ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-12"
+  },
+  {
+    "question": "[016] Có hóa đơn VAT công ty không?",
+    "answer": "Dạ hỗ trợ xuất VAT khi khách cung cấp thông tin trước 17:00 cùng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-11"
+  },
+  {
+    "question": "[017] Ứng dụng mobile của FitStore Vietnam?",
+    "answer": "Dạ app FitStore có trên iOS/Android để theo dõi đơn và ưu đãi ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-10"
+  },
+  {
+    "question": "[018] Chính sách bảo mật thông tin khách?",
+    "answer": "Dạ FitStore Vietnam không chia sẻ dữ liệu cá nhân cho bên thứ ba marketing ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-09"
+  },
+  {
+    "question": "[019] Có workshop dinh dưỡng miễn phí không?",
+    "answer": "Dạ tổ chức workshop online hàng tháng, đăng ký qua fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-08"
+  },
+  {
+    "question": "[020] Liên hệ hợp tác affiliate?",
+    "answer": "Dạ gửi email hotro@fitstore.vn tiêu đề 'Affiliate' để được tư vấn ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-07"
+  },
+  {
+    "question": "[021] Giờ mở cửa showroom Đà Nẵng?",
+    "answer": "Dạ showroom Đà Nẵng mở 9:00–21:00 hằng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-06"
+  },
+  {
+    "question": "[022] Hotline FitStore Vietnam là gì?",
+    "answer": "Dạ hotline 1900 6868, email hotro@fitstore.vn ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-05"
+  },
+  {
+    "question": "[023] Chương trình tích điểm thành viên?",
+    "answer": "Dạ mỗi 10.000đ tích 1 điểm, 100 điểm giảm 50.000đ ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-04"
+  },
+  {
+    "question": "[024] Có tư vấn online qua Zalo không?",
+    "answer": "Dạ có, quét QR Zalo trên website hoặc nhắn fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-03"
+  },
+  {
+    "question": "[025] Showroom có bán thử mẫu whey không?",
+    "answer": "Dạ một số mùi có mẫu thử tại quầy, tùy tồn kho ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-02"
+  },
+  {
+    "question": "[026] Có hóa đơn VAT công ty không?",
+    "answer": "Dạ hỗ trợ xuất VAT khi khách cung cấp thông tin trước 17:00 cùng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-01"
+  },
+  {
+    "question": "[027] Ứng dụng mobile của FitStore Vietnam?",
+    "answer": "Dạ app FitStore có trên iOS/Android để theo dõi đơn và ưu đãi ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-04-30"
+  },
+  {
+    "question": "[028] Chính sách bảo mật thông tin khách?",
+    "answer": "Dạ FitStore Vietnam không chia sẻ dữ liệu cá nhân cho bên thứ ba marketing ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-04-29"
+  },
+  {
+    "question": "[029] Có workshop dinh dưỡng miễn phí không?",
+    "answer": "Dạ tổ chức workshop online hàng tháng, đăng ký qua fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-04-28"
+  },
+  {
+    "question": "[030] Liên hệ hợp tác affiliate?",
+    "answer": "Dạ gửi email hotro@fitstore.vn tiêu đề 'Affiliate' để được tư vấn ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-04-27"
+  },
+  {
+    "question": "[031] Giờ mở cửa showroom Hà Nội?",
+    "answer": "Dạ showroom Hà Nội mở 9:00–21:00 hằng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-26"
+  },
+  {
+    "question": "[032] Hotline FitStore Vietnam là gì?",
+    "answer": "Dạ hotline 1900 6868, email hotro@fitstore.vn ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-25"
+  },
+  {
+    "question": "[033] Chương trình tích điểm thành viên?",
+    "answer": "Dạ mỗi 10.000đ tích 1 điểm, 100 điểm giảm 50.000đ ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-24"
+  },
+  {
+    "question": "[034] Có tư vấn online qua Zalo không?",
+    "answer": "Dạ có, quét QR Zalo trên website hoặc nhắn fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-23"
+  },
+  {
+    "question": "[035] Showroom có bán thử mẫu whey không?",
+    "answer": "Dạ một số mùi có mẫu thử tại quầy, tùy tồn kho ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-22"
+  },
+  {
+    "question": "[036] Có hóa đơn VAT công ty không?",
+    "answer": "Dạ hỗ trợ xuất VAT khi khách cung cấp thông tin trước 17:00 cùng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-21"
+  },
+  {
+    "question": "[037] Ứng dụng mobile của FitStore Vietnam?",
+    "answer": "Dạ app FitStore có trên iOS/Android để theo dõi đơn và ưu đãi ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-20"
+  },
+  {
+    "question": "[038] Chính sách bảo mật thông tin khách?",
+    "answer": "Dạ FitStore Vietnam không chia sẻ dữ liệu cá nhân cho bên thứ ba marketing ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-19"
+  },
+  {
+    "question": "[039] Có workshop dinh dưỡng miễn phí không?",
+    "answer": "Dạ tổ chức workshop online hàng tháng, đăng ký qua fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-18"
+  },
+  {
+    "question": "[040] Liên hệ hợp tác affiliate?",
+    "answer": "Dạ gửi email hotro@fitstore.vn tiêu đề 'Affiliate' để được tư vấn ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-17"
+  },
+  {
+    "question": "[041] Giờ mở cửa showroom TP.HCM?",
+    "answer": "Dạ showroom TP.HCM mở 9:00–21:00 hằng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-16"
+  },
+  {
+    "question": "[042] Hotline FitStore Vietnam là gì?",
+    "answer": "Dạ hotline 1900 6868, email hotro@fitstore.vn ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-15"
+  },
+  {
+    "question": "[043] Chương trình tích điểm thành viên?",
+    "answer": "Dạ mỗi 10.000đ tích 1 điểm, 100 điểm giảm 50.000đ ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-14"
+  },
+  {
+    "question": "[044] Có tư vấn online qua Zalo không?",
+    "answer": "Dạ có, quét QR Zalo trên website hoặc nhắn fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-13"
+  },
+  {
+    "question": "[045] Showroom có bán thử mẫu whey không?",
+    "answer": "Dạ một số mùi có mẫu thử tại quầy, tùy tồn kho ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-12"
+  },
+  {
+    "question": "[046] Có hóa đơn VAT công ty không?",
+    "answer": "Dạ hỗ trợ xuất VAT khi khách cung cấp thông tin trước 17:00 cùng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-11"
+  },
+  {
+    "question": "[047] Ứng dụng mobile của FitStore Vietnam?",
+    "answer": "Dạ app FitStore có trên iOS/Android để theo dõi đơn và ưu đãi ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-10"
+  },
+  {
+    "question": "[048] Chính sách bảo mật thông tin khách?",
+    "answer": "Dạ FitStore Vietnam không chia sẻ dữ liệu cá nhân cho bên thứ ba marketing ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-09"
+  },
+  {
+    "question": "[049] Có workshop dinh dưỡng miễn phí không?",
+    "answer": "Dạ tổ chức workshop online hàng tháng, đăng ký qua fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-08"
+  },
+  {
+    "question": "[050] Liên hệ hợp tác affiliate?",
+    "answer": "Dạ gửi email hotro@fitstore.vn tiêu đề 'Affiliate' để được tư vấn ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-07"
+  },
+  {
+    "question": "[051] Giờ mở cửa showroom Đà Nẵng?",
+    "answer": "Dạ showroom Đà Nẵng mở 9:00–21:00 hằng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-06"
+  },
+  {
+    "question": "[052] Hotline FitStore Vietnam là gì?",
+    "answer": "Dạ hotline 1900 6868, email hotro@fitstore.vn ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-05"
+  },
+  {
+    "question": "[053] Chương trình tích điểm thành viên?",
+    "answer": "Dạ mỗi 10.000đ tích 1 điểm, 100 điểm giảm 50.000đ ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-04"
+  },
+  {
+    "question": "[054] Có tư vấn online qua Zalo không?",
+    "answer": "Dạ có, quét QR Zalo trên website hoặc nhắn fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-03"
+  },
+  {
+    "question": "[055] Showroom có bán thử mẫu whey không?",
+    "answer": "Dạ một số mùi có mẫu thử tại quầy, tùy tồn kho ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-02"
+  },
+  {
+    "question": "[056] Có hóa đơn VAT công ty không?",
+    "answer": "Dạ hỗ trợ xuất VAT khi khách cung cấp thông tin trước 17:00 cùng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-01"
+  },
+  {
+    "question": "[057] Ứng dụng mobile của FitStore Vietnam?",
+    "answer": "Dạ app FitStore có trên iOS/Android để theo dõi đơn và ưu đãi ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-04-30"
+  },
+  {
+    "question": "[058] Chính sách bảo mật thông tin khách?",
+    "answer": "Dạ FitStore Vietnam không chia sẻ dữ liệu cá nhân cho bên thứ ba marketing ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-04-29"
+  },
+  {
+    "question": "[059] Có workshop dinh dưỡng miễn phí không?",
+    "answer": "Dạ tổ chức workshop online hàng tháng, đăng ký qua fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-04-28"
+  },
+  {
+    "question": "[060] Liên hệ hợp tác affiliate?",
+    "answer": "Dạ gửi email hotro@fitstore.vn tiêu đề 'Affiliate' để được tư vấn ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-04-27"
+  },
+  {
+    "question": "[061] Giờ mở cửa showroom Hà Nội?",
+    "answer": "Dạ showroom Hà Nội mở 9:00–21:00 hằng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-26"
+  },
+  {
+    "question": "[062] Hotline FitStore Vietnam là gì?",
+    "answer": "Dạ hotline 1900 6868, email hotro@fitstore.vn ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-25"
+  },
+  {
+    "question": "[063] Chương trình tích điểm thành viên?",
+    "answer": "Dạ mỗi 10.000đ tích 1 điểm, 100 điểm giảm 50.000đ ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-24"
+  },
+  {
+    "question": "[064] Có tư vấn online qua Zalo không?",
+    "answer": "Dạ có, quét QR Zalo trên website hoặc nhắn fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-23"
+  },
+  {
+    "question": "[065] Showroom có bán thử mẫu whey không?",
+    "answer": "Dạ một số mùi có mẫu thử tại quầy, tùy tồn kho ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-22"
+  },
+  {
+    "question": "[066] Có hóa đơn VAT công ty không?",
+    "answer": "Dạ hỗ trợ xuất VAT khi khách cung cấp thông tin trước 17:00 cùng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-21"
+  },
+  {
+    "question": "[067] Ứng dụng mobile của FitStore Vietnam?",
+    "answer": "Dạ app FitStore có trên iOS/Android để theo dõi đơn và ưu đãi ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-20"
+  },
+  {
+    "question": "[068] Chính sách bảo mật thông tin khách?",
+    "answer": "Dạ FitStore Vietnam không chia sẻ dữ liệu cá nhân cho bên thứ ba marketing ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-19"
+  },
+  {
+    "question": "[069] Có workshop dinh dưỡng miễn phí không?",
+    "answer": "Dạ tổ chức workshop online hàng tháng, đăng ký qua fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-18"
+  },
+  {
+    "question": "[070] Liên hệ hợp tác affiliate?",
+    "answer": "Dạ gửi email hotro@fitstore.vn tiêu đề 'Affiliate' để được tư vấn ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-17"
+  },
+  {
+    "question": "[071] Giờ mở cửa showroom TP.HCM?",
+    "answer": "Dạ showroom TP.HCM mở 9:00–21:00 hằng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-16"
+  },
+  {
+    "question": "[072] Hotline FitStore Vietnam là gì?",
+    "answer": "Dạ hotline 1900 6868, email hotro@fitstore.vn ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-15"
+  },
+  {
+    "question": "[073] Chương trình tích điểm thành viên?",
+    "answer": "Dạ mỗi 10.000đ tích 1 điểm, 100 điểm giảm 50.000đ ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-14"
+  },
+  {
+    "question": "[074] Có tư vấn online qua Zalo không?",
+    "answer": "Dạ có, quét QR Zalo trên website hoặc nhắn fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-13"
+  },
+  {
+    "question": "[075] Showroom có bán thử mẫu whey không?",
+    "answer": "Dạ một số mùi có mẫu thử tại quầy, tùy tồn kho ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-12"
+  },
+  {
+    "question": "[076] Có hóa đơn VAT công ty không?",
+    "answer": "Dạ hỗ trợ xuất VAT khi khách cung cấp thông tin trước 17:00 cùng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-11"
+  },
+  {
+    "question": "[077] Ứng dụng mobile của FitStore Vietnam?",
+    "answer": "Dạ app FitStore có trên iOS/Android để theo dõi đơn và ưu đãi ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-10"
+  },
+  {
+    "question": "[078] Chính sách bảo mật thông tin khách?",
+    "answer": "Dạ FitStore Vietnam không chia sẻ dữ liệu cá nhân cho bên thứ ba marketing ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-09"
+  },
+  {
+    "question": "[079] Có workshop dinh dưỡng miễn phí không?",
+    "answer": "Dạ tổ chức workshop online hàng tháng, đăng ký qua fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-08"
+  },
+  {
+    "question": "[080] Liên hệ hợp tác affiliate?",
+    "answer": "Dạ gửi email hotro@fitstore.vn tiêu đề 'Affiliate' để được tư vấn ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-07"
+  },
+  {
+    "question": "[081] Giờ mở cửa showroom Đà Nẵng?",
+    "answer": "Dạ showroom Đà Nẵng mở 9:00–21:00 hằng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-06"
+  },
+  {
+    "question": "[082] Hotline FitStore Vietnam là gì?",
+    "answer": "Dạ hotline 1900 6868, email hotro@fitstore.vn ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-05"
+  },
+  {
+    "question": "[083] Chương trình tích điểm thành viên?",
+    "answer": "Dạ mỗi 10.000đ tích 1 điểm, 100 điểm giảm 50.000đ ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-04"
+  },
+  {
+    "question": "[084] Có tư vấn online qua Zalo không?",
+    "answer": "Dạ có, quét QR Zalo trên website hoặc nhắn fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-03"
+  },
+  {
+    "question": "[085] Showroom có bán thử mẫu whey không?",
+    "answer": "Dạ một số mùi có mẫu thử tại quầy, tùy tồn kho ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-02"
+  },
+  {
+    "question": "[086] Có hóa đơn VAT công ty không?",
+    "answer": "Dạ hỗ trợ xuất VAT khi khách cung cấp thông tin trước 17:00 cùng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-01"
+  },
+  {
+    "question": "[087] Ứng dụng mobile của FitStore Vietnam?",
+    "answer": "Dạ app FitStore có trên iOS/Android để theo dõi đơn và ưu đãi ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-04-30"
+  },
+  {
+    "question": "[088] Chính sách bảo mật thông tin khách?",
+    "answer": "Dạ FitStore Vietnam không chia sẻ dữ liệu cá nhân cho bên thứ ba marketing ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-04-29"
+  },
+  {
+    "question": "[089] Có workshop dinh dưỡng miễn phí không?",
+    "answer": "Dạ tổ chức workshop online hàng tháng, đăng ký qua fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-04-28"
+  },
+  {
+    "question": "[090] Liên hệ hợp tác affiliate?",
+    "answer": "Dạ gửi email hotro@fitstore.vn tiêu đề 'Affiliate' để được tư vấn ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-04-27"
+  },
+  {
+    "question": "[091] Giờ mở cửa showroom Hà Nội?",
+    "answer": "Dạ showroom Hà Nội mở 9:00–21:00 hằng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-26"
+  },
+  {
+    "question": "[092] Hotline FitStore Vietnam là gì?",
+    "answer": "Dạ hotline 1900 6868, email hotro@fitstore.vn ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-25"
+  },
+  {
+    "question": "[093] Chương trình tích điểm thành viên?",
+    "answer": "Dạ mỗi 10.000đ tích 1 điểm, 100 điểm giảm 50.000đ ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-24"
+  },
+  {
+    "question": "[094] Có tư vấn online qua Zalo không?",
+    "answer": "Dạ có, quét QR Zalo trên website hoặc nhắn fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-23"
+  },
+  {
+    "question": "[095] Showroom có bán thử mẫu whey không?",
+    "answer": "Dạ một số mùi có mẫu thử tại quầy, tùy tồn kho ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-22"
+  },
+  {
+    "question": "[096] Có hóa đơn VAT công ty không?",
+    "answer": "Dạ hỗ trợ xuất VAT khi khách cung cấp thông tin trước 17:00 cùng ngày ạ.",
+    "tags": [
+      "store",
+      "hours"
+    ],
+    "updated_at": "2026-05-21"
+  },
+  {
+    "question": "[097] Ứng dụng mobile của FitStore Vietnam?",
+    "answer": "Dạ app FitStore có trên iOS/Android để theo dõi đơn và ưu đãi ạ.",
+    "tags": [
+      "contact",
+      "support"
+    ],
+    "updated_at": "2026-05-20"
+  },
+  {
+    "question": "[098] Chính sách bảo mật thông tin khách?",
+    "answer": "Dạ FitStore Vietnam không chia sẻ dữ liệu cá nhân cho bên thứ ba marketing ạ.",
+    "tags": [
+      "loyalty",
+      "membership"
+    ],
+    "updated_at": "2026-05-19"
+  },
+  {
+    "question": "[099] Có workshop dinh dưỡng miễn phí không?",
+    "answer": "Dạ tổ chức workshop online hàng tháng, đăng ký qua fanpage ạ.",
+    "tags": [
+      "general",
+      "faq"
+    ],
+    "updated_at": "2026-05-18"
+  },
+  {
+    "question": "[100] Liên hệ hợp tác affiliate?",
+    "answer": "Dạ gửi email hotro@fitstore.vn tiêu đề 'Affiliate' để được tư vấn ạ.",
+    "tags": [
+      "store",
+      "showroom"
+    ],
+    "updated_at": "2026-05-17"
+  }
+]
