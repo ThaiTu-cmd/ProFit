@@ -1,0 +1,22 @@
+# ========================================
+# FILE CẤU HÌNH MẪU - KHÔNG CHỨA THÔNG TIN THẬT
+# Copy file này thành application-local.yaml và điền thông tin của bạn
+# ========================================
+
+spring:
+  datasource:
+    # Thông tin MySQL của bạn
+    username: YOUR_MYSQL_USERNAME
+    password: "YOUR_MYSQL_PASSWORD"
+    url: "jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Ho_Chi_Minh&connectionCharacterSet=UTF-8"
+
+app:
+  # URL gốc của frontend — dùng cho redirect sau khi thanh toán VNPay
+  frontend:
+    base-url: "http://localhost:5173"
+
+  vnpay:
+    # Hash secret từ tài khoản VNPay của bạn
+    hash-secret: YOUR_VNPAY_HASH_SECRET
+    return-url: "http://localhost:8080/ProFitSuppsDB/api/v1/payment/vnpay-return"
+    ipn-url: "http://localhost:8080/ProFitSuppsDB/api/v1/payment/vnpay-ipn"

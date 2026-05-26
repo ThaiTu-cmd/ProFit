@@ -12,6 +12,7 @@ public class ReviewResponse {
     private String comment;
     private Boolean isVerifiedPurchase;
     private LocalDateTime createdAt;
+    private String phone;
 
     public ReviewResponse() {}
 
@@ -41,4 +42,7 @@ public class ReviewResponse {
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
 }

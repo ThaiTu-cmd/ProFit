@@ -1,3 +1,5 @@
+import { API_BASE_URL } from "../services/apiConfig";
+
 export const formatPrice = (price) => {
   const safePrice = Number(price) || 0;
   // Format số với dấu chấm phân cách hàng nghìn
@@ -33,10 +35,69 @@ const pickProductImageByCategory = (categoryName = "") => {
 const getPreferredImageUrl = (imageUrl = "") => {
   if (!imageUrl) return imageUrl;
 
-  // Prefer larger source when provider exposes both /small|/resized and original.
-  return imageUrl
-    .replace("/small/", "/")
-    .replace("/resized/", "/");
+  // Prefer larger source when provider exposes thumbnail variants.
+  const upgradedPath = imageUrl
+    .replace("/small/", "/large/")
+    .replace("/thumb/", "/large/")
+    .replace("/thumbnail/", "/large/")
+    .replace("/medium/", "/large/")
+    .replace("/resized/", "/large/");
+
+  try {
+    const url = new URL(upgradedPath);
+    ["w", "width", "h", "height"].forEach((key) => {
+      if (url.searchParams.has(key)) url.searchParams.set(key, "1200");
+    });
+    return url.toString();
+  } catch {
+    return upgradedPath;
+  }
+};
+
+const buildSizedImageUrl = (imageUrl = "", width) => {
+  if (!imageUrl) return "";
+
+  let changed = false;
+  let upgraded = imageUrl
+    .replace(/\/(?:small|thumb|thumbnail|medium|resized)\//g, () => {
+      changed = true;
+      return "/large/";
+    })
+    .replace(/([,/])w_\d+/g, (_, prefix) => {
+      changed = true;
+      return `${prefix}w_${width}`;
+    })
+    .replace(/([,/])h_\d+/g, (_, prefix) => {
+      changed = true;
+      return `${prefix}h_${width}`;
+    });
+
+  try {
+    const isAbsolute = /^https?:\/\//i.test(upgraded);
+    const url = new URL(upgraded, "http://profit.local");
+    ["w", "width", "h", "height"].forEach((key) => {
+      if (url.searchParams.has(key)) {
+        url.searchParams.set(key, String(width));
+        changed = true;
+      }
+    });
+
+    if (!changed) return "";
+    return isAbsolute ? url.toString() : `${url.pathname}${url.search}${url.hash}`;
+  } catch {
+    return changed ? upgraded : "";
+  }
+};
+
+const buildImageSrcSet = (imageUrl = "") => {
+  const candidates = [600, 900, 1200]
+    .map((width) => {
+      const sizedUrl = buildSizedImageUrl(imageUrl, width);
+      return sizedUrl ? `${sizedUrl} ${width}w` : "";
+    })
+    .filter(Boolean);
+
+  return candidates.length > 0 ? candidates.join(", ") : "";
 };
 
 export const mapProductFromApi = (item) => {
@@ -50,6 +111,18 @@ export const mapProductFromApi = (item) => {
   const fallbackImage = rawImageUrl || pickProductImageByCategory(item?.categoryName);
   const preferredImage = getPreferredImageUrl(rawImageUrl) || fallbackImage;
 
+  const formatImageUrl = (url) => {
+    if (!url) return url;
+    if (url.startsWith("http://") || url.startsWith("https://")) {
+      return url;
+    }
+    if (url.startsWith("/uploads/") || url.startsWith("uploads/")) {
+      const cleanPath = url.startsWith("/") ? url : `/${url}`;
+      return `${API_BASE_URL}${cleanPath}`;
+    }
+    return url;
+  };
+
   return {
     id: item?.id,
     slug: item?.slug || "",
@@ -58,8 +131,9 @@ export const mapProductFromApi = (item) => {
     brand: item?.sku ? item.sku.split("-")[0] : "ProFit",
     shortDesc: item?.shortDescription || "",
     fullDesc: item?.description || item?.shortDescription || "",
-    image: preferredImage,
-    imageFallback: fallbackImage,
+    image: formatImageUrl(preferredImage),
+    imageSrcSet: buildImageSrcSet(formatImageUrl(rawImageUrl)),
+    imageFallback: formatImageUrl(fallbackImage),
     price,
     oldPrice,
     rating: Math.round(ratingAvg),

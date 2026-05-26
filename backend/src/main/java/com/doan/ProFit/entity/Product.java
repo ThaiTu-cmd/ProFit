@@ -99,6 +99,9 @@ public class Product {
     public Integer getStockQuantity() { return stockQuantity; }
     public void setStockQuantity(Integer stockQuantity) { this.stockQuantity = stockQuantity; }
 
+    public Boolean getIsActive() { return isActive; }
+    public void setIsActive(Boolean active) { isActive = active; }
+    // Alias for backward compatibility with existing code
     public Boolean getActive() { return isActive; }
     public void setActive(Boolean active) { isActive = active; }
 

@@ -148,15 +148,94 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Order not found"));
 
+        String oldStatus = order.getStatus();
+        String newStatus = request.getStatus();
+
         if (request.getStatus() != null) {
             order.setStatus(request.getStatus());
+
+            // Khi shipper xác nhận đã giao hàng thành công -> COMPLETED
+            if ("COMPLETED".equals(newStatus)) {
+                order.setCompletedAt(java.time.LocalDateTime.now());
+                reduceStock(order);
+            }
+
+            // Khi đơn hàng bị hủy -> Khôi phục lại stock
+            if ("CANCELLED".equals(oldStatus) && !"CANCELLED".equals(newStatus)) {
+                // Không cần làm gì vì stock chưa bị trừ
+            } else if ("CANCELLED".equals(newStatus) && !"CANCELLED".equals(oldStatus)) {
+                restoreStock(order);
+            }
         }
         if (request.getPaymentStatus() != null) {
             order.setPaymentStatus(request.getPaymentStatus());
+            // Nếu admin xác nhận thanh toán PENDING_CONFIRM -> PAID thì cập nhật luôn order status
+            if ("PAID".equals(request.getPaymentStatus())) {
+                order.setStatus("CONFIRMED");
+            }
         }
 
         Order saved = orderRepository.save(order);
         return mapToResponse(saved);
+    }
+
+    /**
+     * Trừ số lượng sản phẩm trong kho khi đơn hàng hoàn thành
+     */
+    private void reduceStock(Order order) {
+        for (OrderItem item : order.getItems()) {
+            if (item.getProduct() != null) {
+                Product product = item.getProduct();
+                int currentStock = product.getStockQuantity() != null ? product.getStockQuantity() : 0;
+                int orderedQty = item.getQuantity() != null ? item.getQuantity() : 0;
+                int newStock = currentStock - orderedQty;
+                product.setStockQuantity(Math.max(0, newStock)); // Không cho phép âm
+                productRepository.save(product);
+            }
+        }
+    }
+
+    /**
+     * Khôi phục số lượng sản phẩm trong kho khi đơn hàng bị hủy
+     */
+    private void restoreStock(Order order) {
+        for (OrderItem item : order.getItems()) {
+            if (item.getProduct() != null) {
+                Product product = item.getProduct();
+                int currentStock = product.getStockQuantity() != null ? product.getStockQuantity() : 0;
+                int orderedQty = item.getQuantity() != null ? item.getQuantity() : 0;
+                product.setStockQuantity(currentStock + orderedQty);
+                productRepository.save(product);
+            }
+        }
+    }
+
+    @Override
+    public OrderResponse confirmBankingPayment(Long orderId, String userEmail) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found"));
+
+        // Kiểm tra quyền: chỉ chủ đơn hoặc admin mới được xác nhận
+        if (order.getUser() != null && !order.getUser().getEmail().equals(userEmail)) {
+            throw new IllegalArgumentException("Bạn không có quyền xác nhận đơn hàng này");
+        }
+
+        // Chỉ cho phép xác nhận khi đơn đang ở trạng thái UNPAID (chưa thanh toán)
+        if (!"UNPAID".equals(order.getPaymentStatus())) {
+            throw new IllegalArgumentException("Đơn hàng không ở trạng thái chờ thanh toán");
+        }
+
+        // Cập nhật trạng thái thanh toán thành PENDING_CONFIRM
+        order.setPaymentStatus("PENDING_CONFIRM");
+        order.setPaidAt(java.time.LocalDateTime.now());
+
+        Order saved = orderRepository.save(order);
+        return mapToResponse(saved);
+    }
+
+    @Override
+    public long countPendingConfirmOrders() {
+        return orderRepository.countByPaymentStatus("PENDING_CONFIRM");
     }
 
     private OrderResponse mapToResponse(Order order) {
@@ -172,6 +251,9 @@ public class OrderServiceImpl implements OrderService {
         response.setStatus(order.getStatus());
         response.setPaymentStatus(order.getPaymentStatus());
         response.setPlacedAt(order.getPlacedAt());
+        response.setPaidAt(order.getPaidAt());
+        response.setDeliveredAt(order.getDeliveredAt());
+        response.setCompletedAt(order.getCompletedAt());
         if (order.getUser() != null) {
             response.setUserName(order.getUser().getFullName());
         }

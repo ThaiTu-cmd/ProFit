@@ -44,6 +44,7 @@ public class ReviewServiceImpl implements ReviewService {
         review.setUser(user);
         review.setRating(request.getRating());
         review.setComment(request.getComment());
+        review.setPhone(request.getPhone());
         review.setIsVerifiedPurchase(false);
 
         Review saved = reviewRepository.save(review);
@@ -137,6 +138,7 @@ public class ReviewServiceImpl implements ReviewService {
         response.setUserName(review.getUser().getFullName());
         response.setRating(review.getRating());
         response.setComment(review.getComment());
+        response.setPhone(review.getPhone());
         response.setIsVerifiedPurchase(review.getIsVerifiedPurchase());
         response.setCreatedAt(review.getCreatedAt());
         return response;

@@ -50,6 +50,9 @@ public class Category {
     public String getSlug() { return slug; }
     public void setSlug(String slug) { this.slug = slug; }
 
+    public Boolean getIsActive() { return isActive; }
+    public void setIsActive(Boolean active) { isActive = active; }
+    // Alias for backward compatibility with existing code
     public Boolean getActive() { return isActive; }
     public void setActive(Boolean active) { isActive = active; }
 

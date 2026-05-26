@@ -89,19 +89,13 @@ const ProductDetailPage = ({ product, onAddToCart, onViewDetail, navigate }) => 
               <div className="detail-discount">-{discount}%</div>
             )}
             <img
+              className="detail-product-image"
               src={imageSrc}
+              srcSet={imageSrc === product.image ? product.imageSrcSet || undefined : undefined}
+              sizes="(max-width: 992px) 100vw, 50vw"
               alt={product.name}
               onError={() => {
                 if (imageSrc !== product.imageFallback) setImageSrc(product.imageFallback);
-              }}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "contain",
-                display: "block",
-                position: "relative",
-                zIndex: 1,
-                borderRadius: "var(--radius-lg)",
               }}
             />
           </div>

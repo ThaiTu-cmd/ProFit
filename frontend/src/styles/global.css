@@ -58,6 +58,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Global overflow fix */
+html {
+  overflow-x: hidden;
+}
+
 /* Animated aurora background layer */
 body::before {
   content: '';
@@ -160,12 +165,24 @@ body::before {
 #root {
   position: relative;
   z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root > main {
+  flex: 1;
 }
 
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 button { cursor: pointer; font-family: 'Nunito', sans-serif; }
-img { max-width: 100%; }
+img { max-width: 100%; height: auto; }
+
+/* Fix box-sizing globally */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 /* ===== GLASS MORPHISM CARD ===== */
 .glass-card {
@@ -194,6 +211,8 @@ img { max-width: 100%; }
   padding: 80px 60px;
   position: relative;
   z-index: 10;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .section-header {
@@ -502,6 +521,8 @@ footer {
   padding: 60px 60px 30px;
   position: relative;
   z-index: 10;
+  margin-top: auto;
+  flex-shrink: 0;
 }
 
 footer::before {
@@ -1382,11 +1403,15 @@ footer::before {
 .detail-image-wrap {
   background: linear-gradient(135deg, rgba(255,92,0,0.04), rgba(139,92,246,0.04));
   border-radius: var(--radius-xl);
-  padding: 48px 32px;
+  padding: 24px;
   text-align: center;
   position: relative;
   border: 1px solid rgba(255, 92, 0, 0.08);
   overflow: hidden;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .detail-image-wrap::before {
@@ -1394,6 +1419,28 @@ footer::before {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: radial-gradient(circle at 50% 50%, rgba(255,92,0,0.06), transparent 60%);
+}
+
+.detail-image-wrap img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.detail-image-wrap:hover img {
+  width: 116%;
+  max-height: 620px;
+}
+
+.detail-product-image {
+  width: 112%;
+  height: auto;
+  max-height: 580px;
+  object-fit: contain;
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: var(--radius-lg);
+  filter: brightness(1.03) contrast(1.08) saturate(1.05);
+  image-rendering: auto;
 }
 
 .detail-image {
@@ -1987,6 +2034,7 @@ footer::before {
   text-align: center;
   position: relative;
   z-index: 10;
+  overflow: hidden;
 }
 
 .page-hero h1 {

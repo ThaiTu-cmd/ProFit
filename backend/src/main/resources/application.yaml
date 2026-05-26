@@ -6,21 +6,16 @@ server:
 spring:
   profiles:
     include: local
-
   datasource:
-    #  LƯU Ý :
-    # KHÔNG sửa password trực tiếp vào file application.yaml này để tránh bị đẩy lên Git.
-    # Hãy copy file application-local.yaml.example thành application-local.yaml 
-    # và điền password thực tế của bạn vào file đó. Nó sẽ tự động ghi đè file này khi chạy!
-    url: "jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Ho_Chi_Minh&connectionCharacterSet=UTF-8"
-    username: root
-    password: password
+    url: ${DB_URL:jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Ho_Chi_Minh&connectionCharacterSet=UTF-8}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
   sql:
     init:
-      mode: always
+      mode: never
       continue-on-error: true
   jpa:
-    defer-datasource-initialization: true
+    defer-datasource-initialization: false
     hibernate:
       ddl-auto: update
     show-sql: true
@@ -31,12 +26,15 @@ spring:
         connection:
           characterEncoding: utf8
         format_sql: true
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: false
 
 app:
   jwt:
-    secret: "ProFitJwtSecretKeyMustBeAtLeastSixtyFourCharactersLongForHS512Secure"
-    expiration-ms: 86400000
-    remember-expiration-ms: 604800000
+    secret: ${JWT_SECRET:ProFitSecretKeyForJWTTokenGenerationMustBeAtLeast256BitsLong2024}
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+    remember-expiration-ms: ${JWT_REMEMBER_EXPIRATION_MS:604800000}
   bootstrap:
     admin:
       enabled: true
@@ -45,8 +43,10 @@ app:
       phone: "0123456789"
       password: Admin@123
   vnpay:
-    tmn-code: SY273SZH
-    hash-secret: I5JU5Q6OPF7FB0L1XJXDF5VT3ZVP93VO
+    tmn-code: ${VNPAY_TMN_CODE:}
+    hash-secret: ${VNPAY_HASH_SECRET:}
     payment-url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
-    return-url: https://shrunk-down-accuracy.ngrok-free.dev/ProFitSuppsDB/api/v1/payment/vnpay-return
-    ipn-url: https://shrunk-down-accuracy.ngrok-free.dev/ProFitSuppsDB/api/v1/payment/vnpay-ipn
+    return-url: ${VNPAY_RETURN_URL:http://localhost:8080/ProFitSuppsDB/api/v1/payment/vnpay-return}
+    ipn-url: ${VNPAY_IPN_URL:http://localhost:8080/ProFitSuppsDB/api/v1/payment/vnpay-ipn}
+  frontend:
+    base-url: "http://localhost:5173"

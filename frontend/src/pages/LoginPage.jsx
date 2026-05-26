@@ -1,16 +1,17 @@
 // =====================================================
 // pages/LoginPage.jsx – Trang đăng nhập Premium
-// Glass card, animated, gradient glow
 // =====================================================
 
 import { useState } from "react";
 import { apiLogin } from "../utils/api";
+import ForgotPasswordModal from "../components/ForgotPasswordModal";
 
 const LoginPage = ({ onLogin, navigate }) => {
   const [form, setForm] = useState({ email: "admin@profit.com", password: "Admin@123" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
+  const [showForgot, setShowForgot] = useState(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -81,15 +82,20 @@ const LoginPage = ({ onLogin, navigate }) => {
         zIndex: 10,
       }}
     >
+      {showForgot && (
+        <ForgotPasswordModal
+          onClose={() => setShowForgot(false)}
+          onSwitch={() => setShowForgot(false)}
+        />
+      )}
+
       {/* Ambient glow */}
       <div style={{
         position: "absolute",
-        width: 600,
-        height: 600,
+        width: 600, height: 600,
         borderRadius: "50%",
         background: "radial-gradient(circle, rgba(255,92,0,0.08) 0%, transparent 70%)",
-        top: "50%",
-        left: "50%",
+        top: "50%", left: "50%",
         transform: "translate(-50%, -50%)",
         pointerEvents: "none",
       }} />
@@ -106,20 +112,18 @@ const LoginPage = ({ onLogin, navigate }) => {
 
         {/* Logo */}
         <div style={{ textAlign: "center", marginBottom: 32 }}>
-          <div
-            style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: 36,
-              color: "var(--primary)",
-              letterSpacing: 3,
-              textShadow: "0 0 20px rgba(255,92,0,0.3)",
-              marginBottom: 8,
-            }}
-          >
+          <div style={{
+            fontFamily: "'Bebas Neue', sans-serif",
+            fontSize: 36,
+            color: "var(--primary)",
+            letterSpacing: 3,
+            textShadow: "0 0 20px rgba(255,92,0,0.3)",
+            marginBottom: 8,
+          }}>
             Pro<span style={{ color: "var(--white)" }}>Fit</span>
           </div>
           <p style={{ color: "var(--gray)", fontSize: 14, fontWeight: 600 }}>
-            Chào mừng bạn quay trở lại 👋
+            Chào mừng bạn quay trở lại
           </p>
         </div>
 
@@ -130,7 +134,6 @@ const LoginPage = ({ onLogin, navigate }) => {
 
         {/* Form */}
         <div style={{ marginBottom: 20 }}>
-          {/* Email */}
           <div className="form-group">
             <label className="form-label" style={{ display: "block", marginBottom: 10 }}>Email</label>
             <FocusedInput
@@ -143,7 +146,6 @@ const LoginPage = ({ onLogin, navigate }) => {
             />
           </div>
 
-          {/* Password */}
           <div className="form-group">
             <label className="form-label" style={{ display: "block", marginBottom: 10 }}>Mật khẩu</label>
             <div style={{ position: "relative" }}>
@@ -160,14 +162,10 @@ const LoginPage = ({ onLogin, navigate }) => {
                 onClick={() => setShowPass(!showPass)}
                 style={{
                   position: "absolute",
-                  right: 14,
-                  top: "50%",
+                  right: 14, top: "50%",
                   transform: "translateY(-50%)",
-                  background: "none",
-                  border: "none",
-                  color: "var(--gray)",
-                  fontSize: 18,
-                  cursor: "pointer",
+                  background: "none", border: "none",
+                  color: "var(--gray)", fontSize: 18, cursor: "pointer",
                   transition: "color 0.3s",
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.color = "var(--primary)"}
@@ -182,13 +180,8 @@ const LoginPage = ({ onLogin, navigate }) => {
         {/* Quên mật khẩu */}
         <div style={{ textAlign: "right", marginBottom: 20 }}>
           <span
-            style={{
-              fontSize: 13,
-              color: "var(--primary)",
-              cursor: "pointer",
-              fontWeight: 700,
-              transition: "opacity 0.3s",
-            }}
+            style={{ fontSize: 13, color: "var(--primary)", cursor: "pointer", fontWeight: 700, transition: "opacity 0.3s" }}
+            onClick={() => setShowForgot(true)}
             onMouseEnter={(e) => e.currentTarget.style.opacity = "0.7"}
             onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
           >
@@ -206,13 +199,7 @@ const LoginPage = ({ onLogin, navigate }) => {
         {/* Nút đăng nhập */}
         <button
           className="btn-primary"
-          style={{
-            width: "100%",
-            padding: "16px 0",
-            fontSize: 16,
-            position: "relative",
-            overflow: "hidden",
-          }}
+          style={{ width: "100%", padding: "16px 0", fontSize: 16, position: "relative", overflow: "hidden" }}
           onClick={handleSubmit}
           disabled={loading}
         >
@@ -221,58 +208,14 @@ const LoginPage = ({ onLogin, navigate }) => {
               <span className="spinning" style={{ display: "inline-block", width: 18, height: 18, border: "2px solid rgba(255,255,255,0.3)", borderTopColor: "white", borderRadius: "50%" }} />
               Đang đăng nhập...
             </span>
-          ) : (
-            "Đăng nhập ngay"
-          )}
-        </button>
-
-        {/* Divider */}
-        <div className="auth-divider"><span>hoặc</span></div>
-
-        {/* Google button */}
-        <button
-          style={{
-            width: "100%",
-            padding: "14px 0",
-            borderRadius: "var(--radius-lg)",
-            border: "1px solid rgba(255,255,255,0.08)",
-            background: "rgba(255,255,255,0.04)",
-            color: "var(--white)",
-            fontSize: 15,
-            fontWeight: 700,
-            cursor: "pointer",
-            transition: "all 0.3s",
-            fontFamily: "'Nunito', sans-serif",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 10,
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "rgba(255,255,255,0.08)";
-            e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
-            e.currentTarget.style.transform = "translateY(-2px)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "rgba(255,255,255,0.04)";
-            e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-            e.currentTarget.style.transform = "translateY(0)";
-          }}
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-          Đăng nhập với Google
+          ) : "Đăng nhập ngay"}
         </button>
 
         {/* Chuyển sang đăng ký */}
         <div style={{ textAlign: "center", fontSize: 14, color: "var(--gray)", marginTop: 24 }}>
           Chưa có tài khoản?{" "}
           <span
-            style={{
-              color: "var(--primary)",
-              fontWeight: 800,
-              cursor: "pointer",
-              transition: "opacity 0.3s",
-            }}
+            style={{ color: "var(--primary)", fontWeight: 800, cursor: "pointer", transition: "opacity 0.3s" }}
             onClick={() => navigate("register")}
             onMouseEnter={(e) => e.currentTarget.style.opacity = "0.7"}
             onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}

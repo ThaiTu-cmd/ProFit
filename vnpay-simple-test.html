@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>VNPay Simple Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        input { padding: 10px; margin: 5px; width: 300px; }
+        button { padding: 15px 30px; background: #ee4d2d; color: white; border: none; cursor: pointer; margin: 10px 0; }
+        button:hover { background: #d32f2f; }
+        textarea { width: 100%; height: 100px; margin: 10px 0; }
+        .info { background: #f5f5f5; padding: 15px; margin: 10px 0; border-left: 4px solid #ee4d2d; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>VNPay Simple Test</h1>
+
+    <div class="info">
+        <strong>Config:</strong><br>
+        TMN Code: SY273SZH<br>
+        Hash Secret: SFP53JL1Z5AS4O5WFIEBMEARJAEMDTBT<br>
+        Return URL: http://localhost:8080/ProFitSuppsDB/api/v1/payment/vnpay-return
+    </div>
+
+    <div>
+        <label>Số tiền (VND):</label><br>
+        <input type="number" id="amount" value="100000">
+    </div>
+
+    <div>
+        <label>Thông tin đơn hàng:</label><br>
+        <input type="text" id="orderInfo" value="Test Payment">
+    </div>
+
+    <br>
+    <button onclick="generateUrl()">1. TẠO PAYMENT URL</button>
+
+    <div id="result">
+        <textarea id="paymentUrl" placeholder="Payment URL sẽ xuất hiện ở đây..."></textarea>
+        <button id="payBtn" onclick="payNow()" style="display:none; background: green;">2. CLICK ĐỂ THANH TOÁN</button>
+    </div>
+
+    <div id="log" style="margin-top: 20px;"></div>
+
+    <script>
+        async function generateUrl() {
+            const amount = parseInt(document.getElementById('amount').value);
+            const orderInfo = document.getElementById('orderInfo').value;
+            const tmnCode = 'SY273SZH';
+            const hashSecret = 'SFP53JL1Z5AS4O5WFIEBMEARJAEMDTBT';
+            const returnUrl = encodeURIComponent('http://localhost:8080/ProFitSuppsDB/api/v1/payment/vnpay-return');
+
+            const vnp_Url = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html';
+            const vnp_TxnRef = Date.now();
+            const vnp_Amount = amount * 100; // VNPay uses cents
+            const vnp_Locale = 'vn';
+            const vnp_BankCode = '';
+            const vnp_IpAddr = '127.0.0.1';
+            const vnp_CreateDate = new Date().toISOString().replace(/[-:]/g, '').split('.')[0];
+
+            const params = {
+                vnp_Version: '2.1.0',
+                vnp_Command: 'pay',
+                vnp_TmnCode: tmnCode,
+                vnp_Amount: vnp_Amount.toString(),
+                vnp_CurrCode: 'VND',
+                vnp_TxnRef: vnp_TxnRef.toString(),
+                vnp_OrderType: 'other',
+                vnp_OrderInfo: orderInfo,
+                vnp_Locale: vnp_Locale,
+                vnp_ReturnUrl: returnUrl,
+                vnp_IpAddr: vnp_IpAddr,
+                vnp_CreateDate: vnp_CreateDate,
+                vnp_BankCode: vnp_BankCode
+            };
+
+            // Sort and build query string
+            const sortedKeys = Object.keys(params).sort();
+            let queryString = '';
+            let hashData = '';
+
+            sortedKeys.forEach((key, index) => {
+                if (params[key]) {
+                    if (hashData) {
+                        hashData += '&';
+                        queryString += '&';
+                    }
+                    hashData += key + '=' + params[key];
+                    queryString += key + '=' + encodeURIComponent(params[key]);
+                }
+            });
+
+            document.getElementById('log').innerHTML = '<pre>Hash Data:\n' + hashData + '</pre>';
+
+            // HMAC SHA512
+            const encoder = new TextEncoder();
+            const key = await crypto.subtle.importKey(
+                'raw',
+                encoder.encode(hashSecret),
+                { name: 'HMAC', hash: 'SHA-512' },
+                false,
+                ['sign']
+            );
+
+            const signature = await crypto.subtle.sign('HMAC', key, encoder.encode(hashData));
+            const vnp_SecureHash = Array.from(new Uint8Array(signature))
+                .map(b => b.toString(16).padStart(2, '0'))
+                .join('');
+
+            document.getElementById('log').innerHTML += '<pre>Secure Hash:\n' + vnp_SecureHash + '</pre>';
+
+            const paymentUrl = vnp_Url + '?' + queryString + '&vnp_SecureHash=' + vnp_SecureHash;
+            document.getElementById('paymentUrl').value = paymentUrl;
+            document.getElementById('payBtn').style.display = 'inline-block';
+        }
+
+        function payNow() {
+            const url = document.getElementById('paymentUrl').value;
+            if (url) {
+                window.open(url, '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
