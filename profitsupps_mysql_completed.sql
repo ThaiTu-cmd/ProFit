@@ -1,5 +1,5 @@
 -- =====================================================
--- ProFitSuppsDB - FULL SCHEMA + PRODUCT DATA (FIXED)
+-- ProFitSuppsDB - FULL SCHEMA + PRODUCT DATA + TRIGGERS
 -- =====================================================
 
 SET NAMES utf8mb4;
@@ -404,41 +404,27 @@ VALUES
 (43, 3, 'PTS-S01', 'quest-nutrition-protein-bar-60g', 'Quest Nutrition Protein Bar 60g', 'Thanh đạm ăn kiêng bán chạy nhất thế giới giàu xơ ít carb tinh', 'Quest Bar cung cấp 21g protein, 14g chất xơ và chỉ 4-5g net carb. Sử dụng protein blend Milk/Whey Isolate. Hương vị phong phú như chocolate chip cookie hay cookies & cream.', 65000.00, 75000.00, 4.7, 8900, 200, 1, NULL, NOW(), NOW()),
 (44, 3, 'PTS-S02', 'grenade-carb-killa-60g', 'Grenade Carb Killa Protein Bar 60g', 'Bánh đạm nướng tinh tế cấu trúc nhiều lớp giòn tan ít đường', 'Carb Killa là thanh protein số 1 Châu Âu với vỏ sô-cô-la thật, nhân kem xốp nhiều lớp. 23g protein, chỉ 1-2g đường. Hương vị như bánh ngọt thật sự.', 70000.00, 80000.00, 4.8, 6200, 200, 1, NULL, NOW(), NOW()),
 (45, 3, 'PTS-S03', 'barebells-protein-bar-55g', 'Barebells Protein Bar Thụy Điển 55g', 'Bánh xốp dinh dưỡng protein không thêm đường vị ngon chuẩn Châu Âu', 'Barebells từ Thụy Điển nổi tiếng với hương vị đỉnh cao không thua gì kẹo chocolate thật. 20g protein, 0g thêm đường. Các hương vị Salty Peanut và Cookies Cream được yêu thích.', 68000.00, 78000.00, 4.8, 4100, 200, 1, NULL, NOW(), NOW()),
-(46, 3, 'PTS-S04', 'myprotein-impact-protein-bar-64g', 'MyProtein Impact Protein Bar 64g', 'Thanh đạm 3 lớp bổ sung caramel béo ngậy ít calo', 'Impact Bar của MyProtein có lớp nền đạm chắc, lớp giữa caramel mềm mịn và lớp sô-cô-la phủ bên ngoài. 21g protein, giá cực kỳ cạnh tranh trong phân khúc UK.', 62000.00, 72000.00, 4.5, 2300, 200, 1, NULL, NOW(), NOW()),
+(46, 3, 'PTS-S04', 'myprotein-impact-protein-bar-64g', 'MyProtein Impact Protein Bar 64g', 'Thanh đạm 3 lớp bổ vị caramel béo ngậy ít calo', 'Impact Bar của MyProtein có lớp nền đạm chắc, lớp giữa caramel mềm mịn và lớp sô-cô-la phủ bên ngoài. 21g protein, giá cực kỳ cạnh tranh trong phân khúc UK.', 62000.00, 72000.00, 4.5, 2300, 200, 1, NULL, NOW(), NOW()),
 (47, 3, 'PTS-S05', 'musclepharm-combat-crunch-63g', 'Combat Crunch Protein Bar MusclePharm 63g', 'Bánh quy protein nướng đạt nhiều chứng nhận danh giá thể hình', 'Combat Crunch có kết cấu giòn xốp độc đáo nhờ công nghệ nướng đặc biệt. 20g protein/bar, chứng nhận Informed-Sport, không dùng rượu đường hay HFCS.', 65000.00, 75000.00, 4.6, 3400, 200, 1, NULL, NOW(), NOW()),
 (48, 3, 'PTS-S06', 'bsn-protein-crisp-syntha6-57g', 'BSN Protein Crisp Syntha-6 Bar 57g', 'Thanh đạm giòn xốp như cốm gạo nhẹ bụng dễ hấp thụ sau tập', 'Protein Crisp của BSN có kết cấu giòn xốp nhờ Puffed Quinoa và Rice Crisps. 20g protein từ Syntha-6 matrix, ít carb, ít mỡ. Nhẹ nhàng và dễ ăn sau tập.', 65000.00, 75000.00, 4.4, 1800, 200, 1, NULL, NOW(), NOW()),
 (49, 3, 'PTS-S07', 'robert-irvine-fit-crunch-bar-46g', 'Robert Irvine Fit Crunch Bar 46g', 'Bánh đạm thiết kế bởi đầu bếp Mỹ Robert Irvine hương vị thượng hạng', 'Fit Crunch do Chef Robert Irvine tạo ra với kết cấu wafer 6 lớp độc đáo tẩm sô-cô-la. 16g protein, 8 hương vị như Peanut Butter, Cookies & Cream siêu ngon.', 60000.00, 70000.00, 4.5, 1500, 200, 1, NULL, NOW(), NOW()),
 (50, 3, 'PTS-S08', 'one-brands-protein-bar-60g', 'ONE Brands ONE Protein Bar 60g', 'Cung cấp 20g đạm tinh khiết, hàm lượng đường cực thấp chỉ 1g', 'ONE Bar nổi bật với 20g protein và chỉ 1g đường – một trong những tỷ lệ protein-đường tốt nhất thị trường. Hơn 15 hương vị đa dạng, phù hợp chế độ keto và low-carb.', 65000.00, 75000.00, 4.6, 2700, 200, 1, NULL, NOW(), NOW()),
 
--- creatin
+-- ─── CREATINE (category_id = 4, ID 51-65) ──────────────────────────────────
 (51, 4, 'PTS-C01', 'on-micronized-creatine-powder-600g', 'Optimum Nutrition Micronized Creatine 600g', 'Creatine tinh khiết 100% giúp tăng sức mạnh và kích thước cơ bắp', 'Cung cấp 5g Creatine Monohydrate nguyên chất mỗi khẩu phần, không mùi, dễ dàng pha trộn với whey protein hoặc thức uống yêu thích.', 650000.00, 750000.00, 4.8, 1500, 100, 1, NULL, NOW(), NOW()),
-
 (52, 4, 'PTS-C02', 'muscletech-platinum-creatine-400g', 'MuscleTech Platinum 100% Creatine 400g', 'Hỗ trợ tăng cơ nạc, phục hồi nhanh chóng', 'Sử dụng công nghệ siêu vi lọc (micronized) giúp Creatine hòa tan cực tốt và hấp thu tối đa vào cơ bắp, không gây đầy bụng.', 450000.00, 550000.00, 4.7, 1200, 150, 1, NULL, NOW(), NOW()),
-
 (53, 4, 'PTS-C03', 'rule-1-r1-creatine-375g', 'Rule 1 R1 Creatine 375g', '100% Creatine Monohydrate chuẩn y tế', 'Sản phẩm từ hãng Rule 1 cung cấp nguồn Creatine sạch, không tạp chất, giúp tái tạo ATP nhanh chóng trong các bài tập tạ nặng.', 420000.00, 490000.00, 4.6, 850, 80, 1, NULL, NOW(), NOW()),
-
 (54, 4, 'PTS-C04', 'mutant-creakong-cx8-249g', 'Mutant Creakong CX8 249g', 'Phức hợp 3 loại Creatine cao cấp nhất', 'Kết hợp Creatine Monohydrate, Creatine Magnalite và Creatine Chelated giúp đẩy lùi sự mệt mỏi, tổng hợp protein nhanh hơn gấp 3 lần.', 550000.00, 620000.00, 4.5, 640, 60, 1, NULL, NOW(), NOW()),
-
 (55, 4, 'PTS-C05', 'myprotein-creatine-monohydrate-250g', 'MyProtein Creatine Monohydrate 250g', 'Giải pháp tăng sức mạnh tiết kiệm và hiệu quả', 'Sản phẩm quốc dân từ MyProtein, thuần chay, không hương liệu, độ tinh khiết cao đáp ứng nhu cầu tập luyện hàng ngày.', 250000.00, 300000.00, 4.4, 3200, 200, 1, NULL, NOW(), NOW()),
-
 (56, 4, 'PTS-C06', 'cellucor-cor-performance-creatine-360g', 'Cellucor COR-Performance Creatine 360g', 'Tối ưu hóa sức bền và khối lượng tạ', 'Mỗi serving chứa 5g Creatine siêu mịn, giúp bạn đẩy tạ nặng hơn và kéo dài thời gian tập luyện cường độ cao.', 480000.00, 560000.00, 4.5, 420, 50, 1, NULL, NOW(), NOW()),
-
 (57, 4, 'PTS-C07', 'dymatize-creatine-micronized-500g', 'Dymatize Creatine Micronized 500g', 'Sản xuất theo tiêu chuẩn Creapure Đức', 'Sử dụng nguồn nguyên liệu Creapure® nguyên chất từ Đức, đảm bảo không lẫn tạp chất, tối ưu cho việc tích nước trong tế bào cơ.', 680000.00, 780000.00, 4.8, 930, 40, 1, NULL, NOW(), NOW()),
-
 (58, 4, 'PTS-C08', 'bpi-sports-best-creatine-300g', 'BPI Sports Best Creatine 300g', 'Pha trộn 6 loại Creatine khác nhau', 'Công thức Best Creatine™ độc quyền kết hợp 6 dạng creatine giúp cơ thể hấp thu toàn diện mà không cần giai đoạn "loading".', 520000.00, 600000.00, 4.3, 510, 70, 1, NULL, NOW(), NOW()),
-
 (59, 4, 'PTS-C09', 'nutrex-creatine-drive-300g', 'Nutrex Creatine Drive 300g', 'Creatine nguyên chất 100% không pha tạp', 'Sản phẩm an toàn và hiệu quả, phù hợp cho mọi đối tượng chơi thể thao cần tăng cường năng lượng bùng nổ tức thì.', 400000.00, 480000.00, 4.4, 380, 90, 1, NULL, NOW(), NOW()),
-
 (60, 4, 'PTS-C10', 'allmax-creatine-monohydrate-400g', 'AllMax Nutrition Creatine 400g', 'Creatine siêu vi hạt chuẩn dược phẩm', 'Sản xuất qua công nghệ vi hạt hóa cấp độ dược phẩm, loại bỏ hoàn toàn tình trạng sạn khi uống, tan cực nhanh trong nước.', 490000.00, 580000.00, 4.6, 750, 60, 1, NULL, NOW(), NOW()),
-
 (61, 4, 'PTS-C11', 'biotechusa-100-creatine-monohydrate-300g', 'BiotechUSA 100% Creatine Monohydrate 300g', 'Tăng sinh ATP tự nhiên cho cơ bắp', 'Sản phẩm tinh khiết từ Châu Âu giúp cải thiện hiệu suất các bài tập ngắn hạn, cường độ cao như cử tạ, chạy nước rút.', 350000.00, 420000.00, 4.5, 620, 120, 1, NULL, NOW(), NOW()),
-
 (62, 4, 'PTS-C12', 'scitec-100-creatine-monohydrate-300g', 'Scitec Nutrition 100% Creatine 300g', 'Hỗ trợ phồng cơ, giữ nước nội bào', 'Creatine từ Scitec luôn nổi tiếng về chất lượng, giúp cơ bắp trông to và săn chắc hơn nhờ cơ chế hydrat hóa tế bào.', 380000.00, 450000.00, 4.4, 490, 80, 1, NULL, NOW(), NOW()),
-
 (63, 4, 'PTS-C13', 'kaged-muscle-creatine-hcl-75-serv', 'Kaged Muscle Creatine HCl 75 Servings', 'Creatine HCl hấp thụ cực mạnh không tích nước dưới da', 'Dạng Creatine Hydrochloride (HCl) đã được cấp bằng sáng chế, chỉ cần liều lượng nhỏ (1-2g) nhưng hấp thu nhanh hơn Monohydrate gấp nhiều lần.', 650000.00, 750000.00, 4.8, 880, 50, 1, NULL, NOW(), NOW()),
-
 (64, 4, 'PTS-C14', 'rsp-creatine-monohydrate-500g', 'RSP Nutrition Creatine Monohydrate 500g', 'Giải pháp phục hồi siêu tốc sau buổi tập', 'Giảm thiểu đau nhức cơ bắp và hỗ trợ phát triển mô cơ mới hiệu quả. Không mùi, không vị, dễ uống.', 460000.00, 550000.00, 4.3, 310, 60, 1, NULL, NOW(), NOW()),
-
 (65, 4, 'PTS-C15', 'pvl-100-pure-creatine-300g', 'PVL 100% Pure Creatine 300g', 'Creatine tinh khiết đã qua kiểm định Informed-Choice', 'Đảm bảo 100% không chứa chất cấm trong thể thao. Tăng cường khối lượng cơ nạc và sức mạnh tổng thể đáng kể.', 430000.00, 500000.00, 4.5, 450, 70, 1, NULL, NOW(), NOW())
 ON DUPLICATE KEY UPDATE 
     category_id = VALUES(category_id),
@@ -446,7 +432,6 @@ ON DUPLICATE KEY UPDATE
     price = VALUES(price),
     old_price = VALUES(old_price),
     updated_at = NOW();
-
 
 SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE TABLE `product_images`;
@@ -528,3 +513,250 @@ INSERT INTO `product_tag_map` (`product_id`, `tag_id`) VALUES
 (7, 3),
 (8, 3)
 ON DUPLICATE KEY UPDATE product_id = VALUES(product_id);
+
+
+-- =====================================================
+-- 6. PROCEDURE VÀ TRIGGER
+-- =====================================================
+
+DELIMITER $$
+
+-- =====================================================
+-- PROCEDURE sp_refresh_product_rating
+-- Mục đích:
+-- - Tính lại rating_avg và rating_count của một sản phẩm.
+--
+-- Khi nào được gọi:
+-- - Sau khi thêm review.
+-- - Sau khi sửa review.
+-- - Sau khi xóa review.
+--
+-- Cách hoạt động:
+-- - Lấy tất cả review của product_id.
+-- - Tính AVG(rating) làm rating_avg.
+-- - Đếm số review làm rating_count.
+-- - Nếu không còn review thì rating_avg = 0 và rating_count = 0.
+-- =====================================================
+CREATE PROCEDURE `sp_refresh_product_rating`(IN p_product_id BIGINT)
+BEGIN
+    UPDATE `products` p
+    LEFT JOIN (
+        SELECT
+            `product_id`,
+            ROUND(AVG(`rating`), 2) AS avg_val,
+            COUNT(*) AS cnt_val
+        FROM `reviews`
+        WHERE `product_id` = p_product_id
+        GROUP BY `product_id`
+    ) r ON p.`id` = r.`product_id`
+    SET
+        p.`rating_avg` = COALESCE(r.`avg_val`, 0.00),
+        p.`rating_count` = COALESCE(r.`cnt_val`, 0)
+    WHERE p.`id` = p_product_id;
+END$$
+
+-- =====================================================
+-- PROCEDURE sp_refresh_order_totals
+-- Mục đích:
+-- - Tính lại subtotal và total_amount của một đơn hàng.
+--
+-- Khi nào được gọi:
+-- - Sau khi thêm order_items.
+-- - Sau khi sửa order_items.
+-- - Sau khi xóa order_items.
+--
+-- Cách hoạt động:
+-- - subtotal = tổng line_total của các dòng hàng.
+-- - total_amount = subtotal - discount_amount + shipping_fee.
+-- - GREATEST(..., 0) để tránh tổng tiền bị âm.
+-- =====================================================
+CREATE PROCEDURE `sp_refresh_order_totals`(IN p_order_id BIGINT)
+BEGIN
+    UPDATE `orders` o
+    LEFT JOIN (
+        SELECT `order_id`, COALESCE(SUM(`line_total`), 0.00) AS subtotal_val
+        FROM `order_items`
+        WHERE `order_id` = p_order_id
+        GROUP BY `order_id`
+    ) x ON o.`id` = x.`order_id`
+    SET
+        o.`subtotal` = COALESCE(x.`subtotal_val`, 0.00),
+        o.`total_amount` = GREATEST(COALESCE(x.`subtotal_val`, 0.00) - o.`discount_amount` + o.`shipping_fee`, 0.00)
+    WHERE o.`id` = p_order_id;
+END$$
+
+-- =====================================================
+-- NHÓM TRIGGER reviews
+--
+-- tr_reviews_after_insert:
+-- - Khi thêm review mới, tự cập nhật lại điểm trung bình của sản phẩm.
+--
+-- tr_reviews_after_update:
+-- - Khi sửa review, tự cập nhật lại điểm trung bình.
+-- - Nếu review bị chuyển sang product_id khác, cập nhật lại cả sản phẩm cũ và sản phẩm mới.
+--
+-- tr_reviews_after_delete:
+-- - Khi xóa review, tự cập nhật lại điểm trung bình của sản phẩm.
+--
+-- Vai trò:
+-- - Giữ products.rating_avg và products.rating_count luôn đồng bộ với bảng reviews.
+-- =====================================================
+CREATE TRIGGER `tr_reviews_after_insert`
+AFTER INSERT ON `reviews`
+FOR EACH ROW
+BEGIN
+    CALL `sp_refresh_product_rating`(NEW.`product_id`);
+END$$
+
+CREATE TRIGGER `tr_reviews_after_update`
+AFTER UPDATE ON `reviews`
+FOR EACH ROW
+BEGIN
+    CALL `sp_refresh_product_rating`(NEW.`product_id`);
+    IF OLD.`product_id` <> NEW.`product_id` THEN
+        CALL `sp_refresh_product_rating`(OLD.`product_id`);
+    END IF;
+END$$
+
+CREATE TRIGGER `tr_reviews_after_delete`
+AFTER DELETE ON `reviews`
+FOR EACH ROW
+BEGIN
+    CALL `sp_refresh_product_rating`(OLD.`product_id`);
+END$$
+
+--- ==========================================================
+-- 2. LOGIC MỚI: TRỪ KHO NGAY KHI VỪA THÊM SẢN PHẨM VÀO ĐƠN
+-- ==========================================================
+
+-- A. Trước khi thêm sản phẩm vào đơn: Check xem kho đủ không
+CREATE TRIGGER `tr_order_items_before_insert`
+BEFORE INSERT ON `order_items`
+FOR EACH ROW
+BEGIN
+    DECLARE v_current_stock INT;
+    
+    -- Tính thành tiền
+    SET NEW.`line_total` = NEW.`quantity` * NEW.`unit_price`;
+    
+    -- Lấy tồn kho hiện tại
+    SELECT `stock_quantity` INTO v_current_stock 
+    FROM `products` WHERE `id` = NEW.`product_id`;
+    
+    -- Chặn lại ngay lập tức nếu kho không đủ
+    IF v_current_stock < NEW.`quantity` THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Insufficient stock for product';
+    END IF;
+END$$
+
+-- B. Sau khi thêm sản phẩm vào đơn hợp lệ: Trừ kho & Ghi log
+CREATE TRIGGER `tr_order_items_after_insert`
+AFTER INSERT ON `order_items`
+FOR EACH ROW
+BEGIN
+    -- Tính lại tổng tiền của đơn hàng
+    CALL `sp_refresh_order_totals`(NEW.`order_id`);
+    
+    -- Trừ tồn kho
+    UPDATE `products`
+    SET `stock_quantity` = `stock_quantity` - NEW.`quantity`
+    WHERE `id` = NEW.`product_id`;
+    
+    -- Ghi lịch sử xuất kho (số âm)
+    INSERT INTO `stock_movements` (`product_id`, `quantity`, `reason`, `reference_type`, `reference_id`, `note`, `created_at`)
+    VALUES (NEW.`product_id`, -NEW.`quantity`, 'ORDER', 'ORDER', NEW.`order_id`, CONCAT('Deducted for new order: ', NEW.`order_id`), NOW());
+END$$
+
+
+-- ==========================================================
+-- 3. LOGIC MỚI: KHÓA MÃ GIẢM GIÁ NGAY LÚC ĐẶT HÀNG
+-- ==========================================================
+CREATE TRIGGER `tr_orders_after_insert`
+AFTER INSERT ON `orders`
+FOR EACH ROW
+BEGIN
+    IF NEW.`discount_code_id` IS NOT NULL THEN
+        -- Ghi nhận lịch sử dùng mã
+        INSERT INTO `discount_usages` (`discount_code_id`, `user_id`, `order_id`, `used_at`)
+        VALUES (NEW.`discount_code_id`, NEW.`user_id`, NEW.`id`, NOW());
+        
+        -- Tăng biến đếm số lượt đã dùng của mã
+        UPDATE `discount_codes`
+        SET `used_count` = `used_count` + 1
+        WHERE `id` = NEW.`discount_code_id`;
+    END IF;
+END$$
+
+
+-- ==========================================================
+-- 4. LOGIC MỚI: XỬ LÝ CHUYỂN TRẠNG THÁI VÀ HOÀN TRẢ
+-- ==========================================================
+
+-- A. Validate khi chuyển trạng thái (Bỏ check kho vì đã check ở trên)
+CREATE TRIGGER `tr_orders_before_update_validate_paid`
+BEFORE UPDATE ON `orders`
+FOR EACH ROW
+BEGIN
+    DECLARE v_missing_items INT DEFAULT 0;
+
+    -- Nếu cập nhật thành PAID, chỉ cần đảm bảo đơn không trống
+    IF OLD.`status` <> 'PAID' AND NEW.`status` = 'PAID' THEN
+        SELECT COUNT(*) INTO v_missing_items FROM `order_items` WHERE `order_id` = NEW.`id`;
+        IF v_missing_items = 0 THEN
+            SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Cannot mark order as PAID without order items';
+        END IF;
+
+        SET NEW.`payment_status` = 'PAID';
+        SET NEW.`paid_at` = COALESCE(NEW.`paid_at`, NOW());
+    END IF;
+
+    -- Nếu đơn bị HỦY, set timestamp hủy
+    IF NEW.`status` = 'CANCELED' AND OLD.`status` <> 'CANCELED' THEN
+        SET NEW.`canceled_at` = COALESCE(NEW.`canceled_at`, NOW());
+    END IF;
+END$$
+
+-- B. Ghi lịch sử đơn hàng & TỰ ĐỘNG HOÀN KHO NẾU BỊ HỦY
+CREATE TRIGGER `tr_orders_after_update_status_history`
+AFTER UPDATE ON `orders`
+FOR EACH ROW
+BEGIN
+    -- Ghi lịch sử trạng thái
+    IF OLD.`status` <> NEW.`status` THEN
+        INSERT INTO `order_status_history` (`order_id`, `old_status`, `new_status`, `changed_note`, `changed_at`)
+        VALUES (NEW.`id`, OLD.`status`, NEW.`status`, NULL, NOW());
+    END IF;
+
+    -- *** QUAN TRỌNG: NẾU ĐƠN BỊ HỦY -> HOÀN LẠI TỒN KHO & MÃ GIẢM GIÁ ***
+    IF OLD.`status` <> 'CANCELED' AND NEW.`status` = 'CANCELED' THEN
+        
+        -- 1. Cộng lại tồn kho cho các sản phẩm
+        UPDATE `products` p
+        JOIN (
+            SELECT `product_id`, SUM(`quantity`) AS total_qty
+            FROM `order_items`
+            WHERE `order_id` = NEW.`id`
+            GROUP BY `product_id`
+        ) x ON p.`id` = x.`product_id`
+        SET p.`stock_quantity` = p.`stock_quantity` + x.`total_qty`;
+        
+        -- 2. Ghi lịch sử nhập kho hoàn trả (số dương)
+        INSERT INTO `stock_movements` (`product_id`, `quantity`, `reason`, `reference_type`, `reference_id`, `note`, `created_at`)
+        SELECT oi.`product_id`, oi.`quantity`, 'RETURN', 'ORDER', NEW.`id`, CONCAT('Restored for canceled order: ', NEW.`order_code`), NOW()
+        FROM `order_items` oi
+        WHERE oi.`order_id` = NEW.`id`;
+
+        -- 3. Hoàn lại lượt dùng mã giảm giá
+        IF NEW.`discount_code_id` IS NOT NULL THEN
+            UPDATE `discount_codes`
+            SET `used_count` = `used_count` - 1
+            WHERE `id` = NEW.`discount_code_id`;
+            
+            DELETE FROM `discount_usages` WHERE `order_id` = NEW.`id`;
+        END IF;
+
+    END IF;
+END$$
+
+DELIMITER ;
