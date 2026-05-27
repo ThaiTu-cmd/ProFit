@@ -179,6 +179,15 @@ export const adminService = {
     },
 
     // ==========================================
+    // DASHBOARD STATS API
+    // ==========================================
+    getDashboardStats: async () => {
+        const res = await fetch(`${ADMIN_API_URL}/dashboard/stats`, { headers: getDefaultHeaders() });
+        if (!res.ok) throw new Error('Failed to fetch dashboard stats');
+        return res.json();
+    },
+
+    // ==========================================
     // MESSAGE (CONTACT INBOX) APIs
     // ==========================================
 // ==========================================

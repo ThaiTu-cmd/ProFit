@@ -4,6 +4,7 @@ import com.doan.ProFit.dto.request.GuestOrderRequest;
 import com.doan.ProFit.dto.request.OrderRequest;
 import com.doan.ProFit.dto.request.OrderStatusUpdateRequest;
 import com.doan.ProFit.dto.response.OrderResponse;
+import com.doan.ProFit.dto.response.DashboardStatsResponse;
 
 import java.util.List;
 
@@ -16,4 +17,5 @@ public interface OrderService {
     OrderResponse updateOrderStatus(Long id, OrderStatusUpdateRequest request);
     OrderResponse confirmBankingPayment(Long orderId, String userEmail);
     long countPendingConfirmOrders();
+    DashboardStatsResponse getDashboardStats();
 }

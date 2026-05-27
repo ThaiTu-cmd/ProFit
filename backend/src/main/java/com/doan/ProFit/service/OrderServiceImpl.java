@@ -4,6 +4,9 @@ import com.doan.ProFit.dto.request.GuestOrderRequest;
 import com.doan.ProFit.dto.request.OrderItemRequest;
 import com.doan.ProFit.dto.request.OrderRequest;
 import com.doan.ProFit.dto.request.OrderStatusUpdateRequest;
+import com.doan.ProFit.dto.response.DashboardStatsResponse;
+import com.doan.ProFit.dto.response.DashboardStatsResponse.BestSellingProduct;
+import com.doan.ProFit.dto.response.DashboardStatsResponse.RevenueByPeriod;
 import com.doan.ProFit.dto.response.OrderItemResponse;
 import com.doan.ProFit.dto.response.OrderResponse;
 import com.doan.ProFit.entity.Order;
@@ -17,6 +20,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -236,6 +244,115 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public long countPendingConfirmOrders() {
         return orderRepository.countByPaymentStatus("PENDING_CONFIRM");
+    }
+
+    @Override
+    public DashboardStatsResponse getDashboardStats() {
+        DashboardStatsResponse stats = new DashboardStatsResponse();
+        LocalDateTime now = LocalDateTime.now();
+
+        // Basic counts
+        stats.setTotalOrders(orderRepository.count());
+        stats.setPendingOrders(orderRepository.countByStatus("PENDING"));
+        stats.setCompletedOrders(
+            orderRepository.countByStatus("COMPLETED") + orderRepository.countByStatus("DELIVERED")
+        );
+
+        // Revenue calculations - only COMPLETED and DELIVERED orders count as revenue
+        stats.setTotalRevenue(orderRepository.sumRevenueFromCompletedOrders());
+
+        // Today's stats
+        LocalDateTime startOfDay = LocalDate.now().atStartOfDay();
+        stats.setTodayOrders(orderRepository.countCompletedOrdersToday(startOfDay));
+        stats.setTodayRevenue(orderRepository.sumRevenueToday(startOfDay));
+
+        // This month
+        LocalDateTime startOfMonth = LocalDate.now().withDayOfMonth(1).atStartOfDay();
+        stats.setMonthRevenue(orderRepository.sumRevenueThisMonth(startOfMonth));
+
+        // This year
+        LocalDateTime startOfYear = LocalDate.now().withDayOfYear(1).atStartOfDay();
+        stats.setYearRevenue(orderRepository.sumRevenueThisYear(startOfYear));
+
+        // Revenue by day (last 30 days)
+        LocalDateTime thirtyDaysAgo = startOfDay.minusDays(29);
+        List<Object[]> dailyData = orderRepository.sumRevenueByDay(thirtyDaysAgo);
+        List<RevenueByPeriod> revenueByDay = new ArrayList<>();
+        DateTimeFormatter dayFormatter = DateTimeFormatter.ofPattern("dd/MM");
+        // Fill in all 30 days (including zeros)
+        for (int i = 29; i >= 0; i--) {
+            LocalDate date = LocalDate.now().minusDays(i);
+            String dateStr = date.format(dayFormatter);
+            final String finalDateStr = dateStr;
+            BigDecimal rev = BigDecimal.ZERO;
+            long count = 0;
+            for (Object[] row : dailyData) {
+                if (row[0] != null && row[0].toString().equals(date.toString())) {
+                    rev = row[1] != null ? new BigDecimal(row[1].toString()) : BigDecimal.ZERO;
+                    count = row[2] != null ? ((Number) row[2]).longValue() : 0;
+                    break;
+                }
+            }
+            revenueByDay.add(new RevenueByPeriod(finalDateStr, rev, count));
+        }
+        stats.setRevenueByDay(revenueByDay);
+
+        // Revenue by month (last 12 months)
+        LocalDateTime twelveMonthsAgo = startOfMonth.minusMonths(11);
+        List<Object[]> monthlyData = orderRepository.sumRevenueByMonth(twelveMonthsAgo);
+        List<RevenueByPeriod> revenueByMonth = new ArrayList<>();
+        DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("MM/yyyy");
+        for (int i = 11; i >= 0; i--) {
+            LocalDate date = LocalDate.now().minusMonths(i);
+            String monthStr = date.format(monthFormatter);
+            final String finalMonthStr = monthStr;
+            BigDecimal rev = BigDecimal.ZERO;
+            long count = 0;
+            String targetKey = date.format(DateTimeFormatter.ofPattern("yyyy-MM"));
+            for (Object[] row : monthlyData) {
+                if (row[0] != null && row[0].toString().equals(targetKey)) {
+                    rev = row[1] != null ? new BigDecimal(row[1].toString()) : BigDecimal.ZERO;
+                    count = row[2] != null ? ((Number) row[2]).longValue() : 0;
+                    break;
+                }
+            }
+            revenueByMonth.add(new RevenueByPeriod(finalMonthStr, rev, count));
+        }
+        stats.setRevenueByMonth(revenueByMonth);
+
+        // Revenue by year (last 5 years)
+        LocalDateTime fiveYearsAgo = startOfYear.minusYears(4);
+        List<Object[]> yearlyData = orderRepository.sumRevenueByYear(fiveYearsAgo);
+        List<RevenueByPeriod> revenueByYear = new ArrayList<>();
+        for (int i = 4; i >= 0; i--) {
+            int year = LocalDate.now().getYear() - i;
+            final int finalYear = year;
+            BigDecimal rev = BigDecimal.ZERO;
+            long count = 0;
+            for (Object[] row : yearlyData) {
+                if (row[0] != null && Integer.parseInt(row[0].toString()) == year) {
+                    rev = row[1] != null ? new BigDecimal(row[1].toString()) : BigDecimal.ZERO;
+                    count = row[2] != null ? ((Number) row[2]).longValue() : 0;
+                    break;
+                }
+            }
+            revenueByYear.add(new RevenueByPeriod(String.valueOf(finalYear), rev, count));
+        }
+        stats.setRevenueByYear(revenueByYear);
+
+        // Best selling products
+        List<Object[]> bestSellingData = orderRepository.findBestSellingProducts(10);
+        List<BestSellingProduct> bestSellingProducts = new ArrayList<>();
+        for (Object[] row : bestSellingData) {
+            Long productId = row[0] != null ? ((Number) row[0]).longValue() : null;
+            String productName = row[1] != null ? row[1].toString() : "Unknown";
+            long totalSold = row[2] != null ? ((Number) row[2]).longValue() : 0;
+            BigDecimal totalRevenue = row[3] != null ? new BigDecimal(row[3].toString()) : BigDecimal.ZERO;
+            bestSellingProducts.add(new BestSellingProduct(productId, productName, totalSold, totalRevenue));
+        }
+        stats.setBestSellingProducts(bestSellingProducts);
+
+        return stats;
     }
 
     private OrderResponse mapToResponse(Order order) {
