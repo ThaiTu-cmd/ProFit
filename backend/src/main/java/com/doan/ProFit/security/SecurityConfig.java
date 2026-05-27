@@ -87,6 +87,8 @@ public class SecurityConfig {
                     .requestMatchers("/api/auth/**").permitAll()
                     // Public
                     .requestMatchers("/api/public/**").permitAll()
+                    // Static assets
+                    .requestMatchers("/uploads/**", "/images/**", "/favicon.*", "/admin/css/**", "/admin/js/**").permitAll()
                     // Products & Categories (public)
                     .requestMatchers("/api/v1/products/**", "/api/v1/categories/**").permitAll()
                     // Reviews
