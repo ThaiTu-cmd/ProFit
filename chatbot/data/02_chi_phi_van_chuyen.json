@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "doc_id": "profit_002",
+    "title": "Chi Phí Vận Chuyển",
+    "category": "shipping",
+    "language": "vi",
+    "source_file": "Chi_Phí_Vận_Chuyển.docx",
+    "created_at": "2026-05-27T06:17:26Z",
+    "tags": [
+      "vận chuyển",
+      "phí ship",
+      "đổi trả",
+      "chi phí"
+    ],
+    "shop": "ProFit"
+  },
+  "content": "Chi Phí Vận Chuyển:\n- Lỗi từ cửa hàng: Cửa hàng chịu toàn bộ phí vận chuyển.\n- Đổi do nhu cầu cá nhân: Khách hàng tự chịu phí vận chuyển.",
+  "chunks": [
+    {
+      "chunk_id": "profit_002_c1",
+      "text": "Nếu sản phẩm bị lỗi do cửa hàng, ProFit sẽ chịu toàn bộ phí vận chuyển đổi trả."
+    },
+    {
+      "chunk_id": "profit_002_c2",
+      "text": "Nếu khách hàng muốn đổi trả do nhu cầu cá nhân (thay đổi ý kiến), khách hàng tự chịu phí vận chuyển."
+    }
+  ]
+}

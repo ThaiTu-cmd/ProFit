@@ -7,9 +7,9 @@ spring:
   profiles:
     include: local
   datasource:
-    url: ${DB_URL:jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Ho_Chi_Minh&connectionCharacterSet=UTF-8}
-    username: ${DB_USERNAME:root}
-    password: ${DB_PASSWORD:}
+    url: jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Ho_Chi_Minh&connectionCharacterSet=UTF-8
+    username: root
+    password: root
   sql:
     init:
       mode: never

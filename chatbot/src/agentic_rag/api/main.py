@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import os
 from pathlib import Path
 from time import perf_counter
@@ -9,6 +10,9 @@ from time import perf_counter
 from dotenv import load_dotenv
 from fastapi import FastAPI, Header, HTTPException, Query
 from fastapi.responses import HTMLResponse, StreamingResponse
+from langchain_core.messages import HumanMessage
+from sse_starlette.sse import EventSourceResponse
+
 from agentic_rag.core.message_filter import user_message
 from agentic_rag.api.dependencies import get_graph
 from agentic_rag.config import get_routes, is_configured
@@ -157,18 +161,95 @@ def chat(
 
 
 @app.post("/chat/stream")
-def chat_stream(req: ChatRequest):
+async def chat_stream(req: ChatRequest):
+    """Streaming endpoint - uses LangGraph's stream mode for async response streaming."""
+    if not os.getenv("OPENAI_API_KEY") or os.getenv("OPENAI_API_KEY", "").startswith("<"):
+        raise HTTPException(503, "Đặt OPENAI_API_KEY trong .env để sử dụng chat streaming.")
+
+    graph = get_graph()
+    
+    async def generate():
+        full_response = ""
+        try:
+            config = {
+                "configurable": {"thread_id": req.thread_id or f"web_{asyncio.get_event_loop().time()}"}
+            }
+            
+            # Use LangGraph's stream for async streaming
+            async for event in graph.astream(
+                {
+                    "messages": [user_message(req.message)],
+                    "user_query": req.message,
+                    "user_context": req.user_context or {},
+                    "reflection_count": 0,
+                },
+                config=config,
+                stream_mode="messages",
+            ):
+                # event is a tuple of (chunk, metadata)
+                if event and len(event) >= 1:
+                    chunk = event[0]
+                    # Handle different chunk types from streaming
+                    if hasattr(chunk, 'content') and chunk.content:
+                        content = chunk.content
+                        if isinstance(content, list):
+                            for item in content:
+                                if isinstance(item, dict) and item.get('type') == 'text':
+                                    text = item.get('text', '')
+                                    full_response += text
+                                    yield {
+                                        "event": "message",
+                                        "data": text
+                                    }
+                        elif isinstance(content, str):
+                            full_response += content
+                            yield {
+                                "event": "message", 
+                                "data": content
+                            }
+        except asyncio.CancelledError:
+            pass
+        except Exception as e:
+            yield {
+                "event": "error",
+                "data": str(e)
+            }
+        finally:
+            yield {
+                "event": "done",
+                "data": full_response
+            }
+
+    return EventSourceResponse(generate())
+
+
+@app.post("/chat/stream/simple")
+def chat_stream_simple(req: ChatRequest):
+    """Simple SSE streaming endpoint - streams LLM response directly."""
     if not os.getenv("OPENAI_API_KEY"):
         raise HTTPException(503, "OPENAI_API_KEY chưa được cấu hình.")
 
     model = create_chat_model(temperature=0.2, streaming=True)
 
     def gen():
-        for chunk in model.stream([HumanMessage(content=req.message)]):
-            if chunk.content:
-                yield chunk.content
+        try:
+            for chunk in model.stream([HumanMessage(content=req.message)]):
+                if chunk.content:
+                    yield f"data: {chunk.content}\n\n"
+        except Exception as e:
+            yield f"data: [Lỗi] {str(e)}\n\n"
+        finally:
+            yield "data: [DONE]\n\n"
 
-    return StreamingResponse(gen(), media_type="text/plain")
+    return StreamingResponse(
+        gen(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        }
+    )
 
 
 if __name__ == "__main__":

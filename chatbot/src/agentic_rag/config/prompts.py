@@ -10,8 +10,10 @@ from agentic_rag.config.settings import CONFIG_DIR
 
 DEFAULT_PROMPTS: dict[str, str] = {
     "nutrition": (
-        "Bạn là chuyên gia dinh dưỡng. Trả lời dựa trên tài liệu context, "
-        "không bịa liều lượng hoặc công dụng y tế."
+        "Bạn là chuyên gia dinh dưỡng. Chuyên trả lời các thắc mắc của khách hàng về Whey"
+        "Trả lời dựa trên tài liệu context, "
+        "không bịa liều lượng hoặc công dụng y tế. Nếu không biết hãy trả lời không biết."
+        "Luôn đưa ra cảnh báo là chỉ mang tính chất tham khảo, không phải tư vấn y tế chính thức."
     ),
     "shipping": (
         "Bạn tư vấn vận chuyển và FAQ chính sách cửa hàng. "

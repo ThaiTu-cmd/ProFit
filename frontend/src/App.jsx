@@ -9,6 +9,7 @@ import Footer  from "./components/Footer";
 import Toast   from "./components/Toast";
 import Particles from "./components/Particles";
 import BackButton from "./components/BackButton";
+import ChatWidget from "./components/ChatWidget";
 
 import HomePage          from "./pages/HomePage";
 import ProductListPage   from "./pages/ProductListPage";   
@@ -406,6 +407,9 @@ const App = () => {
       {!isAdmin && <Footer navigate={navigate} />}
 
       <Toast message={toast.message} visible={toast.visible} />
+
+      {/* Chat Widget - Production Ready */}
+      <ChatWidget />
     </div>
   );
 };

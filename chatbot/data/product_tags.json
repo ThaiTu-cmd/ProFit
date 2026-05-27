@@ -1,0 +1,55 @@
+{
+  "total": 5,
+  "documents": [
+    {
+      "id": "tag_1",
+      "content": "Tag sản phẩm: Best Seller. Code: best-seller.",
+      "metadata": {
+        "source": "product_tags",
+        "db_id": 1,
+        "code": "best-seller",
+        "display_name": "Best Seller"
+      }
+    },
+    {
+      "id": "tag_2",
+      "content": "Tag sản phẩm: New Arrival. Code: new-arrival.",
+      "metadata": {
+        "source": "product_tags",
+        "db_id": 2,
+        "code": "new-arrival",
+        "display_name": "New Arrival"
+      }
+    },
+    {
+      "id": "tag_3",
+      "content": "Tag sản phẩm: On Sale. Code: on-sale.",
+      "metadata": {
+        "source": "product_tags",
+        "db_id": 3,
+        "code": "on-sale",
+        "display_name": "On Sale"
+      }
+    },
+    {
+      "id": "tag_4",
+      "content": "Tag sản phẩm: Hot Deal. Code: hot-deal.",
+      "metadata": {
+        "source": "product_tags",
+        "db_id": 4,
+        "code": "hot-deal",
+        "display_name": "Hot Deal"
+      }
+    },
+    {
+      "id": "tag_5",
+      "content": "Tag sản phẩm: Popular. Code: popular.",
+      "metadata": {
+        "source": "product_tags",
+        "db_id": 5,
+        "code": "popular",
+        "display_name": "Popular"
+      }
+    }
+  ]
+}

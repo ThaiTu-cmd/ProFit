@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "doc_id": "profit_009",
+    "title": "Tổng Quan về Protein Cookie",
+    "category": "product_info",
+    "product_type": "protein_cookie",
+    "language": "vi",
+    "source_file": "Tổng_quan_về_Protein_Cookie.docx",
+    "created_at": "2026-05-27T06:17:26Z",
+    "tags": [
+      "protein cookie",
+      "bánh protein",
+      "cookies",
+      "snack gym",
+      "ít đường",
+      "casein",
+      "whey",
+      "đạm thực vật"
+    ],
+    "shop": "ProFit"
+  },
+  "content": "Tổng Quan về Protein Cookie:\n\nProtein Cookie là bánh quy được sản xuất đặc biệt dành cho người tập luyện, chứa hàm lượng protein cao (15-20g mỗi chiếc) từ Whey Protein, Casein hoặc đạm thực vật.\n\nĐặc điểm chính:\n- Giàu protein: 15-20g/chiếc, hỗ trợ xây dựng và phục hồi cơ bắp.\n- Tiện lợi: Dễ mang theo phòng tập, dùng trước hoặc sau tập.\n- Ít đường và calo hơn bánh thông thường: Phù hợp người đang giữ chế độ ăn.\n- Đa dạng: Bánh dinh dưỡng cao hoặc bánh quy yến mạch bổ sung protein.\n\nLưu ý khi sử dụng:\n- Dù giàu protein, Protein Cookie vẫn có một lượng calo nhất định.\n- Cần kiểm tra kỹ thành phần để phù hợp với mục tiêu tăng cơ hay giảm mỡ.",
+  "chunks": [
+    {
+      "chunk_id": "profit_009_c1",
+      "text": "Protein Cookie là bánh quy đặc biệt cho người tập gym, chứa 15-20g protein mỗi chiếc từ Whey, Casein hoặc đạm thực vật."
+    },
+    {
+      "chunk_id": "profit_009_c2",
+      "text": "Protein Cookie ít đường và calo hơn bánh thường, giúp thỏa mãn cơn thèm ngọt mà không phá vỡ chế độ ăn kiêng."
+    },
+    {
+      "chunk_id": "profit_009_c3",
+      "text": "Dù ít calo hơn bánh thường, Protein Cookie vẫn có calo nhất định. Cần kiểm tra thành phần để phù hợp mục tiêu tăng cơ hay giảm mỡ."
+    }
+  ]
+}

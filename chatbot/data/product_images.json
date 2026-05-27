@@ -1,0 +1,850 @@
+{
+  "total": 65,
+  "documents": [
+    {
+      "id": "image_1",
+      "content": "Hình ảnh sản phẩm ID 1. URL: /uploads/products/image-1.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 1,
+        "product_id": 1,
+        "image_url": "/uploads/products/image-1.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 1
+      }
+    },
+    {
+      "id": "image_2",
+      "content": "Hình ảnh sản phẩm ID 2. URL: /uploads/products/image-2.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 2,
+        "product_id": 2,
+        "image_url": "/uploads/products/image-2.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 2
+      }
+    },
+    {
+      "id": "image_3",
+      "content": "Hình ảnh sản phẩm ID 3. URL: /uploads/products/image-3.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 3,
+        "product_id": 3,
+        "image_url": "/uploads/products/image-3.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 3
+      }
+    },
+    {
+      "id": "image_4",
+      "content": "Hình ảnh sản phẩm ID 4. URL: /uploads/products/image-4.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 4,
+        "product_id": 4,
+        "image_url": "/uploads/products/image-4.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 4
+      }
+    },
+    {
+      "id": "image_5",
+      "content": "Hình ảnh sản phẩm ID 5. URL: /uploads/products/image-5.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 5,
+        "product_id": 5,
+        "image_url": "/uploads/products/image-5.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 5
+      }
+    },
+    {
+      "id": "image_6",
+      "content": "Hình ảnh sản phẩm ID 6. URL: /uploads/products/image-6.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 6,
+        "product_id": 6,
+        "image_url": "/uploads/products/image-6.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 6
+      }
+    },
+    {
+      "id": "image_7",
+      "content": "Hình ảnh sản phẩm ID 7. URL: /uploads/products/image-7.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 7,
+        "product_id": 7,
+        "image_url": "/uploads/products/image-7.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 7
+      }
+    },
+    {
+      "id": "image_8",
+      "content": "Hình ảnh sản phẩm ID 8. URL: /uploads/products/image-8.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 8,
+        "product_id": 8,
+        "image_url": "/uploads/products/image-8.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 8
+      }
+    },
+    {
+      "id": "image_9",
+      "content": "Hình ảnh sản phẩm ID 9. URL: /uploads/products/image-9.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 9,
+        "product_id": 9,
+        "image_url": "/uploads/products/image-9.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 9
+      }
+    },
+    {
+      "id": "image_10",
+      "content": "Hình ảnh sản phẩm ID 10. URL: /uploads/products/image-10.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 10,
+        "product_id": 10,
+        "image_url": "/uploads/products/image-10.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 10
+      }
+    },
+    {
+      "id": "image_11",
+      "content": "Hình ảnh sản phẩm ID 11. URL: /uploads/products/image-11.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 11,
+        "product_id": 11,
+        "image_url": "/uploads/products/image-11.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 11
+      }
+    },
+    {
+      "id": "image_12",
+      "content": "Hình ảnh sản phẩm ID 12. URL: /uploads/products/image-12.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 12,
+        "product_id": 12,
+        "image_url": "/uploads/products/image-12.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 12
+      }
+    },
+    {
+      "id": "image_13",
+      "content": "Hình ảnh sản phẩm ID 13. URL: /uploads/products/image-13.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 13,
+        "product_id": 13,
+        "image_url": "/uploads/products/image-13.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 13
+      }
+    },
+    {
+      "id": "image_14",
+      "content": "Hình ảnh sản phẩm ID 14. URL: /uploads/products/image-14.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 14,
+        "product_id": 14,
+        "image_url": "/uploads/products/image-14.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 14
+      }
+    },
+    {
+      "id": "image_15",
+      "content": "Hình ảnh sản phẩm ID 15. URL: /uploads/products/image-15.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 15,
+        "product_id": 15,
+        "image_url": "/uploads/products/image-15.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 15
+      }
+    },
+    {
+      "id": "image_16",
+      "content": "Hình ảnh sản phẩm ID 16. URL: /uploads/products/image-16.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 16,
+        "product_id": 16,
+        "image_url": "/uploads/products/image-16.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 16
+      }
+    },
+    {
+      "id": "image_17",
+      "content": "Hình ảnh sản phẩm ID 17. URL: /uploads/products/image-17.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 17,
+        "product_id": 17,
+        "image_url": "/uploads/products/image-17.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 17
+      }
+    },
+    {
+      "id": "image_18",
+      "content": "Hình ảnh sản phẩm ID 18. URL: /uploads/products/image-18.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 18,
+        "product_id": 18,
+        "image_url": "/uploads/products/image-18.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 18
+      }
+    },
+    {
+      "id": "image_19",
+      "content": "Hình ảnh sản phẩm ID 19. URL: /uploads/products/image-19.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 19,
+        "product_id": 19,
+        "image_url": "/uploads/products/image-19.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 19
+      }
+    },
+    {
+      "id": "image_20",
+      "content": "Hình ảnh sản phẩm ID 20. URL: /uploads/products/image-20.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 20,
+        "product_id": 20,
+        "image_url": "/uploads/products/image-20.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 20
+      }
+    },
+    {
+      "id": "image_21",
+      "content": "Hình ảnh sản phẩm ID 21. URL: /uploads/products/image-21.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 21,
+        "product_id": 21,
+        "image_url": "/uploads/products/image-21.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 21
+      }
+    },
+    {
+      "id": "image_22",
+      "content": "Hình ảnh sản phẩm ID 22. URL: /uploads/products/image-22.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 22,
+        "product_id": 22,
+        "image_url": "/uploads/products/image-22.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 22
+      }
+    },
+    {
+      "id": "image_23",
+      "content": "Hình ảnh sản phẩm ID 23. URL: /uploads/products/image-23.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 23,
+        "product_id": 23,
+        "image_url": "/uploads/products/image-23.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 23
+      }
+    },
+    {
+      "id": "image_24",
+      "content": "Hình ảnh sản phẩm ID 24. URL: /uploads/products/image-24.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 24,
+        "product_id": 24,
+        "image_url": "/uploads/products/image-24.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 24
+      }
+    },
+    {
+      "id": "image_25",
+      "content": "Hình ảnh sản phẩm ID 25. URL: /uploads/products/image-25.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 25,
+        "product_id": 25,
+        "image_url": "/uploads/products/image-25.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 25
+      }
+    },
+    {
+      "id": "image_26",
+      "content": "Hình ảnh sản phẩm ID 26. URL: /uploads/products/image-26.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 26,
+        "product_id": 26,
+        "image_url": "/uploads/products/image-26.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 26
+      }
+    },
+    {
+      "id": "image_27",
+      "content": "Hình ảnh sản phẩm ID 27. URL: /uploads/products/image-27.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 27,
+        "product_id": 27,
+        "image_url": "/uploads/products/image-27.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 27
+      }
+    },
+    {
+      "id": "image_28",
+      "content": "Hình ảnh sản phẩm ID 28. URL: /uploads/products/image-28.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 28,
+        "product_id": 28,
+        "image_url": "/uploads/products/image-28.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 28
+      }
+    },
+    {
+      "id": "image_29",
+      "content": "Hình ảnh sản phẩm ID 29. URL: /uploads/products/image-29.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 29,
+        "product_id": 29,
+        "image_url": "/uploads/products/image-29.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 29
+      }
+    },
+    {
+      "id": "image_30",
+      "content": "Hình ảnh sản phẩm ID 30. URL: /uploads/products/image-30.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 30,
+        "product_id": 30,
+        "image_url": "/uploads/products/image-30.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 30
+      }
+    },
+    {
+      "id": "image_31",
+      "content": "Hình ảnh sản phẩm ID 31. URL: /uploads/products/image-31.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 31,
+        "product_id": 31,
+        "image_url": "/uploads/products/image-31.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 31
+      }
+    },
+    {
+      "id": "image_32",
+      "content": "Hình ảnh sản phẩm ID 32. URL: /uploads/products/image-32.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 32,
+        "product_id": 32,
+        "image_url": "/uploads/products/image-32.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 32
+      }
+    },
+    {
+      "id": "image_33",
+      "content": "Hình ảnh sản phẩm ID 33. URL: /uploads/products/image-33.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 33,
+        "product_id": 33,
+        "image_url": "/uploads/products/image-33.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 33
+      }
+    },
+    {
+      "id": "image_34",
+      "content": "Hình ảnh sản phẩm ID 34. URL: /uploads/products/image-34.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 34,
+        "product_id": 34,
+        "image_url": "/uploads/products/image-34.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 34
+      }
+    },
+    {
+      "id": "image_35",
+      "content": "Hình ảnh sản phẩm ID 35. URL: /uploads/products/image-35.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 35,
+        "product_id": 35,
+        "image_url": "/uploads/products/image-35.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 35
+      }
+    },
+    {
+      "id": "image_36",
+      "content": "Hình ảnh sản phẩm ID 36. URL: /uploads/products/image-36.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 36,
+        "product_id": 36,
+        "image_url": "/uploads/products/image-36.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 36
+      }
+    },
+    {
+      "id": "image_37",
+      "content": "Hình ảnh sản phẩm ID 37. URL: /uploads/products/image-37.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 37,
+        "product_id": 37,
+        "image_url": "/uploads/products/image-37.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 37
+      }
+    },
+    {
+      "id": "image_38",
+      "content": "Hình ảnh sản phẩm ID 38. URL: /uploads/products/image-38.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 38,
+        "product_id": 38,
+        "image_url": "/uploads/products/image-38.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 38
+      }
+    },
+    {
+      "id": "image_39",
+      "content": "Hình ảnh sản phẩm ID 39. URL: /uploads/products/image-39.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 39,
+        "product_id": 39,
+        "image_url": "/uploads/products/image-39.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 39
+      }
+    },
+    {
+      "id": "image_40",
+      "content": "Hình ảnh sản phẩm ID 40. URL: /uploads/products/image-40.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 40,
+        "product_id": 40,
+        "image_url": "/uploads/products/image-40.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 40
+      }
+    },
+    {
+      "id": "image_41",
+      "content": "Hình ảnh sản phẩm ID 41. URL: /uploads/products/image-41.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 41,
+        "product_id": 41,
+        "image_url": "/uploads/products/image-41.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 41
+      }
+    },
+    {
+      "id": "image_42",
+      "content": "Hình ảnh sản phẩm ID 42. URL: /uploads/products/image-42.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 42,
+        "product_id": 42,
+        "image_url": "/uploads/products/image-42.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 42
+      }
+    },
+    {
+      "id": "image_43",
+      "content": "Hình ảnh sản phẩm ID 43. URL: /uploads/products/image-43.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 43,
+        "product_id": 43,
+        "image_url": "/uploads/products/image-43.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 43
+      }
+    },
+    {
+      "id": "image_44",
+      "content": "Hình ảnh sản phẩm ID 44. URL: /uploads/products/image-44.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 44,
+        "product_id": 44,
+        "image_url": "/uploads/products/image-44.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 44
+      }
+    },
+    {
+      "id": "image_45",
+      "content": "Hình ảnh sản phẩm ID 45. URL: /uploads/products/image-45.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 45,
+        "product_id": 45,
+        "image_url": "/uploads/products/image-45.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 45
+      }
+    },
+    {
+      "id": "image_46",
+      "content": "Hình ảnh sản phẩm ID 46. URL: /uploads/products/image-46.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 46,
+        "product_id": 46,
+        "image_url": "/uploads/products/image-46.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 46
+      }
+    },
+    {
+      "id": "image_47",
+      "content": "Hình ảnh sản phẩm ID 47. URL: /uploads/products/image-47.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 47,
+        "product_id": 47,
+        "image_url": "/uploads/products/image-47.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 47
+      }
+    },
+    {
+      "id": "image_48",
+      "content": "Hình ảnh sản phẩm ID 48. URL: /uploads/products/image-48.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 48,
+        "product_id": 48,
+        "image_url": "/uploads/products/image-48.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 48
+      }
+    },
+    {
+      "id": "image_49",
+      "content": "Hình ảnh sản phẩm ID 49. URL: /uploads/products/image-49.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 49,
+        "product_id": 49,
+        "image_url": "/uploads/products/image-49.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 49
+      }
+    },
+    {
+      "id": "image_50",
+      "content": "Hình ảnh sản phẩm ID 50. URL: /uploads/products/image-50.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 50,
+        "product_id": 50,
+        "image_url": "/uploads/products/image-50.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 50
+      }
+    },
+    {
+      "id": "image_51",
+      "content": "Hình ảnh sản phẩm ID 51. URL: /uploads/products/image-51.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 51,
+        "product_id": 51,
+        "image_url": "/uploads/products/image-51.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 51
+      }
+    },
+    {
+      "id": "image_52",
+      "content": "Hình ảnh sản phẩm ID 52. URL: /uploads/products/image-52.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 52,
+        "product_id": 52,
+        "image_url": "/uploads/products/image-52.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 52
+      }
+    },
+    {
+      "id": "image_53",
+      "content": "Hình ảnh sản phẩm ID 53. URL: /uploads/products/image-53.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 53,
+        "product_id": 53,
+        "image_url": "/uploads/products/image-53.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 53
+      }
+    },
+    {
+      "id": "image_54",
+      "content": "Hình ảnh sản phẩm ID 54. URL: /uploads/products/image-54.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 54,
+        "product_id": 54,
+        "image_url": "/uploads/products/image-54.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 54
+      }
+    },
+    {
+      "id": "image_55",
+      "content": "Hình ảnh sản phẩm ID 55. URL: /uploads/products/image-55.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 55,
+        "product_id": 55,
+        "image_url": "/uploads/products/image-55.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 55
+      }
+    },
+    {
+      "id": "image_56",
+      "content": "Hình ảnh sản phẩm ID 56. URL: /uploads/products/image-56.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 56,
+        "product_id": 56,
+        "image_url": "/uploads/products/image-56.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 56
+      }
+    },
+    {
+      "id": "image_57",
+      "content": "Hình ảnh sản phẩm ID 57. URL: /uploads/products/image-57.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 57,
+        "product_id": 57,
+        "image_url": "/uploads/products/image-57.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 57
+      }
+    },
+    {
+      "id": "image_58",
+      "content": "Hình ảnh sản phẩm ID 58. URL: /uploads/products/image-58.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 58,
+        "product_id": 58,
+        "image_url": "/uploads/products/image-58.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 58
+      }
+    },
+    {
+      "id": "image_59",
+      "content": "Hình ảnh sản phẩm ID 59. URL: /uploads/products/image-59.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 59,
+        "product_id": 59,
+        "image_url": "/uploads/products/image-59.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 59
+      }
+    },
+    {
+      "id": "image_60",
+      "content": "Hình ảnh sản phẩm ID 60. URL: /uploads/products/image-60.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 60,
+        "product_id": 60,
+        "image_url": "/uploads/products/image-60.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 60
+      }
+    },
+    {
+      "id": "image_61",
+      "content": "Hình ảnh sản phẩm ID 61. URL: /uploads/products/image-61.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 61,
+        "product_id": 61,
+        "image_url": "/uploads/products/image-61.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 61
+      }
+    },
+    {
+      "id": "image_62",
+      "content": "Hình ảnh sản phẩm ID 62. URL: /uploads/products/image-62.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 62,
+        "product_id": 62,
+        "image_url": "/uploads/products/image-62.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 62
+      }
+    },
+    {
+      "id": "image_63",
+      "content": "Hình ảnh sản phẩm ID 63. URL: /uploads/products/image-63.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 63,
+        "product_id": 63,
+        "image_url": "/uploads/products/image-63.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 63
+      }
+    },
+    {
+      "id": "image_64",
+      "content": "Hình ảnh sản phẩm ID 64. URL: /uploads/products/image-64.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 64,
+        "product_id": 64,
+        "image_url": "/uploads/products/image-64.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 64
+      }
+    },
+    {
+      "id": "image_65",
+      "content": "Hình ảnh sản phẩm ID 65. URL: /uploads/products/image-65.jpg. Ảnh chính: Có.",
+      "metadata": {
+        "source": "product_images",
+        "db_id": 65,
+        "product_id": 65,
+        "image_url": "/uploads/products/image-65.jpg",
+        "sort_order": 1,
+        "is_primary": true,
+        "primary_product_guard": 65
+      }
+    }
+  ]
+}

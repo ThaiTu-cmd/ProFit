@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "doc_id": "profit_008",
+    "title": "Tổng Quan về Protein Bar",
+    "category": "product_info",
+    "product_type": "protein_bar",
+    "language": "vi",
+    "source_file": "Tổng_quan_về_Protein_Bar.docx",
+    "created_at": "2026-05-27T06:17:26Z",
+    "tags": [
+      "protein bar",
+      "thanh protein",
+      "bánh protein",
+      "ăn nhẹ",
+      "snack",
+      "gym",
+      "phục hồi cơ",
+      "kiểm soát cân nặng"
+    ],
+    "shop": "ProFit"
+  },
+  "content": "Tổng Quan về Protein Bar:\n\nProtein Bar (thanh protein/bánh protein) là thực phẩm ăn nhẹ tiện lợi, giàu protein (15-23g/thanh), dùng để thay thế bữa ăn nhẹ, hỗ trợ phục hồi cơ bắp hoặc bổ sung năng lượng nhanh.\n\nĐặc điểm chính:\n- Thành phần: Whey protein, sữa, các loại hạt, trái cây khô, ngũ cốc (yến mạch, diêm mạch).\n- Năng lượng: Khoảng 200-300 Kcal mỗi thanh.\n- Nên chọn loại ít đường và ít chất béo bão hòa.\n\nCông dụng:\n- Tăng cơ và phục hồi: Cung cấp đạm nhanh trước/sau tập.\n- Bữa ăn tiện lợi: Phù hợp người bận rộn.\n- Kiểm soát cân nặng: Thay thế đồ ăn vặt ít dinh dưỡng, giúp no lâu.\n\nThời điểm sử dụng tốt nhất:\n- Trước hoặc sau khi tập luyện.\n- Bữa sáng vội vã.\n- Bữa ăn nhẹ giữa buổi (xế chiều) khi đói.",
+  "chunks": [
+    {
+      "chunk_id": "profit_008_c1",
+      "text": "Protein Bar là thực phẩm ăn nhẹ tiện lợi chứa 15-23g protein mỗi thanh, hỗ trợ phục hồi cơ và bổ sung năng lượng nhanh."
+    },
+    {
+      "chunk_id": "profit_008_c2",
+      "text": "Mỗi thanh Protein Bar cung cấp khoảng 200-300 Kcal. Nên chọn loại ít đường và ít chất béo bão hòa."
+    },
+    {
+      "chunk_id": "profit_008_c3",
+      "text": "Protein Bar phù hợp dùng trước hoặc sau tập luyện, ăn sáng vội, hoặc ăn nhẹ giữa buổi khi đói."
+    },
+    {
+      "chunk_id": "profit_008_c4",
+      "text": "Protein Bar giúp kiểm soát cân nặng bằng cách thay thế đồ ăn vặt kém dinh dưỡng và tạo cảm giác no lâu hơn."
+    }
+  ]
+}
