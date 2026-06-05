@@ -189,13 +189,14 @@ const UserManagePage = ({ showToast, navigate }) => {
                 <label style={{ fontSize: 13, color: "var(--gray)", display: "block", marginBottom: 6 }}>Email <span style={{color: "var(--primary)"}}>*</span></label>
                 <input type="email" name="email" value={formData.email} onChange={handleInputChange} required placeholder="example@gmail.com" style={{ width: "100%", padding: "12px 14px", borderRadius: 8, background: "#111", border: "1px solid #333", color: "white", outline: "none" }} />
               </div>
-              <div>
-                <label style={{ fontSize: 13, color: "var(--gray)", display: "block", marginBottom: 6 }}>
-                  Mật khẩu {!isEditMode && <span style={{color: "var(--primary)"}}>*</span>}
-                  {isEditMode && <span style={{fontSize: 11, color: "#666", marginLeft: 8}}>(Bỏ trống nếu không đổi)</span>}
-                </label>
-                <input type="password" name="passwordHash" value={formData.passwordHash} onChange={handleInputChange} required={!isEditMode} placeholder="••••••••" style={{ width: "100%", padding: "12px 14px", borderRadius: 8, background: "#111", border: "1px solid #333", color: "white", outline: "none" }} />
-              </div>
+              {!isEditMode && (
+                <div>
+                  <label style={{ fontSize: 13, color: "var(--gray)", display: "block", marginBottom: 6 }}>
+                    Mật khẩu <span style={{color: "var(--primary)"}}>*</span>
+                  </label>
+                  <input type="password" name="passwordHash" value={formData.passwordHash} onChange={handleInputChange} required placeholder="••••••••" style={{ width: "100%", padding: "12px 14px", borderRadius: 8, background: "#111", border: "1px solid #333", color: "white", outline: "none" }} />
+                </div>
+              )}
               <div>
                 <label style={{ fontSize: 13, color: "var(--gray)", display: "block", marginBottom: 6 }}>Số điện thoại</label>
                 <input type="text" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="0987654321" style={{ width: "100%", padding: "12px 14px", borderRadius: 8, background: "#111", border: "1px solid #333", color: "white", outline: "none" }} />

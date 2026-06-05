@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chat Playground</title>
+    <style>
+      :root { color-scheme: light; }
+      body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+      .wrap { max-width: 980px; margin: 0 auto; padding: 16px; }
+      .top { display: flex; gap: 12px; align-items: end; flex-wrap: wrap; }
+      label { font-size: 12px; color: #334155; display: block; margin-bottom: 6px; }
+      input, textarea, button, select {
+        font: inherit; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 12px;
+      }
+      input, select { height: 40px; }
+      button { background: #0f172a; color: #fff; border: 0; cursor: pointer; height: 40px; padding: 0 14px; }
+      button:disabled { opacity: .55; cursor: not-allowed; }
+      .grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 12px; }
+      .chat { border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; height: 62vh; overflow: auto; background: #fff; }
+      .msg { display: flex; margin: 10px 0; }
+      .me { justify-content: end; }
+      .bubble { max-width: 75ch; padding: 10px 12px; border-radius: 10px; line-height: 1.35; white-space: pre-wrap; }
+      .bubble.me { background: #0ea5e9; color: #fff; }
+      .bubble.bot { background: #f1f5f9; color: #0f172a; }
+      .row { display: flex; gap: 10px; }
+      textarea { flex: 1; min-height: 42px; max-height: 160px; resize: vertical; }
+      .meta { font-size: 12px; color: #475569; margin-top: 8px; display: flex; gap: 12px; flex-wrap: wrap; }
+      .products { border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; background: #fff; }
+      .prod { border-top: 1px solid #e2e8f0; padding-top: 10px; margin-top: 10px; }
+      .prod:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+      .k { color: #64748b; font-size: 12px; margin-right: 8px; }
+      .v { color: #0f172a; font-size: 13px; }
+      .hint { font-size: 12px; color: #64748b; margin-top: 6px; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h2 style="margin: 0 0 12px 0;">Chat Playground</h2>
+
+      <div class="top">
+        <div>
+          <label for="thread">thread_id</label>
+          <input id="thread" value="dev" />
+        </div>
+        <div>
+          <label for="user">user_id</label>
+          <input id="user" value="default" />
+        </div>
+        <div>
+          <label for="mode">Mode</label>
+          <select id="mode">
+            <option value="chat" selected>/chat (RAG + routing + reflection)</option>
+            <option value="stream">/chat/stream (raw stream)</option>
+          </select>
+        </div>
+        <div style="flex: 1;"></div>
+        <button id="clear">Clear</button>
+      </div>
+
+      <div class="grid">
+        <div class="chat" id="chat"></div>
+
+        <div class="row">
+          <textarea id="msg" placeholder="Nhập câu hỏi..."></textarea>
+          <button id="send">Send</button>
+        </div>
+
+        <div>
+          <label for="ctx">user_context (JSON, optional)</label>
+          <textarea id="ctx" placeholder='{"orderCode":"ORD-...","shippingCity":"...","items":[{"productId":5,"quantity":1}]}'></textarea>
+        </div>
+
+        <div class="meta">
+          <div><span class="k">route_id</span><span class="v" id="route">-</span></div>
+          <div><span class="k">products</span><span class="v" id="pcount">0</span></div>
+          <div><span class="k">latency</span><span class="v" id="latency">-</span></div>
+          <div><span class="k">llm_calls</span><span class="v" id="calls">-</span></div>
+        </div>
+
+        <div class="products" id="products" style="display:none;"></div>
+        <div class="hint">Gợi ý: hỏi "whey vị chocolate tầm 1tr5", "bao nhiêu lần dùng", "ship Đà Nẵng mấy ngày".</div>
+      </div>
+    </div>
+
+    <script>
+      const chatEl = document.getElementById("chat");
+      const msgEl = document.getElementById("msg");
+      const sendBtn = document.getElementById("send");
+      const clearBtn = document.getElementById("clear");
+      const routeEl = document.getElementById("route");
+      const pcountEl = document.getElementById("pcount");
+      const latencyEl = document.getElementById("latency");
+      const productsEl = document.getElementById("products");
+      const threadEl = document.getElementById("thread");
+      const userEl = document.getElementById("user");
+      const modeEl = document.getElementById("mode");
+      const callsEl = document.getElementById("calls");
+      const ctxEl = document.getElementById("ctx");
+
+      function addMsg(text, who) {
+        const wrap = document.createElement("div");
+        wrap.className = "msg" + (who === "me" ? " me" : "");
+        const b = document.createElement("div");
+        b.className = "bubble " + (who === "me" ? "me" : "bot");
+        b.textContent = text;
+        wrap.appendChild(b);
+        chatEl.appendChild(wrap);
+        chatEl.scrollTop = chatEl.scrollHeight;
+        return b;
+      }
+
+      function setProducts(products) {
+        pcountEl.textContent = String(products?.length || 0);
+        productsEl.innerHTML = "";
+        if (!products || products.length === 0) {
+          productsEl.style.display = "none";
+          return;
+        }
+        productsEl.style.display = "block";
+        for (const p of products) {
+          const div = document.createElement("div");
+          div.className = "prod";
+          div.innerHTML = `
+            <div><span class="k">Name</span><span class="v"></span></div>
+            <div><span class="k">Price</span><span class="v"></span></div>
+            <div><span class="k">Weight</span><span class="v"></span></div>
+            <div><span class="k">Brand</span><span class="v"></span></div>
+            <div><span class="k">Origin</span><span class="v"></span></div>
+            <div style="margin-top:6px;"><span class="k">Snippet</span><span class="v"></span></div>
+          `;
+          const vals = div.querySelectorAll(".v");
+          vals[0].textContent = p.name || "";
+          vals[1].textContent = p.price_display || "";
+          vals[2].textContent = p.weight_display || "";
+          vals[3].textContent = p.brand || "";
+          vals[4].textContent = p.origin || "";
+          vals[5].textContent = p.snippet || "";
+          productsEl.appendChild(div);
+        }
+      }
+
+      async function send() {
+        const text = msgEl.value.trim();
+        if (!text) return;
+        msgEl.value = "";
+        addMsg(text, "me");
+
+        routeEl.textContent = "-";
+        latencyEl.textContent = "-";
+        callsEl.textContent = "-";
+        setProducts([]);
+
+        sendBtn.disabled = true;
+        const mode = modeEl.value;
+        const thread_id = threadEl.value.trim() || "default";
+        const user_id = userEl.value.trim() || "default";
+        let user_context = null;
+        const rawCtx = (ctxEl.value || "").trim();
+        if (rawCtx) {
+          try {
+            user_context = JSON.parse(rawCtx);
+          } catch (e) {
+            throw new Error("user_context JSON invalid: " + (e?.message || String(e)));
+          }
+        }
+
+        try {
+          if (mode === "stream") {
+            const bubble = addMsg("", "bot");
+            const res = await fetch("/chat/stream", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ message: text, thread_id, user_id, user_context })
+            });
+            const reader = res.body.getReader();
+            const decoder = new TextDecoder();
+            while (true) {
+              const { value, done } = await reader.read();
+              if (done) break;
+              bubble.textContent += decoder.decode(value, { stream: true });
+              chatEl.scrollTop = chatEl.scrollHeight;
+            }
+          } else {
+            const res = await fetch("/chat", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ message: text, thread_id, user_id, user_context })
+            });
+            if (!res.ok) {
+              const errText = await res.text();
+              throw new Error(errText || ("HTTP " + res.status));
+            }
+            const data = await res.json();
+            addMsg(data.answer || "", "bot");
+            routeEl.textContent = data.route_id || "-";
+            latencyEl.textContent = data.latency_ms != null ? (String(data.latency_ms) + "ms") : "-";
+            callsEl.textContent = data.token_usage?.llm_calls != null ? String(data.token_usage.llm_calls) : "-";
+            setProducts(data.products || []);
+          }
+        } catch (e) {
+          addMsg("Error: " + (e?.message || String(e)), "bot");
+        } finally {
+          sendBtn.disabled = false;
+        }
+      }
+
+      sendBtn.addEventListener("click", send);
+      clearBtn.addEventListener("click", () => {
+        chatEl.innerHTML = "";
+        routeEl.textContent = "-";
+        setProducts([]);
+      });
+      msgEl.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) send();
+      });
+    </script>
+  </body>
+</html>

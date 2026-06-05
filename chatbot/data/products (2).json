@@ -1,0 +1,1825 @@
+{
+  "total": 65,
+  "documents": [
+    {
+      "id": "product_1",
+      "content": "Tên sản phẩm: Optimum Nutrition Gold Standard 100% Whey 5lbs. Danh mục: Whey Protein. Mô tả ngắn: 24g Protein tăng cơ, phục hồi hiệu quả cơ bắp. Mô tả đầy đủ: Gold Standard 100% Whey™ là tiêu chuẩn vàng về chất lượng protein với 24g đạm mỗi lần dùng. Thành phần chính là Whey Protein Isolate giúp hấp thụ nhanh sau tập.. Giá bán: 1.650.000 VNĐ. Giá gốc: 1.850.000 VNĐ. Giảm 10.8%. Đánh giá trung bình: 4.8/5 (1240 lượt). SKU: PTS-W01.",
+      "metadata": {
+        "source": "products",
+        "db_id": 1,
+        "sku": "PTS-W01",
+        "slug": "on-gold-standard-100-whey-5lbs",
+        "name": "Optimum Nutrition Gold Standard 100% Whey 5lbs",
+        "short_description": "24g Protein tăng cơ, phục hồi hiệu quả cơ bắp",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1650000.0,
+        "old_price": 1850000.0,
+        "discount_pct": 10.8,
+        "rating_avg": 4.8,
+        "rating_count": 1240,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-1.jpg"
+        ],
+        "primary_image": "/uploads/products/image-1.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_2",
+      "content": "Tên sản phẩm: Rule 1 Protein Isolate 5lbs. Danh mục: Whey Protein. Mô tả ngắn: 100% Pure Whey Isolate & Hydrolyzed siêu hấp thụ. Mô tả đầy đủ: Rule 1 Protein sử dụng 100% whey isolate và hydrolyzed, không có tạp chất. Mỗi serving cung cấp 25g protein tinh sạch với hàm lượng đường gần như bằng 0.. Giá bán: 1.550.000 VNĐ. Giá gốc: 1.750.000 VNĐ. Giảm 11.4%. Đánh giá trung bình: 4.7/5 (890 lượt). SKU: PTS-W02.",
+      "metadata": {
+        "source": "products",
+        "db_id": 2,
+        "sku": "PTS-W02",
+        "slug": "rule-1-protein-isolate-5lbs",
+        "name": "Rule 1 Protein Isolate 5lbs",
+        "short_description": "100% Pure Whey Isolate & Hydrolyzed siêu hấp thụ",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1550000.0,
+        "old_price": 1750000.0,
+        "discount_pct": 11.4,
+        "rating_avg": 4.7,
+        "rating_count": 890,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-2.jpg"
+        ],
+        "primary_image": "/uploads/products/image-2.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_3",
+      "content": "Tên sản phẩm: Dymatize ISO 100 Hydrolyzed 5lbs. Danh mục: Whey Protein. Mô tả ngắn: Whey hydrolyzed cao cấp nhất cho vận động viên chuyên nghiệp. Mô tả đầy đủ: ISO 100 của Dymatize là sản phẩm whey hydrolyzed hàng đầu thế giới. Quá trình thủy phân cắt giảm phân tử đạm xuống mức vi mô giúp hấp thu gần như tức thì sau tập.. Giá bán: 2.250.000 VNĐ. Giá gốc: 2.450.000 VNĐ. Giảm 8.2%. Đánh giá trung bình: 4.9/5 (1560 lượt). SKU: PTS-W03.",
+      "metadata": {
+        "source": "products",
+        "db_id": 3,
+        "sku": "PTS-W03",
+        "slug": "dymatize-iso100-hydrolyzed-5lbs",
+        "name": "Dymatize ISO 100 Hydrolyzed 5lbs",
+        "short_description": "Whey hydrolyzed cao cấp nhất cho vận động viên chuyên nghiệp",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 2250000.0,
+        "old_price": 2450000.0,
+        "discount_pct": 8.2,
+        "rating_avg": 4.9,
+        "rating_count": 1560,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-3.jpg"
+        ],
+        "primary_image": "/uploads/products/image-3.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_4",
+      "content": "Tên sản phẩm: Muscletech NitroTech Whey Gold 5lbs. Danh mục: Whey Protein. Mô tả ngắn: Công thức Whey Peptides cao cấp, hỗ trợ phát triển nạc cơ tối đa. Mô tả đầy đủ: NitroTech Whey Gold bổ sung 2.5g Creatine và 5.5g BCAA trong mỗi serving, giúp tối ưu hóa tổng hợp protein và hồi phục cơ bắp sau tập luyện cường độ cao.. Giá bán: 1.450.000 VNĐ. Giá gốc: 1.650.000 VNĐ. Giảm 12.1%. Đánh giá trung bình: 4.6/5 (720 lượt). SKU: PTS-W04.",
+      "metadata": {
+        "source": "products",
+        "db_id": 4,
+        "sku": "PTS-W04",
+        "slug": "muscletech-nitrotech-whey-gold-5lbs",
+        "name": "Muscletech NitroTech Whey Gold 5lbs",
+        "short_description": "Công thức Whey Peptides cao cấp, hỗ trợ phát triển nạc cơ tối đa",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1450000.0,
+        "old_price": 1650000.0,
+        "discount_pct": 12.1,
+        "rating_avg": 4.6,
+        "rating_count": 720,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-4.jpg"
+        ],
+        "primary_image": "/uploads/products/image-4.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_5",
+      "content": "Tên sản phẩm: Nutrabolics Hydropure 100 Hydrolyzed Whey 4.5lbs. Danh mục: Whey Protein. Mô tả ngắn: 28g Đạm thủy phân cao cấp tinh khiết nhất. Mô tả đầy đủ: Hydropure sử dụng công nghệ lọc lạnh vi mô (CFM) độc quyền kết hợp thủy phân bậc cao, tạo ra nguồn đạm 28g/serving tinh khiết tuyệt đối, gần như 0% lactose.. Giá bán: 2.550.000 VNĐ. Giá gốc: 3.090.000 VNĐ. Giảm 17.5%. Đánh giá trung bình: 4.7/5 (430 lượt). SKU: PTS-W05.",
+      "metadata": {
+        "source": "products",
+        "db_id": 5,
+        "sku": "PTS-W05",
+        "slug": "nutrabolics-hydropure-4-5lbs",
+        "name": "Nutrabolics Hydropure 100 Hydrolyzed Whey 4.5lbs",
+        "short_description": "28g Đạm thủy phân cao cấp tinh khiết nhất",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 2550000.0,
+        "old_price": 3090000.0,
+        "discount_pct": 17.5,
+        "rating_avg": 4.7,
+        "rating_count": 430,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-5.jpg"
+        ],
+        "primary_image": "/uploads/products/image-5.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_6",
+      "content": "Tên sản phẩm: Mutant Iso Surge 5lbs. Danh mục: Whey Protein. Mô tả ngắn: Whey cô lập cao cấp với hệ thống hương vị thơm ngon xuất sắc. Mô tả đầy đủ: Mutant Iso Surge cung cấp 25g whey isolate tinh khiết mỗi serving với hương vị phong phú, không gây đầy bụng hay khó tiêu. Phù hợp cả người mới lẫn gymer lâu năm.. Giá bán: 1.750.000 VNĐ. Giá gốc: 1.950.000 VNĐ. Giảm 10.3%. Đánh giá trung bình: 4.5/5 (380 lượt). SKU: PTS-W06.",
+      "metadata": {
+        "source": "products",
+        "db_id": 6,
+        "sku": "PTS-W06",
+        "slug": "mutant-iso-surge-5lbs",
+        "name": "Mutant Iso Surge 5lbs",
+        "short_description": "Whey cô lập cao cấp với hệ thống hương vị thơm ngon xuất sắc",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1750000.0,
+        "old_price": 1950000.0,
+        "discount_pct": 10.3,
+        "rating_avg": 4.5,
+        "rating_count": 380,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-6.jpg"
+        ],
+        "primary_image": "/uploads/products/image-6.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_7",
+      "content": "Tên sản phẩm: Allmax Isoflex Whey Isolate 5lbs. Danh mục: Whey Protein. Mô tả ngắn: Công nghệ lọc lạnh CFM độc quyền tạo ra nguồn đạm siêu sạch. Mô tả đầy đủ: Isoflex dùng công nghệ lọc trạng thái rắn độc quyền (SSF) loại bỏ hoàn toàn lactose, fat, và tạp chất. Kết quả: 27g protein tinh khiết 99% mỗi serving.. Giá bán: 1.950.000 VNĐ. Giá gốc: 2.150.000 VNĐ. Giảm 9.3%. Đánh giá trung bình: 4.6/5 (510 lượt). SKU: PTS-W07.",
+      "metadata": {
+        "source": "products",
+        "db_id": 7,
+        "sku": "PTS-W07",
+        "slug": "allmax-isoflex-5lbs",
+        "name": "Allmax Isoflex Whey Isolate 5lbs",
+        "short_description": "Công nghệ lọc lạnh CFM độc quyền tạo ra nguồn đạm siêu sạch",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1950000.0,
+        "old_price": 2150000.0,
+        "discount_pct": 9.3,
+        "rating_avg": 4.6,
+        "rating_count": 510,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-7.jpg"
+        ],
+        "primary_image": "/uploads/products/image-7.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_8",
+      "content": "Tên sản phẩm: MyProtein Impact Whey Isolate 1kg. Danh mục: Whey Protein. Mô tả ngắn: Tỷ lệ protein tinh sạch cao đạt 90%, không trans-fat. Mô tả đầy đủ: Impact Whey Isolate của MyProtein đạt tỷ lệ protein 90%, cực kỳ ít carbs và fat. Sản xuất tại Anh theo chuẩn GMP, có rất nhiều hương vị đa dạng.. Giá bán: 850.000 VNĐ. Giá gốc: 990.000 VNĐ. Giảm 14.1%. Đánh giá trung bình: 4.4/5 (2100 lượt). SKU: PTS-W08.",
+      "metadata": {
+        "source": "products",
+        "db_id": 8,
+        "sku": "PTS-W08",
+        "slug": "myprotein-impact-whey-isolate-1kg",
+        "name": "MyProtein Impact Whey Isolate 1kg",
+        "short_description": "Tỷ lệ protein tinh sạch cao đạt 90%, không trans-fat",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 850000.0,
+        "old_price": 990000.0,
+        "discount_pct": 14.1,
+        "rating_avg": 4.4,
+        "rating_count": 2100,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-8.jpg"
+        ],
+        "primary_image": "/uploads/products/image-8.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_9",
+      "content": "Tên sản phẩm: VPX VP2 Whey Isolate 2lbs. Danh mục: Whey Protein. Mô tả ngắn: Nghiên cứu khoa học cô lập vi mô phát triển sợi cơ nhanh. Mô tả đầy đủ: VP2 Whey Isolate của VPX được phát triển dựa trên nghiên cứu khoa học về cô lập protein vi mô, cung cấp 22g đạm tinh khiết và các chuỗi peptide sinh học tối ưu.. Giá bán: 920.000 VNĐ. Giá gốc: 1.050.000 VNĐ. Giảm 12.4%. Đánh giá trung bình: 4.3/5 (290 lượt). SKU: PTS-W09.",
+      "metadata": {
+        "source": "products",
+        "db_id": 9,
+        "sku": "PTS-W09",
+        "slug": "vpx-vp2-whey-isolate-2lbs",
+        "name": "VPX VP2 Whey Isolate 2lbs",
+        "short_description": "Nghiên cứu khoa học cô lập vi mô phát triển sợi cơ nhanh",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 920000.0,
+        "old_price": 1050000.0,
+        "discount_pct": 12.4,
+        "rating_avg": 4.3,
+        "rating_count": 290,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-9.jpg"
+        ],
+        "primary_image": "/uploads/products/image-9.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_10",
+      "content": "Tên sản phẩm: BPI Sports ISO HD 5lbs. Danh mục: Whey Protein. Mô tả ngắn: Cung cấp hàm lượng axit amin thiết yếu EAA dồi dào. Mô tả đầy đủ: ISO HD cung cấp 25g whey isolate mỗi serving cùng profile EAA đầy đủ. Công thức ít carb phù hợp cho người đang trong giai đoạn siết nạc.. Giá bán: 1.390.000 VNĐ. Giá gốc: 1.550.000 VNĐ. Giảm 10.3%. Đánh giá trung bình: 4.4/5 (450 lượt). SKU: PTS-W10.",
+      "metadata": {
+        "source": "products",
+        "db_id": 10,
+        "sku": "PTS-W10",
+        "slug": "bpi-sports-iso-hd-5lbs",
+        "name": "BPI Sports ISO HD 5lbs",
+        "short_description": "Cung cấp hàm lượng axit amin thiết yếu EAA dồi dào",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1390000.0,
+        "old_price": 1550000.0,
+        "discount_pct": 10.3,
+        "rating_avg": 4.4,
+        "rating_count": 450,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-10.jpg"
+        ],
+        "primary_image": "/uploads/products/image-10.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_11",
+      "content": "Tên sản phẩm: MusclePharm Combat 100% Whey 5lbs. Danh mục: Whey Protein. Mô tả ngắn: Hỗn hợp đạm hấp thu đa tầng giải phóng liên tục bảo vệ cơ bắp. Mô tả đầy đủ: Combat 100% Whey kết hợp whey concentrate, isolate và hydrolyzed giải phóng đạm liên tục 4-6 giờ. Bổ sung enzyme tiêu hóa hỗ trợ hấp thu tối đa.. Giá bán: 1.420.000 VNĐ. Giá gốc: 1.620.000 VNĐ. Giảm 12.3%. Đánh giá trung bình: 4.5/5 (680 lượt). SKU: PTS-W11.",
+      "metadata": {
+        "source": "products",
+        "db_id": 11,
+        "sku": "PTS-W11",
+        "slug": "musclepharm-combat-whey-5lbs",
+        "name": "MusclePharm Combat 100% Whey 5lbs",
+        "short_description": "Hỗn hợp đạm hấp thu đa tầng giải phóng liên tục bảo vệ cơ bắp",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1420000.0,
+        "old_price": 1620000.0,
+        "discount_pct": 12.3,
+        "rating_avg": 4.5,
+        "rating_count": 680,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-11.jpg"
+        ],
+        "primary_image": "/uploads/products/image-11.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_12",
+      "content": "Tên sản phẩm: JYM Supplement Science Pro-JYM 4lbs. Danh mục: Whey Protein. Mô tả ngắn: Tỷ lệ đạm vàng kết hợp giữa Whey, Casein và trứng. Mô tả đầy đủ: Pro-JYM do Dr. Jim Stoppani thiết kế với tỷ lệ vàng 4:1:1 giữa Whey Isolate, Micellar Casein và Egg White Protein. Cung cấp đạm đa tầng tối ưu suốt cả ngày.. Giá bán: 1.590.000 VNĐ. Giá gốc: 1.790.000 VNĐ. Giảm 11.2%. Đánh giá trung bình: 4.6/5 (320 lượt). SKU: PTS-W12.",
+      "metadata": {
+        "source": "products",
+        "db_id": 12,
+        "sku": "PTS-W12",
+        "slug": "jym-pro-jym-protein-4lbs",
+        "name": "JYM Supplement Science Pro-JYM 4lbs",
+        "short_description": "Tỷ lệ đạm vàng kết hợp giữa Whey, Casein và trứng",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1590000.0,
+        "old_price": 1790000.0,
+        "discount_pct": 11.2,
+        "rating_avg": 4.6,
+        "rating_count": 320,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-12.jpg"
+        ],
+        "primary_image": "/uploads/products/image-12.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_13",
+      "content": "Tên sản phẩm: BSN Syntha-6 Protein 5lbs. Danh mục: Whey Protein. Mô tả ngắn: Bữa ăn giàu đạm thay thế tối ưu nuôi dưỡng cơ bắp ban đêm. Mô tả đầy đủ: Syntha-6 là matrix protein đa tầng với 6 loại đạm bổ sung nhau: Whey Concentrate, Isolate, Casein, Calcium Caseinate, Egg Albumin, và Glutamine Peptides.. Giá bán: 1.350.000 VNĐ. Giá gốc: 1.550.000 VNĐ. Giảm 12.9%. Đánh giá trung bình: 4.5/5 (890 lượt). SKU: PTS-W13.",
+      "metadata": {
+        "source": "products",
+        "db_id": 13,
+        "sku": "PTS-W13",
+        "slug": "bsn-syntha-6-protein-5lbs",
+        "name": "BSN Syntha-6 Protein 5lbs",
+        "short_description": "Bữa ăn giàu đạm thay thế tối ưu nuôi dưỡng cơ bắp ban đêm",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1350000.0,
+        "old_price": 1550000.0,
+        "discount_pct": 12.9,
+        "rating_avg": 4.5,
+        "rating_count": 890,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-13.jpg"
+        ],
+        "primary_image": "/uploads/products/image-13.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_14",
+      "content": "Tên sản phẩm: Xendurance Myotein Premium 4lbs. Danh mục: Whey Protein. Mô tả ngắn: Nguồn cung cấp chuỗi peptide sinh học hồi phục cơ chuyên sâu. Mô tả đầy đủ: Myotein kết hợp whey isolate và concentrate với phức hợp enzyme DigeZyme® giúp phân giải và hấp thụ protein nhanh hơn 30% so với whey thông thường.. Giá bán: 1.850.000 VNĐ. Giá gốc: 2.050.000 VNĐ. Giảm 9.8%. Đánh giá trung bình: 4.4/5 (210 lượt). SKU: PTS-W14.",
+      "metadata": {
+        "source": "products",
+        "db_id": 14,
+        "sku": "PTS-W14",
+        "slug": "myotein-premium-protein-4lbs",
+        "name": "Xendurance Myotein Premium 4lbs",
+        "short_description": "Nguồn cung cấp chuỗi peptide sinh học hồi phục cơ chuyên sâu",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1850000.0,
+        "old_price": 2050000.0,
+        "discount_pct": 9.8,
+        "rating_avg": 4.4,
+        "rating_count": 210,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-14.jpg"
+        ],
+        "primary_image": "/uploads/products/image-14.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_15",
+      "content": "Tên sản phẩm: Dymatize Elite 100% Whey 5lbs. Danh mục: Whey Protein. Mô tả ngắn: Nguồn Whey 100% Concentrate kết hợp Isolate giá tiết kiệm. Mô tả đầy đủ: Elite 100% Whey mang đến 25g protein/serving với hương vị thơm ngon và giá thành tiết kiệm. Chứng nhận Informed-Choice đảm bảo không chất cấm.. Giá bán: 1.490.000 VNĐ. Giá gốc: 1.690.000 VNĐ. Giảm 11.8%. Đánh giá trung bình: 4.5/5 (750 lượt). SKU: PTS-W15.",
+      "metadata": {
+        "source": "products",
+        "db_id": 15,
+        "sku": "PTS-W15",
+        "slug": "dymatize-elite-100-whey-5lbs",
+        "name": "Dymatize Elite 100% Whey 5lbs",
+        "short_description": "Nguồn Whey 100% Concentrate kết hợp Isolate giá tiết kiệm",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1490000.0,
+        "old_price": 1690000.0,
+        "discount_pct": 11.8,
+        "rating_avg": 4.5,
+        "rating_count": 750,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-15.jpg"
+        ],
+        "primary_image": "/uploads/products/image-15.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_16",
+      "content": "Tên sản phẩm: Whey Labs 100% Isolate 5lbs. Danh mục: Whey Protein. Mô tả ngắn: Dòng đạm tinh sạch cao cấp đạt chuẩn kiểm định an toàn từ Úc. Mô tả đầy đủ: Whey Labs 100% Isolate sử dụng nguồn sữa bò từ trang trại Úc không hormon tăng trưởng. Quy trình lọc lạnh CFM cho ra 26g protein/serving cực tinh khiết.. Giá bán: 1.250.000 VNĐ. Giá gốc: 1.450.000 VNĐ. Giảm 13.8%. Đánh giá trung bình: 4.3/5 (180 lượt). SKU: PTS-W16.",
+      "metadata": {
+        "source": "products",
+        "db_id": 16,
+        "sku": "PTS-W16",
+        "slug": "whey-labs-100-isolate-5lbs",
+        "name": "Whey Labs 100% Isolate 5lbs",
+        "short_description": "Dòng đạm tinh sạch cao cấp đạt chuẩn kiểm định an toàn từ Úc",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1250000.0,
+        "old_price": 1450000.0,
+        "discount_pct": 13.8,
+        "rating_avg": 4.3,
+        "rating_count": 180,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-16.jpg"
+        ],
+        "primary_image": "/uploads/products/image-16.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_17",
+      "content": "Tên sản phẩm: AllMax Nutrition AllWhey Gold 5lbs. Danh mục: Whey Protein. Mô tả ngắn: Sự kết hợp đạm cô lập kinh tế, không gây đầy hơi khó tiêu. Mô tả đầy đủ: AllWhey Gold pha trộn whey isolate và concentrate theo tỷ lệ tối ưu, bổ sung enzyme Aminogen® giúp tiêu hóa triệt để. Không gây đầy bụng, phù hợp mọi cơ địa.. Giá bán: 1.350.000 VNĐ. Giá gốc: 1.550.000 VNĐ. Giảm 12.9%. Đánh giá trung bình: 4.4/5 (390 lượt). SKU: PTS-W17.",
+      "metadata": {
+        "source": "products",
+        "db_id": 17,
+        "sku": "PTS-W17",
+        "slug": "allmax-allwhey-gold-5lbs",
+        "name": "AllMax Nutrition AllWhey Gold 5lbs",
+        "short_description": "Sự kết hợp đạm cô lập kinh tế, không gây đầy hơi khó tiêu",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1350000.0,
+        "old_price": 1550000.0,
+        "discount_pct": 12.9,
+        "rating_avg": 4.4,
+        "rating_count": 390,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-17.jpg"
+        ],
+        "primary_image": "/uploads/products/image-17.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_18",
+      "content": "Tên sản phẩm: PVL ISO Gold Premium Isolate 5lbs. Danh mục: Whey Protein. Mô tả ngắn: Bổ sung lợi khuẩn Probiotics cải thiện khả năng đồng hóa chất đạm. Mô tả đầy đủ: ISO Gold của PVL kết hợp 25g whey isolate với 1 tỷ CFU probiotic L. acidophilus giúp cải thiện vi hệ đường ruột, tăng hấp thu protein và tăng cường hệ miễn dịch.. Giá bán: 1.690.000 VNĐ. Giá gốc: 1.890.000 VNĐ. Giảm 10.6%. Đánh giá trung bình: 4.5/5 (260 lượt). SKU: PTS-W18.",
+      "metadata": {
+        "source": "products",
+        "db_id": 18,
+        "sku": "PTS-W18",
+        "slug": "pvl-iso-gold-premium-5lbs",
+        "name": "PVL ISO Gold Premium Isolate 5lbs",
+        "short_description": "Bổ sung lợi khuẩn Probiotics cải thiện khả năng đồng hóa chất đạm",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1690000.0,
+        "old_price": 1890000.0,
+        "discount_pct": 10.6,
+        "rating_avg": 4.5,
+        "rating_count": 260,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-18.jpg"
+        ],
+        "primary_image": "/uploads/products/image-18.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_19",
+      "content": "Tên sản phẩm: Scitec Nutrition 100% Whey Professional 5lbs. Danh mục: Whey Protein. Mô tả ngắn: Bổ sung enzyme tiêu hóa chuyên biệt, hấp thụ hoàn toàn đạm. Mô tả đầy đủ: Sản phẩm whey protein nổi tiếng từ Châu Âu với formula chứa cả Whey Concentrate và Isolate, bổ sung AmbroZyme enzyme digest. Hơn 60 hương vị đa dạng.. Giá bán: 1.490.000 VNĐ. Giá gốc: 1.690.000 VNĐ. Giảm 11.8%. Đánh giá trung bình: 4.5/5 (620 lượt). SKU: PTS-W19.",
+      "metadata": {
+        "source": "products",
+        "db_id": 19,
+        "sku": "PTS-W19",
+        "slug": "scitec-whey-professional-5lbs",
+        "name": "Scitec Nutrition 100% Whey Professional 5lbs",
+        "short_description": "Bổ sung enzyme tiêu hóa chuyên biệt, hấp thụ hoàn toàn đạm",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1490000.0,
+        "old_price": 1690000.0,
+        "discount_pct": 11.8,
+        "rating_avg": 4.5,
+        "rating_count": 620,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-19.jpg"
+        ],
+        "primary_image": "/uploads/products/image-19.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_20",
+      "content": "Tên sản phẩm: BiotechUSA Iso Whey Zero 5lbs. Danh mục: Whey Protein. Mô tả ngắn: Dòng sản phẩm whey cô lập hoàn toàn không Lactose. Mô tả đầy đủ: Iso Whey Zero của BiotechUSA là lựa chọn hoàn hảo cho người không dung nạp Lactose. 100% Whey Isolate không lactose, không gluten, 23g protein tinh khiết mỗi serving.. Giá bán: 1.950.000 VNĐ. Giá gốc: 2.150.000 VNĐ. Giảm 9.3%. Đánh giá trung bình: 4.6/5 (480 lượt). SKU: PTS-W20.",
+      "metadata": {
+        "source": "products",
+        "db_id": 20,
+        "sku": "PTS-W20",
+        "slug": "biotechusa-iso-whey-zero-5lbs",
+        "name": "BiotechUSA Iso Whey Zero 5lbs",
+        "short_description": "Dòng sản phẩm whey cô lập hoàn toàn không Lactose",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 1950000.0,
+        "old_price": 2150000.0,
+        "discount_pct": 9.3,
+        "rating_avg": 4.6,
+        "rating_count": 480,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-20.jpg"
+        ],
+        "primary_image": "/uploads/products/image-20.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_21",
+      "content": "Tên sản phẩm: Amix Gold Isolate Whey Protein 5lbs. Danh mục: Whey Protein. Mô tả ngắn: 100% Whey Isolate dây chuyền lọc lạnh vi mô tinh sạch Châu Âu. Mô tả đầy đủ: Amix Gold Isolate sản xuất tại CH Séc trên dây chuyền CFM lọc lạnh thế hệ mới nhất, đạt 27g protein/serving và được kiểm định Informed Sport toàn cầu.. Giá bán: 2.200.000 VNĐ. Giá gốc: 2.500.000 VNĐ. Giảm 12.0%. Đánh giá trung bình: 4.7/5 (190 lượt). SKU: PTS-W21.",
+      "metadata": {
+        "source": "products",
+        "db_id": 21,
+        "sku": "PTS-W21",
+        "slug": "amix-gold-isolate-5lbs",
+        "name": "Amix Gold Isolate Whey Protein 5lbs",
+        "short_description": "100% Whey Isolate dây chuyền lọc lạnh vi mô tinh sạch Châu Âu",
+        "category_id": 1,
+        "category_name": "Whey Protein",
+        "category_slug": "whey-protein",
+        "price": 2200000.0,
+        "old_price": 2500000.0,
+        "discount_pct": 12.0,
+        "rating_avg": 4.7,
+        "rating_count": 190,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-21.jpg"
+        ],
+        "primary_image": "/uploads/products/image-21.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_22",
+      "content": "Tên sản phẩm: Labrada Lean Body Meal Replacement 4.6lbs. Danh mục: Pre-Workout. Mô tả ngắn: Bữa ăn thay thế hoàn chỉnh tỷ lệ vàng 40g đạm, tinh bột phức hợp. Mô tả đầy đủ: Lean Body cung cấp 40g protein, 27 vitamin & khoáng chất, chất xơ và tinh bột phức hợp hấp thụ chậm. Thay thế hoàn hảo cho bữa ăn khi bận rộn.. Giá bán: 1.650.000 VNĐ. Giá gốc: 1.850.000 VNĐ. Giảm 10.8%. Đánh giá trung bình: 4.6/5 (340 lượt). SKU: PTS-M01.",
+      "metadata": {
+        "source": "products",
+        "db_id": 22,
+        "sku": "PTS-M01",
+        "slug": "labrada-lean-body-meal-4-6lbs",
+        "name": "Labrada Lean Body Meal Replacement 4.6lbs",
+        "short_description": "Bữa ăn thay thế hoàn chỉnh tỷ lệ vàng 40g đạm, tinh bột phức hợp",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 1650000.0,
+        "old_price": 1850000.0,
+        "discount_pct": 10.8,
+        "rating_avg": 4.6,
+        "rating_count": 340,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-22.jpg"
+        ],
+        "primary_image": "/uploads/products/image-22.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_23",
+      "content": "Tên sản phẩm: Cellucor C4 Original Pre-Workout 30 servings. Danh mục: Pre-Workout. Mô tả ngắn: Bổ sung năng lượng bùng nổ tỉnh táo tuyệt đối trước tập. Mô tả đầy đủ: C4 Original là pre-workout bán chạy nhất thế giới với công thức Beta-Alanine + Creatine Nitrate + Caffeine 150mg cho năng lượng tức thì và pump cơ mạnh mẽ.. Giá bán: 650.000 VNĐ. Giá gốc: 750.000 VNĐ. Giảm 13.3%. Đánh giá trung bình: 4.5/5 (2800 lượt). SKU: PTS-M02.",
+      "metadata": {
+        "source": "products",
+        "db_id": 23,
+        "sku": "PTS-M02",
+        "slug": "cellucor-c4-original-preworkout-30serv",
+        "name": "Cellucor C4 Original Pre-Workout 30 servings",
+        "short_description": "Bổ sung năng lượng bùng nổ tỉnh táo tuyệt đối trước tập",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 650000.0,
+        "old_price": 750000.0,
+        "discount_pct": 13.3,
+        "rating_avg": 4.5,
+        "rating_count": 2800,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-23.jpg"
+        ],
+        "primary_image": "/uploads/products/image-23.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_24",
+      "content": "Tên sản phẩm: Nutrex Outlift Clinical Pre-Workout 20 servings. Danh mục: Pre-Workout. Mô tả ngắn: Công thức kích sức mạnh liều lượng lâm sàng cực đại. Mô tả đầy đủ: Outlift là pre-workout liều lâm sàng với Citrulline 8g, Beta-Alanine 3.2g, Creatine 3g và Caffeine 350mg. Không ma trận ẩn – toàn bộ thành phần công bố minh bạch.. Giá bán: 850.000 VNĐ. Giá gốc: 990.000 VNĐ. Giảm 14.1%. Đánh giá trung bình: 4.6/5 (420 lượt). SKU: PTS-M03.",
+      "metadata": {
+        "source": "products",
+        "db_id": 24,
+        "sku": "PTS-M03",
+        "slug": "nutrex-outlift-clinical-20serv",
+        "name": "Nutrex Outlift Clinical Pre-Workout 20 servings",
+        "short_description": "Công thức kích sức mạnh liều lượng lâm sàng cực đại",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 850000.0,
+        "old_price": 990000.0,
+        "discount_pct": 14.1,
+        "rating_avg": 4.6,
+        "rating_count": 420,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-24.jpg"
+        ],
+        "primary_image": "/uploads/products/image-24.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_25",
+      "content": "Tên sản phẩm: JNX Sports The Curse Pre-Workout 50 servings. Danh mục: Pre-Workout. Mô tả ngắn: Kích hoạt tập trung cao độ, đánh tan mệt mỏi thể hình. Mô tả đầy đủ: The Curse cung cấp Caffeine 200mg, Citrulline Malate 3g và Beta-Alanine 1.5g với 50 servings tiết kiệm. Hương vị trái cây sảng khoái không bị đắng.. Giá bán: 690.000 VNĐ. Giá gốc: 790.000 VNĐ. Giảm 12.7%. Đánh giá trung bình: 4.4/5 (610 lượt). SKU: PTS-M04.",
+      "metadata": {
+        "source": "products",
+        "db_id": 25,
+        "sku": "PTS-M04",
+        "slug": "jnx-sports-the-curse-50serv",
+        "name": "JNX Sports The Curse Pre-Workout 50 servings",
+        "short_description": "Kích hoạt tập trung cao độ, đánh tan mệt mỏi thể hình",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 690000.0,
+        "old_price": 790000.0,
+        "discount_pct": 12.7,
+        "rating_avg": 4.4,
+        "rating_count": 610,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-25.jpg"
+        ],
+        "primary_image": "/uploads/products/image-25.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_26",
+      "content": "Tên sản phẩm: Psychotic High Stimulant Pre-Workout 35 serv. Danh mục: Pre-Workout. Mô tả ngắn: Thức uống năng lượng siêu mạnh mẽ cho người tập tạ nặng lâu năm. Mô tả đầy đủ: Psychotic chứa DMAE Bitartrate và Caffeine Anhydrous liều cao tạo focus cực mạnh. Chỉ nên dùng cho người có kinh nghiệm tập luyện và khả năng chịu kích thích tốt.. Giá bán: 680.000 VNĐ. Giá gốc: 780.000 VNĐ. Giảm 12.8%. Đánh giá trung bình: 4.3/5 (550 lượt). SKU: PTS-M05.",
+      "metadata": {
+        "source": "products",
+        "db_id": 26,
+        "sku": "PTS-M05",
+        "slug": "insane-labz-psychotic-pre-35serv",
+        "name": "Psychotic High Stimulant Pre-Workout 35 serv",
+        "short_description": "Thức uống năng lượng siêu mạnh mẽ cho người tập tạ nặng lâu năm",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 680000.0,
+        "old_price": 780000.0,
+        "discount_pct": 12.8,
+        "rating_avg": 4.3,
+        "rating_count": 550,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-26.jpg"
+        ],
+        "primary_image": "/uploads/products/image-26.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_27",
+      "content": "Tên sản phẩm: Redcon1 Total War Pre-Workout 30 servings. Danh mục: Pre-Workout. Mô tả ngắn: Kết hợp hoàn hảo giữa năng lượng tỉnh táo và pump phồng sợi cơ. Mô tả đầy đủ: Total War là pre-workout 2-trong-1: năng lượng mạnh từ Caffeine 250mg + DMHA và pump cực độ từ Citrulline Malate 6g + AgmaMax 1g. Ưa thích của giới bodybuilding.. Giá bán: 790.000 VNĐ. Giá gốc: 890.000 VNĐ. Giảm 11.2%. Đánh giá trung bình: 4.5/5 (730 lượt). SKU: PTS-M06.",
+      "metadata": {
+        "source": "products",
+        "db_id": 27,
+        "sku": "PTS-M06",
+        "slug": "redcon1-total-war-30serv",
+        "name": "Redcon1 Total War Pre-Workout 30 servings",
+        "short_description": "Kết hợp hoàn hảo giữa năng lượng tỉnh táo và pump phồng sợi cơ",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 790000.0,
+        "old_price": 890000.0,
+        "discount_pct": 11.2,
+        "rating_avg": 4.5,
+        "rating_count": 730,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-27.jpg"
+        ],
+        "primary_image": "/uploads/products/image-27.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_28",
+      "content": "Tên sản phẩm: Applied Nutrition ABE Pre-Workout 30 serv. Danh mục: Pre-Workout. Mô tả ngắn: Sản phẩm kích năng lượng tập luyện bán chạy nhất vương quốc Anh. Mô tả đầy đủ: ABE (All Black Everything) chứa Caffeine 200mg, 3.2g Beta-Alanine và 150mg KSM-66 Ashwagandha. Đây là pre-workout số 1 tại UK với hơn 20 hương vị độc đáo.. Giá bán: 720.000 VNĐ. Giá gốc: 820.000 VNĐ. Giảm 12.2%. Đánh giá trung bình: 4.5/5 (890 lượt). SKU: PTS-M07.",
+      "metadata": {
+        "source": "products",
+        "db_id": 28,
+        "sku": "PTS-M07",
+        "slug": "applied-nutrition-abe-pre-30serv",
+        "name": "Applied Nutrition ABE Pre-Workout 30 serv",
+        "short_description": "Sản phẩm kích năng lượng tập luyện bán chạy nhất vương quốc Anh",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 720000.0,
+        "old_price": 820000.0,
+        "discount_pct": 12.2,
+        "rating_avg": 4.5,
+        "rating_count": 890,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-28.jpg"
+        ],
+        "primary_image": "/uploads/products/image-28.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_29",
+      "content": "Tên sản phẩm: Ghost Legend Pre-Workout 30 servings. Danh mục: Pre-Workout. Mô tả ngắn: Gia tăng hiệu suất cơ bắp bền bỉ, thành phần minh bạch 100%. Mô tả đầy đủ: Ghost Legend tự hào với công thức Transparent Label hoàn toàn, không prop blend. Citrulline 4g, Beta-Alanine 3.2g, Alpha-GPC 150mg và Caffeine 200mg.. Giá bán: 950.000 VNĐ. Giá gốc: 1.100.000 VNĐ. Giảm 13.6%. Đánh giá trung bình: 4.7/5 (1100 lượt). SKU: PTS-M08.",
+      "metadata": {
+        "source": "products",
+        "db_id": 29,
+        "sku": "PTS-M08",
+        "slug": "ghost-legend-preworkout-30serv",
+        "name": "Ghost Legend Pre-Workout 30 servings",
+        "short_description": "Gia tăng hiệu suất cơ bắp bền bỉ, thành phần minh bạch 100%",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 950000.0,
+        "old_price": 1100000.0,
+        "discount_pct": 13.6,
+        "rating_avg": 4.7,
+        "rating_count": 1100,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-29.jpg"
+        ],
+        "primary_image": "/uploads/products/image-29.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_30",
+      "content": "Tên sản phẩm: Vapor X5 Next Gen Muscletech 30 servings. Danh mục: Pre-Workout. Mô tả ngắn: Công thức khoa học 5 trong 1 thúc đẩy năng lượng tập trung tối đa. Mô tả đầy đủ: Vapor X5 là hệ thống pre-workout 5-trong-1: Sensory Complex, Muscle Amplifier, Performance Booster, Pump Activator và Energy Accelerator trong một scoop.. Giá bán: 650.000 VNĐ. Giá gốc: 750.000 VNĐ. Giảm 13.3%. Đánh giá trung bình: 4.4/5 (480 lượt). SKU: PTS-M09.",
+      "metadata": {
+        "source": "products",
+        "db_id": 30,
+        "sku": "PTS-M09",
+        "slug": "muscletech-vapor-x5-nextgen-30serv",
+        "name": "Vapor X5 Next Gen Muscletech 30 servings",
+        "short_description": "Công thức khoa học 5 trong 1 thúc đẩy năng lượng tập trung tối đa",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 650000.0,
+        "old_price": 750000.0,
+        "discount_pct": 13.3,
+        "rating_avg": 4.4,
+        "rating_count": 480,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-30.jpg"
+        ],
+        "primary_image": "/uploads/products/image-30.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_31",
+      "content": "Tên sản phẩm: Mr. Hyde NitroX Pre-Workout 30 servings. Danh mục: Pre-Workout. Mô tả ngắn: Năng lượng bùng nổ mãnh liệt phối hợp bơm phồng cơ sợi bắp. Mô tả đầy đủ: Mr. Hyde NitroX cung cấp Caffeine Matrix 400mg 3 lớp (Anhydrous + Di-Caffeine Malate + Caffeine Citrate) cho năng lượng bền bỉ 3-4 giờ không bị crash.. Giá bán: 690.000 VNĐ. Giá gốc: 790.000 VNĐ. Giảm 12.7%. Đánh giá trung bình: 4.4/5 (390 lượt). SKU: PTS-M10.",
+      "metadata": {
+        "source": "products",
+        "db_id": 31,
+        "sku": "PTS-M10",
+        "slug": "prosupps-mr-hyde-nitrox-30serv",
+        "name": "Mr. Hyde NitroX Pre-Workout 30 servings",
+        "short_description": "Năng lượng bùng nổ mãnh liệt phối hợp bơm phồng cơ sợi bắp",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 690000.0,
+        "old_price": 790000.0,
+        "discount_pct": 12.7,
+        "rating_avg": 4.4,
+        "rating_count": 390,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-31.jpg"
+        ],
+        "primary_image": "/uploads/products/image-31.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_32",
+      "content": "Tên sản phẩm: Pre-JYM High Performance 30 servings. Danh mục: Pre-Workout. Mô tả ngắn: Công thức thiết kế hoàn hảo minh bạch bởi Dr. Jim Stoppani. Mô tả đầy đủ: Pre-JYM là pre-workout đầu tiên đưa ra nguyên tắc full-disclosure label với 13 thành phần ở liều lâm sàng. Không prop blend, không chất độn. Khoa học và hiệu quả.. Giá bán: 1.100.000 VNĐ. Giá gốc: 1.250.000 VNĐ. Giảm 12.0%. Đánh giá trung bình: 4.7/5 (580 lượt). SKU: PTS-M11.",
+      "metadata": {
+        "source": "products",
+        "db_id": 32,
+        "sku": "PTS-M11",
+        "slug": "jym-pre-jym-high-performance-30serv",
+        "name": "Pre-JYM High Performance 30 servings",
+        "short_description": "Công thức thiết kế hoàn hảo minh bạch bởi Dr. Jim Stoppani",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 1100000.0,
+        "old_price": 1250000.0,
+        "discount_pct": 12.0,
+        "rating_avg": 4.7,
+        "rating_count": 580,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-32.jpg"
+        ],
+        "primary_image": "/uploads/products/image-32.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_33",
+      "content": "Tên sản phẩm: Kill It Pre-Workout Rich Piana 30 servings. Danh mục: Pre-Workout. Mô tả ngắn: Thúc đẩy sức bền thể lực tối ưu theo phong cách chiến binh. Mô tả đầy đủ: Kill It là triết lý chỉ cho 5% những ai thực sự chiến – pre-workout với Citrulline Malate, Beta-Alanine, Agmatine và Caffeine thiết kế cho buổi tập khắc nghiệt nhất.. Giá bán: 820.000 VNĐ. Giá gốc: 950.000 VNĐ. Giảm 13.7%. Đánh giá trung bình: 4.4/5 (430 lượt). SKU: PTS-M12.",
+      "metadata": {
+        "source": "products",
+        "db_id": 33,
+        "sku": "PTS-M12",
+        "slug": "5-nutrition-kill-it-30serv",
+        "name": "Kill It Pre-Workout Rich Piana 30 servings",
+        "short_description": "Thúc đẩy sức bền thể lực tối ưu theo phong cách chiến binh",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 820000.0,
+        "old_price": 950000.0,
+        "discount_pct": 13.7,
+        "rating_avg": 4.4,
+        "rating_count": 430,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-33.jpg"
+        ],
+        "primary_image": "/uploads/products/image-33.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_34",
+      "content": "Tên sản phẩm: SuperPump Max Gaspari 30 servings. Danh mục: Pre-Workout. Mô tả ngắn: Cung cấp năng lượng điện giải dồi dào, chống khô mỏi mệt cơ. Mô tả đầy đủ: SuperPump Max từ Gaspari Nutrition chứa L-Citrulline Silicate và hệ điện giải Sustamine® giúp duy trì hiệu suất và chống mệt mỏi suốt buổi tập.. Giá bán: 780.000 VNĐ. Giá gốc: 890.000 VNĐ. Giảm 12.4%. Đánh giá trung bình: 4.3/5 (320 lượt). SKU: PTS-M13.",
+      "metadata": {
+        "source": "products",
+        "db_id": 34,
+        "sku": "PTS-M13",
+        "slug": "gaspari-superpump-max-30serv",
+        "name": "SuperPump Max Gaspari 30 servings",
+        "short_description": "Cung cấp năng lượng điện giải dồi dào, chống khô mỏi mệt cơ",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 780000.0,
+        "old_price": 890000.0,
+        "discount_pct": 12.4,
+        "rating_avg": 4.3,
+        "rating_count": 320,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-34.jpg"
+        ],
+        "primary_image": "/uploads/products/image-34.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_35",
+      "content": "Tên sản phẩm: Dust X Extreme Stimulant 25 servings. Danh mục: Pre-Workout. Mô tả ngắn: Sản phẩm năng lượng cường độ cực mạnh chuyên sâu tập gym. Mô tả đầy đủ: Dust X là sản phẩm kích thích cực mạnh từ Blackstone Labs, chứa DMHA và Synephrine HCl tạo ra tăng kích động tuyệt đối. Chỉ dành cho người có kinh nghiệm.. Giá bán: 890.000 VNĐ. Giá gốc: 990.000 VNĐ. Giảm 10.1%. Đánh giá trung bình: 4.3/5 (260 lượt). SKU: PTS-M14.",
+      "metadata": {
+        "source": "products",
+        "db_id": 35,
+        "sku": "PTS-M14",
+        "slug": "blackstone-labs-dust-x-25serv",
+        "name": "Dust X Extreme Stimulant 25 servings",
+        "short_description": "Sản phẩm năng lượng cường độ cực mạnh chuyên sâu tập gym",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 890000.0,
+        "old_price": 990000.0,
+        "discount_pct": 10.1,
+        "rating_avg": 4.3,
+        "rating_count": 260,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-35.jpg"
+        ],
+        "primary_image": "/uploads/products/image-35.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_36",
+      "content": "Tên sản phẩm: Wrecked Pre-Workout Huge Supps 20 serv. Danh mục: Pre-Workout. Mô tả ngắn: Liều lượng kích thích khổng lồ giúp nâng cao thể lực đẩy tạ nặng. Mô tả đầy đủ: Wrecked sử dụng 17 thành phần ở liều lượng khổng lồ: Citrulline 8g, HydroPrime Glycerol 3g, Beta-Alanine 3.5g và Caffeine 250mg. Pre-workout không thỏa hiệp.. Giá bán: 1.150.000 VNĐ. Giá gốc: 1.300.000 VNĐ. Giảm 11.5%. Đánh giá trung bình: 4.6/5 (310 lượt). SKU: PTS-M15.",
+      "metadata": {
+        "source": "products",
+        "db_id": 36,
+        "sku": "PTS-M15",
+        "slug": "huge-supplements-wrecked-20serv",
+        "name": "Wrecked Pre-Workout Huge Supps 20 serv",
+        "short_description": "Liều lượng kích thích khổng lồ giúp nâng cao thể lực đẩy tạ nặng",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 1150000.0,
+        "old_price": 1300000.0,
+        "discount_pct": 11.5,
+        "rating_avg": 4.6,
+        "rating_count": 310,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-36.jpg"
+        ],
+        "primary_image": "/uploads/products/image-36.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_37",
+      "content": "Tên sản phẩm: Lit Pre-Workout Beyond Raw 30 servings. Danh mục: Pre-Workout. Mô tả ngắn: Cung cấp năng lượng sạch chuẩn hóa phòng thí nghiệm y tế GNC. Mô tả đầy đủ: LIT của GNC Beyond Raw sử dụng NeuroFactor™ (chiết xuất vỏ quả cà phê) và ElevATP® (chiết xuất cổ đại) tăng sản xuất ATP nội tế bào, cho năng lượng sạch không crash.. Giá bán: 920.000 VNĐ. Giá gốc: 1.050.000 VNĐ. Giảm 12.4%. Đánh giá trung bình: 4.5/5 (490 lượt). SKU: PTS-M16.",
+      "metadata": {
+        "source": "products",
+        "db_id": 37,
+        "sku": "PTS-M16",
+        "slug": "gnc-beyond-raw-lit-30serv",
+        "name": "Lit Pre-Workout Beyond Raw 30 servings",
+        "short_description": "Cung cấp năng lượng sạch chuẩn hóa phòng thí nghiệm y tế GNC",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 920000.0,
+        "old_price": 1050000.0,
+        "discount_pct": 12.4,
+        "rating_avg": 4.5,
+        "rating_count": 490,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-37.jpg"
+        ],
+        "primary_image": "/uploads/products/image-37.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_38",
+      "content": "Tên sản phẩm: ENGN Shred Pre-Workout EVL 30 servings. Danh mục: Pre-Workout. Mô tả ngắn: Công thức tác động kép tăng năng lượng đồng thời đốt mỡ sinh nhiệt. Mô tả đầy đủ: ENGN Shred là pre-workout kết hợp chất đốt mỡ sinh nhiệt CLA 500mg, L-Carnitine 500mg với năng lượng từ Caffeine 210mg. Giải pháp 2-in-1 cho giai đoạn siết.. Giá bán: 750.000 VNĐ. Giá gốc: 850.000 VNĐ. Giảm 11.8%. Đánh giá trung bình: 4.4/5 (420 lượt). SKU: PTS-M17.",
+      "metadata": {
+        "source": "products",
+        "db_id": 38,
+        "sku": "PTS-M17",
+        "slug": "evl-engn-shred-30serv",
+        "name": "ENGN Shred Pre-Workout EVL 30 servings",
+        "short_description": "Công thức tác động kép tăng năng lượng đồng thời đốt mỡ sinh nhiệt",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 750000.0,
+        "old_price": 850000.0,
+        "discount_pct": 11.8,
+        "rating_avg": 4.4,
+        "rating_count": 420,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-38.jpg"
+        ],
+        "primary_image": "/uploads/products/image-38.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_39",
+      "content": "Tên sản phẩm: Nitraflex Hyperemia GAT Sport 30 serv. Danh mục: Pre-Workout. Mô tả ngắn: Thúc đẩy oxit nitric giãn mạch máu tối đa vận chuyển dinh dưỡng. Mô tả đầy đủ: Nitraflex là pre-workout độc đáo với Clinical Strength Testosterone-Enhancing Compound (DOPA Mucuna 300mg) kết hợp Citrulline/Arginine 7g tăng NO mạnh.. Giá bán: 760.000 VNĐ. Giá gốc: 860.000 VNĐ. Giảm 11.6%. Đánh giá trung bình: 4.4/5 (380 lượt). SKU: PTS-M18.",
+      "metadata": {
+        "source": "products",
+        "db_id": 39,
+        "sku": "PTS-M18",
+        "slug": "gat-sport-nitraflex-30serv",
+        "name": "Nitraflex Hyperemia GAT Sport 30 serv",
+        "short_description": "Thúc đẩy oxit nitric giãn mạch máu tối đa vận chuyển dinh dưỡng",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 760000.0,
+        "old_price": 860000.0,
+        "discount_pct": 11.6,
+        "rating_avg": 4.4,
+        "rating_count": 380,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-39.jpg"
+        ],
+        "primary_image": "/uploads/products/image-39.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_40",
+      "content": "Tên sản phẩm: Alani Nu Pre-Workout 30 servings. Danh mục: Pre-Workout. Mô tả ngắn: Công thức năng lượng tinh tế êm dịu phù hợp thể hình cho cả nam nữ. Mô tả đầy đủ: Alani Nu Pre-Workout với 200mg Caffeine, L-Citrulline Malate 6g và Beta-Alanine 1.6g phù hợp cả nam lẫn nữ. Không chứa nhân tạo, hương vị trái cây tự nhiên thơm ngon.. Giá bán: 880.000 VNĐ. Giá gốc: 980.000 VNĐ. Giảm 10.2%. Đánh giá trung bình: 4.6/5 (1200 lượt). SKU: PTS-M19.",
+      "metadata": {
+        "source": "products",
+        "db_id": 40,
+        "sku": "PTS-M19",
+        "slug": "alani-nu-pre-workout-30serv",
+        "name": "Alani Nu Pre-Workout 30 servings",
+        "short_description": "Công thức năng lượng tinh tế êm dịu phù hợp thể hình cho cả nam nữ",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 880000.0,
+        "old_price": 980000.0,
+        "discount_pct": 10.2,
+        "rating_avg": 4.6,
+        "rating_count": 1200,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-40.jpg"
+        ],
+        "primary_image": "/uploads/products/image-40.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_41",
+      "content": "Tên sản phẩm: Ryse Godzilla Pre-Workout 40 servings. Danh mục: Pre-Workout. Mô tả ngắn: Phiên bản Godzilla năng lượng khổng lồ phá vỡ mọi rào cản tập tạ. Mô tả đầy đủ: Godzilla Pre-Workout của Ryse là sản phẩm khổng lồ với full scoop chứa Citrulline 9g, Beta-Alanine 3.5g và Caffeine 400mg. 40 servings ở liều toàn phần cực kỳ kinh tế.. Giá bán: 1.350.000 VNĐ. Giá gốc: 1.550.000 VNĐ. Giảm 12.9%. Đánh giá trung bình: 4.7/5 (680 lượt). SKU: PTS-M20.",
+      "metadata": {
+        "source": "products",
+        "db_id": 41,
+        "sku": "PTS-M20",
+        "slug": "ryse-godzilla-preworkout-40serv",
+        "name": "Ryse Godzilla Pre-Workout 40 servings",
+        "short_description": "Phiên bản Godzilla năng lượng khổng lồ phá vỡ mọi rào cản tập tạ",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 1350000.0,
+        "old_price": 1550000.0,
+        "discount_pct": 12.9,
+        "rating_avg": 4.7,
+        "rating_count": 680,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-41.jpg"
+        ],
+        "primary_image": "/uploads/products/image-41.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_42",
+      "content": "Tên sản phẩm: APS Mesomorph Ultimate Pre-Workout 25serv. Danh mục: Pre-Workout. Mô tả ngắn: Công thức năng lượng kinh điển đưa buổi tập lên tầm cao mới. Mô tả đầy đủ: Mesomorph được mệnh danh là pre-workout kinh điển nhất mọi thời đại\" với DMAA (lúc còn hợp pháp) thay thế bằng DMHA thế hệ mới. Tập trung cực kỳ cao và pump đỉnh.\". Giá bán: 950.000 VNĐ. Giá gốc: 1.050.000 VNĐ. Giảm 9.5%. Đánh giá trung bình: 4.5/5 (240 lượt). SKU: PTS-M21.",
+      "metadata": {
+        "source": "products",
+        "db_id": 42,
+        "sku": "PTS-M21",
+        "slug": "aps-mesomorph-ultimate-25serv",
+        "name": "APS Mesomorph Ultimate Pre-Workout 25serv",
+        "short_description": "Công thức năng lượng kinh điển đưa buổi tập lên tầm cao mới",
+        "category_id": 2,
+        "category_name": "Pre-Workout",
+        "category_slug": "pre-workout",
+        "price": 950000.0,
+        "old_price": 1050000.0,
+        "discount_pct": 9.5,
+        "rating_avg": 4.5,
+        "rating_count": 240,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-42.jpg"
+        ],
+        "primary_image": "/uploads/products/image-42.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_43",
+      "content": "Tên sản phẩm: Quest Nutrition Protein Bar 60g. Danh mục: Protein Bars & Cookies. Mô tả ngắn: Thanh đạm ăn kiêng bán chạy nhất thế giới giàu xơ ít carb tinh. Mô tả đầy đủ: Quest Bar cung cấp 21g protein, 14g chất xơ và chỉ 4-5g net carb. Sử dụng protein blend Milk/Whey Isolate. Hương vị phong phú như chocolate chip cookie hay cookies & cream.. Giá bán: 65.000 VNĐ. Giá gốc: 75.000 VNĐ. Giảm 13.3%. Đánh giá trung bình: 4.7/5 (8900 lượt). SKU: PTS-S01.",
+      "metadata": {
+        "source": "products",
+        "db_id": 43,
+        "sku": "PTS-S01",
+        "slug": "quest-nutrition-protein-bar-60g",
+        "name": "Quest Nutrition Protein Bar 60g",
+        "short_description": "Thanh đạm ăn kiêng bán chạy nhất thế giới giàu xơ ít carb tinh",
+        "category_id": 3,
+        "category_name": "Protein Bars & Cookies",
+        "category_slug": "protein-bars-cookies",
+        "price": 65000.0,
+        "old_price": 75000.0,
+        "discount_pct": 13.3,
+        "rating_avg": 4.7,
+        "rating_count": 8900,
+        "stock_quantity": 200,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-43.jpg"
+        ],
+        "primary_image": "/uploads/products/image-43.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_44",
+      "content": "Tên sản phẩm: Grenade Carb Killa Protein Bar 60g. Danh mục: Protein Bars & Cookies. Mô tả ngắn: Bánh đạm nướng tinh tế cấu trúc nhiều lớp giòn tan ít đường. Mô tả đầy đủ: Carb Killa là thanh protein số 1 Châu Âu với vỏ sô-cô-la thật, nhân kem xốp nhiều lớp. 23g protein, chỉ 1-2g đường. Hương vị như bánh ngọt thật sự.. Giá bán: 70.000 VNĐ. Giá gốc: 80.000 VNĐ. Giảm 12.5%. Đánh giá trung bình: 4.8/5 (6200 lượt). SKU: PTS-S02.",
+      "metadata": {
+        "source": "products",
+        "db_id": 44,
+        "sku": "PTS-S02",
+        "slug": "grenade-carb-killa-60g",
+        "name": "Grenade Carb Killa Protein Bar 60g",
+        "short_description": "Bánh đạm nướng tinh tế cấu trúc nhiều lớp giòn tan ít đường",
+        "category_id": 3,
+        "category_name": "Protein Bars & Cookies",
+        "category_slug": "protein-bars-cookies",
+        "price": 70000.0,
+        "old_price": 80000.0,
+        "discount_pct": 12.5,
+        "rating_avg": 4.8,
+        "rating_count": 6200,
+        "stock_quantity": 200,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-44.jpg"
+        ],
+        "primary_image": "/uploads/products/image-44.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_45",
+      "content": "Tên sản phẩm: Barebells Protein Bar Thụy Điển 55g. Danh mục: Protein Bars & Cookies. Mô tả ngắn: Bánh xốp dinh dưỡng protein không thêm đường vị ngon chuẩn Châu Âu. Mô tả đầy đủ: Barebells từ Thụy Điển nổi tiếng với hương vị đỉnh cao không thua gì kẹo chocolate thật. 20g protein, 0g thêm đường. Các hương vị Salty Peanut và Cookies Cream được yêu thích.. Giá bán: 68.000 VNĐ. Giá gốc: 78.000 VNĐ. Giảm 12.8%. Đánh giá trung bình: 4.8/5 (4100 lượt). SKU: PTS-S03.",
+      "metadata": {
+        "source": "products",
+        "db_id": 45,
+        "sku": "PTS-S03",
+        "slug": "barebells-protein-bar-55g",
+        "name": "Barebells Protein Bar Thụy Điển 55g",
+        "short_description": "Bánh xốp dinh dưỡng protein không thêm đường vị ngon chuẩn Châu Âu",
+        "category_id": 3,
+        "category_name": "Protein Bars & Cookies",
+        "category_slug": "protein-bars-cookies",
+        "price": 68000.0,
+        "old_price": 78000.0,
+        "discount_pct": 12.8,
+        "rating_avg": 4.8,
+        "rating_count": 4100,
+        "stock_quantity": 200,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-45.jpg"
+        ],
+        "primary_image": "/uploads/products/image-45.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_46",
+      "content": "Tên sản phẩm: MyProtein Impact Protein Bar 64g. Danh mục: Protein Bars & Cookies. Mô tả ngắn: Thanh đạm 3 lớp bổ vị caramel béo ngậy ít calo. Mô tả đầy đủ: Impact Bar của MyProtein có lớp nền đạm chắc, lớp giữa caramel mềm mịn và lớp sô-cô-la phủ bên ngoài. 21g protein, giá cực kỳ cạnh tranh trong phân khúc UK.. Giá bán: 62.000 VNĐ. Giá gốc: 72.000 VNĐ. Giảm 13.9%. Đánh giá trung bình: 4.5/5 (2300 lượt). SKU: PTS-S04.",
+      "metadata": {
+        "source": "products",
+        "db_id": 46,
+        "sku": "PTS-S04",
+        "slug": "myprotein-impact-protein-bar-64g",
+        "name": "MyProtein Impact Protein Bar 64g",
+        "short_description": "Thanh đạm 3 lớp bổ vị caramel béo ngậy ít calo",
+        "category_id": 3,
+        "category_name": "Protein Bars & Cookies",
+        "category_slug": "protein-bars-cookies",
+        "price": 62000.0,
+        "old_price": 72000.0,
+        "discount_pct": 13.9,
+        "rating_avg": 4.5,
+        "rating_count": 2300,
+        "stock_quantity": 200,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-46.jpg"
+        ],
+        "primary_image": "/uploads/products/image-46.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_47",
+      "content": "Tên sản phẩm: Combat Crunch Protein Bar MusclePharm 63g. Danh mục: Protein Bars & Cookies. Mô tả ngắn: Bánh quy protein nướng đạt nhiều chứng nhận danh giá thể hình. Mô tả đầy đủ: Combat Crunch có kết cấu giòn xốp độc đáo nhờ công nghệ nướng đặc biệt. 20g protein/bar, chứng nhận Informed-Sport, không dùng rượu đường hay HFCS.. Giá bán: 65.000 VNĐ. Giá gốc: 75.000 VNĐ. Giảm 13.3%. Đánh giá trung bình: 4.6/5 (3400 lượt). SKU: PTS-S05.",
+      "metadata": {
+        "source": "products",
+        "db_id": 47,
+        "sku": "PTS-S05",
+        "slug": "musclepharm-combat-crunch-63g",
+        "name": "Combat Crunch Protein Bar MusclePharm 63g",
+        "short_description": "Bánh quy protein nướng đạt nhiều chứng nhận danh giá thể hình",
+        "category_id": 3,
+        "category_name": "Protein Bars & Cookies",
+        "category_slug": "protein-bars-cookies",
+        "price": 65000.0,
+        "old_price": 75000.0,
+        "discount_pct": 13.3,
+        "rating_avg": 4.6,
+        "rating_count": 3400,
+        "stock_quantity": 200,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-47.jpg"
+        ],
+        "primary_image": "/uploads/products/image-47.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_48",
+      "content": "Tên sản phẩm: BSN Protein Crisp Syntha-6 Bar 57g. Danh mục: Protein Bars & Cookies. Mô tả ngắn: Thanh đạm giòn xốp như cốm gạo nhẹ bụng dễ hấp thụ sau tập. Mô tả đầy đủ: Protein Crisp của BSN có kết cấu giòn xốp nhờ Puffed Quinoa và Rice Crisps. 20g protein từ Syntha-6 matrix, ít carb, ít mỡ. Nhẹ nhàng và dễ ăn sau tập.. Giá bán: 65.000 VNĐ. Giá gốc: 75.000 VNĐ. Giảm 13.3%. Đánh giá trung bình: 4.4/5 (1800 lượt). SKU: PTS-S06.",
+      "metadata": {
+        "source": "products",
+        "db_id": 48,
+        "sku": "PTS-S06",
+        "slug": "bsn-protein-crisp-syntha6-57g",
+        "name": "BSN Protein Crisp Syntha-6 Bar 57g",
+        "short_description": "Thanh đạm giòn xốp như cốm gạo nhẹ bụng dễ hấp thụ sau tập",
+        "category_id": 3,
+        "category_name": "Protein Bars & Cookies",
+        "category_slug": "protein-bars-cookies",
+        "price": 65000.0,
+        "old_price": 75000.0,
+        "discount_pct": 13.3,
+        "rating_avg": 4.4,
+        "rating_count": 1800,
+        "stock_quantity": 200,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-48.jpg"
+        ],
+        "primary_image": "/uploads/products/image-48.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_49",
+      "content": "Tên sản phẩm: Robert Irvine Fit Crunch Bar 46g. Danh mục: Protein Bars & Cookies. Mô tả ngắn: Bánh đạm thiết kế bởi đầu bếp Mỹ Robert Irvine hương vị thượng hạng. Mô tả đầy đủ: Fit Crunch do Chef Robert Irvine tạo ra với kết cấu wafer 6 lớp độc đáo tẩm sô-cô-la. 16g protein, 8 hương vị như Peanut Butter, Cookies & Cream siêu ngon.. Giá bán: 60.000 VNĐ. Giá gốc: 70.000 VNĐ. Giảm 14.3%. Đánh giá trung bình: 4.5/5 (1500 lượt). SKU: PTS-S07.",
+      "metadata": {
+        "source": "products",
+        "db_id": 49,
+        "sku": "PTS-S07",
+        "slug": "robert-irvine-fit-crunch-bar-46g",
+        "name": "Robert Irvine Fit Crunch Bar 46g",
+        "short_description": "Bánh đạm thiết kế bởi đầu bếp Mỹ Robert Irvine hương vị thượng hạng",
+        "category_id": 3,
+        "category_name": "Protein Bars & Cookies",
+        "category_slug": "protein-bars-cookies",
+        "price": 60000.0,
+        "old_price": 70000.0,
+        "discount_pct": 14.3,
+        "rating_avg": 4.5,
+        "rating_count": 1500,
+        "stock_quantity": 200,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-49.jpg"
+        ],
+        "primary_image": "/uploads/products/image-49.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_50",
+      "content": "Tên sản phẩm: ONE Brands ONE Protein Bar 60g. Danh mục: Protein Bars & Cookies. Mô tả ngắn: Cung cấp 20g đạm tinh khiết, hàm lượng đường cực thấp chỉ 1g. Mô tả đầy đủ: ONE Bar nổi bật với 20g protein và chỉ 1g đường – một trong những tỷ lệ protein-đường tốt nhất thị trường. Hơn 15 hương vị đa dạng, phù hợp chế độ keto và low-carb.. Giá bán: 65.000 VNĐ. Giá gốc: 75.000 VNĐ. Giảm 13.3%. Đánh giá trung bình: 4.6/5 (2700 lượt). SKU: PTS-S08.",
+      "metadata": {
+        "source": "products",
+        "db_id": 50,
+        "sku": "PTS-S08",
+        "slug": "one-brands-protein-bar-60g",
+        "name": "ONE Brands ONE Protein Bar 60g",
+        "short_description": "Cung cấp 20g đạm tinh khiết, hàm lượng đường cực thấp chỉ 1g",
+        "category_id": 3,
+        "category_name": "Protein Bars & Cookies",
+        "category_slug": "protein-bars-cookies",
+        "price": 65000.0,
+        "old_price": 75000.0,
+        "discount_pct": 13.3,
+        "rating_avg": 4.6,
+        "rating_count": 2700,
+        "stock_quantity": 200,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-50.jpg"
+        ],
+        "primary_image": "/uploads/products/image-50.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_51",
+      "content": "Tên sản phẩm: Optimum Nutrition Micronized Creatine 600g. Danh mục: Creatine. Mô tả ngắn: Creatine tinh khiết 100% giúp tăng sức mạnh và kích thước cơ bắp. Mô tả đầy đủ: Cung cấp 5g Creatine Monohydrate nguyên chất mỗi khẩu phần, không mùi, dễ dàng pha trộn với whey protein hoặc thức uống yêu thích.. Giá bán: 650.000 VNĐ. Giá gốc: 750.000 VNĐ. Giảm 13.3%. Đánh giá trung bình: 4.8/5 (1500 lượt). SKU: PTS-C01.",
+      "metadata": {
+        "source": "products",
+        "db_id": 51,
+        "sku": "PTS-C01",
+        "slug": "on-micronized-creatine-powder-600g",
+        "name": "Optimum Nutrition Micronized Creatine 600g",
+        "short_description": "Creatine tinh khiết 100% giúp tăng sức mạnh và kích thước cơ bắp",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 650000.0,
+        "old_price": 750000.0,
+        "discount_pct": 13.3,
+        "rating_avg": 4.8,
+        "rating_count": 1500,
+        "stock_quantity": 100,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-51.jpg"
+        ],
+        "primary_image": "/uploads/products/image-51.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_52",
+      "content": "Tên sản phẩm: MuscleTech Platinum 100% Creatine 400g. Danh mục: Creatine. Mô tả ngắn: Hỗ trợ tăng cơ nạc, phục hồi nhanh chóng. Mô tả đầy đủ: Sử dụng công nghệ siêu vi lọc (micronized) giúp Creatine hòa tan cực tốt và hấp thu tối đa vào cơ bắp, không gây đầy bụng.. Giá bán: 450.000 VNĐ. Giá gốc: 550.000 VNĐ. Giảm 18.2%. Đánh giá trung bình: 4.7/5 (1200 lượt). SKU: PTS-C02.",
+      "metadata": {
+        "source": "products",
+        "db_id": 52,
+        "sku": "PTS-C02",
+        "slug": "muscletech-platinum-creatine-400g",
+        "name": "MuscleTech Platinum 100% Creatine 400g",
+        "short_description": "Hỗ trợ tăng cơ nạc, phục hồi nhanh chóng",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 450000.0,
+        "old_price": 550000.0,
+        "discount_pct": 18.2,
+        "rating_avg": 4.7,
+        "rating_count": 1200,
+        "stock_quantity": 150,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-52.jpg"
+        ],
+        "primary_image": "/uploads/products/image-52.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_53",
+      "content": "Tên sản phẩm: Rule 1 R1 Creatine 375g. Danh mục: Creatine. Mô tả ngắn: 100% Creatine Monohydrate chuẩn y tế. Mô tả đầy đủ: Sản phẩm từ hãng Rule 1 cung cấp nguồn Creatine sạch, không tạp chất, giúp tái tạo ATP nhanh chóng trong các bài tập tạ nặng.. Giá bán: 420.000 VNĐ. Giá gốc: 490.000 VNĐ. Giảm 14.3%. Đánh giá trung bình: 4.6/5 (850 lượt). SKU: PTS-C03.",
+      "metadata": {
+        "source": "products",
+        "db_id": 53,
+        "sku": "PTS-C03",
+        "slug": "rule-1-r1-creatine-375g",
+        "name": "Rule 1 R1 Creatine 375g",
+        "short_description": "100% Creatine Monohydrate chuẩn y tế",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 420000.0,
+        "old_price": 490000.0,
+        "discount_pct": 14.3,
+        "rating_avg": 4.6,
+        "rating_count": 850,
+        "stock_quantity": 80,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-53.jpg"
+        ],
+        "primary_image": "/uploads/products/image-53.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_54",
+      "content": "Tên sản phẩm: Mutant Creakong CX8 249g. Danh mục: Creatine. Mô tả ngắn: Phức hợp 3 loại Creatine cao cấp nhất. Mô tả đầy đủ: Kết hợp Creatine Monohydrate, Creatine Magnalite và Creatine Chelated giúp đẩy lùi sự mệt mỏi, tổng hợp protein nhanh hơn gấp 3 lần.. Giá bán: 550.000 VNĐ. Giá gốc: 620.000 VNĐ. Giảm 11.3%. Đánh giá trung bình: 4.5/5 (640 lượt). SKU: PTS-C04.",
+      "metadata": {
+        "source": "products",
+        "db_id": 54,
+        "sku": "PTS-C04",
+        "slug": "mutant-creakong-cx8-249g",
+        "name": "Mutant Creakong CX8 249g",
+        "short_description": "Phức hợp 3 loại Creatine cao cấp nhất",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 550000.0,
+        "old_price": 620000.0,
+        "discount_pct": 11.3,
+        "rating_avg": 4.5,
+        "rating_count": 640,
+        "stock_quantity": 60,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-54.jpg"
+        ],
+        "primary_image": "/uploads/products/image-54.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_55",
+      "content": "Tên sản phẩm: MyProtein Creatine Monohydrate 250g. Danh mục: Creatine. Mô tả ngắn: Giải pháp tăng sức mạnh tiết kiệm và hiệu quả. Mô tả đầy đủ: Sản phẩm quốc dân từ MyProtein, thuần chay, không hương liệu, độ tinh khiết cao đáp ứng nhu cầu tập luyện hàng ngày.. Giá bán: 250.000 VNĐ. Giá gốc: 300.000 VNĐ. Giảm 16.7%. Đánh giá trung bình: 4.4/5 (3200 lượt). SKU: PTS-C05.",
+      "metadata": {
+        "source": "products",
+        "db_id": 55,
+        "sku": "PTS-C05",
+        "slug": "myprotein-creatine-monohydrate-250g",
+        "name": "MyProtein Creatine Monohydrate 250g",
+        "short_description": "Giải pháp tăng sức mạnh tiết kiệm và hiệu quả",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 250000.0,
+        "old_price": 300000.0,
+        "discount_pct": 16.7,
+        "rating_avg": 4.4,
+        "rating_count": 3200,
+        "stock_quantity": 200,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-55.jpg"
+        ],
+        "primary_image": "/uploads/products/image-55.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_56",
+      "content": "Tên sản phẩm: Cellucor COR-Performance Creatine 360g. Danh mục: Creatine. Mô tả ngắn: Tối ưu hóa sức bền và khối lượng tạ. Mô tả đầy đủ: Mỗi serving chứa 5g Creatine siêu mịn, giúp bạn đẩy tạ nặng hơn và kéo dài thời gian tập luyện cường độ cao.. Giá bán: 480.000 VNĐ. Giá gốc: 560.000 VNĐ. Giảm 14.3%. Đánh giá trung bình: 4.5/5 (420 lượt). SKU: PTS-C06.",
+      "metadata": {
+        "source": "products",
+        "db_id": 56,
+        "sku": "PTS-C06",
+        "slug": "cellucor-cor-performance-creatine-360g",
+        "name": "Cellucor COR-Performance Creatine 360g",
+        "short_description": "Tối ưu hóa sức bền và khối lượng tạ",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 480000.0,
+        "old_price": 560000.0,
+        "discount_pct": 14.3,
+        "rating_avg": 4.5,
+        "rating_count": 420,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-56.jpg"
+        ],
+        "primary_image": "/uploads/products/image-56.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_57",
+      "content": "Tên sản phẩm: Dymatize Creatine Micronized 500g. Danh mục: Creatine. Mô tả ngắn: Sản xuất theo tiêu chuẩn Creapure Đức. Mô tả đầy đủ: Sử dụng nguồn nguyên liệu Creapure® nguyên chất từ Đức, đảm bảo không lẫn tạp chất, tối ưu cho việc tích nước trong tế bào cơ.. Giá bán: 680.000 VNĐ. Giá gốc: 780.000 VNĐ. Giảm 12.8%. Đánh giá trung bình: 4.8/5 (930 lượt). SKU: PTS-C07.",
+      "metadata": {
+        "source": "products",
+        "db_id": 57,
+        "sku": "PTS-C07",
+        "slug": "dymatize-creatine-micronized-500g",
+        "name": "Dymatize Creatine Micronized 500g",
+        "short_description": "Sản xuất theo tiêu chuẩn Creapure Đức",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 680000.0,
+        "old_price": 780000.0,
+        "discount_pct": 12.8,
+        "rating_avg": 4.8,
+        "rating_count": 930,
+        "stock_quantity": 40,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-57.jpg"
+        ],
+        "primary_image": "/uploads/products/image-57.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_58",
+      "content": "Tên sản phẩm: BPI Sports Best Creatine 300g. Danh mục: Creatine. Mô tả ngắn: Pha trộn 6 loại Creatine khác nhau. Mô tả đầy đủ: Công thức Best Creatine™ độc quyền kết hợp 6 dạng creatine giúp cơ thể hấp thu toàn diện mà không cần giai đoạn loading\".\". Giá bán: 520.000 VNĐ. Giá gốc: 600.000 VNĐ. Giảm 13.3%. Đánh giá trung bình: 4.3/5 (510 lượt). SKU: PTS-C08.",
+      "metadata": {
+        "source": "products",
+        "db_id": 58,
+        "sku": "PTS-C08",
+        "slug": "bpi-sports-best-creatine-300g",
+        "name": "BPI Sports Best Creatine 300g",
+        "short_description": "Pha trộn 6 loại Creatine khác nhau",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 520000.0,
+        "old_price": 600000.0,
+        "discount_pct": 13.3,
+        "rating_avg": 4.3,
+        "rating_count": 510,
+        "stock_quantity": 70,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-58.jpg"
+        ],
+        "primary_image": "/uploads/products/image-58.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_59",
+      "content": "Tên sản phẩm: Nutrex Creatine Drive 300g. Danh mục: Creatine. Mô tả ngắn: Creatine nguyên chất 100% không pha tạp. Mô tả đầy đủ: Sản phẩm an toàn và hiệu quả, phù hợp cho mọi đối tượng chơi thể thao cần tăng cường năng lượng bùng nổ tức thì.. Giá bán: 400.000 VNĐ. Giá gốc: 480.000 VNĐ. Giảm 16.7%. Đánh giá trung bình: 4.4/5 (380 lượt). SKU: PTS-C09.",
+      "metadata": {
+        "source": "products",
+        "db_id": 59,
+        "sku": "PTS-C09",
+        "slug": "nutrex-creatine-drive-300g",
+        "name": "Nutrex Creatine Drive 300g",
+        "short_description": "Creatine nguyên chất 100% không pha tạp",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 400000.0,
+        "old_price": 480000.0,
+        "discount_pct": 16.7,
+        "rating_avg": 4.4,
+        "rating_count": 380,
+        "stock_quantity": 90,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-59.jpg"
+        ],
+        "primary_image": "/uploads/products/image-59.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_60",
+      "content": "Tên sản phẩm: AllMax Nutrition Creatine 400g. Danh mục: Creatine. Mô tả ngắn: Creatine siêu vi hạt chuẩn dược phẩm. Mô tả đầy đủ: Sản xuất qua công nghệ vi hạt hóa cấp độ dược phẩm, loại bỏ hoàn toàn tình trạng sạn khi uống, tan cực nhanh trong nước.. Giá bán: 490.000 VNĐ. Giá gốc: 580.000 VNĐ. Giảm 15.5%. Đánh giá trung bình: 4.6/5 (750 lượt). SKU: PTS-C10.",
+      "metadata": {
+        "source": "products",
+        "db_id": 60,
+        "sku": "PTS-C10",
+        "slug": "allmax-creatine-monohydrate-400g",
+        "name": "AllMax Nutrition Creatine 400g",
+        "short_description": "Creatine siêu vi hạt chuẩn dược phẩm",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 490000.0,
+        "old_price": 580000.0,
+        "discount_pct": 15.5,
+        "rating_avg": 4.6,
+        "rating_count": 750,
+        "stock_quantity": 60,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-60.jpg"
+        ],
+        "primary_image": "/uploads/products/image-60.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_61",
+      "content": "Tên sản phẩm: BiotechUSA 100% Creatine Monohydrate 300g. Danh mục: Creatine. Mô tả ngắn: Tăng sinh ATP tự nhiên cho cơ bắp. Mô tả đầy đủ: Sản phẩm tinh khiết từ Châu Âu giúp cải thiện hiệu suất các bài tập ngắn hạn, cường độ cao như cử tạ, chạy nước rút.. Giá bán: 350.000 VNĐ. Giá gốc: 420.000 VNĐ. Giảm 16.7%. Đánh giá trung bình: 4.5/5 (620 lượt). SKU: PTS-C11.",
+      "metadata": {
+        "source": "products",
+        "db_id": 61,
+        "sku": "PTS-C11",
+        "slug": "biotechusa-100-creatine-monohydrate-300g",
+        "name": "BiotechUSA 100% Creatine Monohydrate 300g",
+        "short_description": "Tăng sinh ATP tự nhiên cho cơ bắp",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 350000.0,
+        "old_price": 420000.0,
+        "discount_pct": 16.7,
+        "rating_avg": 4.5,
+        "rating_count": 620,
+        "stock_quantity": 120,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-61.jpg"
+        ],
+        "primary_image": "/uploads/products/image-61.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_62",
+      "content": "Tên sản phẩm: Scitec Nutrition 100% Creatine 300g. Danh mục: Creatine. Mô tả ngắn: Hỗ trợ phồng cơ, giữ nước nội bào. Mô tả đầy đủ: Creatine từ Scitec luôn nổi tiếng về chất lượng, giúp cơ bắp trông to và săn chắc hơn nhờ cơ chế hydrat hóa tế bào.. Giá bán: 380.000 VNĐ. Giá gốc: 450.000 VNĐ. Giảm 15.6%. Đánh giá trung bình: 4.4/5 (490 lượt). SKU: PTS-C12.",
+      "metadata": {
+        "source": "products",
+        "db_id": 62,
+        "sku": "PTS-C12",
+        "slug": "scitec-100-creatine-monohydrate-300g",
+        "name": "Scitec Nutrition 100% Creatine 300g",
+        "short_description": "Hỗ trợ phồng cơ, giữ nước nội bào",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 380000.0,
+        "old_price": 450000.0,
+        "discount_pct": 15.6,
+        "rating_avg": 4.4,
+        "rating_count": 490,
+        "stock_quantity": 80,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-62.jpg"
+        ],
+        "primary_image": "/uploads/products/image-62.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_63",
+      "content": "Tên sản phẩm: Kaged Muscle Creatine HCl 75 Servings. Danh mục: Creatine. Mô tả ngắn: Creatine HCl hấp thụ cực mạnh không tích nước dưới da. Mô tả đầy đủ: Dạng Creatine Hydrochloride (HCl) đã được cấp bằng sáng chế, chỉ cần liều lượng nhỏ (1-2g) nhưng hấp thu nhanh hơn Monohydrate gấp nhiều lần.. Giá bán: 650.000 VNĐ. Giá gốc: 750.000 VNĐ. Giảm 13.3%. Đánh giá trung bình: 4.8/5 (880 lượt). SKU: PTS-C13.",
+      "metadata": {
+        "source": "products",
+        "db_id": 63,
+        "sku": "PTS-C13",
+        "slug": "kaged-muscle-creatine-hcl-75-serv",
+        "name": "Kaged Muscle Creatine HCl 75 Servings",
+        "short_description": "Creatine HCl hấp thụ cực mạnh không tích nước dưới da",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 650000.0,
+        "old_price": 750000.0,
+        "discount_pct": 13.3,
+        "rating_avg": 4.8,
+        "rating_count": 880,
+        "stock_quantity": 50,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-63.jpg"
+        ],
+        "primary_image": "/uploads/products/image-63.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_64",
+      "content": "Tên sản phẩm: RSP Nutrition Creatine Monohydrate 500g. Danh mục: Creatine. Mô tả ngắn: Giải pháp phục hồi siêu tốc sau buổi tập. Mô tả đầy đủ: Giảm thiểu đau nhức cơ bắp và hỗ trợ phát triển mô cơ mới hiệu quả. Không mùi, không vị, dễ uống.. Giá bán: 460.000 VNĐ. Giá gốc: 550.000 VNĐ. Giảm 16.4%. Đánh giá trung bình: 4.3/5 (310 lượt). SKU: PTS-C14.",
+      "metadata": {
+        "source": "products",
+        "db_id": 64,
+        "sku": "PTS-C14",
+        "slug": "rsp-creatine-monohydrate-500g",
+        "name": "RSP Nutrition Creatine Monohydrate 500g",
+        "short_description": "Giải pháp phục hồi siêu tốc sau buổi tập",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 460000.0,
+        "old_price": 550000.0,
+        "discount_pct": 16.4,
+        "rating_avg": 4.3,
+        "rating_count": 310,
+        "stock_quantity": 60,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-64.jpg"
+        ],
+        "primary_image": "/uploads/products/image-64.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "product_65",
+      "content": "Tên sản phẩm: PVL 100% Pure Creatine 300g. Danh mục: Creatine. Mô tả ngắn: Creatine tinh khiết đã qua kiểm định Informed-Choice. Mô tả đầy đủ: Đảm bảo 100% không chứa chất cấm trong thể thao. Tăng cường khối lượng cơ nạc và sức mạnh tổng thể đáng kể.. Giá bán: 430.000 VNĐ. Giá gốc: 500.000 VNĐ. Giảm 14.0%. Đánh giá trung bình: 4.5/5 (450 lượt). SKU: PTS-C15.",
+      "metadata": {
+        "source": "products",
+        "db_id": 65,
+        "sku": "PTS-C15",
+        "slug": "pvl-100-pure-creatine-300g",
+        "name": "PVL 100% Pure Creatine 300g",
+        "short_description": "Creatine tinh khiết đã qua kiểm định Informed-Choice",
+        "category_id": 4,
+        "category_name": "Creatine",
+        "category_slug": "creatine",
+        "price": 430000.0,
+        "old_price": 500000.0,
+        "discount_pct": 14.0,
+        "rating_avg": 4.5,
+        "rating_count": 450,
+        "stock_quantity": 70,
+        "is_active": true,
+        "images": [
+          "/uploads/products/image-65.jpg"
+        ],
+        "primary_image": "/uploads/products/image-65.jpg",
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    }
+  ]
+}

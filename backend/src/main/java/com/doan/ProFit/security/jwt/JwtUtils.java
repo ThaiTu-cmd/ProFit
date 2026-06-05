@@ -7,6 +7,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
@@ -18,6 +20,7 @@ import java.util.Date;
 
 @Component
 public class JwtUtils {
+	private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 	private static final String JWT_COOKIE_NAME = "admin_token";
 	private static final String BEARER_PREFIX = "Bearer ";
 
@@ -55,24 +58,37 @@ public class JwtUtils {
 
 	public boolean validateJwtToken(String authToken) {
 		try {
+			logger.debug("Validating JWT token (length={})", authToken.length());
 			Claims claims = Jwts.parserBuilder()
 					.setSigningKey(getSigningKey())
 					.build()
 					.parseClaimsJws(authToken)
 					.getBody();
-			return claims.getExpiration().after(new Date());
-		} catch (Exception ignored) {
+			
+			Date expiration = claims.getExpiration();
+			boolean isExpired = expiration.before(new Date());
+			logger.debug("JWT expiration: {}, isExpired: {}", expiration, isExpired);
+			
+			return !isExpired;
+		} catch (Exception e) {
+			logger.error("JWT validation failed: {} - {}", e.getClass().getSimpleName(), e.getMessage());
 			return false;
 		}
 	}
 
 	public String getJwtFromRequest(HttpServletRequest request) {
 		String headerAuth = request.getHeader(HttpHeaders.AUTHORIZATION);
+		logger.debug("Authorization header: {}", headerAuth);
+		
 		if (StringUtils.hasText(headerAuth) && headerAuth.startsWith(BEARER_PREFIX)) {
-			return headerAuth.substring(BEARER_PREFIX.length());
+			String jwt = headerAuth.substring(BEARER_PREFIX.length());
+			logger.debug("JWT extracted from header (length={}): {}", jwt.length(), jwt.substring(0, Math.min(50, jwt.length())) + "...");
+			return jwt;
 		}
 
-		return getJwtFromCookies(request);
+		String cookieJwt = getJwtFromCookies(request);
+		logger.debug("JWT from cookies: {}", cookieJwt != null ? "present" : "null");
+		return cookieJwt;
 	}
 
 	public String getJwtFromCookies(HttpServletRequest request) {

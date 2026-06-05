@@ -1,0 +1,22 @@
+default_route: general
+
+routes:
+  - id: nutrition
+    description: "Dinh dưỡng, thành phần, liều dùng, whey/protein"
+    retriever: nutrition
+    system_prompt_key: nutrition
+
+  - id: shipping
+    description: "Vận chuyển, đổi trả, phí ship, FAQ bảo hiểm"
+    retriever: shipping
+    system_prompt_key: shipping
+
+  - id: product
+    description: "Tra cứu catalog sản phẩm theo sku, tên, thương hiệu, danh mục, giá, khối lượng, hương vị, loại whey/protein, lactose, xuất xứ, khẩu phần, số lần dùng, link sản phẩm, ảnh sản phẩm, mô tả ngắn; so sánh và tư vấn chọn sản phẩm"
+    retriever: product
+    system_prompt_key: product
+
+  - id: general
+    description: "Câu hỏi chung không thuộc nhánh trên"
+    retriever: general
+    system_prompt_key: general

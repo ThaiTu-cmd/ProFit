@@ -1,0 +1,61 @@
+{
+  "total": 4,
+  "documents": [
+    {
+      "id": "category_1",
+      "content": "Danh mục sản phẩm: Whey Protein. Slug: whey-protein.",
+      "metadata": {
+        "source": "categories",
+        "db_id": 1,
+        "name": "Whey Protein",
+        "slug": "whey-protein",
+        "parent_id": null,
+        "is_active": true,
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "category_2",
+      "content": "Danh mục sản phẩm: Pre-Workout. Slug: pre-workout.",
+      "metadata": {
+        "source": "categories",
+        "db_id": 2,
+        "name": "Pre-Workout",
+        "slug": "pre-workout",
+        "parent_id": null,
+        "is_active": true,
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "category_3",
+      "content": "Danh mục sản phẩm: Protein Bars & Cookies. Slug: protein-bars-cookies.",
+      "metadata": {
+        "source": "categories",
+        "db_id": 3,
+        "name": "Protein Bars & Cookies",
+        "slug": "protein-bars-cookies",
+        "parent_id": null,
+        "is_active": true,
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    },
+    {
+      "id": "category_4",
+      "content": "Danh mục sản phẩm: Creatine. Slug: creatine.",
+      "metadata": {
+        "source": "categories",
+        "db_id": 4,
+        "name": "Creatine",
+        "slug": "creatine",
+        "parent_id": null,
+        "is_active": true,
+        "created_at": "2026-05-27 07:53:20",
+        "updated_at": "2026-05-27 07:53:20"
+      }
+    }
+  ]
+}

@@ -1,9 +1,16 @@
-# Đổi tên file này thành application-local.yaml để chạy riêng trên máy cá nhân
-# Các setting trong này sẽ tự động ghi đè application.yaml khi chạy với profile local
+# ========================================
+# FILE CẤU HÌNH MẪU - KHÔNG CHỨA THÔNG TIN THẬT
+# Copy file này thành application-local.yaml và điền thông tin của bạn
+# ========================================
 
 spring:
   datasource:
-    # Đổi username và password bên dưới thành thông tin MySQL cá nhân của bạn
-    username: root
-    password: my_secret_password
-    url: "jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true"
+    # Thông tin MySQL của bạn
+    username: YOUR_MYSQL_USERNAME
+    password: "YOUR_MYSQL_PASSWORD"
+    url: "jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Ho_Chi_Minh&connectionCharacterSet=UTF-8"
+
+app:
+  # URL gốc của frontend — dùng cho redirect sau khi thanh toán
+  frontend:
+    base-url: "http://localhost:5173"

@@ -1,0 +1,49 @@
+{
+  "metadata": {
+    "doc_id": "profit_005",
+    "title": "Tổng Quan về Whey Protein",
+    "category": "product_info",
+    "product_type": "whey_protein",
+    "language": "vi",
+    "source_file": "Tổng_quan_về_Whey_Protein.docx",
+    "created_at": "2026-05-27T06:17:26Z",
+    "tags": [
+      "whey protein",
+      "đạm whey",
+      "WPC",
+      "WPI",
+      "WPH",
+      "tăng cơ",
+      "phục hồi cơ",
+      "dinh dưỡng thể thao"
+    ],
+    "shop": "ProFit"
+  },
+  "content": "Tổng Quan về Whey Protein:\n\nWhey protein là nguồn đạm tự nhiên trong sữa (chiếm 20%), tách ra trong quá trình sản xuất phô mai. Là protein hoàn chỉnh chứa 9 axit amin thiết yếu, hấp thụ nhanh, giúp phục hồi và phát triển cơ bắp.\n\nCác loại Whey phổ biến:\n- Whey Concentrate (WPC): 70-80% protein, còn carbs và chất béo nhỏ. Giá rẻ nhất.\n- Whey Isolate (WPI): Lọc bỏ lactose và chất béo, ≥90% protein. Phù hợp người dị ứng sữa.\n- Whey Hydrolyzed (WPH): Thủy phân cao cấp nhất, hấp thụ gần như lập tức.\n\nTác dụng chính:\n- Xây dựng cơ bắp: Cung cấp nguyên liệu tổng hợp và phát triển khối cơ nạc.\n- Phục hồi nhanh: Giảm đau nhức, tái tạo mô cơ sau tập luyện cường độ cao.\n- Hỗ trợ kiểm soát cân nặng: Giúp no lâu, duy trì cơ trong quá trình giảm mỡ.\n\nCách sử dụng:\n- Thời điểm vàng: Uống buổi sáng sau ngủ dậy và ngay sau khi tập.\n- Pha 1 muỗng với 250-300ml nước lọc, sữa tươi không đường hoặc xay với trái cây.\n- Không pha với nước quá nóng (gây vón cục và biến tính protein).",
+  "chunks": [
+    {
+      "chunk_id": "profit_005_c1",
+      "text": "Whey protein là đạm tự nhiên từ sữa, chứa 9 axit amin thiết yếu, hấp thụ nhanh, hỗ trợ phục hồi và phát triển cơ bắp."
+    },
+    {
+      "chunk_id": "profit_005_c2",
+      "text": "Whey Concentrate (WPC) chứa 70-80% protein, có carbs và béo nhỏ, giá rẻ nhất trong các loại whey."
+    },
+    {
+      "chunk_id": "profit_005_c3",
+      "text": "Whey Isolate (WPI) đã lọc bỏ lactose và chất béo, hàm lượng đạm từ 90% trở lên, phù hợp người dị ứng sữa."
+    },
+    {
+      "chunk_id": "profit_005_c4",
+      "text": "Whey Hydrolyzed (WPH) là dạng cao cấp nhất, protein được thủy phân thành phân tử siêu nhỏ, hấp thụ vào cơ thể gần như tức thì."
+    },
+    {
+      "chunk_id": "profit_005_c5",
+      "text": "Thời điểm uống whey tốt nhất là buổi sáng sau khi ngủ dậy và ngay sau khi tập luyện."
+    },
+    {
+      "chunk_id": "profit_005_c6",
+      "text": "Cách pha whey: 1 muỗng bột với 250-300ml nước lọc hoặc sữa tươi không đường. Không pha nước quá nóng vì sẽ làm biến tính protein."
+    }
+  ]
+}

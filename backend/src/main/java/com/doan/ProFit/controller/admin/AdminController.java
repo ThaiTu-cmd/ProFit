@@ -3,6 +3,7 @@ package com.doan.ProFit.controller.admin;
 import com.doan.ProFit.dto.request.UserCreationRequest;
 import com.doan.ProFit.dto.request.UserUpdateRequest;
 import com.doan.ProFit.dto.response.UserResponse;
+import com.doan.ProFit.dto.response.DashboardStatsResponse;
 import com.doan.ProFit.exception.UserNotFoundException;
 import com.doan.ProFit.service.UserService;
 import com.doan.ProFit.service.CategoryService;
@@ -172,6 +173,13 @@ public class AdminController {
     @ResponseBody
     public OrderResponse updateOrderStatus(@PathVariable Long id, @RequestBody OrderStatusUpdateRequest request) {
         return orderService.updateOrderStatus(id, request);
+    }
+
+    // Dashboard Statistics API
+    @GetMapping("/dashboard/stats")
+    @ResponseBody
+    public DashboardStatsResponse getDashboardStats() {
+        return orderService.getDashboardStats();
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

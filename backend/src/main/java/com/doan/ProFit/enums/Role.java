@@ -1,5 +1,5 @@
 package com.doan.ProFit.enums;
 
 public enum Role {
-    ADMIN, CUSTOMER
+    ADMIN, CUSTOMER, GUEST
 }

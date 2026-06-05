@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "doc_id": "profit_001",
+    "title": "Liên Hệ Hỗ Trợ",
+    "category": "contact",
+    "language": "vi",
+    "source_file": "Liên_Hệ_Hỗ_Trợ.docx",
+    "created_at": "2026-05-27T06:17:26Z",
+    "tags": [
+      "liên hệ",
+      "hotline",
+      "email",
+      "fanpage",
+      "hỗ trợ",
+      "thời gian hỗ trợ"
+    ],
+    "shop": "ProFit"
+  },
+  "content": "Liên Hệ Hỗ Trợ ProFit:\nHotline: 0399226578\nEmail: work.huynhhoangquan@gmail.com\nFanpage: https://www.facebook.com/quankhonggay.quanmup?locale=vi_VN\nThời gian hỗ trợ: 08:00 – 22:00 mỗi ngày.",
+  "chunks": [
+    {
+      "chunk_id": "profit_001_c1",
+      "text": "Hotline hỗ trợ khách hàng ProFit: 0399226578."
+    },
+    {
+      "chunk_id": "profit_001_c2",
+      "text": "Email hỗ trợ: work.huynhhoangquan@gmail.com."
+    },
+    {
+      "chunk_id": "profit_001_c3",
+      "text": "Fanpage Facebook: https://www.facebook.com/quankhonggay.quanmup?locale=vi_VN."
+    },
+    {
+      "chunk_id": "profit_001_c4",
+      "text": "Thời gian hỗ trợ khách hàng từ 08:00 đến 22:00 mỗi ngày."
+    }
+  ]
+}

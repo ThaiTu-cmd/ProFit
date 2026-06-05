@@ -1,0 +1,902 @@
+[
+  {
+    "question": "[001] Thời gian giao hàng nội thành Hà Nội?",
+    "answer": "Dạ nội thành Hà Nội giao dự kiến 1–2 ngày làm việc ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-05-26"
+  },
+  {
+    "question": "[002] Phí ship đơn hàng dưới 700.000đ?",
+    "answer": "Dạ đơn dưới 700.000đ áp dụng phí ship theo bảng giá tại bước thanh toán ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-05-25"
+  },
+  {
+    "question": "[003] Đơn trên 800.000đ có miễn phí vận chuyển không?",
+    "answer": "Dạ đơn từ 800.000đ trở lên được miễn phí ship nội thành ạ.",
+    "tags": [
+      "returns",
+      "policy"
+    ],
+    "updated_at": "2026-05-24"
+  },
+  {
+    "question": "[004] Chính sách đổi trả hàng lỗi sản xuất?",
+    "answer": "Dạ sản phẩm lỗi NSX được đổi mới trong 7 ngày khi còn tem ạ.",
+    "tags": [
+      "payment",
+      "cod"
+    ],
+    "updated_at": "2026-05-23"
+  },
+  {
+    "question": "[005] Thanh toán chuyển khoản có giảm giá không?",
+    "answer": "Dạ chuyển khoản có thể được giảm thêm theo chương trình tại thời điểm đặt ạ.",
+    "tags": [
+      "payment",
+      "bank"
+    ],
+    "updated_at": "2026-05-22"
+  },
+  {
+    "question": "[006] Có hỗ trợ COD toàn quốc không?",
+    "answer": "Dạ FitStore Vietnam hỗ trợ COD tại hầu hết tỉnh thành, trừ vùng hạn chế của đơn vị vận chuyển ạ.",
+    "tags": [
+      "order",
+      "tracking"
+    ],
+    "updated_at": "2026-05-21"
+  },
+  {
+    "question": "[007] Làm sao tra mã vận đơn?",
+    "answer": "Dạ sau khi xuất kho, hệ thống gửi SMS/email mã vận đơn để tra cứu ạ.",
+    "tags": [
+      "returns",
+      "refund"
+    ],
+    "updated_at": "2026-05-20"
+  },
+  {
+    "question": "[008] Giao hàng cuối tuần có được không?",
+    "answer": "Dạ giao cuối tuần tùy khu vực và đơn vị vận chuyển ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-05-19"
+  },
+  {
+    "question": "[009] Đổi địa chỉ sau khi đặt hàng?",
+    "answer": "Dạ liên hệ hotline 1900 6868 trong 2 giờ sau đặt để đổi địa chỉ ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-05-18"
+  },
+  {
+    "question": "[010] Hoàn tiền khi hủy đơn?",
+    "answer": "Dạ đơn chưa xuất kho được hoàn trong 3–7 ngày làm việc ạ.",
+    "tags": [
+      "returns",
+      "policy"
+    ],
+    "updated_at": "2026-05-17"
+  },
+  {
+    "question": "[011] Thời gian giao hàng nội thành Hà Nội?",
+    "answer": "Dạ nội thành Hà Nội giao dự kiến 1–2 ngày làm việc ạ.",
+    "tags": [
+      "payment",
+      "cod"
+    ],
+    "updated_at": "2026-05-16"
+  },
+  {
+    "question": "[012] Phí ship đơn hàng dưới 700.000đ?",
+    "answer": "Dạ đơn dưới 700.000đ áp dụng phí ship theo bảng giá tại bước thanh toán ạ.",
+    "tags": [
+      "payment",
+      "bank"
+    ],
+    "updated_at": "2026-05-15"
+  },
+  {
+    "question": "[013] Đơn trên 800.000đ có miễn phí vận chuyển không?",
+    "answer": "Dạ đơn từ 800.000đ trở lên được miễn phí ship nội thành ạ.",
+    "tags": [
+      "order",
+      "tracking"
+    ],
+    "updated_at": "2026-05-14"
+  },
+  {
+    "question": "[014] Chính sách đổi trả hàng lỗi sản xuất?",
+    "answer": "Dạ sản phẩm lỗi NSX được đổi mới trong 7 ngày khi còn tem ạ.",
+    "tags": [
+      "returns",
+      "refund"
+    ],
+    "updated_at": "2026-05-13"
+  },
+  {
+    "question": "[015] Thanh toán chuyển khoản có giảm giá không?",
+    "answer": "Dạ chuyển khoản có thể được giảm thêm theo chương trình tại thời điểm đặt ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-05-12"
+  },
+  {
+    "question": "[016] Có hỗ trợ COD toàn quốc không?",
+    "answer": "Dạ FitStore Vietnam hỗ trợ COD tại hầu hết tỉnh thành, trừ vùng hạn chế của đơn vị vận chuyển ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-05-11"
+  },
+  {
+    "question": "[017] Làm sao tra mã vận đơn?",
+    "answer": "Dạ sau khi xuất kho, hệ thống gửi SMS/email mã vận đơn để tra cứu ạ.",
+    "tags": [
+      "returns",
+      "policy"
+    ],
+    "updated_at": "2026-05-10"
+  },
+  {
+    "question": "[018] Giao hàng cuối tuần có được không?",
+    "answer": "Dạ giao cuối tuần tùy khu vực và đơn vị vận chuyển ạ.",
+    "tags": [
+      "payment",
+      "cod"
+    ],
+    "updated_at": "2026-05-09"
+  },
+  {
+    "question": "[019] Đổi địa chỉ sau khi đặt hàng?",
+    "answer": "Dạ liên hệ hotline 1900 6868 trong 2 giờ sau đặt để đổi địa chỉ ạ.",
+    "tags": [
+      "payment",
+      "bank"
+    ],
+    "updated_at": "2026-05-08"
+  },
+  {
+    "question": "[020] Hoàn tiền khi hủy đơn?",
+    "answer": "Dạ đơn chưa xuất kho được hoàn trong 3–7 ngày làm việc ạ.",
+    "tags": [
+      "order",
+      "tracking"
+    ],
+    "updated_at": "2026-05-07"
+  },
+  {
+    "question": "[021] Thời gian giao hàng nội thành Hà Nội?",
+    "answer": "Dạ nội thành Hà Nội giao dự kiến 1–2 ngày làm việc ạ.",
+    "tags": [
+      "returns",
+      "refund"
+    ],
+    "updated_at": "2026-05-06"
+  },
+  {
+    "question": "[022] Phí ship đơn hàng dưới 700.000đ?",
+    "answer": "Dạ đơn dưới 700.000đ áp dụng phí ship theo bảng giá tại bước thanh toán ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-05-05"
+  },
+  {
+    "question": "[023] Đơn trên 800.000đ có miễn phí vận chuyển không?",
+    "answer": "Dạ đơn từ 800.000đ trở lên được miễn phí ship nội thành ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-05-04"
+  },
+  {
+    "question": "[024] Chính sách đổi trả hàng lỗi sản xuất?",
+    "answer": "Dạ sản phẩm lỗi NSX được đổi mới trong 7 ngày khi còn tem ạ.",
+    "tags": [
+      "returns",
+      "policy"
+    ],
+    "updated_at": "2026-05-03"
+  },
+  {
+    "question": "[025] Thanh toán chuyển khoản có giảm giá không?",
+    "answer": "Dạ chuyển khoản có thể được giảm thêm theo chương trình tại thời điểm đặt ạ.",
+    "tags": [
+      "payment",
+      "cod"
+    ],
+    "updated_at": "2026-05-02"
+  },
+  {
+    "question": "[026] Có hỗ trợ COD toàn quốc không?",
+    "answer": "Dạ FitStore Vietnam hỗ trợ COD tại hầu hết tỉnh thành, trừ vùng hạn chế của đơn vị vận chuyển ạ.",
+    "tags": [
+      "payment",
+      "bank"
+    ],
+    "updated_at": "2026-05-01"
+  },
+  {
+    "question": "[027] Làm sao tra mã vận đơn?",
+    "answer": "Dạ sau khi xuất kho, hệ thống gửi SMS/email mã vận đơn để tra cứu ạ.",
+    "tags": [
+      "order",
+      "tracking"
+    ],
+    "updated_at": "2026-04-30"
+  },
+  {
+    "question": "[028] Giao hàng cuối tuần có được không?",
+    "answer": "Dạ giao cuối tuần tùy khu vực và đơn vị vận chuyển ạ.",
+    "tags": [
+      "returns",
+      "refund"
+    ],
+    "updated_at": "2026-04-29"
+  },
+  {
+    "question": "[029] Đổi địa chỉ sau khi đặt hàng?",
+    "answer": "Dạ liên hệ hotline 1900 6868 trong 2 giờ sau đặt để đổi địa chỉ ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-04-28"
+  },
+  {
+    "question": "[030] Hoàn tiền khi hủy đơn?",
+    "answer": "Dạ đơn chưa xuất kho được hoàn trong 3–7 ngày làm việc ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-04-27"
+  },
+  {
+    "question": "[031] Thời gian giao hàng nội thành Hà Nội?",
+    "answer": "Dạ nội thành Hà Nội giao dự kiến 1–2 ngày làm việc ạ.",
+    "tags": [
+      "returns",
+      "policy"
+    ],
+    "updated_at": "2026-04-26"
+  },
+  {
+    "question": "[032] Phí ship đơn hàng dưới 700.000đ?",
+    "answer": "Dạ đơn dưới 700.000đ áp dụng phí ship theo bảng giá tại bước thanh toán ạ.",
+    "tags": [
+      "payment",
+      "cod"
+    ],
+    "updated_at": "2026-04-25"
+  },
+  {
+    "question": "[033] Đơn trên 800.000đ có miễn phí vận chuyển không?",
+    "answer": "Dạ đơn từ 800.000đ trở lên được miễn phí ship nội thành ạ.",
+    "tags": [
+      "payment",
+      "bank"
+    ],
+    "updated_at": "2026-04-24"
+  },
+  {
+    "question": "[034] Chính sách đổi trả hàng lỗi sản xuất?",
+    "answer": "Dạ sản phẩm lỗi NSX được đổi mới trong 7 ngày khi còn tem ạ.",
+    "tags": [
+      "order",
+      "tracking"
+    ],
+    "updated_at": "2026-04-23"
+  },
+  {
+    "question": "[035] Thanh toán chuyển khoản có giảm giá không?",
+    "answer": "Dạ chuyển khoản có thể được giảm thêm theo chương trình tại thời điểm đặt ạ.",
+    "tags": [
+      "returns",
+      "refund"
+    ],
+    "updated_at": "2026-04-22"
+  },
+  {
+    "question": "[036] Có hỗ trợ COD toàn quốc không?",
+    "answer": "Dạ FitStore Vietnam hỗ trợ COD tại hầu hết tỉnh thành, trừ vùng hạn chế của đơn vị vận chuyển ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-04-21"
+  },
+  {
+    "question": "[037] Làm sao tra mã vận đơn?",
+    "answer": "Dạ sau khi xuất kho, hệ thống gửi SMS/email mã vận đơn để tra cứu ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-04-20"
+  },
+  {
+    "question": "[038] Giao hàng cuối tuần có được không?",
+    "answer": "Dạ giao cuối tuần tùy khu vực và đơn vị vận chuyển ạ.",
+    "tags": [
+      "returns",
+      "policy"
+    ],
+    "updated_at": "2026-04-19"
+  },
+  {
+    "question": "[039] Đổi địa chỉ sau khi đặt hàng?",
+    "answer": "Dạ liên hệ hotline 1900 6868 trong 2 giờ sau đặt để đổi địa chỉ ạ.",
+    "tags": [
+      "payment",
+      "cod"
+    ],
+    "updated_at": "2026-04-18"
+  },
+  {
+    "question": "[040] Hoàn tiền khi hủy đơn?",
+    "answer": "Dạ đơn chưa xuất kho được hoàn trong 3–7 ngày làm việc ạ.",
+    "tags": [
+      "payment",
+      "bank"
+    ],
+    "updated_at": "2026-04-17"
+  },
+  {
+    "question": "[041] Thời gian giao hàng nội thành Hà Nội?",
+    "answer": "Dạ nội thành Hà Nội giao dự kiến 1–2 ngày làm việc ạ.",
+    "tags": [
+      "order",
+      "tracking"
+    ],
+    "updated_at": "2026-04-16"
+  },
+  {
+    "question": "[042] Phí ship đơn hàng dưới 700.000đ?",
+    "answer": "Dạ đơn dưới 700.000đ áp dụng phí ship theo bảng giá tại bước thanh toán ạ.",
+    "tags": [
+      "returns",
+      "refund"
+    ],
+    "updated_at": "2026-04-15"
+  },
+  {
+    "question": "[043] Đơn trên 800.000đ có miễn phí vận chuyển không?",
+    "answer": "Dạ đơn từ 800.000đ trở lên được miễn phí ship nội thành ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-04-14"
+  },
+  {
+    "question": "[044] Chính sách đổi trả hàng lỗi sản xuất?",
+    "answer": "Dạ sản phẩm lỗi NSX được đổi mới trong 7 ngày khi còn tem ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-04-13"
+  },
+  {
+    "question": "[045] Thanh toán chuyển khoản có giảm giá không?",
+    "answer": "Dạ chuyển khoản có thể được giảm thêm theo chương trình tại thời điểm đặt ạ.",
+    "tags": [
+      "returns",
+      "policy"
+    ],
+    "updated_at": "2026-04-12"
+  },
+  {
+    "question": "[046] Có hỗ trợ COD toàn quốc không?",
+    "answer": "Dạ FitStore Vietnam hỗ trợ COD tại hầu hết tỉnh thành, trừ vùng hạn chế của đơn vị vận chuyển ạ.",
+    "tags": [
+      "payment",
+      "cod"
+    ],
+    "updated_at": "2026-05-26"
+  },
+  {
+    "question": "[047] Làm sao tra mã vận đơn?",
+    "answer": "Dạ sau khi xuất kho, hệ thống gửi SMS/email mã vận đơn để tra cứu ạ.",
+    "tags": [
+      "payment",
+      "bank"
+    ],
+    "updated_at": "2026-05-25"
+  },
+  {
+    "question": "[048] Giao hàng cuối tuần có được không?",
+    "answer": "Dạ giao cuối tuần tùy khu vực và đơn vị vận chuyển ạ.",
+    "tags": [
+      "order",
+      "tracking"
+    ],
+    "updated_at": "2026-05-24"
+  },
+  {
+    "question": "[049] Đổi địa chỉ sau khi đặt hàng?",
+    "answer": "Dạ liên hệ hotline 1900 6868 trong 2 giờ sau đặt để đổi địa chỉ ạ.",
+    "tags": [
+      "returns",
+      "refund"
+    ],
+    "updated_at": "2026-05-23"
+  },
+  {
+    "question": "[050] Hoàn tiền khi hủy đơn?",
+    "answer": "Dạ đơn chưa xuất kho được hoàn trong 3–7 ngày làm việc ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-05-22"
+  },
+  {
+    "question": "[051] Thời gian giao hàng nội thành Hà Nội?",
+    "answer": "Dạ nội thành Hà Nội giao dự kiến 1–2 ngày làm việc ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-05-21"
+  },
+  {
+    "question": "[052] Phí ship đơn hàng dưới 700.000đ?",
+    "answer": "Dạ đơn dưới 700.000đ áp dụng phí ship theo bảng giá tại bước thanh toán ạ.",
+    "tags": [
+      "returns",
+      "policy"
+    ],
+    "updated_at": "2026-05-20"
+  },
+  {
+    "question": "[053] Đơn trên 800.000đ có miễn phí vận chuyển không?",
+    "answer": "Dạ đơn từ 800.000đ trở lên được miễn phí ship nội thành ạ.",
+    "tags": [
+      "payment",
+      "cod"
+    ],
+    "updated_at": "2026-05-19"
+  },
+  {
+    "question": "[054] Chính sách đổi trả hàng lỗi sản xuất?",
+    "answer": "Dạ sản phẩm lỗi NSX được đổi mới trong 7 ngày khi còn tem ạ.",
+    "tags": [
+      "payment",
+      "bank"
+    ],
+    "updated_at": "2026-05-18"
+  },
+  {
+    "question": "[055] Thanh toán chuyển khoản có giảm giá không?",
+    "answer": "Dạ chuyển khoản có thể được giảm thêm theo chương trình tại thời điểm đặt ạ.",
+    "tags": [
+      "order",
+      "tracking"
+    ],
+    "updated_at": "2026-05-17"
+  },
+  {
+    "question": "[056] Có hỗ trợ COD toàn quốc không?",
+    "answer": "Dạ FitStore Vietnam hỗ trợ COD tại hầu hết tỉnh thành, trừ vùng hạn chế của đơn vị vận chuyển ạ.",
+    "tags": [
+      "returns",
+      "refund"
+    ],
+    "updated_at": "2026-05-16"
+  },
+  {
+    "question": "[057] Làm sao tra mã vận đơn?",
+    "answer": "Dạ sau khi xuất kho, hệ thống gửi SMS/email mã vận đơn để tra cứu ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-05-15"
+  },
+  {
+    "question": "[058] Giao hàng cuối tuần có được không?",
+    "answer": "Dạ giao cuối tuần tùy khu vực và đơn vị vận chuyển ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-05-14"
+  },
+  {
+    "question": "[059] Đổi địa chỉ sau khi đặt hàng?",
+    "answer": "Dạ liên hệ hotline 1900 6868 trong 2 giờ sau đặt để đổi địa chỉ ạ.",
+    "tags": [
+      "returns",
+      "policy"
+    ],
+    "updated_at": "2026-05-13"
+  },
+  {
+    "question": "[060] Hoàn tiền khi hủy đơn?",
+    "answer": "Dạ đơn chưa xuất kho được hoàn trong 3–7 ngày làm việc ạ.",
+    "tags": [
+      "payment",
+      "cod"
+    ],
+    "updated_at": "2026-05-12"
+  },
+  {
+    "question": "[061] Thời gian giao hàng nội thành Hà Nội?",
+    "answer": "Dạ nội thành Hà Nội giao dự kiến 1–2 ngày làm việc ạ.",
+    "tags": [
+      "payment",
+      "bank"
+    ],
+    "updated_at": "2026-05-11"
+  },
+  {
+    "question": "[062] Phí ship đơn hàng dưới 700.000đ?",
+    "answer": "Dạ đơn dưới 700.000đ áp dụng phí ship theo bảng giá tại bước thanh toán ạ.",
+    "tags": [
+      "order",
+      "tracking"
+    ],
+    "updated_at": "2026-05-10"
+  },
+  {
+    "question": "[063] Đơn trên 800.000đ có miễn phí vận chuyển không?",
+    "answer": "Dạ đơn từ 800.000đ trở lên được miễn phí ship nội thành ạ.",
+    "tags": [
+      "returns",
+      "refund"
+    ],
+    "updated_at": "2026-05-09"
+  },
+  {
+    "question": "[064] Chính sách đổi trả hàng lỗi sản xuất?",
+    "answer": "Dạ sản phẩm lỗi NSX được đổi mới trong 7 ngày khi còn tem ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-05-08"
+  },
+  {
+    "question": "[065] Thanh toán chuyển khoản có giảm giá không?",
+    "answer": "Dạ chuyển khoản có thể được giảm thêm theo chương trình tại thời điểm đặt ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-05-07"
+  },
+  {
+    "question": "[066] Có hỗ trợ COD toàn quốc không?",
+    "answer": "Dạ FitStore Vietnam hỗ trợ COD tại hầu hết tỉnh thành, trừ vùng hạn chế của đơn vị vận chuyển ạ.",
+    "tags": [
+      "returns",
+      "policy"
+    ],
+    "updated_at": "2026-05-06"
+  },
+  {
+    "question": "[067] Làm sao tra mã vận đơn?",
+    "answer": "Dạ sau khi xuất kho, hệ thống gửi SMS/email mã vận đơn để tra cứu ạ.",
+    "tags": [
+      "payment",
+      "cod"
+    ],
+    "updated_at": "2026-05-05"
+  },
+  {
+    "question": "[068] Giao hàng cuối tuần có được không?",
+    "answer": "Dạ giao cuối tuần tùy khu vực và đơn vị vận chuyển ạ.",
+    "tags": [
+      "payment",
+      "bank"
+    ],
+    "updated_at": "2026-05-04"
+  },
+  {
+    "question": "[069] Đổi địa chỉ sau khi đặt hàng?",
+    "answer": "Dạ liên hệ hotline 1900 6868 trong 2 giờ sau đặt để đổi địa chỉ ạ.",
+    "tags": [
+      "order",
+      "tracking"
+    ],
+    "updated_at": "2026-05-03"
+  },
+  {
+    "question": "[070] Hoàn tiền khi hủy đơn?",
+    "answer": "Dạ đơn chưa xuất kho được hoàn trong 3–7 ngày làm việc ạ.",
+    "tags": [
+      "returns",
+      "refund"
+    ],
+    "updated_at": "2026-05-02"
+  },
+  {
+    "question": "[071] Thời gian giao hàng nội thành Hà Nội?",
+    "answer": "Dạ nội thành Hà Nội giao dự kiến 1–2 ngày làm việc ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-05-01"
+  },
+  {
+    "question": "[072] Phí ship đơn hàng dưới 700.000đ?",
+    "answer": "Dạ đơn dưới 700.000đ áp dụng phí ship theo bảng giá tại bước thanh toán ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-04-30"
+  },
+  {
+    "question": "[073] Đơn trên 800.000đ có miễn phí vận chuyển không?",
+    "answer": "Dạ đơn từ 800.000đ trở lên được miễn phí ship nội thành ạ.",
+    "tags": [
+      "returns",
+      "policy"
+    ],
+    "updated_at": "2026-04-29"
+  },
+  {
+    "question": "[074] Chính sách đổi trả hàng lỗi sản xuất?",
+    "answer": "Dạ sản phẩm lỗi NSX được đổi mới trong 7 ngày khi còn tem ạ.",
+    "tags": [
+      "payment",
+      "cod"
+    ],
+    "updated_at": "2026-04-28"
+  },
+  {
+    "question": "[075] Thanh toán chuyển khoản có giảm giá không?",
+    "answer": "Dạ chuyển khoản có thể được giảm thêm theo chương trình tại thời điểm đặt ạ.",
+    "tags": [
+      "payment",
+      "bank"
+    ],
+    "updated_at": "2026-04-27"
+  },
+  {
+    "question": "[076] Có hỗ trợ COD toàn quốc không?",
+    "answer": "Dạ FitStore Vietnam hỗ trợ COD tại hầu hết tỉnh thành, trừ vùng hạn chế của đơn vị vận chuyển ạ.",
+    "tags": [
+      "order",
+      "tracking"
+    ],
+    "updated_at": "2026-04-26"
+  },
+  {
+    "question": "[077] Làm sao tra mã vận đơn?",
+    "answer": "Dạ sau khi xuất kho, hệ thống gửi SMS/email mã vận đơn để tra cứu ạ.",
+    "tags": [
+      "returns",
+      "refund"
+    ],
+    "updated_at": "2026-04-25"
+  },
+  {
+    "question": "[078] Giao hàng cuối tuần có được không?",
+    "answer": "Dạ giao cuối tuần tùy khu vực và đơn vị vận chuyển ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-04-24"
+  },
+  {
+    "question": "[079] Đổi địa chỉ sau khi đặt hàng?",
+    "answer": "Dạ liên hệ hotline 1900 6868 trong 2 giờ sau đặt để đổi địa chỉ ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-04-23"
+  },
+  {
+    "question": "[080] Hoàn tiền khi hủy đơn?",
+    "answer": "Dạ đơn chưa xuất kho được hoàn trong 3–7 ngày làm việc ạ.",
+    "tags": [
+      "returns",
+      "policy"
+    ],
+    "updated_at": "2026-04-22"
+  },
+  {
+    "question": "[081] Thời gian giao hàng nội thành Hà Nội?",
+    "answer": "Dạ nội thành Hà Nội giao dự kiến 1–2 ngày làm việc ạ.",
+    "tags": [
+      "payment",
+      "cod"
+    ],
+    "updated_at": "2026-04-21"
+  },
+  {
+    "question": "[082] Phí ship đơn hàng dưới 700.000đ?",
+    "answer": "Dạ đơn dưới 700.000đ áp dụng phí ship theo bảng giá tại bước thanh toán ạ.",
+    "tags": [
+      "payment",
+      "bank"
+    ],
+    "updated_at": "2026-04-20"
+  },
+  {
+    "question": "[083] Đơn trên 800.000đ có miễn phí vận chuyển không?",
+    "answer": "Dạ đơn từ 800.000đ trở lên được miễn phí ship nội thành ạ.",
+    "tags": [
+      "order",
+      "tracking"
+    ],
+    "updated_at": "2026-04-19"
+  },
+  {
+    "question": "[084] Chính sách đổi trả hàng lỗi sản xuất?",
+    "answer": "Dạ sản phẩm lỗi NSX được đổi mới trong 7 ngày khi còn tem ạ.",
+    "tags": [
+      "returns",
+      "refund"
+    ],
+    "updated_at": "2026-04-18"
+  },
+  {
+    "question": "[085] Thanh toán chuyển khoản có giảm giá không?",
+    "answer": "Dạ chuyển khoản có thể được giảm thêm theo chương trình tại thời điểm đặt ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-04-17"
+  },
+  {
+    "question": "[086] Có hỗ trợ COD toàn quốc không?",
+    "answer": "Dạ FitStore Vietnam hỗ trợ COD tại hầu hết tỉnh thành, trừ vùng hạn chế của đơn vị vận chuyển ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-04-16"
+  },
+  {
+    "question": "[087] Làm sao tra mã vận đơn?",
+    "answer": "Dạ sau khi xuất kho, hệ thống gửi SMS/email mã vận đơn để tra cứu ạ.",
+    "tags": [
+      "returns",
+      "policy"
+    ],
+    "updated_at": "2026-04-15"
+  },
+  {
+    "question": "[088] Giao hàng cuối tuần có được không?",
+    "answer": "Dạ giao cuối tuần tùy khu vực và đơn vị vận chuyển ạ.",
+    "tags": [
+      "payment",
+      "cod"
+    ],
+    "updated_at": "2026-04-14"
+  },
+  {
+    "question": "[089] Đổi địa chỉ sau khi đặt hàng?",
+    "answer": "Dạ liên hệ hotline 1900 6868 trong 2 giờ sau đặt để đổi địa chỉ ạ.",
+    "tags": [
+      "payment",
+      "bank"
+    ],
+    "updated_at": "2026-04-13"
+  },
+  {
+    "question": "[090] Hoàn tiền khi hủy đơn?",
+    "answer": "Dạ đơn chưa xuất kho được hoàn trong 3–7 ngày làm việc ạ.",
+    "tags": [
+      "order",
+      "tracking"
+    ],
+    "updated_at": "2026-04-12"
+  },
+  {
+    "question": "[091] Thời gian giao hàng nội thành Hà Nội?",
+    "answer": "Dạ nội thành Hà Nội giao dự kiến 1–2 ngày làm việc ạ.",
+    "tags": [
+      "returns",
+      "refund"
+    ],
+    "updated_at": "2026-05-26"
+  },
+  {
+    "question": "[092] Phí ship đơn hàng dưới 700.000đ?",
+    "answer": "Dạ đơn dưới 700.000đ áp dụng phí ship theo bảng giá tại bước thanh toán ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-05-25"
+  },
+  {
+    "question": "[093] Đơn trên 800.000đ có miễn phí vận chuyển không?",
+    "answer": "Dạ đơn từ 800.000đ trở lên được miễn phí ship nội thành ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-05-24"
+  },
+  {
+    "question": "[094] Chính sách đổi trả hàng lỗi sản xuất?",
+    "answer": "Dạ sản phẩm lỗi NSX được đổi mới trong 7 ngày khi còn tem ạ.",
+    "tags": [
+      "returns",
+      "policy"
+    ],
+    "updated_at": "2026-05-23"
+  },
+  {
+    "question": "[095] Thanh toán chuyển khoản có giảm giá không?",
+    "answer": "Dạ chuyển khoản có thể được giảm thêm theo chương trình tại thời điểm đặt ạ.",
+    "tags": [
+      "payment",
+      "cod"
+    ],
+    "updated_at": "2026-05-22"
+  },
+  {
+    "question": "[096] Có hỗ trợ COD toàn quốc không?",
+    "answer": "Dạ FitStore Vietnam hỗ trợ COD tại hầu hết tỉnh thành, trừ vùng hạn chế của đơn vị vận chuyển ạ.",
+    "tags": [
+      "payment",
+      "bank"
+    ],
+    "updated_at": "2026-05-21"
+  },
+  {
+    "question": "[097] Làm sao tra mã vận đơn?",
+    "answer": "Dạ sau khi xuất kho, hệ thống gửi SMS/email mã vận đơn để tra cứu ạ.",
+    "tags": [
+      "order",
+      "tracking"
+    ],
+    "updated_at": "2026-05-20"
+  },
+  {
+    "question": "[098] Giao hàng cuối tuần có được không?",
+    "answer": "Dạ giao cuối tuần tùy khu vực và đơn vị vận chuyển ạ.",
+    "tags": [
+      "returns",
+      "refund"
+    ],
+    "updated_at": "2026-05-19"
+  },
+  {
+    "question": "[099] Đổi địa chỉ sau khi đặt hàng?",
+    "answer": "Dạ liên hệ hotline 1900 6868 trong 2 giờ sau đặt để đổi địa chỉ ạ.",
+    "tags": [
+      "shipping",
+      "delivery"
+    ],
+    "updated_at": "2026-05-18"
+  },
+  {
+    "question": "[100] Hoàn tiền khi hủy đơn?",
+    "answer": "Dạ đơn chưa xuất kho được hoàn trong 3–7 ngày làm việc ạ.",
+    "tags": [
+      "shipping",
+      "fee"
+    ],
+    "updated_at": "2026-05-17"
+  }
+]

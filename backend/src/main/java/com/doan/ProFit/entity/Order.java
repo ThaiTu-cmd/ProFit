@@ -17,7 +17,7 @@ public class Order {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
     @Column(name = "order_code", nullable = false, unique = true, length = 50)
@@ -59,8 +59,33 @@ public class Order {
     @Column(name = "payment_status", nullable = false, length = 20)
     private String paymentStatus = "UNPAID";
 
+    @Column(name = "delivered_at")
+    private LocalDateTime deliveredAt;
+
+    @Column(name = "completed_at")
+    private LocalDateTime completedAt;
+
+    @Column(name = "payment_attempts", nullable = false)
+    private int paymentAttempts = 0;
+
+    @Column(name = "bank_transfer_slip", length = 500)
+    private String bankTransferSlip;
+
+    @Column(name = "paid_at")
+    private LocalDateTime paidAt;
+
     @Column(name = "note", length = 500)
     private String note;
+
+    // VNPAY fields
+    @Column(name = "vnp_txn_ref", length = 100)
+    private String vnpTxnRef;
+
+    @Column(name = "vnp_transaction_no", length = 50)
+    private String vnpTransactionNo;
+
+    @Column(name = "payment_method", length = 50)
+    private String paymentMethod;
 
     @Column(name = "placed_at", nullable = false, updatable = false)
     private LocalDateTime placedAt = LocalDateTime.now();
@@ -108,8 +133,25 @@ public class Order {
     public void setStatus(String status) { this.status = status; }
     public String getPaymentStatus() { return paymentStatus; }
     public void setPaymentStatus(String paymentStatus) { this.paymentStatus = paymentStatus; }
+    public int getPaymentAttempts() { return paymentAttempts; }
+    public void setPaymentAttempts(int paymentAttempts) { this.paymentAttempts = paymentAttempts; }
+    public void incrementPaymentAttempts() { this.paymentAttempts++; }
+    public String getBankTransferSlip() { return bankTransferSlip; }
+    public void setBankTransferSlip(String bankTransferSlip) { this.bankTransferSlip = bankTransferSlip; }
+    public LocalDateTime getPaidAt() { return paidAt; }
+    public void setPaidAt(LocalDateTime paidAt) { this.paidAt = paidAt; }
+    public LocalDateTime getDeliveredAt() { return deliveredAt; }
+    public void setDeliveredAt(LocalDateTime deliveredAt) { this.deliveredAt = deliveredAt; }
+    public LocalDateTime getCompletedAt() { return completedAt; }
+    public void setCompletedAt(LocalDateTime completedAt) { this.completedAt = completedAt; }
     public String getNote() { return note; }
     public void setNote(String note) { this.note = note; }
+    public String getVnpTxnRef() { return vnpTxnRef; }
+    public void setVnpTxnRef(String vnpTxnRef) { this.vnpTxnRef = vnpTxnRef; }
+    public String getVnpTransactionNo() { return vnpTransactionNo; }
+    public void setVnpTransactionNo(String vnpTransactionNo) { this.vnpTransactionNo = vnpTransactionNo; }
+    public String getPaymentMethod() { return paymentMethod; }
+    public void setPaymentMethod(String paymentMethod) { this.paymentMethod = paymentMethod; }
     public LocalDateTime getPlacedAt() { return placedAt; }
     public void setPlacedAt(LocalDateTime placedAt) { this.placedAt = placedAt; }
     public LocalDateTime getCreatedAt() { return createdAt; }

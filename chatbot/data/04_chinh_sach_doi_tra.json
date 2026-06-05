@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "doc_id": "profit_004",
+    "title": "Chính Sách Đổi Trả Sản Phẩm",
+    "category": "return_policy",
+    "language": "vi",
+    "source_file": "Chính_Sách_Đổi_Trả_Sản_Phẩm.docx",
+    "created_at": "2026-05-27T06:17:26Z",
+    "tags": [
+      "đổi trả",
+      "hoàn hàng",
+      "chính sách",
+      "lỗi sản phẩm",
+      "bảo hành"
+    ],
+    "shop": "ProFit"
+  },
+  "content": "Chính Sách Đổi Trả Sản Phẩm ProFit:\n\n1. Mục đích: Đảm bảo quyền lợi khách hàng trong trường hợp sản phẩm gặp lỗi, giao sai hoặc phát sinh vấn đề trong quá trình sử dụng.\n\n2. Thời gian áp dụng:\n   - 07 ngày kể từ ngày nhận hàng với sản phẩm thông thường.\n   - 24 giờ đối với sản phẩm tươi sống hoặc bảo quản đặc biệt.\n\n3. Điều kiện đổi trả:\n   - Sản phẩm còn nguyên vẹn, chưa qua sử dụng.\n   - Không có dấu hiệu hư hỏng do người dùng.\n   - Còn đầy đủ tem, nhãn, niêm phong.\n   - Bao bì, hộp sản phẩm còn đầy đủ.\n   - Có mã đơn hàng, hóa đơn, SĐT hoặc email đặt hàng.\n\n4. Các trường hợp được hỗ trợ:\n   - Giao sai sản phẩm.\n   - Thiếu sản phẩm trong đơn hàng.\n   - Sản phẩm bị lỗi kỹ thuật từ nhà sản xuất.\n   - Sản phẩm bị hư hỏng trong quá trình vận chuyển.\n   - Sản phẩm hết hạn sử dụng trước hoặc gần thời điểm nhận hàng.\n   - Sản phẩm không đúng mô tả.\n\n5. Các trường hợp KHÔNG hỗ trợ:\n   - Sản phẩm đã qua sử dụng.\n   - Mất tem niêm phong hoặc bao bì gốc.\n   - Hư hỏng do bảo quản sai cách.\n   - Khách hàng thay đổi nhu cầu sau khi mua.\n   - Quá thời hạn đổi trả quy định.\n   - Sản phẩm thuộc danh mục không hỗ trợ đổi trả.",
+  "chunks": [
+    {
+      "chunk_id": "profit_004_c1",
+      "text": "Thời hạn đổi trả là 07 ngày kể từ ngày nhận hàng với sản phẩm thông thường, và 24 giờ với sản phẩm tươi sống."
+    },
+    {
+      "chunk_id": "profit_004_c2",
+      "text": "Điều kiện đổi trả: sản phẩm còn nguyên vẹn, chưa sử dụng, còn đủ tem nhãn và bao bì gốc."
+    },
+    {
+      "chunk_id": "profit_004_c3",
+      "text": "Chứng từ cần cung cấp khi đổi trả: mã đơn hàng, hóa đơn, số điện thoại hoặc email đặt hàng."
+    },
+    {
+      "chunk_id": "profit_004_c4",
+      "text": "Các trường hợp được hỗ trợ đổi trả: giao sai sản phẩm, thiếu hàng, lỗi kỹ thuật nhà sản xuất, hư hỏng khi vận chuyển, hàng hết hạn, không đúng mô tả."
+    },
+    {
+      "chunk_id": "profit_004_c5",
+      "text": "Các trường hợp không được hỗ trợ đổi trả: đã qua sử dụng, mất tem/bao bì, bảo quản sai cách, thay đổi nhu cầu cá nhân, quá hạn đổi trả."
+    }
+  ]
+}
