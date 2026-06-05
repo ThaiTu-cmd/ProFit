@@ -18,4 +18,7 @@ public interface OrderService {
     OrderResponse confirmBankingPayment(Long orderId, String userEmail);
     long countPendingConfirmOrders();
     DashboardStatsResponse getDashboardStats();
+    void updateVNPayTxnRef(String orderCode, String txnRef);
+    void updatePaymentSuccess(String orderCode, String transactionNo);
+    void updatePaymentFailed(String orderCode);
 }

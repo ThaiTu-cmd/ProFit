@@ -60,6 +60,21 @@ public class AdminDataInitializer {
                 log.info("[ProFit] Customer ready: {} / {}", customerEmail, customerPassword);
                 log.debug("[ProFit] Customer hash: {}", customer.getPasswordHash());
             }
+
+            // Tạo guest user cho đơn hàng vãng lai (không cần đăng nhập)
+            User guestUser = userRepository.findByEmail("__guest__@system.internal")
+                    .orElseGet(User::new);
+            if (guestUser.getId() == null) {
+                guestUser.setFullName("Guest User");
+                guestUser.setEmail("__guest__@system.internal");
+                guestUser.setPhone("0000000000");
+                guestUser.setRole(Role.CUSTOMER);
+                guestUser.setStatus(Status.ACTIVE);
+                guestUser.setDeletedAt(null);
+                guestUser.setPasswordHash(passwordEncoder.encode("__guest_dummy_password__"));
+                userRepository.save(guestUser);
+                log.info("[ProFit] Guest user ready for guest orders (id={})", guestUser.getId());
+            }
         };
     }
 }

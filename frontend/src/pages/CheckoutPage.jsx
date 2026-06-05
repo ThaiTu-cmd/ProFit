@@ -4,8 +4,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { formatPrice } from "../utils/productHelpers";
-import { ShoppingCart, Loader2, Banknote, Landmark, Smartphone, AlertCircle } from "lucide-react";
-import { apiCreateOrder, apiCreateGuestOrder, apiCreatePayment, isLoggedIn } from "../utils/api";
+import { ShoppingCart, Loader2, Banknote, Landmark, AlertCircle, CreditCard } from "lucide-react";
+import { apiCreateOrder, apiCreateGuestOrder, apiCreateVNPayPayment, isLoggedIn } from "../utils/api";
 
 const DEFAULT_USER_INFO = {
   fullName: "", phone: "", email: "", address: "", district: "", city: "", province: "", note: "",
@@ -90,10 +90,34 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
         guestOrder: !isLoggedIn(),
       };
 
-      const savedLocal = localStorage.getItem("localOrders");
-      const localOrders = savedLocal ? JSON.parse(savedLocal) : [];
-      localOrders.push(orderForStorage);
-      localStorage.setItem("localOrders", JSON.stringify(localOrders));
+      // VNPAY: Gọi API tạo URL thanh toán và redirect
+      if (payMethod === "vnpay") {
+        try {
+          showToast("Đang chuyển đến VNPAY...");
+          const { paymentUrl, txnRef } = await apiCreateVNPayPayment(
+            result.orderCode,
+            Math.round(total), // Số tiền VND
+            "vn",
+            "", // bankCode
+            userInfo.email || "" // email để verify guest order
+          );
+          
+          // Cập nhật orderForStorage với thông tin VNPAY
+          orderForStorage.vnpTxnRef = txnRef;
+          localStorage.setItem("pendingVNPayOrder", JSON.stringify(orderForStorage));
+          localStorage.setItem("pendingVNPayOrderCode", result.orderCode);
+          
+          // Redirect đến trang thanh toán VNPAY
+          window.location.href = paymentUrl;
+          return;
+        } catch (err) {
+          console.error("Lỗi tạo thanh toán VNPAY:", err);
+          setOrderError("Không thể tạo thanh toán VNPAY: " + err.message);
+          showToast("Lỗi thanh toán VNPAY!");
+          setPlacing(false);
+          return;
+        }
+      }
 
       // Banking: hiện màn hình QR code
       if (payMethod === "banking") {
@@ -106,20 +130,11 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
         return;
       }
 
-      // VNPay: lấy payment URL và redirect
-      if (payMethod === "vnpay") {
-        showToast("Đang chuyển sang VNPay...");
-        try {
-          const { paymentUrl } = await apiCreatePayment(result.id);
-          // Lưu order đang chờ thanh toán để reload sau khi quay về
-          localStorage.setItem("pendingVnpayOrder", JSON.stringify(orderForStorage));
-          window.location.href = paymentUrl;
-          return;
-        } catch (vnpayErr) {
-          // Nếu không lấy được URL, vẫn hiển thị thành công nhưng cảnh báo
-          showToast("Tạo đơn thành công nhưng không thể kết nối VNPay. Vui lòng thanh toán sau.");
-        }
-      }
+      // COD: Lưu vào localOrders như trước
+      const savedLocal = localStorage.getItem("localOrders");
+      const localOrders = savedLocal ? JSON.parse(savedLocal) : [];
+      localOrders.push(orderForStorage);
+      localStorage.setItem("localOrders", JSON.stringify(localOrders));
 
       showToast(isLoggedIn() ? "Đặt hàng thành công!" : "Đặt hàng thành công! Cảm ơn bạn.");
       onPlaceOrder(orderForStorage);
@@ -230,8 +245,8 @@ const CheckoutPage = ({ cart = [], user, onPlaceOrder, navigate, showToast }) =>
               <div className="pay-methods">
                 {[
                   { id: "cod", icon: <Banknote size={24} />, label: "Thanh toán khi nhận hàng (COD)" },
-                  { id: "banking", icon: <Landmark size={24} />, label: "Chuyển khoản ngân hàng" },
-                  { id: "vnpay", icon: <Smartphone size={24} />, label: "VNPay / Ví điện tử" },
+                  { id: "banking", icon: <Landmark size={24} />, label: "Chuyển khoản ngân hàng (ATM/Ví)" },
+                  { id: "vnpay", icon: <CreditCard size={24} />, label: "Thanh toán qua VNPAY (QR/ATM)" },
                 ].map((m) => (
                   <label
                     key={m.id}

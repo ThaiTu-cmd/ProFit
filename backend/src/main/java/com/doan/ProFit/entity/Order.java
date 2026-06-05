@@ -77,6 +77,16 @@ public class Order {
     @Column(name = "note", length = 500)
     private String note;
 
+    // VNPAY fields
+    @Column(name = "vnp_txn_ref", length = 100)
+    private String vnpTxnRef;
+
+    @Column(name = "vnp_transaction_no", length = 50)
+    private String vnpTransactionNo;
+
+    @Column(name = "payment_method", length = 50)
+    private String paymentMethod;
+
     @Column(name = "placed_at", nullable = false, updatable = false)
     private LocalDateTime placedAt = LocalDateTime.now();
 
@@ -136,6 +146,12 @@ public class Order {
     public void setCompletedAt(LocalDateTime completedAt) { this.completedAt = completedAt; }
     public String getNote() { return note; }
     public void setNote(String note) { this.note = note; }
+    public String getVnpTxnRef() { return vnpTxnRef; }
+    public void setVnpTxnRef(String vnpTxnRef) { this.vnpTxnRef = vnpTxnRef; }
+    public String getVnpTransactionNo() { return vnpTransactionNo; }
+    public void setVnpTransactionNo(String vnpTransactionNo) { this.vnpTransactionNo = vnpTransactionNo; }
+    public String getPaymentMethod() { return paymentMethod; }
+    public void setPaymentMethod(String paymentMethod) { this.paymentMethod = paymentMethod; }
     public LocalDateTime getPlacedAt() { return placedAt; }
     public void setPlacedAt(LocalDateTime placedAt) { this.placedAt = placedAt; }
     public LocalDateTime getCreatedAt() { return createdAt; }

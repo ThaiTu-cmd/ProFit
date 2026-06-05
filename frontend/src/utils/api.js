@@ -113,65 +113,6 @@ export const apiGetMyOrders = async () => {
   return response.json();
 };
 
-// =====================================================
-// PAYMENT API
-// =====================================================
-
-/**
- * Tạo payment URL VNPay cho một đơn hàng
- * @param {number} orderId - ID của đơn hàng vừa tạo
- * @returns {Promise<{paymentUrl: string}>} - URL thanh toán VNPay
- */
-export const apiCreatePayment = async (orderId) => {
-  const response = await fetch(`${API_BASE}/v1/payment/create/${orderId}`, {
-    method: "GET",
-    headers: getAuthHeaders(),
-  });
-
-  if (!response.ok) {
-    const err = await response.json().catch(() => ({ message: "Không thể tạo thanh toán VNPay" }));
-    throw new Error(err.message || "Không thể tạo thanh toán VNPay");
-  }
-
-  return response.json();
-};
-
-/**
- * Xác nhận đã chuyển khoản ngân hàng (user gửi yêu cầu xác nhận)
- * @param {number} orderId - ID của đơn hàng
- * @returns {Promise} - Response từ server
- */
-export const apiConfirmBankingPayment = async (orderId) => {
-  const response = await fetch(`${API_BASE}/v1/banking/confirm/${orderId}`, {
-    method: "POST",
-    headers: getAuthHeaders(),
-  });
-
-  if (!response.ok) {
-    const err = await response.json().catch(() => ({ message: "Xác nhận thanh toán thất bại" }));
-    throw new Error(err.message || "Xác nhận thanh toán thất bại");
-  }
-
-  return response.json();
-};
-
-/**
- * Lấy số lượng đơn chờ xác nhận thanh toán (cho admin)
- * @returns {Promise<{count: number}>} - Số lượng đơn chờ xác nhận
- */
-export const apiGetPendingConfirmCount = async () => {
-  const response = await fetch(`${API_BASE}/v1/banking/pending-count`, {
-    method: "GET",
-    headers: getAuthHeaders(),
-  });
-
-  if (!response.ok) {
-    const err = await response.json().catch(() => ({ message: "Không thể lấy số đơn chờ xác nhận" }));
-    throw new Error(err.message || "Không thể lấy số đơn chờ xác nhận");
-  }
-
-  return response.json();
-};
 
 // =====================================================
 // REVIEW API
@@ -341,4 +282,91 @@ export const isAdmin = () => {
   } catch {
     return false;
   }
+};
+
+// =====================================================
+// BANKING PAYMENT API
+// =====================================================
+
+/**
+ * Xác nhận thanh toán banking (sau khi đã chuyển khoản)
+ * @param {number} orderId - ID đơn hàng
+ */
+export const apiConfirmBankingPayment = async (orderId) => {
+  const response = await fetch(`${API_BASE}/payments/banking/confirm`, {
+    method: "POST",
+    headers: getAuthHeaders(),
+    body: JSON.stringify({ orderId }),
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ message: "Xác nhận thanh toán thất bại" }));
+    throw new Error(err.message || "Xác nhận thanh toán thất bại");
+  }
+
+  return response.json();
+};
+
+/**
+ * Lấy số đơn hàng chờ xác nhận thanh toán banking (Admin)
+ */
+export const apiGetPendingBankingCount = async () => {
+  const response = await fetch(`${API_BASE}/payments/banking/pending-count`, {
+    method: "GET",
+    headers: getAuthHeaders(),
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ message: "Không thể lấy số đơn chờ" }));
+    throw new Error(err.message || "Không thể lấy số đơn chờ");
+  }
+
+  return response.json();
+};
+
+// =====================================================
+// VNPAY PAYMENT API
+// =====================================================
+
+/**
+ * Tạo URL thanh toán VNPAY
+ * @param {string} orderCode - Mã đơn hàng
+ * @param {number} amount - Số tiền (VND)
+ * @param {string} locale - Ngôn ngữ (vn/en)
+ * @param {string} bankCode - Mã ngân hàng (tùy chọn)
+ * @param {string} email - Email của khách (để verify guest order)
+ * @returns {Promise<{paymentUrl: string, txnRef: string}>}
+ */
+export const apiCreateVNPayPayment = async (orderCode, amount, locale = "vn", bankCode = "", email = "") => {
+  const response = await fetch(`${API_BASE}/v1/vnpay/create`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ orderCode, amount, locale, bankCode, email }),
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ message: "Không thể tạo thanh toán VNPAY" }));
+    throw new Error(err.message || "Không thể tạo thanh toán VNPAY");
+  }
+
+  return response.json();
+};
+
+/**
+ * Lấy thông tin kết quả thanh toán từ VNPAY return URL
+ * @param {Object} params - Các tham số từ VNPAY return
+ */
+export const apiGetVNPayReturnResult = async (params) => {
+  const queryString = new URLSearchParams(params).toString();
+  const response = await fetch(`${API_BASE}/v1/vnpay/return?${queryString}`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ message: "Không thể lấy kết quả thanh toán" }));
+    throw new Error(err.message || "Không thể lấy kết quả thanh toán");
+  }
+
+  return response.json();
 };

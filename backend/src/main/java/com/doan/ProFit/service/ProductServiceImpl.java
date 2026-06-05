@@ -15,7 +15,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,8 +36,21 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductResponse> getAllProducts() {
-        return productRepository.findAllForAdmin().stream()
-                .map(this::mapToResponse)
+        List<Product> products = productRepository.findAllForAdmin();
+        List<Long> ids = products.stream().map(Product::getId).collect(Collectors.toList());
+
+        // Batch fetch all images in ONE query
+        Map<Long, String> imageMap = new java.util.HashMap<>();
+        if (!ids.isEmpty()) {
+            List<Object[]> imageRows = productImageRepository.findBestImageUrlsByProductIds(ids);
+            for (Object[] row : imageRows) {
+                Long pid = ((Number) row[0]).longValue();
+                imageMap.put(pid, (String) row[1]);
+            }
+        }
+
+        return products.stream()
+                .map(p -> mapToResponse(p, imageMap))
                 .collect(Collectors.toList());
     }
 
@@ -48,8 +63,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Page<ProductResponse> getActiveProducts(Pageable pageable) {
-        return productRepository.findByIsActiveTrueAndDeletedAtIsNull(pageable)
-                .map(this::mapToResponse);
+        Page<Product> page = productRepository.findByIsActiveTrueAndDeletedAtIsNull(pageable);
+        return page.map(this::mapToResponse);
     }
 
     @Override
@@ -126,12 +141,24 @@ public class ProductServiceImpl implements ProductService {
     }
 
     private ProductResponse mapToResponse(Product product) {
+        return mapToResponse(product, null);
+    }
+
+    private ProductResponse mapToResponse(Product product, Map<Long, String> imageMap) {
         ProductResponse response = new ProductResponse();
         response.setId(product.getId());
         response.setSku(product.getSku());
         response.setSlug(product.getSlug());
         response.setName(product.getName());
-        response.setImageUrl(productImageRepository.findBestImageUrlByProductId(product.getId()).orElse(null));
+        if (imageMap != null) {
+            response.setImageUrl(imageMap.get(product.getId()));
+        } else {
+            try {
+                response.setImageUrl(productImageRepository.findBestImageUrlByProductId(product.getId()).orElse(null));
+            } catch (Exception e) {
+                response.setImageUrl(null);
+            }
+        }
         response.setShortDescription(product.getShortDescription());
         response.setDescription(product.getDescription());
         response.setPrice(product.getPrice());
@@ -145,7 +172,11 @@ public class ProductServiceImpl implements ProductService {
             response.setCategoryId(product.getCategory().getId());
             response.setCategoryName(product.getCategory().getName());
         }
-        response.setTags(productTagRepository.findDisplayNamesByProductId(product.getId()));
+        try {
+            response.setTags(productTagRepository.findDisplayNamesByProductId(product.getId()));
+        } catch (Exception e) {
+            response.setTags(java.util.Collections.emptyList());
+        }
         return response;
     }
 }

@@ -21,6 +21,9 @@ public class OrderResponse {
     private LocalDateTime completedAt;
     private String userName;
     private List<OrderItemResponse> items;
+    private String vnpTxnRef;
+    private String vnpTransactionNo;
+    private String paymentMethod;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -54,4 +57,10 @@ public class OrderResponse {
     public void setUserName(String userName) { this.userName = userName; }
     public List<OrderItemResponse> getItems() { return items; }
     public void setItems(List<OrderItemResponse> items) { this.items = items; }
+    public String getVnpTxnRef() { return vnpTxnRef; }
+    public void setVnpTxnRef(String vnpTxnRef) { this.vnpTxnRef = vnpTxnRef; }
+    public String getVnpTransactionNo() { return vnpTransactionNo; }
+    public void setVnpTransactionNo(String vnpTransactionNo) { this.vnpTransactionNo = vnpTransactionNo; }
+    public String getPaymentMethod() { return paymentMethod; }
+    public void setPaymentMethod(String paymentMethod) { this.paymentMethod = paymentMethod; }
 }

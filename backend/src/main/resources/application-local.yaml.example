@@ -11,12 +11,6 @@ spring:
     url: "jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Ho_Chi_Minh&connectionCharacterSet=UTF-8"
 
 app:
-  # URL gốc của frontend — dùng cho redirect sau khi thanh toán VNPay
+  # URL gốc của frontend — dùng cho redirect sau khi thanh toán
   frontend:
     base-url: "http://localhost:5173"
-
-  vnpay:
-    # Hash secret từ tài khoản VNPay của bạn
-    hash-secret: YOUR_VNPAY_HASH_SECRET
-    return-url: "http://localhost:8080/ProFitSuppsDB/api/v1/payment/vnpay-return"
-    ipn-url: "http://localhost:8080/ProFitSuppsDB/api/v1/payment/vnpay-ipn"

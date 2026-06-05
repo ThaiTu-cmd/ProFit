@@ -9,12 +9,13 @@ import org.springframework.stereotype.Repository;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findAllByOrderByCreatedAtDesc();
     List<Order> findByUserEmailOrderByCreatedAtDesc(String email);
-    Order findByOrderCode(String orderCode);
+    Optional<Order> findByOrderCode(String orderCode);
     
     // Find orders by payment status
     List<Order> findByPaymentStatusOrderByCreatedAtDesc(String paymentStatus);

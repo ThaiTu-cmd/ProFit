@@ -244,7 +244,7 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
                 STATUS_LABEL[displayStatus] ??
                 STATUS_LABEL.PENDING;
               return (
-                <div key={order.id || order.orderCode} className="order-card">
+                <div key={order.orderCode} className="order-card">
                   {/* Header đơn */}
                   <div className="order-card-header">
                     <div>

@@ -23,9 +23,9 @@ import ContactPage       from "./pages/ContactPage";
 import LoginPage         from "./pages/LoginPage";
 import RegisterPage      from "./pages/RegisterPage";
 import ProfilePage       from "./pages/ProfilePage";
-import PaymentResultPage from "./pages/PaymentResultPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import BankingQRPage    from "./pages/BankingQRPage";
+import VNPayPaymentPage from "./pages/VNPayPaymentPage";
 
 import DashboardPage     from "./pages/admin/DashboardPage";
 import ProductManagePage from "./pages/admin/ProductManagePage";
@@ -48,12 +48,12 @@ const App = () => {
     const path = window.location.pathname;
     if (path === "/" || path === "") {
       setCurrentPage("home");
-    } else if (path === "/payment-result" || path.startsWith("/payment-result")) {
-      setCurrentPage("payment-result");
     } else if (path === "/reset-password" || path.startsWith("/reset-password")) {
       setCurrentPage("reset-password");
     } else if (path === "/banking-qr") {
       setCurrentPage("banking-qr");
+    } else if (path === "/vnpay-return") {
+      setCurrentPage("vnpay-return");
     } else if (path === "/login") {
       setCurrentPage("login");
     } else if (path === "/register") {
@@ -341,9 +341,6 @@ const App = () => {
       case "profile":
         return <ProfilePage navigate={navigate} user={user} />;
 
-      case "payment-result":
-        return <PaymentResultPage navigate={navigate} onPlaceOrder={handlePlaceOrder} />;
-
       case "reset-password":
         return <ResetPasswordPage showToast={showToast} />;
 
@@ -357,6 +354,9 @@ const App = () => {
         })();
         return <BankingQRPage order={pendingOrder} navigate={navigate} showToast={showToast} onPlaceOrder={handlePlaceOrder} onClearCart={() => setCart([])} />;
       }
+
+      case "vnpay-return":
+        return <VNPayPaymentPage showToast={showToast} navigate={navigate} onPlaceOrder={handlePlaceOrder} />;
 
       // ── Admin (guard quyền) ───────────────────────
       case "admin-dashboard":

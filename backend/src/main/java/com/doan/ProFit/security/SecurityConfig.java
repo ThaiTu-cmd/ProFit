@@ -75,16 +75,19 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .exceptionHandling(ex -> ex.authenticationEntryPoint((request, response, authException) -> {
-                logger.warn("Unauthorized access attempt to: {} {} - Reason: {}", 
+                logger.warn("Unauthorized access attempt to: {} {} - Reason: {}",
                     request.getMethod(), request.getRequestURI(), authException.getMessage());
                 response.setStatus(HttpStatus.UNAUTHORIZED.value());
-                response.setContentType("application/json");
+                response.setContentType("application/json; charset=UTF-8");
+                response.setCharacterEncoding("UTF-8");
                 response.getWriter().write("{\"error\":\"Unauthorized\",\"message\":\"Vui lòng đăng nhập\"}");
             }))
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
                     // Auth
                     .requestMatchers("/api/auth/**").permitAll()
+                    // Error endpoint (prevent redirect loop)
+                    .requestMatchers("/error").permitAll()
                     // Public
                     .requestMatchers("/api/public/**").permitAll()
                     // Static assets
@@ -98,7 +101,8 @@ public class SecurityConfig {
                     .requestMatchers("/api/orders/**").permitAll()
                     // Payment
                     .requestMatchers("/api/v1/payment/**").permitAll()
-                    // Banking Payment
+                    // VNPAY endpoints (permit for IPN, authenticated for create)
+                    .requestMatchers("/api/v1/vnpay/**").permitAll()
                     .requestMatchers("/api/v1/banking/**").authenticated()
                     // Messages
                     .requestMatchers("/api/messages/my", "/api/messages/send").authenticated()

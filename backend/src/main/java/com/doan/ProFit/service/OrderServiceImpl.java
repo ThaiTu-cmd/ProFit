@@ -113,15 +113,18 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderResponse createGuestOrder(GuestOrderRequest request) {
-        // Khởi tạo đơn hàng cho khách vãng lai (không liên kết với user)
+        // Tìm guest user cho đơn hàng vãng lai
+        User guestUser = userRepository.findByEmail("__guest__@system.internal")
+                .orElseThrow(() -> new IllegalStateException("Guest user not found. Please restart the application."));
+
         Order order = new Order();
-        order.setUser(null); // Khách vãng lai
+        order.setUser(guestUser);
         order.setOrderCode("ORD-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase());
         order.setRecipientName(request.getRecipientName());
         order.setRecipientPhone(request.getRecipientPhone());
         order.setShippingAddressLine1(request.getShippingAddressLine1());
         order.setShippingCity(request.getShippingCity());
-        order.setShippingProvince(request.getShippingProvince());
+        order.setShippingProvince(request.getShippingProvince() != null ? request.getShippingProvince() : request.getShippingCity());
         order.setNote(request.getNote());
 
         BigDecimal total = BigDecimal.ZERO;
@@ -244,6 +247,34 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public long countPendingConfirmOrders() {
         return orderRepository.countByPaymentStatus("PENDING_CONFIRM");
+    }
+
+    @Override
+    public void updateVNPayTxnRef(String orderCode, String txnRef) {
+        Order order = orderRepository.findByOrderCode(orderCode)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found: " + orderCode));
+        order.setVnpTxnRef(txnRef);
+        order.setPaymentMethod("VNPAY");
+        orderRepository.save(order);
+    }
+
+    @Override
+    public void updatePaymentSuccess(String orderCode, String transactionNo) {
+        Order order = orderRepository.findByOrderCode(orderCode)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found: " + orderCode));
+        order.setPaymentStatus("PAID");
+        order.setStatus("CONFIRMED");
+        order.setVnpTransactionNo(transactionNo);
+        order.setPaidAt(LocalDateTime.now());
+        orderRepository.save(order);
+    }
+
+    @Override
+    public void updatePaymentFailed(String orderCode) {
+        Order order = orderRepository.findByOrderCode(orderCode)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found: " + orderCode));
+        order.setPaymentStatus("FAILED");
+        orderRepository.save(order);
     }
 
     @Override
@@ -371,6 +402,9 @@ public class OrderServiceImpl implements OrderService {
         response.setPaidAt(order.getPaidAt());
         response.setDeliveredAt(order.getDeliveredAt());
         response.setCompletedAt(order.getCompletedAt());
+        response.setVnpTxnRef(order.getVnpTxnRef());
+        response.setVnpTransactionNo(order.getVnpTransactionNo());
+        response.setPaymentMethod(order.getPaymentMethod());
         if (order.getUser() != null) {
             response.setUserName(order.getUser().getFullName());
         }

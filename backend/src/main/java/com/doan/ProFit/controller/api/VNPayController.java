@@ -1,171 +1,240 @@
 package com.doan.ProFit.controller.api;
 
-import com.doan.ProFit.config.VNPayConfig;
+import com.doan.ProFit.dto.request.VNPayCreateRequest;
 import com.doan.ProFit.entity.Order;
 import com.doan.ProFit.repository.OrderRepository;
+import com.doan.ProFit.service.OrderService;
 import com.doan.ProFit.service.VNPayService;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1/payment")
+@RequestMapping("/api/v1/vnpay")
 public class VNPayController {
+
+    private static final Logger logger = LoggerFactory.getLogger(VNPayController.class);
 
     @Autowired
     private VNPayService vnPayService;
 
     @Autowired
-    private OrderRepository orderRepository;
+    private OrderService orderService;
 
     @Autowired
-    private VNPayConfig vnPayConfig;
+    private OrderRepository orderRepository;
 
     /**
-     * Test endpoint - verify payment URL generation
-     * MINIMAL version with only required params
+     * Tạo URL thanh toán VNPAY
+     * Endpoint này hoàn toàn PUBLIC - verify order qua orderCode trong body
+     * KHÔNG sử dụng Authentication parameter vì nó gây 401 trên permitAll endpoints
      */
-    @GetMapping("/test")
-    public @ResponseBody Map<String, Object> testPayment() {
-        Map<String, Object> result = new HashMap<>();
-        
-        // MINIMAL params - only required fields
-        Map<String, String> testParams = new LinkedHashMap<>();
-        testParams.put("vnp_Version", "2.1.0");
-        testParams.put("vnp_Command", "pay");
-        testParams.put("vnp_TmnCode", "SY273SZH");
-        testParams.put("vnp_Amount", "1000000"); // 10,000 VND (must be integer)
-        testParams.put("vnp_CurrCode", "VND");
-        testParams.put("vnp_TxnRef", "TEST123"); // Simple TxnRef
-        testParams.put("vnp_OrderType", "other");
-        testParams.put("vnp_Locale", "vn");
-        testParams.put("vnp_ReturnUrl", "http://localhost:8080/ProFitSuppsDB/api/v1/payment/vnpay-return");
-        testParams.put("vnp_IpAddr", "127.0.0.1");
-        testParams.put("vnp_CreateDate", "20240524200000");
-        
-        // NO ExpireDate for minimal test
-        
-        // Build hash data manually for verification
-        StringBuilder hashData = new StringBuilder();
-        java.util.List<String> sortedKeys = new java.util.ArrayList<>(testParams.keySet());
-        java.util.Collections.sort(sortedKeys);
-        
-        for (int i = 0; i < sortedKeys.size(); i++) {
-            String key = sortedKeys.get(i);
-            if (hashData.length() > 0) hashData.append('&');
-            hashData.append(key).append('=').append(testParams.get(key));
-        }
-        
-        String hash = vnPayConfig.hmacSHA512(hashData.toString(), "SFP53JL1Z5AS4O5WFIEBMEARJAEMDTBT");
-        
-        // Build URL manually
-        StringBuilder url = new StringBuilder("https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?");
-        for (int i = 0; i < sortedKeys.size(); i++) {
-            String key = sortedKeys.get(i);
-            if (i > 0) url.append("&");
-            url.append(key).append("=").append(testParams.get(key));
-        }
-        url.append("&vnp_SecureHash=").append(hash);
-        
-        result.put("hashData", hashData.toString());
-        result.put("calculatedHash", hash);
-        result.put("paymentUrl", url.toString());
-        result.put("paramCount", sortedKeys.size());
-        
-        return result;
-    }
+    @PostMapping("/create")
+    public ResponseEntity<?> createPayment(
+            @RequestBody VNPayCreateRequest request,
+            HttpServletRequest httpRequest) {
 
-    @GetMapping("/create/{orderId}")
-    public @ResponseBody Map<String, String> createPayment(@PathVariable Long orderId) {
-        Order order = orderRepository.findById(orderId)
-                .orElseThrow(() -> new IllegalArgumentException("Order not found"));
+        try {
+            String orderCode = request.getOrderCode();
 
-        BigDecimal amount = order.getTotalAmount();
-        String paymentUrl = vnPayService.createPaymentUrl(orderId, amount);
+            // Verify order tồn tại trong DB
+            Order order = orderRepository.findByOrderCode(orderCode).orElse(null);
 
-        return Map.of("paymentUrl", paymentUrl);
-    }
-
-    @GetMapping("/vnpay-return")
-    public void vnpayReturn(
-            @RequestParam Map<String, String> params,
-            HttpServletResponse response) throws IOException {
-
-        System.out.println("=== VNPay Return Received ===");
-        params.forEach((key, value) -> System.out.println(key + ": " + value));
-        System.out.println("============================");
-
-        // VALIDATE SIGNATURE FOR SECURITY
-        boolean isValid = vnPayService.validateReturn(params);
-        
-        String status;
-        String message;
-        String txnRef = params.get("vnp_TxnRef");
-        String orderCode = vnPayService.extractOrderCodeFromTxnRef(txnRef);
-        String vnpResponseCode = params.get("vnp_ResponseCode");
-
-        System.out.println("Extracted OrderCode: " + orderCode);
-        System.out.println("Response Code: " + vnpResponseCode);
-        System.out.println("Signature Valid: " + isValid);
-
-        if (!isValid) {
-            status = "error";
-            message = "Chu ky khong hop le!";
-        } else {
-            if ("00".equals(vnpResponseCode)) {
-                vnPayService.updateOrderPaymentStatus(orderCode, "PAID", params.get("vnp_TransactionNo"));
-                status = "success";
-                message = "Thanh toan thanh cong!";
-            } else {
-                vnPayService.updateOrderPaymentStatus(orderCode, "FAILED", null);
-                status = "failed";
-                message = "Thanh toan that bai! Ma loi: " + vnpResponseCode;
+            if (order == null) {
+                return ResponseEntity.badRequest().body(Map.of(
+                    "error", "Order not found",
+                    "message", "Khong tim thay don hang: " + orderCode
+                ));
             }
+
+            // Lấy IP của client
+            String ipAddress = getClientIp(httpRequest);
+
+            // Tạo mã tham chiếu giao dịch
+            String txnRef = orderCode + "_" + System.currentTimeMillis();
+
+            // Tạo mô tả đơn hàng
+            String orderInfo = "Thanh toan don hang " + orderCode + " - ProFit";
+
+            // Chuyển đổi amount từ VND
+            long amount = request.getAmount().longValue();
+
+            // Tạo URL thanh toán
+            String paymentUrl = vnPayService.createPaymentUrl(
+                amount,
+                txnRef,
+                orderInfo,
+                ipAddress,
+                request.getLocale()
+            );
+
+            // Lưu txnRef vào order
+            try {
+                orderService.updateVNPayTxnRef(orderCode, txnRef);
+            } catch (Exception e) {
+                logger.warn("Could not update VNPay txn ref: {}", e.getMessage());
+            }
+
+            Map<String, String> response = new HashMap<>();
+            response.put("paymentUrl", paymentUrl);
+            response.put("txnRef", txnRef);
+
+            return ResponseEntity.ok(response);
+
+        } catch (Exception e) {
+            logger.error("Error creating VNPay payment: ", e);
+            return ResponseEntity.badRequest().body(Map.of(
+                "error", "Payment creation failed",
+                "message", e.getMessage()
+            ));
         }
-
-        String encodedMsg = URLEncoder.encode(message, StandardCharsets.UTF_8);
-        String encodedCode = orderCode != null ? URLEncoder.encode(orderCode, StandardCharsets.UTF_8) : "";
-        String redirectUrl = String.format(
-            "%s/payment-result?status=%s&message=%s&orderCode=%s",
-            vnPayConfig.getFrontendBaseUrl(), status, encodedMsg, encodedCode
-        );
-
-        System.out.println("Redirecting to: " + redirectUrl);
-        response.sendRedirect(redirectUrl);
     }
 
-    @PostMapping("/vnpay-ipn")
-    public @ResponseBody String vnpayIpn(@RequestParam Map<String, String> params) {
-        System.out.println("=== VNPay IPN Received ===");
-        params.forEach((key, value) -> System.out.println(key + ": " + value));
-        System.out.println("=========================");
-
-        boolean isValid = vnPayService.validateIpn(params);
-        if (!isValid) {
-            System.out.println("IPN: Invalid signature");
-            return "INVALID_SIGNATURE";
+    /**
+     * IPN URL - VNPAY gọi server-to-server để thông báo kết quả thanh toán
+     * Đây là endpoint quan trọng để cập nhật trạng thái đơn hàng
+     */
+    @PostMapping("/ipn")
+    public ResponseEntity<?> handleIpn(HttpServletRequest request) {
+        try {
+            // Lấy tất cả parameters từ VNPAY
+            Map<String, String> params = getRequestParams(request);
+            
+            logger.info("VNPay IPN received: {}", params);
+            
+            // Verify checksum
+            if (!vnPayService.verifyIpn(params)) {
+                logger.warn("VNPay IPN verification failed");
+                return ResponseEntity.ok("{\"RspCode\":\"97\",\"Message\":\"Invalid signature\"}");
+            }
+            
+            // Parse response
+            VNPayService.VNPayResponse vnpResponse = vnPayService.parseResponse(params);
+            
+            // Extract order code từ txnRef (format: ORD-XXXXXXX_timestamp)
+            String txnRef = vnpResponse.getTxnRef();
+            String orderCode = txnRef;
+            if (txnRef.contains("_")) {
+                orderCode = txnRef.substring(0, txnRef.lastIndexOf("_"));
+            }
+            
+            // Xử lý kết quả thanh toán
+            if (vnpResponse.isSuccess()) {
+                // Thanh toán thành công
+                orderService.updatePaymentSuccess(orderCode, vnpResponse.getTransactionId());
+                logger.info("VNPay payment success for order: {}", orderCode);
+                return ResponseEntity.ok("{\"RspCode\":\"00\",\"Message\":\"Confirm Success\"}");
+            } else {
+                // Thanh toán thất bại
+                orderService.updatePaymentFailed(orderCode);
+                logger.warn("VNPay payment failed for order: {}, response code: {}", 
+                    orderCode, vnpResponse.getResponseCode());
+                return ResponseEntity.ok("{\"RspCode\":\"00\",\"Message\":\"Confirm Success\"}");
+            }
+            
+        } catch (Exception e) {
+            logger.error("Error processing VNPay IPN: ", e);
+            return ResponseEntity.ok("{\"RspCode\":\"99\",\"Message\":\"System error\"}");
         }
+    }
 
-        String txnRef = params.get("vnp_TxnRef");
-        String orderCode = vnPayService.extractOrderCodeFromTxnRef(txnRef);
-        String vnpResponseCode = params.get("vnp_ResponseCode");
-
-        if ("00".equals(vnpResponseCode)) {
-            vnPayService.updateOrderPaymentStatus(orderCode, "PAID", params.get("vnp_TransactionNo"));
-            System.out.println("IPN: Order " + orderCode + " marked as PAID");
-        } else {
-            vnPayService.updateOrderPaymentStatus(orderCode, "FAILED", null);
-            System.out.println("IPN: Order " + orderCode + " marked as FAILED");
+    /**
+     * Return URL - VNPAY redirect user về sau khi thanh toán
+     */
+    @GetMapping("/return")
+    public ResponseEntity<?> handleReturn(HttpServletRequest request) {
+        try {
+            Map<String, String> params = getRequestParams(request);
+            
+            logger.info("VNPay Return received: {}", params);
+            
+            // Verify signature
+            if (!vnPayService.verifyReturn(params)) {
+                return ResponseEntity.badRequest().body(Map.of(
+                    "success", false,
+                    "message", "Invalid signature"
+                ));
+            }
+            
+            VNPayService.VNPayResponse vnpResponse = vnPayService.parseResponse(params);
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", vnpResponse.isSuccess());
+            response.put("txnRef", vnpResponse.getTxnRef());
+            response.put("transactionId", vnpResponse.getTransactionId());
+            response.put("amount", vnpResponse.getAmount());
+            response.put("responseCode", vnpResponse.getResponseCode());
+            response.put("transactionStatus", vnpResponse.getTransactionStatus());
+            response.put("bankCode", vnpResponse.getBankCode());
+            
+            // Extract order code
+            String orderCode = vnpResponse.getTxnRef();
+            if (vnpResponse.getTxnRef() != null && vnpResponse.getTxnRef().contains("_")) {
+                orderCode = vnpResponse.getTxnRef().substring(0, vnpResponse.getTxnRef().lastIndexOf("_"));
+            }
+            response.put("orderCode", orderCode);
+            
+            if (vnpResponse.isSuccess()) {
+                response.put("message", "Thanh toán thành công!");
+            } else {
+                response.put("message", "Thanh toán không thành công. Mã lỗi: " + vnpResponse.getResponseCode());
+            }
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (Exception e) {
+            logger.error("Error processing VNPay return: ", e);
+            return ResponseEntity.badRequest().body(Map.of(
+                "success", false,
+                "message", "Có lỗi xảy ra: " + e.getMessage()
+            ));
         }
+    }
 
-        return "OK";
+    /**
+     * Lấy IP của client
+     */
+    private String getClientIp(HttpServletRequest request) {
+        String ip = request.getHeader("X-Forwarded-For");
+        if (ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if (ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_CLIENT_IP");
+        }
+        if (ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+        }
+        if (ip == null || ip.isEmpty() || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getRemoteAddr();
+        }
+        // Nếu có nhiều IP, lấy IP đầu tiên
+        if (ip != null && ip.contains(",")) {
+            ip = ip.split(",")[0].trim();
+        }
+        return ip;
+    }
+
+    /**
+     * Lấy tất cả parameters từ request
+     */
+    private Map<String, String> getRequestParams(HttpServletRequest request) {
+        Map<String, String> params = new HashMap<>();
+        Map<String, String[]> requestParams = request.getParameterMap();
+        for (String name : requestParams.keySet()) {
+            String[] values = requestParams.get(name);
+            String valueStr = values != null && values.length > 0 ? values[0] : "";
+            params.put(name, valueStr);
+        }
+        return params;
     }
 }

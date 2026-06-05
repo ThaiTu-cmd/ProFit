@@ -230,9 +230,7 @@ const OrderDetailPage = ({ order, navigate, onAddToCart }) => {
                     "💳 Thanh toán",
                     safeOrder.payMethod === "cod"
                       ? "Thanh toán khi nhận hàng"
-                      : safeOrder.payMethod === "banking"
-                        ? "Chuyển khoản"
-                        : "VNPay",
+                      : "Chuyển khoản ngân hàng",
                   ],
                 ].map(
                   ([label, value]) =>
