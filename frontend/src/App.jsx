@@ -320,6 +320,7 @@ const App = () => {
             user={user}
             navigate={navigate}
             onViewOrderDetail={handleViewOrder}
+            showToast={showToast}
           />
         );
 

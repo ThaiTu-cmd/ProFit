@@ -146,57 +146,59 @@ const Navbar = ({ currentPage, navigate, cartCount, user, onLogout }) => {
 
       {/* Bên phải */}
       <div className="nav-right">
-        {/* Giỏ hàng */}
-        <button
-          type="button"
-          onClick={() => navigate("cart")}
-          style={{
-            background: "linear-gradient(135deg, var(--primary), var(--primary-dark))",
-            color: "var(--white)",
-            border: "none",
-            padding: "10px 22px",
-            borderRadius: "50px",
-            fontSize: 14,
-            fontWeight: 700,
-            cursor: "pointer",
-            transition: "all 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
-            boxShadow: "0 4px 16px rgba(255, 92, 0, 0.3)",
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            fontFamily: "'Exo 2', sans-serif",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = "translateY(-2px)";
-            e.currentTarget.style.boxShadow = "0 8px 28px rgba(255, 92, 0, 0.5)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "translateY(0)";
-            e.currentTarget.style.boxShadow = "0 4px 16px rgba(255, 92, 0, 0.3)";
-          }}
-        >
-          <span style={{ fontSize: 16 }}>🛒</span>
-          <span>Giỏ hàng</span>
-          {cartCount > 0 && (
-            <span
-              style={{
-                background: "var(--white)",
-                color: "var(--primary)",
-                borderRadius: "50%",
-                width: 22,
-                height: 22,
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 11,
-                fontWeight: 800,
-                boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
-              }}
-            >
-              {cartCount}
-            </span>
-          )}
-        </button>
+        {/* Giỏ hàng — chỉ hiện khi đã đăng nhập và KHÔNG phải admin */}
+        {user && user.role !== "admin" && (
+          <button
+            type="button"
+            onClick={() => navigate("cart")}
+            style={{
+              background: "linear-gradient(135deg, var(--primary), var(--primary-dark))",
+              color: "var(--white)",
+              border: "none",
+              padding: "10px 22px",
+              borderRadius: "50px",
+              fontSize: 14,
+              fontWeight: 700,
+              cursor: "pointer",
+              transition: "all 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
+              boxShadow: "0 4px 16px rgba(255, 92, 0, 0.3)",
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              fontFamily: "'Exo 2', sans-serif",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-2px)";
+              e.currentTarget.style.boxShadow = "0 8px 28px rgba(255, 92, 0, 0.5)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 4px 16px rgba(255, 92, 0, 0.3)";
+            }}
+          >
+            <span style={{ fontSize: 16 }}>🛒</span>
+            <span>Giỏ hàng</span>
+            {cartCount > 0 && (
+              <span
+                style={{
+                  background: "var(--white)",
+                  color: "var(--primary)",
+                  borderRadius: "50%",
+                  width: 22,
+                  height: 22,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 11,
+                  fontWeight: 800,
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+                }}
+              >
+                {cartCount}
+              </span>
+            )}
+          </button>
+        )}
 
         {user ? (
           <>

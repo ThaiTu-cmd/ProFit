@@ -160,9 +160,26 @@ public class OrderServiceImpl implements OrderService {
                 .orElseThrow(() -> new IllegalArgumentException("Order not found"));
 
         String oldStatus = order.getStatus();
+        String oldPaymentStatus = order.getPaymentStatus();
         String newStatus = request.getStatus();
 
         if (request.getStatus() != null) {
+            // Chỉ admin mới có quyền hủy — kiểm tra trạng thái hợp lệ
+            if ("CANCELLED".equals(newStatus)) {
+                // Không cho hủy đơn đã giao hoặc đã hoàn thành
+                if ("DELIVERED".equals(oldStatus) || "COMPLETED".equals(oldStatus)) {
+                    throw new IllegalArgumentException("Không thể hủy đơn đã giao hoặc đã hoàn thành");
+                }
+                // Khôi phục stock nếu đơn từng được trừ (trường hợp đặc biệt)
+                if (!"CANCELLED".equals(oldStatus)) {
+                    restoreStock(order);
+                }
+                // Nếu đang chờ thanh toán banking thì reset paymentStatus về UNPAID
+                if ("PENDING_CONFIRM".equals(oldPaymentStatus)) {
+                    order.setPaymentStatus("UNPAID");
+                }
+            }
+
             order.setStatus(request.getStatus());
 
             // Khi shipper xác nhận đã giao hàng thành công -> COMPLETED
@@ -174,8 +191,6 @@ public class OrderServiceImpl implements OrderService {
             // Khi đơn hàng bị hủy -> Khôi phục lại stock
             if ("CANCELLED".equals(oldStatus) && !"CANCELLED".equals(newStatus)) {
                 // Không cần làm gì vì stock chưa bị trừ
-            } else if ("CANCELLED".equals(newStatus) && !"CANCELLED".equals(oldStatus)) {
-                restoreStock(order);
             }
         }
         if (request.getPaymentStatus() != null) {
@@ -185,6 +200,37 @@ public class OrderServiceImpl implements OrderService {
                 order.setStatus("CONFIRMED");
             }
         }
+
+        Order saved = orderRepository.save(order);
+        return mapToResponse(saved);
+    }
+
+    @Override
+    public OrderResponse cancelOrder(Long orderId, String userEmail) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found"));
+
+        // Kiểm tra quyền: chỉ chủ đơn hoặc guest mới được hủy
+        boolean isOwner = order.getUser() != null && userEmail.equals(order.getUser().getEmail());
+        boolean isGuest = order.getUser() != null && "__guest__@system.internal".equals(order.getUser().getEmail());
+        if (!isOwner && !isGuest) {
+            throw new IllegalArgumentException("Bạn không có quyền hủy đơn hàng này");
+        }
+
+        String oldStatus = order.getStatus();
+        String oldPaymentStatus = order.getPaymentStatus();
+
+        // Chỉ cho phép hủy đơn đang ở PENDING hoặc PENDING_CONFIRM
+        if (!"PENDING".equals(oldStatus) && !"PENDING_CONFIRM".equals(oldPaymentStatus)) {
+            throw new IllegalArgumentException("Chỉ có thể hủy đơn hàng đang chờ xác nhận");
+        }
+
+        // Nếu là banking pending thì reset paymentStatus về UNPAID
+        if ("PENDING_CONFIRM".equals(oldPaymentStatus)) {
+            order.setPaymentStatus("UNPAID");
+        }
+        order.setStatus("CANCELLED");
+        order.setCompletedAt(null);
 
         Order saved = orderRepository.save(order);
         return mapToResponse(saved);

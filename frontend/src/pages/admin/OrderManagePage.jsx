@@ -201,21 +201,32 @@ const OrderManagePage = ({ onUpdateStatus, showToast }) => {
                     <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
                       {/* Nút xác nhận thanh toán cho banking */}
                       {order.paymentStatus === "PENDING_CONFIRM" && (
-                        <button className="btn-primary" style={{ padding: "10px 20px", fontSize: 13, background: "var(--green)" }}
-                          onClick={() => handleUpdateStatus(order.id, { status: "CONFIRMED", paymentStatus: "PAID" })}>
-                          ✓ Xác nhận thanh toán
-                        </button>
+                        <>
+                          <button className="btn-primary" style={{ padding: "10px 20px", fontSize: 13, background: "var(--green)" }}
+                            onClick={() => handleUpdateStatus(order.id, { status: "CONFIRMED", paymentStatus: "PAID" })}>
+                            ✓ Xác nhận thanh toán
+                          </button>
+                          <button className="btn-danger" style={{ padding: "10px 20px", fontSize: 13 }}
+                            onClick={() => handleCancel(order.id)}>
+                            ✕ Hủy đơn
+                          </button>
+                        </>
                       )}
                       {nextStatus && order.paymentStatus !== "PENDING_CONFIRM" && (
-                        <button className="btn-primary" style={{ padding: "10px 20px", fontSize: 13 }}
-                          onClick={() => handleUpdateStatus(order.id, { status: nextStatus })}>
-                          {order.status === "CONFIRMED" ? "🚚 Đã giao hàng" : 
-                           order.status === "DELIVERED" ? "✓ Xác nhận hoàn thành" : 
-                           "✓ Xác nhận đơn hàng"}
-                        </button>
-                      )}
-                      {order.status === "PENDING" && order.paymentStatus !== "PENDING_CONFIRM" && (
-                        <button className="btn-danger" onClick={() => handleCancel(order.id)}>Hủy đơn</button>
+                        <>
+                          <button className="btn-primary" style={{ padding: "10px 20px", fontSize: 13 }}
+                            onClick={() => handleUpdateStatus(order.id, { status: nextStatus })}>
+                            {order.status === "CONFIRMED" ? "🚚 Đã giao hàng" :
+                             order.status === "DELIVERED" ? "✓ Xác nhận hoàn thành" :
+                             "✓ Xác nhận đơn hàng"}
+                          </button>
+                          {order.status === "PENDING" && (
+                            <button className="btn-danger" style={{ padding: "10px 20px", fontSize: 13 }}
+                              onClick={() => handleCancel(order.id)}>
+                              ✕ Hủy đơn
+                            </button>
+                          )}
+                        </>
                       )}
                     </div>
                     {/* Thông báo trạng thái kho */}

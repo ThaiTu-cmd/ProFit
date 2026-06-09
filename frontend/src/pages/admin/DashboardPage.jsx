@@ -73,6 +73,7 @@ const DashboardPage = ({ navigate }) => {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("day"); // day | month | year
   const [pendingConfirmCount, setPendingConfirmCount] = useState(0);
+  const [pendingOrderCount, setPendingOrderCount] = useState(0);
   const [unreadMessageCount, setUnreadMessageCount] = useState(0);
 
   useEffect(() => {
@@ -86,8 +87,10 @@ const DashboardPage = ({ navigate }) => {
         setStats(statsData);
         setOrders(ordersData);
 
-        const pending = ordersData.filter(o => o.paymentStatus === "PENDING_CONFIRM").length;
-        setPendingConfirmCount(pending);
+        const pendingPayment = ordersData.filter(o => o.paymentStatus === "PENDING_CONFIRM").length;
+        const pendingOrder = ordersData.filter(o => o.status === "PENDING").length;
+        setPendingConfirmCount(pendingPayment);
+        setPendingOrderCount(pendingOrder);
         setUnreadMessageCount(notifData.count || 0);
       } catch (error) {
         console.error("Lỗi tải dữ liệu dashboard:", error);
@@ -188,6 +191,30 @@ const DashboardPage = ({ navigate }) => {
             </div>
           </div>
           <span style={{ color: "var(--blue)", fontWeight: 700, fontSize: 14 }}>Xem ngay →</span>
+        </div>
+      )}
+
+      {pendingOrderCount > 0 && (
+        <div style={{
+          background: "rgba(245, 158, 11, 0.1)",
+          border: "1px solid rgba(245, 158, 11, 0.3)",
+          borderRadius: 12, padding: "14px 20px", marginBottom: 16,
+          display: "flex", alignItems: "center", justifyContent: "space-between", cursor: "pointer",
+        }}
+          onClick={() => navigate("admin-orders")}
+          onMouseEnter={e => e.currentTarget.style.borderColor = "var(--primary)"}
+          onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(245, 158, 11, 0.3)"}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <span style={{ fontSize: 26 }}>📦</span>
+            <div>
+              <div style={{ fontWeight: 700, color: "var(--amber)", fontSize: 15 }}>Yêu cầu xác nhận đơn hàng</div>
+              <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 2 }}>
+                Có <strong style={{ color: "var(--amber)" }}>{pendingOrderCount}</strong> đơn hàng COD chờ xác nhận
+              </div>
+            </div>
+          </div>
+          <span style={{ color: "var(--amber)", fontWeight: 700, fontSize: 14 }}>Xem ngay →</span>
         </div>
       )}
 
@@ -440,7 +467,7 @@ const DashboardPage = ({ navigate }) => {
             </h4>
             {[
               { icon: "📦", label: "Quản lý sản phẩm", page: "admin-products", desc: "CRUD sản phẩm" },
-              { icon: "🛒", label: "Quản lý đơn hàng", page: "admin-orders", desc: "Xử lý đơn hàng" },
+              { icon: "📦", label: "Quản lý đơn hàng", page: "admin-orders", desc: "Xử lý đơn hàng" },
               { icon: "👥", label: "Quản lý User", page: "admin-users", desc: "Người dùng" },
               { icon: "💬", label: "Hộp thư liên hệ", page: "admin-contact", desc: "Tin nhắn", badge: unreadMessageCount },
             ].map(item => (

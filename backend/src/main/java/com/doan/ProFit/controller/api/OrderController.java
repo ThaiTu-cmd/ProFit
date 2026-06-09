@@ -48,4 +48,20 @@ public class OrderController {
         List<OrderResponse> response = orderService.getMyOrders(email);
         return ResponseEntity.ok(response);
     }
+
+    /**
+     * User tự hủy đơn hàng của mình (chỉ PENDING hoặc PENDING_CONFIRM)
+     */
+    @PostMapping("/{id}/cancel")
+    public ResponseEntity<?> cancelOrder(@PathVariable Long id, Authentication authentication) {
+        if (authentication == null || authentication.getName() == null) {
+            return ResponseEntity.status(401).body(java.util.Map.of("error", "Unauthorized", "message", "Vui lòng đăng nhập"));
+        }
+        try {
+            OrderResponse response = orderService.cancelOrder(id, authentication.getName());
+            return ResponseEntity.ok(response);
+        } catch (IllegalArgumentException ex) {
+            return ResponseEntity.badRequest().body(java.util.Map.of("error", "Bad Request", "message", ex.getMessage()));
+        }
+    }
 }

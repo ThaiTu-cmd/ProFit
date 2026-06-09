@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { formatPrice } from "../utils/productHelpers";
 import { transformOrderFromBE } from "../utils/orderHelpers";
 import { Package, Inbox, RefreshCw, Loader2 } from "lucide-react";
-import { apiGetMyOrders, isLoggedIn } from "../utils/api";
+import { apiGetMyOrders, apiCancelOrder, isLoggedIn } from "../utils/api";
 
 // Nhãn trạng thái đơn hàng
 const STATUS_LABEL = {
@@ -42,12 +42,37 @@ const formatDate = (dateStr) => {
 // (remove the local transformOrderFromBE function from OrderPage.jsx)
 // The shared transformOrderFromBE from ../utils/orderHelpers is now used instead
 
-const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
+const OrderPage = ({ navigate, onViewOrderDetail, user, showToast }) => {
   const [filter, setFilter] = useState("all");
   const [orders, setOrders] = useState([]);
   const [localOrders, setLocalOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [cancellingId, setCancellingId] = useState(null);
+
+  const handleCancelOrder = async (orderId) => {
+    if (!window.confirm("Bạn có chắc muốn hủy đơn hàng này?")) return;
+    setCancellingId(orderId);
+    try {
+      await apiCancelOrder(orderId);
+      if (showToast) showToast("Đã hủy đơn hàng thành công");
+      // Refresh orders
+      const savedLocal = localStorage.getItem("localOrders");
+      if (savedLocal) {
+        try { setLocalOrders(JSON.parse(savedLocal)); } catch { setLocalOrders([]); }
+      }
+      if (isLoggedIn()) {
+        const beOrders = await apiGetMyOrders();
+        const transformed = (beOrders || []).map(transformOrderFromBE);
+        setOrders(transformed);
+      }
+    } catch (err) {
+      console.error("Lỗi hủy đơn:", err);
+      if (showToast) showToast(`❌ ${err.message || "Không thể hủy đơn"}`);
+    } finally {
+      setCancellingId(null);
+    }
+  };
 
   // Load orders từ BE khi user đã đăng nhập
   useEffect(() => {
@@ -118,7 +143,7 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
       <div className="section">
         <div className="page-hero">
           <h1>
-            ĐƠN HÀNG <span>CỦA TÔI</span>
+            LỊCH SỬ <span>ĐƠN HÀNG</span>
           </h1>
         </div>
         <div className="empty-state">
@@ -134,7 +159,7 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
       <div className="section">
         <div className="page-hero">
           <h1>
-            ĐƠN HÀNG <span>CỦA TÔI</span>
+            LỊCH SỬ <span>ĐƠN HÀNG</span>
           </h1>
         </div>
         <div className="empty-state">
@@ -159,7 +184,7 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
     <div>
       <div className="page-hero">
         <h1>
-          ĐƠN HÀNG <span>CỦA TÔI</span>
+          LỊCH SỬ <span>ĐƠN HÀNG</span>
         </h1>
         <p>{sortedOrders.length} đơn hàng</p>
       </div>
@@ -357,6 +382,16 @@ const OrderPage = ({ navigate, onViewOrderDetail, user }) => {
                       </span>
                     </div>
                     <div style={{ display: "flex", gap: 10 }}>
+                      {(order.status?.toLowerCase() === "pending" || order.paymentStatus?.toUpperCase() === "PENDING_CONFIRM") && (
+                        <button
+                          className="btn-danger"
+                          style={{ padding: "8px 16px", fontSize: 13 }}
+                          onClick={() => handleCancelOrder(order.id)}
+                          disabled={cancellingId === order.id}
+                        >
+                          {cancellingId === order.id ? "Đang hủy..." : "Hủy đơn"}
+                        </button>
+                      )}
                       {order.status?.toLowerCase() === "confirmed" && (
                         <button
                           className="btn-outline"

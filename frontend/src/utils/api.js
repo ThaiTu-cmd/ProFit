@@ -113,6 +113,24 @@ export const apiGetMyOrders = async () => {
   return response.json();
 };
 
+/**
+ * User tự hủy đơn hàng của mình (PENDING hoặc PENDING_CONFIRM)
+ * @param {number} orderId - ID đơn hàng
+ */
+export const apiCancelOrder = async (orderId) => {
+  const response = await fetch(`${API_BASE}/orders/${orderId}/cancel`, {
+    method: "POST",
+    headers: getAuthHeaders(),
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ message: "Không thể hủy đơn hàng" }));
+    throw new Error(err.message || "Không thể hủy đơn hàng");
+  }
+
+  return response.json();
+};
+
 
 // =====================================================
 // REVIEW API
@@ -293,10 +311,9 @@ export const isAdmin = () => {
  * @param {number} orderId - ID đơn hàng
  */
 export const apiConfirmBankingPayment = async (orderId) => {
-  const response = await fetch(`${API_BASE}/payments/banking/confirm`, {
+  const response = await fetch(`${API_BASE}/v1/banking/confirm/${orderId}`, {
     method: "POST",
     headers: getAuthHeaders(),
-    body: JSON.stringify({ orderId }),
   });
 
   if (!response.ok) {
@@ -311,7 +328,7 @@ export const apiConfirmBankingPayment = async (orderId) => {
  * Lấy số đơn hàng chờ xác nhận thanh toán banking (Admin)
  */
 export const apiGetPendingBankingCount = async () => {
-  const response = await fetch(`${API_BASE}/payments/banking/pending-count`, {
+  const response = await fetch(`${API_BASE}/v1/banking/pending-count`, {
     method: "GET",
     headers: getAuthHeaders(),
   });
