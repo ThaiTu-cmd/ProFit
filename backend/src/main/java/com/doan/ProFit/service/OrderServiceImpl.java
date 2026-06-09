@@ -156,12 +156,22 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderResponse updateOrderStatus(Long id, OrderStatusUpdateRequest request) {
+        return updateOrderStatusInternal(id, request, true);
+    }
+
+    @Override
+    public OrderResponse updateOrderStatusByAdmin(Long id, OrderStatusUpdateRequest request) {
+        return updateOrderStatusInternal(id, request, true);
+    }
+
+    private OrderResponse updateOrderStatusInternal(Long id, OrderStatusUpdateRequest request, boolean adminOverride) {
         Order order = orderRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Order not found"));
 
         String oldStatus = order.getStatus();
         String oldPaymentStatus = order.getPaymentStatus();
         String newStatus = request.getStatus();
+        boolean stockAlreadyReduced = "COMPLETED".equals(oldStatus);
 
         if (request.getStatus() != null) {
             // Chỉ admin mới có quyền hủy — kiểm tra trạng thái hợp lệ
@@ -193,11 +203,14 @@ public class OrderServiceImpl implements OrderService {
                 // Không cần làm gì vì stock chưa bị trừ
             }
         }
+
         if (request.getPaymentStatus() != null) {
             order.setPaymentStatus(request.getPaymentStatus());
-            // Nếu admin xác nhận thanh toán PENDING_CONFIRM -> PAID thì cập nhật luôn order status
             if ("PAID".equals(request.getPaymentStatus())) {
                 order.setStatus("CONFIRMED");
+                if (order.getPaidAt() == null) {
+                    order.setPaidAt(LocalDateTime.now());
+                }
             }
         }
 
@@ -272,19 +285,20 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new IllegalArgumentException("Order not found"));
 
-        // Kiểm tra quyền: chỉ chủ đơn hoặc admin mới được xác nhận
-        if (order.getUser() != null && !order.getUser().getEmail().equals(userEmail)) {
+        boolean isOwner = order.getUser() != null && userEmail.equals(order.getUser().getEmail());
+        boolean isGuestOrder = order.getUser() != null && "__guest__@system.internal".equals(order.getUser().getEmail());
+
+        if (!isOwner && !isGuestOrder) {
             throw new IllegalArgumentException("Bạn không có quyền xác nhận đơn hàng này");
         }
 
-        // Chỉ cho phép xác nhận khi đơn đang ở trạng thái UNPAID (chưa thanh toán)
         if (!"UNPAID".equals(order.getPaymentStatus())) {
             throw new IllegalArgumentException("Đơn hàng không ở trạng thái chờ thanh toán");
         }
 
-        // Cập nhật trạng thái thanh toán thành PENDING_CONFIRM
+        order.setPaymentMethod("BANKING");
         order.setPaymentStatus("PENDING_CONFIRM");
-        order.setPaidAt(java.time.LocalDateTime.now());
+        order.setPaidAt(LocalDateTime.now());
 
         Order saved = orderRepository.save(order);
         return mapToResponse(saved);
@@ -331,6 +345,10 @@ public class OrderServiceImpl implements OrderService {
         // Basic counts
         stats.setTotalOrders(orderRepository.count());
         stats.setPendingOrders(orderRepository.countByStatus("PENDING"));
+        stats.setConfirmedOrders(orderRepository.countByStatus("CONFIRMED"));
+        stats.setDeliveredOrders(orderRepository.countByStatus("DELIVERED"));
+        stats.setCancelledOrders(orderRepository.countByStatus("CANCELLED"));
+        stats.setPendingConfirmOrders(orderRepository.countByPaymentStatus("PENDING_CONFIRM"));
         stats.setCompletedOrders(
             orderRepository.countByStatus("COMPLETED") + orderRepository.countByStatus("DELIVERED")
         );

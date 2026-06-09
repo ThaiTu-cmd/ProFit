@@ -269,7 +269,7 @@ const OrderPage = ({ navigate, onViewOrderDetail, user, showToast }) => {
                 STATUS_LABEL[displayStatus] ??
                 STATUS_LABEL.PENDING;
               return (
-                <div key={order.orderCode} className="order-card">
+                <div key={order.orderCode || order.id || `${order.recipientName}-${order.placedAt || order.createdAt}`} className="order-card">
                   {/* Header đơn */}
                   <div className="order-card-header">
                     <div>
