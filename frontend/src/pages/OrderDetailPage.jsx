@@ -8,6 +8,7 @@ import { transformOrderFromBE } from "../utils/orderHelpers";
 
 const STATUS_CONFIG = {
   PENDING:   { label: "Chờ xác nhận",  color: "#f59e0b", bg: "rgba(245,158,11,0.1)",  border: "#f59e0b" },
+  PENDING_CONFIRM: { label: "Chờ admin xác nhận thanh toán", color: "#3b82f6", bg: "rgba(59,130,246,0.1)", border: "#3b82f6" },
   CONFIRMED: { label: "Đã xác nhận",   color: "var(--green)", bg: "rgba(34,197,94,0.1)", border: "var(--green)" },
   CANCELLED: { label: "Đã hủy",         color: "var(--red)",   bg: "rgba(239,68,68,0.1)", border: "var(--red)"   },
   CANCELLED_lower: { label: "Đã hủy",  color: "var(--red)",   bg: "rgba(239,68,68,0.1)", border: "var(--red)"   },
@@ -33,7 +34,8 @@ const OrderDetailPage = ({ order, navigate, onAddToCart }) => {
     );
   }
 
-  const statusKey = safeOrder.status?.toUpperCase() === "CANCELLED" ? "CANCELLED"
+  const statusKey = safeOrder.paymentStatus?.toUpperCase() === "PENDING_CONFIRM" ? "PENDING_CONFIRM"
+    : safeOrder.status?.toUpperCase() === "CANCELLED" ? "CANCELLED"
     : safeOrder.status?.toUpperCase() === "CONFIRMED" ? "CONFIRMED"
     : safeOrder.status?.toUpperCase() === "PENDING" ? "PENDING"
     : safeOrder.status?.toLowerCase() === "cancelled" ? "CANCELLED_lower"
@@ -98,6 +100,11 @@ const OrderDetailPage = ({ order, navigate, onAddToCart }) => {
                   }}>
                     {st.label}
                   </div>
+                  {safeOrder.paymentStatus?.toUpperCase() === "PENDING_CONFIRM" && (
+                    <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 4 }}>
+                      Bạn đã báo thanh toán. Đơn đang được admin ưu tiên kiểm tra và xác nhận.
+                    </div>
+                  )}
                   {safeOrder.status?.toUpperCase() === "CONFIRMED" && (
                     <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 4 }}>
                       ✓ Admin đã xác nhận thanh toán thành công
@@ -228,9 +235,11 @@ const OrderDetailPage = ({ order, navigate, onAddToCart }) => {
                   ],
                   [
                     "💳 Thanh toán",
-                    safeOrder.payMethod === "cod"
-                      ? "Thanh toán khi nhận hàng"
-                      : "Chuyển khoản ngân hàng",
+                    safeOrder.payMethod === "vnpay"
+                      ? "Thanh toán qua VNPAY"
+                      : safeOrder.payMethod === "banking"
+                        ? "Chuyển khoản ngân hàng"
+                        : "Thanh toán khi nhận hàng",
                   ],
                 ].map(
                   ([label, value]) =>

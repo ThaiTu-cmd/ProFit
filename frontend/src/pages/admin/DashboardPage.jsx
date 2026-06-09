@@ -5,6 +5,16 @@ import {
 } from "recharts";
 import { adminService } from "../../services/adminService";
 
+const ORDER_STATUS_SUMMARY = [
+  { key: "totalOrders", label: "Tổng đơn", icon: "📦", color: "var(--gray)" },
+  { key: "pendingOrders", label: "Chờ xác nhận", icon: "⏳", color: "var(--amber)" },
+  { key: "pendingConfirmOrders", label: "Chờ đối soát", icon: "💳", color: "var(--cyan)" },
+  { key: "confirmedOrders", label: "Đã xác nhận", icon: "✅", color: "var(--blue)" },
+  { key: "deliveredOrders", label: "Đã giao", icon: "🚚", color: "var(--purple)" },
+  { key: "completedOrders", label: "Hoàn thành", icon: "🏁", color: "var(--green)" },
+  { key: "cancelledOrders", label: "Đã hủy", icon: "❌", color: "var(--red)" },
+];
+
 const formatPrice = (price) => {
   if (!price) return "0 ₫";
   if (price >= 1000000000) return (price / 1000000000).toFixed(1) + " tỷ ₫";
@@ -428,6 +438,33 @@ const DashboardPage = ({ navigate }) => {
                 </span>
               </div>
             ))}
+          </div>
+
+          <div style={{
+            background: "var(--card-bg)", borderRadius: 18,
+            padding: "20px 22px", border: "1px solid var(--dark4)", marginBottom: 20
+          }}>
+            <h4 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 16, letterSpacing: 1, margin: "0 0 14px", color: "var(--gray)" }}>
+              TÓM TẮT TRẠNG THÁI ĐƠN HÀNG
+            </h4>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 10 }}>
+              {ORDER_STATUS_SUMMARY.map((item) => (
+                <div key={item.key} style={{
+                  background: "var(--dark3)",
+                  border: "1px solid var(--dark4)",
+                  borderRadius: 12,
+                  padding: "12px 14px"
+                }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
+                    <span style={{ fontSize: 18 }}>{item.icon}</span>
+                    <span style={{ fontSize: 12, color: "var(--gray)" }}>{item.label}</span>
+                  </div>
+                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 24, color: item.color }}>
+                    {stats?.[item.key] || 0}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Quick Navigation */}

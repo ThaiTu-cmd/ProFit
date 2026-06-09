@@ -156,33 +156,56 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderResponse updateOrderStatus(Long id, OrderStatusUpdateRequest request) {
+        return updateOrderStatusInternal(id, request, true);
+    }
+
+    @Override
+    public OrderResponse updateOrderStatusByAdmin(Long id, OrderStatusUpdateRequest request) {
+        return updateOrderStatusInternal(id, request, true);
+    }
+
+    private OrderResponse updateOrderStatusInternal(Long id, OrderStatusUpdateRequest request, boolean adminOverride) {
         Order order = orderRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Order not found"));
 
         String oldStatus = order.getStatus();
+        String oldPaymentStatus = order.getPaymentStatus();
         String newStatus = request.getStatus();
+        boolean stockAlreadyReduced = "COMPLETED".equals(oldStatus);
 
         if (request.getStatus() != null) {
-            order.setStatus(request.getStatus());
-
-            // Khi shipper xác nhận đã giao hàng thành công -> COMPLETED
-            if ("COMPLETED".equals(newStatus)) {
-                order.setCompletedAt(java.time.LocalDateTime.now());
-                reduceStock(order);
+            if (!adminOverride && "PENDING_CONFIRM".equals(oldPaymentStatus) && !"CANCELLED".equals(newStatus)) {
+                throw new IllegalArgumentException("Đơn hàng đang chờ xác nhận thanh toán, vui lòng xác nhận thanh toán trước");
             }
 
-            // Khi đơn hàng bị hủy -> Khôi phục lại stock
-            if ("CANCELLED".equals(oldStatus) && !"CANCELLED".equals(newStatus)) {
-                // Không cần làm gì vì stock chưa bị trừ
-            } else if ("CANCELLED".equals(newStatus) && !"CANCELLED".equals(oldStatus)) {
+            order.setStatus(request.getStatus());
+
+            if ("DELIVERED".equals(newStatus)) {
+                order.setDeliveredAt(LocalDateTime.now());
+            }
+
+            if ("COMPLETED".equals(newStatus) && !stockAlreadyReduced) {
+                order.setCompletedAt(LocalDateTime.now());
+                reduceStock(order);
+                stockAlreadyReduced = true;
+            }
+
+            if (!"COMPLETED".equals(newStatus)) {
+                order.setCompletedAt(null);
+            }
+
+            if ("CANCELLED".equals(newStatus) && !"CANCELLED".equals(oldStatus) && stockAlreadyReduced) {
                 restoreStock(order);
             }
         }
+
         if (request.getPaymentStatus() != null) {
             order.setPaymentStatus(request.getPaymentStatus());
-            // Nếu admin xác nhận thanh toán PENDING_CONFIRM -> PAID thì cập nhật luôn order status
             if ("PAID".equals(request.getPaymentStatus())) {
                 order.setStatus("CONFIRMED");
+                if (order.getPaidAt() == null) {
+                    order.setPaidAt(LocalDateTime.now());
+                }
             }
         }
 
@@ -226,19 +249,20 @@ public class OrderServiceImpl implements OrderService {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new IllegalArgumentException("Order not found"));
 
-        // Kiểm tra quyền: chỉ chủ đơn hoặc admin mới được xác nhận
-        if (order.getUser() != null && !order.getUser().getEmail().equals(userEmail)) {
+        boolean isOwner = order.getUser() != null && userEmail.equals(order.getUser().getEmail());
+        boolean isGuestOrder = order.getUser() != null && "__guest__@system.internal".equals(order.getUser().getEmail());
+
+        if (!isOwner && !isGuestOrder) {
             throw new IllegalArgumentException("Bạn không có quyền xác nhận đơn hàng này");
         }
 
-        // Chỉ cho phép xác nhận khi đơn đang ở trạng thái UNPAID (chưa thanh toán)
         if (!"UNPAID".equals(order.getPaymentStatus())) {
             throw new IllegalArgumentException("Đơn hàng không ở trạng thái chờ thanh toán");
         }
 
-        // Cập nhật trạng thái thanh toán thành PENDING_CONFIRM
+        order.setPaymentMethod("BANKING");
         order.setPaymentStatus("PENDING_CONFIRM");
-        order.setPaidAt(java.time.LocalDateTime.now());
+        order.setPaidAt(LocalDateTime.now());
 
         Order saved = orderRepository.save(order);
         return mapToResponse(saved);
@@ -285,6 +309,10 @@ public class OrderServiceImpl implements OrderService {
         // Basic counts
         stats.setTotalOrders(orderRepository.count());
         stats.setPendingOrders(orderRepository.countByStatus("PENDING"));
+        stats.setConfirmedOrders(orderRepository.countByStatus("CONFIRMED"));
+        stats.setDeliveredOrders(orderRepository.countByStatus("DELIVERED"));
+        stats.setCancelledOrders(orderRepository.countByStatus("CANCELLED"));
+        stats.setPendingConfirmOrders(orderRepository.countByPaymentStatus("PENDING_CONFIRM"));
         stats.setCompletedOrders(
             orderRepository.countByStatus("COMPLETED") + orderRepository.countByStatus("DELIVERED")
         );
