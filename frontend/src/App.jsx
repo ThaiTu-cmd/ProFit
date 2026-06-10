@@ -137,6 +137,8 @@ const App = () => {
   useEffect(() => {
     if (currentBankingOrder) {
       localStorage.setItem("pendingBankingOrder", JSON.stringify(currentBankingOrder));
+    } else {
+      localStorage.removeItem("pendingBankingOrder");
     }
   }, [currentBankingOrder]);
 
@@ -340,7 +342,7 @@ const App = () => {
         return <RegisterPage onLogin={handleLogin} navigate={navigate} />;
 
       case "profile":
-        return <ProfilePage navigate={navigate} user={user} />;
+        return <ProfilePage navigate={navigate} user={user} showToast={showToast} />;
 
       case "reset-password":
         return <ResetPasswordPage showToast={showToast} />;

@@ -24,7 +24,7 @@ public class JwtUtils {
 	private static final String JWT_COOKIE_NAME = "admin_token";
 	private static final String BEARER_PREFIX = "Bearer ";
 
-	@Value("${app.jwt.secret:ProFitJwtSecretKeyMustBeAtLeastSixtyFourCharactersLongForHS512}")
+	@Value("${app.jwt.secret}")
 	private String jwtSecret;
 
 	@Value("${app.jwt.expiration-ms:86400000}")

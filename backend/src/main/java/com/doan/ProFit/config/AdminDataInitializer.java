@@ -24,12 +24,12 @@ public class AdminDataInitializer {
             @Value("${app.bootstrap.admin.full-name:Default Admin}") String fullName,
             @Value("${app.bootstrap.admin.email:admin@profit.com}") String email,
             @Value("${app.bootstrap.admin.phone:0900000000}") String phone,
-            @Value("${app.bootstrap.admin.password:Admin@123}") String password,
+            @Value("${app.bootstrap.admin.password}") String password,
             @Value("${app.bootstrap.customer.enabled:true}") boolean customerBootstrapEnabled,
             @Value("${app.bootstrap.customer.full-name:Khách Hàng Test}") String customerFullName,
             @Value("${app.bootstrap.customer.email:khachhang@gmail.com}") String customerEmail,
             @Value("${app.bootstrap.customer.phone:0987654321}") String customerPhone,
-            @Value("${app.bootstrap.customer.password:Customer@123}") String customerPassword) {
+            @Value("${app.bootstrap.customer.password}") String customerPassword) {
         return args -> {
             if (adminBootstrapEnabled) {
                 User admin = userRepository.findByEmail(email.trim())

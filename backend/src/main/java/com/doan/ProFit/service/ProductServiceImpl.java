@@ -4,12 +4,14 @@ import com.doan.ProFit.dto.request.ProductRequest;
 import com.doan.ProFit.dto.response.ProductResponse;
 import com.doan.ProFit.entity.Category;
 import com.doan.ProFit.entity.Product;
+import com.doan.ProFit.exception.ResourceNotFoundException;
 import com.doan.ProFit.repository.CategoryRepository;
 import com.doan.ProFit.repository.ProductImageRepository;
 import com.doan.ProFit.repository.ProductRepository;
 import com.doan.ProFit.repository.ProductTagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -35,11 +37,11 @@ public class ProductServiceImpl implements ProductService {
     private ProductTagRepository productTagRepository;
 
     @Override
+    @Transactional(readOnly = true)
     public List<ProductResponse> getAllProducts() {
         List<Product> products = productRepository.findAllForAdmin();
         List<Long> ids = products.stream().map(Product::getId).collect(Collectors.toList());
 
-        // Batch fetch all images in ONE query
         Map<Long, String> imageMap = new java.util.HashMap<>();
         if (!ids.isEmpty()) {
             List<Object[]> imageRows = productImageRepository.findBestImageUrlsByProductIds(ids);
@@ -55,31 +57,36 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public ProductResponse getProductById(Long id) {
         Product product = productRepository.findByIdAndIsActiveTrueAndDeletedAtIsNull(id)
-                .orElseThrow(() -> new IllegalArgumentException("Product not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Sản phẩm", id));
         return mapToResponse(product);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Page<ProductResponse> getActiveProducts(Pageable pageable) {
         Page<Product> page = productRepository.findByIsActiveTrueAndDeletedAtIsNull(pageable);
         return page.map(this::mapToResponse);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Page<ProductResponse> getActiveProductsByCategory(Long categoryId, Pageable pageable) {
         return productRepository.findByCategoryIdAndIsActiveTrueAndDeletedAtIsNull(categoryId, pageable)
                 .map(this::mapToResponse);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Page<ProductResponse> searchActiveProducts(String keyword, Pageable pageable) {
         return productRepository.findByNameContainingIgnoreCaseAndIsActiveTrueAndDeletedAtIsNull(keyword, pageable)
                 .map(this::mapToResponse);
     }
 
     @Override
+    @Transactional
     public ProductResponse createProduct(ProductRequest request) {
         Product product = new Product();
         product.setSku(request.getSku());
@@ -94,7 +101,7 @@ public class ProductServiceImpl implements ProductService {
 
         if (request.getCategoryId() != null) {
             Category category = categoryRepository.findByIdAndDeletedAtIsNull(request.getCategoryId())
-                    .orElseThrow(() -> new IllegalArgumentException("Category not found"));
+                    .orElseThrow(() -> new ResourceNotFoundException("Danh mục", request.getCategoryId()));
             product.setCategory(category);
         }
 
@@ -103,9 +110,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public ProductResponse updateProduct(Long id, ProductRequest request) {
         Product product = productRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Product not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Sản phẩm", id));
 
         product.setSku(request.getSku());
         product.setSlug(request.getSlug());
@@ -121,7 +129,7 @@ public class ProductServiceImpl implements ProductService {
 
         if (request.getCategoryId() != null) {
             Category category = categoryRepository.findByIdAndDeletedAtIsNull(request.getCategoryId())
-                    .orElseThrow(() -> new IllegalArgumentException("Category not found"));
+                    .orElseThrow(() -> new ResourceNotFoundException("Danh mục", request.getCategoryId()));
             product.setCategory(category);
         } else {
             product.setCategory(null);
@@ -132,9 +140,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public void deleteProduct(Long id) {
         Product product = productRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Product not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Sản phẩm", id));
         product.setDeletedAt(LocalDateTime.now());
         product.setActive(false);
         productRepository.save(product);
@@ -166,7 +175,7 @@ public class ProductServiceImpl implements ProductService {
         response.setRatingAvg(product.getRatingAvg());
         response.setRatingCount(product.getRatingCount());
         response.setStockQuantity(product.getStockQuantity());
-        response.setIsActive(product.getActive());
+        response.setIsActive(product.getIsActive());
 
         if (product.getCategory() != null) {
             response.setCategoryId(product.getCategory().getId());

@@ -48,7 +48,7 @@ const ChatWidget = ({ className = '' }) => {
 
   const handleStreamResponse = async (userMessage, assistantMessageId) => {
     try {
-      const response = await fetch(`${CHAT_API_URL}/chat/stream/simple`, {
+      const response = await fetch(`${CHAT_API_URL}/chat/stream`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

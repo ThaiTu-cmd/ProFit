@@ -35,9 +35,10 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
 
     try {
       await apiConfirmBankingPayment(order.id);
-      // Xóa giỏ hàng và thêm order vào danh sách khi xác nhận thanh toán thành công
+      // Xóa giỏ hàng, thêm order vào danh sách, và dọn localStorage
       if (onClearCart) onClearCart();
       if (onPlaceOrder) onPlaceOrder(order);
+      localStorage.removeItem("pendingBankingOrder");
       setStep("success");
       showToast(
         "Đã gửi yêu cầu xác nhận thanh toán. Vui lòng chờ admin xác nhận.",

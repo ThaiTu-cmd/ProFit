@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Override
+    @Transactional(readOnly = true)
     public List<UserResponse> getAllUsers() {
         return userRepository.findAll().stream()
                 .map(this::toResponse)
@@ -30,6 +32,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public UserResponse getUserProfile(String email) {
         User user = userRepository.findByEmail(email.trim())
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
@@ -37,6 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserResponse updateUserProfile(String email, UserUpdateRequest request) {
         User user = userRepository.findByEmail(email.trim())
                 .orElseThrow(() -> new UserNotFoundException("User not found"));
@@ -56,6 +60,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserResponse createUser(UserCreationRequest request) {
         if (request.getFullName() == null || request.getFullName().isBlank()) {
             throw new IllegalArgumentException("Full name is required");
@@ -81,6 +86,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserResponse updateUser(Long id, UserUpdateRequest request) {
         if (request.getFullName() == null || request.getFullName().isBlank()) {
             throw new IllegalArgumentException("Full name is required");
@@ -108,6 +114,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void deleteUser(Long id) {
         if (!userRepository.existsById(id)) {
             throw new UserNotFoundException("User not found");

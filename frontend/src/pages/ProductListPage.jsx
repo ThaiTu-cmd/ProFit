@@ -24,10 +24,8 @@ const ProductListPage = ({ onAddToCart, onViewDetail, initialCategoryId }) => {
         setProducts(productData);
         setCategories(categoryData.length > 0 ? categoryData : [ALL_CATEGORY]);
         if (initialCategoryId) {
-          const selected = categoryData.find((c) => c.id === initialCategoryId) || ALL_CATEGORY;
-          setActiveCategory(selected);
-        } else {
-          setActiveCategory(categoryData[0] || ALL_CATEGORY);
+          const selected = categoryData.find((c) => c.id === initialCategoryId);
+          if (selected) setActiveCategory(selected);
         }
       } catch (error) {
         console.error("Không thể tải dữ liệu sản phẩm:", error);

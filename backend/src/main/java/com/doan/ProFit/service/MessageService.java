@@ -24,6 +24,7 @@ public class MessageService {
     @Autowired
     private UserRepository userRepository;
 
+    @Transactional(readOnly = true)
     public List<MessageResponse> getMessagesByUserEmail(String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
@@ -32,6 +33,7 @@ public class MessageService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     public List<MessageResponse> getAllMessages() {
         return messageRepository.findAllByOrderByCreatedAtDesc().stream()
                 .map(MessageResponse::fromEntity)
@@ -74,10 +76,12 @@ public class MessageService {
         messageRepository.save(message);
     }
 
+    @Transactional(readOnly = true)
     public long getUnreadCount() {
         return messageRepository.countByStatus("UNREAD");
     }
 
+    @Transactional(readOnly = true)
     public MessageResponse getMessageById(Long id) {
         Message message = messageRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Message not found"));
