@@ -177,6 +177,17 @@ export const adminService = {
         if (!res.ok) throw new Error('Failed to update order status');
         return res.json();
     },
+    markDeliveryFailed: async (id) => {
+        const res = await fetch(`${ADMIN_API_URL}/order/${id}/delivery-failed`, {
+            method: 'POST',
+            headers: getDefaultHeaders(),
+        });
+        if (!res.ok) {
+            const err = await res.text().catch(() => 'Failed to mark delivery failed');
+            throw new Error(err);
+        }
+        return res.json();
+    },
 
     // ==========================================
     // DASHBOARD STATS API

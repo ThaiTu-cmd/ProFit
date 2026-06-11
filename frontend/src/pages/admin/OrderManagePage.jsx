@@ -13,22 +13,24 @@ const STATUS_LIST = [
   { key: "COMPLETED",      label: "Hoàn thành"     },
   { key: "CANCELLED",      label: "Đã hủy"         },
   { key: "PENDING_CONFIRM", label: "Chờ thanh toán" },
+  { key: "DELIVERED_FAILED", label: "Giao thất bại"  },
 ];
 
 const STATUS_NEXT = {
   PENDING: "CONFIRMED",
-  PENDING_CONFIRM: "CONFIRMED", // Admin confirm banking payment
-  CONFIRMED: "DELIVERED",       // Shipper marks as delivered
-  DELIVERED: "COMPLETED",       // Admin confirms customer received (reduces stock)
+  PENDING_CONFIRM: "CONFIRMED",
+  CONFIRMED: "DELIVERED",
+  DELIVERED: "COMPLETED",
 };
 
 const STATUS_COLOR = {
   PENDING:        "#f59e0b",
-  CONFIRMED:      "#8b5cf6",    // Purple for confirmed
-  DELIVERED:      "#3b82f6",    // Blue for delivered
+  CONFIRMED:      "#8b5cf6",
+  DELIVERED:      "#3b82f6",
   COMPLETED:      "var(--green)",
   CANCELLED:      "var(--red)",
-  PENDING_CONFIRM: "#3b82f6", // Blue for banking payment pending
+  PENDING_CONFIRM: "#3b82f6",
+  DELIVERED_FAILED: "#ef4444",
 };
 
 const OrderManagePage = ({ onUpdateStatus, showToast }) => {
@@ -103,6 +105,18 @@ const OrderManagePage = ({ onUpdateStatus, showToast }) => {
       fetchOrders();
     } catch (error) {
       showToast(`❌ Lỗi hủy đơn: ${error.message}`);
+    }
+  };
+
+  const handleDeliveryFailed = async (orderId) => {
+    if (!window.confirm("Xác nhận giao hàng thất bại?\n\nHàng sẽ được hoàn trả kho và đơn hàng sẽ bị đánh dấu giao thất bại.")) return;
+    try {
+      await adminService.markDeliveryFailed(orderId);
+      showToast(`⚠️ Đã đánh dấu giao thất bại đơn #${orderId}. Hàng đã hoàn trả kho.`);
+      if (onUpdateStatus) onUpdateStatus(orderId, "DELIVERED_FAILED");
+      fetchOrders();
+    } catch (error) {
+      showToast(`❌ Lỗi: ${error.message}`);
     }
   };
 
@@ -220,6 +234,12 @@ const OrderManagePage = ({ onUpdateStatus, showToast }) => {
                              order.status === "DELIVERED" ? "✓ Xác nhận hoàn thành" :
                              "✓ Xác nhận đơn hàng"}
                           </button>
+                          {order.status === "CONFIRMED" && (
+                            <button style={{ padding: "10px 20px", fontSize: 13, background: "#f59e0b", color: "#fff", border: "none", borderRadius: 8, cursor: "pointer", fontWeight: 700 }}
+                              onClick={() => handleDeliveryFailed(order.id)}>
+                              ✕ Giao thất bại
+                            </button>
+                          )}
                           {order.status === "PENDING" && (
                             <button className="btn-danger" style={{ padding: "10px 20px", fontSize: 13 }}
                               onClick={() => handleCancel(order.id)}>

@@ -181,6 +181,12 @@ public class AdminController {
         return orderService.updateOrderStatusByAdmin(id, request);
     }
 
+    @PostMapping("/order/{id}/delivery-failed")
+    @ResponseBody
+    public OrderResponse markDeliveryFailed(@PathVariable Long id) {
+        return orderService.markDeliveryFailed(id);
+    }
+
     // Dashboard Statistics API
     @GetMapping("/dashboard/stats")
     @ResponseBody

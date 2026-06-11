@@ -170,8 +170,12 @@ public class OrderServiceImpl implements OrderService {
         String newStatus = request.getStatus();
 
         if (request.getStatus() != null) {
-            if ("CANCELLED".equals(newStatus)) {
-                if ("DELIVERED".equals(oldStatus) || "COMPLETED".equals(oldStatus)) {
+            String targetStatus = request.getStatus();
+            if ("DELIVERED_FAILED".equals(targetStatus)) {
+                throw new IllegalArgumentException("Vui lòng sử dụng chức năng 'Giao thất bại' để đánh dấu giao hàng thất bại");
+            }
+            if ("CANCELLED".equals(targetStatus)) {
+                if ("DELIVERED".equals(oldStatus) || "COMPLETED".equals(oldStatus) || "DELIVERED_FAILED".equals(oldStatus)) {
                     throw new IllegalArgumentException("Không thể hủy đơn đã giao hoặc đã hoàn thành");
                 }
                 if (!"CANCELLED".equals(oldStatus)) {
@@ -199,6 +203,26 @@ public class OrderServiceImpl implements OrderService {
                 }
             }
         }
+
+        Order saved = orderRepository.save(order);
+        return mapToResponse(saved);
+    }
+
+    @Override
+    @Transactional
+    public OrderResponse markDeliveryFailed(Long id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Order not found"));
+
+        String oldStatus = order.getStatus();
+        // Chỉ cho phép giao thất bại khi đơn đang ở CONFIRMED hoặc DELIVERED
+        if (!"CONFIRMED".equals(oldStatus) && !"DELIVERED".equals(oldStatus)) {
+            throw new IllegalArgumentException("Không thể đánh dấu giao thất bại: đơn hàng phải đang ở trạng thái 'Đã xác nhận' hoặc 'Đã giao hàng'");
+        }
+
+        order.setStatus("DELIVERED_FAILED");
+        order.setCompletedAt(null);
+        restoreStock(order);
 
         Order saved = orderRepository.save(order);
         return mapToResponse(saved);
@@ -337,6 +361,7 @@ public class OrderServiceImpl implements OrderService {
         stats.setConfirmedOrders(orderRepository.countByStatus("CONFIRMED"));
         stats.setDeliveredOrders(orderRepository.countByStatus("DELIVERED"));
         stats.setCancelledOrders(orderRepository.countByStatus("CANCELLED"));
+        stats.setDeliveredFailedOrders(orderRepository.countByStatus("DELIVERED_FAILED"));
         stats.setPendingConfirmOrders(orderRepository.countByPaymentStatus("PENDING_CONFIRM"));
         stats.setCompletedOrders(
             orderRepository.countByStatus("COMPLETED") + orderRepository.countByStatus("DELIVERED")

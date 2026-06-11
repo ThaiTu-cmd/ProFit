@@ -12,6 +12,7 @@ public class DashboardStatsResponse {
     private long deliveredOrders;
     private long cancelledOrders;
     private long pendingConfirmOrders;
+    private long deliveredFailedOrders;
     private long todayOrders;
     private BigDecimal todayRevenue;
     private BigDecimal monthRevenue;
@@ -85,6 +86,8 @@ public class DashboardStatsResponse {
     public void setCancelledOrders(long cancelledOrders) { this.cancelledOrders = cancelledOrders; }
     public long getPendingConfirmOrders() { return pendingConfirmOrders; }
     public void setPendingConfirmOrders(long pendingConfirmOrders) { this.pendingConfirmOrders = pendingConfirmOrders; }
+    public long getDeliveredFailedOrders() { return deliveredFailedOrders; }
+    public void setDeliveredFailedOrders(long deliveredFailedOrders) { this.deliveredFailedOrders = deliveredFailedOrders; }
     public long getTodayOrders() { return todayOrders; }
     public void setTodayOrders(long todayOrders) { this.todayOrders = todayOrders; }
     public BigDecimal getTodayRevenue() { return todayRevenue; }
