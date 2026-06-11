@@ -216,12 +216,19 @@ CREATE TABLE `orders` (
     `discount_amount` DECIMAL(15,2) NOT NULL DEFAULT 0.00,
     `shipping_fee` DECIMAL(15,2) NOT NULL DEFAULT 0.00,
     `total_amount` DECIMAL(15,2) NOT NULL DEFAULT 0.00,
-    `status` ENUM('PENDING', 'PAID', 'PROCESSING', 'SHIPPED', 'COMPLETED', 'CANCELED', 'REFUNDED') NOT NULL DEFAULT 'PENDING',
-    `payment_status` ENUM('UNPAID', 'PENDING', 'PAID', 'FAILED', 'REFUNDED') NOT NULL DEFAULT 'UNPAID',
+    `status` ENUM('PENDING', 'CONFIRMED', 'PROCESSING', 'SHIPPED', 'DELIVERED', 'COMPLETED', 'CANCELLED', 'REFUNDED') NOT NULL DEFAULT 'PENDING',
+    `payment_status` ENUM('UNPAID', 'PAID', 'PENDING_CONFIRM', 'FAILED', 'REFUNDED') NOT NULL DEFAULT 'UNPAID',
     `note` VARCHAR(500) NULL,
     `placed_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `paid_at` DATETIME NULL,
+    `delivered_at` DATETIME NULL,
+    `completed_at` DATETIME NULL,
     `canceled_at` DATETIME NULL,
+    `payment_attempts` INT NOT NULL DEFAULT 0,
+    `bank_transfer_slip` VARCHAR(500) NULL,
+    `vnp_txn_ref` VARCHAR(100) NULL,
+    `vnp_transaction_no` VARCHAR(50) NULL,
+    `payment_method` VARCHAR(50) NULL,
     `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
@@ -289,7 +296,7 @@ CREATE TABLE `payments` (
     `transaction_code` VARCHAR(100) NULL,
     `amount` DECIMAL(15,2) NOT NULL,
     `currency` CHAR(3) NOT NULL DEFAULT 'VND',
-    `status` ENUM('PENDING', 'AUTHORIZED', 'PAID', 'FAILED', 'REFUNDED', 'CANCELED') NOT NULL DEFAULT 'PENDING',
+    `status` ENUM('PENDING', 'AUTHORIZED', 'PAID', 'FAILED', 'REFUNDED', 'CANCELLED') NOT NULL DEFAULT 'PENDING',
     `paid_at` DATETIME NULL,
     `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
@@ -700,19 +707,19 @@ FOR EACH ROW
 BEGIN
     DECLARE v_missing_items INT DEFAULT 0;
 
-    -- Nếu cập nhật thành PAID, chỉ cần đảm bảo đơn không trống
-    IF OLD.`status` <> 'PAID' AND NEW.`status` = 'PAID' THEN
+    -- If payment is confirmed (payment_status → PAID), update order status to CONFIRMED
+    IF OLD.payment_status <> 'PAID' AND NEW.payment_status = 'PAID' THEN
         SELECT COUNT(*) INTO v_missing_items FROM `order_items` WHERE `order_id` = NEW.`id`;
         IF v_missing_items = 0 THEN
             SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Cannot mark order as PAID without order items';
         END IF;
 
-        SET NEW.`payment_status` = 'PAID';
+        SET NEW.`status` = 'CONFIRMED';
         SET NEW.`paid_at` = COALESCE(NEW.`paid_at`, NOW());
     END IF;
 
-    -- Nếu đơn bị HỦY, set timestamp hủy
-    IF NEW.`status` = 'CANCELED' AND OLD.`status` <> 'CANCELED' THEN
+    -- If order is CANCELLED, set canceled timestamp
+    IF NEW.`status` = 'CANCELLED' AND OLD.`status` <> 'CANCELLED' THEN
         SET NEW.`canceled_at` = COALESCE(NEW.`canceled_at`, NOW());
     END IF;
 END$$
@@ -728,8 +735,8 @@ BEGIN
         VALUES (NEW.`id`, OLD.`status`, NEW.`status`, NULL, NOW());
     END IF;
 
-    -- *** QUAN TRỌNG: NẾU ĐƠN BỊ HỦY -> HOÀN LẠI TỒN KHO & MÃ GIẢM GIÁ ***
-    IF OLD.`status` <> 'CANCELED' AND NEW.`status` = 'CANCELED' THEN
+    -- *** IMPORTANT: IF ORDER IS CANCELLED -> RESTORE STOCK & DISCOUNT ***
+    IF OLD.`status` <> 'CANCELLED' AND NEW.`status` = 'CANCELLED' THEN
         
         -- 1. Cộng lại tồn kho cho các sản phẩm
         UPDATE `products` p

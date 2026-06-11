@@ -2,6 +2,8 @@ package com.doan.ProFit.entity;
 
 import com.doan.ProFit.enums.Role;
 import com.doan.ProFit.enums.Status;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -26,6 +28,7 @@ public class User {
     private String phone;
 
     @Column(name = "password_hash", nullable = false, length = 255)
+    @JsonIgnore
     private String passwordHash;
 
     @Enumerated(EnumType.STRING)
@@ -43,9 +46,11 @@ public class User {
     private LocalDateTime deletedAt;
 
     @Column(name = "reset_token", length = 255)
+    @JsonIgnore
     private String resetToken;
 
     @Column(name = "reset_token_expiry")
+    @JsonIgnore
     private LocalDateTime resetTokenExpiry;
 
     @CreationTimestamp

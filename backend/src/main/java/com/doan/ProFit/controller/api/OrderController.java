@@ -5,6 +5,8 @@ import com.doan.ProFit.dto.request.OrderRequest;
 import com.doan.ProFit.dto.response.OrderResponse;
 import com.doan.ProFit.service.OrderService;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -15,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/orders")
 public class OrderController {
+    private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
     @Autowired
     private OrderService orderService;
@@ -45,8 +48,16 @@ public class OrderController {
             return ResponseEntity.status(401).body(java.util.Map.of("error", "Unauthorized", "message", "Vui lòng đăng nhập"));
         }
         String email = authentication.getName();
-        List<OrderResponse> response = orderService.getMyOrders(email);
-        return ResponseEntity.ok(response);
+        try {
+            List<OrderResponse> response = orderService.getMyOrders(email);
+            return ResponseEntity.ok(response);
+        } catch (IllegalArgumentException ex) {
+            logger.warn("Order not found for user {}: {}", email, ex.getMessage());
+            return ResponseEntity.badRequest().body(java.util.Map.of("error", "Bad Request", "message", ex.getMessage()));
+        } catch (Exception ex) {
+            logger.error("Failed to get orders for user {}: {}", email, ex.getMessage(), ex);
+            return ResponseEntity.status(500).body(java.util.Map.of("error", "Internal Server Error", "message", "Không thể lấy danh sách đơn hàng"));
+        }
     }
 
     /**

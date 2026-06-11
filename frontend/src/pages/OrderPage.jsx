@@ -11,15 +11,14 @@ import { apiGetMyOrders, apiCancelOrder, isLoggedIn } from "../utils/api";
 
 // Nhãn trạng thái đơn hàng
 const STATUS_LABEL = {
-  PENDING:        { text: "Chờ xác nhận", color: "#f59e0b" },
-  CONFIRMED:      { text: "Đã xác nhận",  color: "var(--green)" },
-  CANCELLED:      { text: "Đã hủy",        color: "var(--red)" },
+  PENDING:         { text: "Chờ xác nhận", color: "#f59e0b" },
+  CONFIRMED:       { text: "Đã xác nhận",  color: "var(--green)" },
+  PROCESSING:      { text: "Đang xử lý",   color: "#3b82f6" },
+  SHIPPED:         { text: "Đang giao",     color: "#8b5cf6" },
+  DELIVERED:       { text: "Đã giao",       color: "var(--green)" },
+  COMPLETED:       { text: "Hoàn thành",    color: "#10b981" },
+  CANCELLED:       { text: "Đã hủy",        color: "var(--red)" },
   PENDING_CONFIRM: { text: "Chờ thanh toán", color: "#3b82f6" },
-  // fallback lowercase
-  pending:         { text: "Chờ xác nhận",  color: "#f59e0b" },
-  confirmed:        { text: "Đã xác nhận",   color: "var(--green)" },
-  cancelled:        { text: "Đã hủy",         color: "var(--red)" },
-  pending_confirm:  { text: "Chờ thanh toán", color: "#3b82f6" },
 };
 
 // Format ngày từ LocalDateTime của Java
@@ -131,10 +130,12 @@ const OrderPage = ({ navigate, onViewOrderDetail, user, showToast }) => {
     filter === "all"
       ? sortedOrders
       : sortedOrders.filter((o) => {
+          const upperStatus = o.status?.toUpperCase() || "";
+          const upperPaymentStatus = o.paymentStatus?.toUpperCase() || "";
           if (filter === "pending_confirm") {
-            return o.paymentStatus?.toUpperCase() === "PENDING_CONFIRM" || o.status?.toUpperCase() === "PENDING_CONFIRM";
+            return upperPaymentStatus === "PENDING_CONFIRM" || upperStatus === "PENDING_CONFIRM";
           }
-          return o.status?.toLowerCase() === filter.toLowerCase();
+          return upperStatus === filter.toUpperCase();
         });
 
   // Loading state
@@ -231,6 +232,8 @@ const OrderPage = ({ navigate, onViewOrderDetail, user, showToast }) => {
             { key: "pending", label: "Chờ xác nhận" },
             { key: "pending_confirm", label: "Chờ thanh toán" },
             { key: "confirmed", label: "Đã xác nhận" },
+            { key: "delivered", label: "Đã giao" },
+            { key: "completed", label: "Hoàn thành" },
             { key: "cancelled", label: "Đã hủy" },
           ].map((tab) => (
             <button
@@ -261,10 +264,11 @@ const OrderPage = ({ navigate, onViewOrderDetail, user, showToast }) => {
             }}
           >
             {filtered.map((order) => {
-              // Hiển thị trạng thái thanh toán nếu là PENDING_CONFIRM
-              const displayStatus = order.paymentStatus?.toUpperCase() === "PENDING_CONFIRM" 
-                ? "PENDING_CONFIRM" 
-                : order.status?.toUpperCase();
+              const upperStatus = order.status?.toUpperCase() || "";
+              const upperPaymentStatus = order.paymentStatus?.toUpperCase() || "";
+              const displayStatus = upperPaymentStatus === "PENDING_CONFIRM"
+                ? "PENDING_CONFIRM"
+                : upperStatus;
               const st =
                 STATUS_LABEL[displayStatus] ??
                 STATUS_LABEL.PENDING;
@@ -382,7 +386,17 @@ const OrderPage = ({ navigate, onViewOrderDetail, user, showToast }) => {
                       </span>
                     </div>
                     <div style={{ display: "flex", gap: 10 }}>
-                      {(order.status?.toLowerCase() === "pending" || order.paymentStatus?.toUpperCase() === "PENDING_CONFIRM") && (
+                      {order.status?.toLowerCase() === "pending" && (
+                        <button
+                          className="btn-danger"
+                          style={{ padding: "8px 16px", fontSize: 13 }}
+                          onClick={() => handleCancelOrder(order.id)}
+                          disabled={cancellingId === order.id}
+                        >
+                          {cancellingId === order.id ? "Đang hủy..." : "Hủy đơn"}
+                        </button>
+                      )}
+                      {order.paymentStatus?.toUpperCase() === "PENDING_CONFIRM" && (
                         <button
                           className="btn-danger"
                           style={{ padding: "8px 16px", fontSize: 13 }}
