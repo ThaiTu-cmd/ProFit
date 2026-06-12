@@ -386,17 +386,7 @@ const OrderPage = ({ navigate, onViewOrderDetail, user, showToast }) => {
                       </span>
                     </div>
                     <div style={{ display: "flex", gap: 10 }}>
-                      {order.status?.toLowerCase() === "pending" && (
-                        <button
-                          className="btn-danger"
-                          style={{ padding: "8px 16px", fontSize: 13 }}
-                          onClick={() => handleCancelOrder(order.id)}
-                          disabled={cancellingId === order.id}
-                        >
-                          {cancellingId === order.id ? "Đang hủy..." : "Hủy đơn"}
-                        </button>
-                      )}
-                      {order.paymentStatus?.toUpperCase() === "PENDING_CONFIRM" && (
+                      {order.id && (order.status?.toLowerCase() === "pending" || order.paymentStatus?.toUpperCase() === "PENDING_CONFIRM") && (
                         <button
                           className="btn-danger"
                           style={{ padding: "8px 16px", fontSize: 13 }}

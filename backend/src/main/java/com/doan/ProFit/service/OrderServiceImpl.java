@@ -243,8 +243,9 @@ public class OrderServiceImpl implements OrderService {
         String oldStatus = order.getStatus();
         String oldPaymentStatus = order.getPaymentStatus();
 
-        // Chỉ cho phép hủy đơn đang ở PENDING hoặc PENDING_CONFIRM (payment status)
-        if (!"PENDING".equals(oldStatus) && !"PENDING_CONFIRM".equals(oldStatus)) {
+        // Chỉ cho phép hủy đơn đang ở PENDING (order status)
+        // hoặc đang chờ xác nhận thanh toán banking (paymentStatus = PENDING_CONFIRM)
+        if (!"PENDING".equals(oldStatus) && !"PENDING_CONFIRM".equals(oldPaymentStatus)) {
             throw new IllegalArgumentException("Chỉ có thể hủy đơn hàng đang chờ xác nhận");
         }
 
