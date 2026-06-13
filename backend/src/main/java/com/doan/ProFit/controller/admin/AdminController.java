@@ -175,12 +175,6 @@ public class AdminController {
         return orderService.updateOrderStatus(id, request);
     }
 
-    @PutMapping("/order/{id}/status/admin")
-    @ResponseBody
-    public OrderResponse updateOrderStatusByAdmin(@PathVariable Long id, @RequestBody OrderStatusUpdateRequest request) {
-        return orderService.updateOrderStatusByAdmin(id, request);
-    }
-
     @PostMapping("/order/{id}/delivery-failed")
     @ResponseBody
     public OrderResponse markDeliveryFailed(@PathVariable Long id) {

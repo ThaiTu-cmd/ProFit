@@ -262,11 +262,11 @@
           .map(
             (o) => `
     <tr>
-      <td class="td-mono"><strong>${o.order_code}</strong></td>
-      <td>${o.username}</td>
-      <td style="font-weight:700;color:var(--primary)">${Utils.formatCurrency(o.total)}</td>
+      <td class="td-mono"><strong>${o.orderCode || o.order_code}</strong></td>
+      <td>${o.userName || o.username || "—"}</td>
+      <td style="font-weight:700;color:var(--primary)">${Utils.formatCurrency(o.totalAmount ?? o.total)}</td>
       <td>${Utils.statusBadge(o.status)}</td>
-      <td class="td-mono">${o.created_at}</td>
+      <td class="td-mono">${o.createdAt || o.placedAt || o.created_at}</td>
     </tr>
   `,
           )

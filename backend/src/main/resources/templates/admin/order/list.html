@@ -115,10 +115,13 @@
                   onchange="filterOrders()"
                 >
                   <option value="">Tất cả trạng thái</option>
-                  <option value="pending">Chờ xử lý</option>
-                  <option value="shipping">Đang giao</option>
-                  <option value="completed">Hoàn thành</option>
-                  <option value="cancelled">Đã hủy</option>
+                  <option value="PENDING">Chờ xác nhận</option>
+                  <option value="PENDING_CONFIRM">Chờ thanh toán</option>
+                  <option value="CONFIRMED">Đã xác nhận</option>
+                  <option value="DELIVERED">Đã giao hàng</option>
+                  <option value="COMPLETED">Hoàn thành</option>
+                  <option value="CANCELLED">Đã hủy</option>
+                  <option value="DELIVERED_FAILED">Giao thất bại</option>
                 </select>
               </div>
               <span class="badge badge-info" id="orderCount">— đơn</span>
@@ -130,17 +133,16 @@
                   <tr>
                     <th>ID</th>
                     <th>Order Code</th>
-                    <th>Username</th>
-                    <th>User ID</th>
-                    <th>Total</th>
-                    <th>Status</th>
+                    <th>Khách hàng</th>
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody id="ordersBody">
                   <tr>
                     <td
-                      colspan="7"
+                      colspan="6"
                       style="
                         text-align: center;
                         padding: 40px;
@@ -214,21 +216,20 @@
                 (o) => `
         <tr>
           <td class="td-mono">#${o.id}</td>
-          <td class="td-mono"><strong>${o.order_code}</strong></td>
-          <td>${o.username}</td>
-          <td class="td-mono">${o.user_id}</td>
-          <td style="font-weight:700;color:var(--primary)">${Utils.formatCurrency(o.total)}</td>
+          <td class="td-mono"><strong>${o.orderCode}</strong></td>
+          <td>${o.userName || '—'}<br/><small style="color:var(--text-muted)">${o.recipientPhone || ''}</small></td>
+          <td style="font-weight:700;color:var(--primary)">${Utils.formatCurrency(o.totalAmount)}</td>
           <td>${Utils.statusBadge(o.status)}</td>
           <td>
             <div class="action-group">
               <a th:href="@{/admin/order/detail}?id=${o.id}" class="btn btn-sm btn-outline">👁 View</a>
-              <button class="btn btn-sm btn-danger" onclick="confirmDelete(${o.id},'${o.order_code}')">🗑</button>
+              <button class="btn btn-sm btn-danger" onclick="confirmDelete(${o.id},'${o.orderCode}')">🗑</button>
             </div>
           </td>
         </tr>`,
               )
               .join("")
-          : `<tr><td colspan="7" style="text-align:center;padding:40px;color:var(--text-muted)">Không tìm thấy đơn hàng nào</td></tr>`;
+          : `<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-muted)">Không tìm thấy đơn hàng nào</td></tr>`;
       }
 
       function filterOrders() {
@@ -238,8 +239,10 @@
           allOrders.filter(
             (o) =>
               (!q ||
-                o.order_code.toLowerCase().includes(q) ||
-                o.username.toLowerCase().includes(q)) &&
+                (o.orderCode || "").toLowerCase().includes(q) ||
+                (o.userName || "").toLowerCase().includes(q) ||
+                (o.recipientName || "").toLowerCase().includes(q) ||
+                String(o.id).includes(q)) &&
               (!st || o.status === st),
           ),
         );

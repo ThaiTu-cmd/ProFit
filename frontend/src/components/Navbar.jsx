@@ -202,10 +202,11 @@ const Navbar = ({ currentPage, navigate, cartCount, user, onLogout }) => {
 
         {user ? (
           <>
-            {/* Lịch sử đơn hàng */}
-            <button
-              type="button"
-              onClick={() => navigate("orders")}
+            {/* Lịch sử đơn hàng - chỉ hiện với user, không hiện với admin */}
+            {user.role !== "admin" && (
+              <button
+                type="button"
+                onClick={() => navigate("orders")}
               style={{
                 background: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(255,255,255,0.08)",
@@ -237,6 +238,7 @@ const Navbar = ({ currentPage, navigate, cartCount, user, onLogout }) => {
               <span>📋</span>
               <span>Lịch sử đơn hàng</span>
             </button>
+            )}
 
             {/* Admin */}
             {user.role === "admin" && (

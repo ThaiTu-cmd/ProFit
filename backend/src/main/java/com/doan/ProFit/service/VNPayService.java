@@ -21,7 +21,7 @@ public class VNPayService {
 
     /**
      * Tạo URL thanh toán VNPAY
-     * @param amount      Số tiền (VND)
+     * @param amount      Số tiền (VND) - controller truyền vào số VND thực
      * @param orderId     Mã đơn hàng (duy nhất)
      * @param orderInfo   Mô tả đơn hàng
      * @param ipAddress   IP của khách hàng
@@ -33,7 +33,9 @@ public class VNPayService {
         params.put("vnp_Version", VNPayConfig.VERSION);
         params.put("vnp_Command", VNPayConfig.COMMAND);
         params.put("vnp_TmnCode", config.getVnpTmnCode());
-        params.put("vnp_Amount", String.valueOf(amount * 100)); // VNPAY yêu cầu * 100
+        // VNPAY yêu cầu amount * 100 (đơn vị xu, VND không có phần thập phân)
+        // VD: 750000 VND -> 75000000
+        params.put("vnp_Amount", String.valueOf(amount * 100));
         params.put("vnp_CurrCode", VNPayConfig.CURRENCY_CODE);
         params.put("vnp_TxnRef", orderId);
         params.put("vnp_OrderInfo", orderInfo);

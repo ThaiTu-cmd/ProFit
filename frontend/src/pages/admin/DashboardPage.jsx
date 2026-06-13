@@ -84,15 +84,13 @@ const DashboardPage = ({ navigate }) => {
   const [activeTab, setActiveTab] = useState("day"); // day | month | year
   const [pendingConfirmCount, setPendingConfirmCount] = useState(0);
   const [pendingOrderCount, setPendingOrderCount] = useState(0);
-  const [unreadMessageCount, setUnreadMessageCount] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [statsData, ordersData, notifData] = await Promise.all([
+        const [statsData, ordersData] = await Promise.all([
           adminService.getDashboardStats(),
           adminService.getAllOrders(),
-          adminService.getUnreadCount(),
         ]);
         setStats(statsData);
         setOrders(ordersData);
@@ -101,7 +99,6 @@ const DashboardPage = ({ navigate }) => {
         const pendingOrder = ordersData.filter(o => o.status === "PENDING").length;
         setPendingConfirmCount(pendingPayment);
         setPendingOrderCount(pendingOrder);
-        setUnreadMessageCount(notifData.count || 0);
       } catch (error) {
         console.error("Lỗi tải dữ liệu dashboard:", error);
       } finally {
@@ -156,30 +153,6 @@ const DashboardPage = ({ navigate }) => {
   return (
     <div className="section">
       {/* Alert Banners */}
-      {unreadMessageCount > 0 && (
-        <div style={{
-          background: "rgba(255, 92, 0, 0.1)",
-          border: "1px solid rgba(255, 92, 0, 0.3)",
-          borderRadius: 12, padding: "14px 20px", marginBottom: 16,
-          display: "flex", alignItems: "center", justifyContent: "space-between", cursor: "pointer",
-        }}
-          onClick={() => navigate("admin-contact")}
-          onMouseEnter={e => e.currentTarget.style.borderColor = "var(--primary)"}
-          onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(255, 92, 0, 0.3)"}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <span style={{ fontSize: 26 }}>💬</span>
-            <div>
-              <div style={{ fontWeight: 700, color: "var(--primary)", fontSize: 15 }}>Tin nhắn liên hệ mới</div>
-              <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 2 }}>
-                Có <strong style={{ color: "var(--primary)" }}>{unreadMessageCount}</strong> tin nhắn chưa xem
-              </div>
-            </div>
-          </div>
-          <span style={{ color: "var(--primary)", fontWeight: 700, fontSize: 14 }}>Xem ngay →</span>
-        </div>
-      )}
-
       {pendingConfirmCount > 0 && (
         <div style={{
           background: "rgba(59, 130, 246, 0.1)",
@@ -506,7 +479,6 @@ const DashboardPage = ({ navigate }) => {
               { icon: "📦", label: "Quản lý sản phẩm", page: "admin-products", desc: "CRUD sản phẩm" },
               { icon: "📦", label: "Quản lý đơn hàng", page: "admin-orders", desc: "Xử lý đơn hàng" },
               { icon: "👥", label: "Quản lý User", page: "admin-users", desc: "Người dùng" },
-              { icon: "💬", label: "Hộp thư liên hệ", page: "admin-contact", desc: "Tin nhắn", badge: unreadMessageCount },
             ].map(item => (
               <div key={item.label} onClick={() => navigate(item.page)}
                 style={{

@@ -15,7 +15,6 @@ public interface OrderService {
     OrderResponse createGuestOrder(GuestOrderRequest request);
     List<OrderResponse> getMyOrders(String email);
     OrderResponse updateOrderStatus(Long id, OrderStatusUpdateRequest request);
-    OrderResponse updateOrderStatusByAdmin(Long id, OrderStatusUpdateRequest request);
     OrderResponse markDeliveryFailed(Long id);
     OrderResponse cancelOrder(Long id, String userEmail);
     OrderResponse confirmBankingPayment(Long orderId, String userEmail);

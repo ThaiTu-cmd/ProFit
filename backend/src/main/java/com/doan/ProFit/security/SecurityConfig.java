@@ -98,11 +98,15 @@ public class SecurityConfig {
                     .requestMatchers("/api/reviews/product/**").permitAll()
                     .requestMatchers("/api/reviews/**").authenticated()
                     // Orders
-                    .requestMatchers("/api/orders/**").permitAll()
+                    // Guest checkout (không cần JWT), còn lại cần authentication
+                    .requestMatchers(org.springframework.http.HttpMethod.POST, "/api/orders/guest").permitAll()
+                    .requestMatchers("/api/orders/**").authenticated()
                     // Payment
                     .requestMatchers("/api/v1/payment/**").permitAll()
-                    // VNPAY endpoints (permit for IPN, authenticated for create)
-                    .requestMatchers("/api/v1/vnpay/**").permitAll()
+                    // VNPAY: create cần JWT (user phải đăng nhập mới tạo URL thanh toán)
+                    // IPN + Return permitAll (server-to-server + browser redirect, không có JWT)
+                    .requestMatchers(org.springframework.http.HttpMethod.POST, "/api/v1/vnpay/create").authenticated()
+                    .requestMatchers("/api/v1/vnpay/ipn", "/api/v1/vnpay/return").permitAll()
                     .requestMatchers("/api/v1/banking/**").authenticated()
                     // Messages
                     .requestMatchers("/api/messages/my", "/api/messages/send").authenticated()

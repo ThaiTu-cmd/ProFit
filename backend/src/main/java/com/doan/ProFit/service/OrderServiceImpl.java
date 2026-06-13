@@ -312,12 +312,6 @@ public class OrderServiceImpl implements OrderService {
         return updateOrderStatusInternal(id, request, true);
     }
 
-    @Override
-    @Transactional
-    public OrderResponse updateOrderStatusByAdmin(Long id, OrderStatusUpdateRequest request) {
-        return updateOrderStatusInternal(id, request, true);
-    }
-
     /**
      * Ham internal xu ly logic cap nhat trang thai
      */
@@ -741,9 +735,87 @@ public class OrderServiceImpl implements OrderService {
         LocalDateTime startOfYear = LocalDate.now().withDayOfYear(1).atStartOfDay();
         stats.setYearRevenue(orderRepository.sumRevenueThisYear(startOfYear));
 
-        // ... (chi tiet ve thong ke duoc rut gon nhu dai dien)
+        // =====================================================
+        // DOANH THU THEO GIAI DOAN (30 NGAY / 12 THANG / 5 NAM)
+        // =====================================================
+        // 30 ngay gan nhat
+        LocalDateTime thirtyDaysAgo = LocalDate.now().minusDays(30).atStartOfDay();
+        List<RevenueByPeriod> revenueByDay = orderRepository.sumRevenueByDay(thirtyDaysAgo).stream()
+                .map(row -> {
+                    Object periodVal = row[0];
+                    String period = periodVal instanceof java.sql.Date
+                            ? new java.sql.Date(((java.sql.Date) periodVal).getTime()).toString()
+                            : String.valueOf(periodVal);
+                    BigDecimal revenue = toBigDecimal(row[1]);
+                    long orderCount = toLong(row[2]);
+                    return new RevenueByPeriod(period, revenue, orderCount);
+                })
+                .collect(Collectors.toList());
+        stats.setRevenueByDay(revenueByDay);
+
+        // 12 thang gan nhat
+        LocalDateTime twelveMonthsAgo = LocalDate.now().minusMonths(12).withDayOfMonth(1).atStartOfDay();
+        List<RevenueByPeriod> revenueByMonth = orderRepository.sumRevenueByMonth(twelveMonthsAgo).stream()
+                .map(row -> new RevenueByPeriod(
+                        String.valueOf(row[0]),
+                        toBigDecimal(row[1]),
+                        toLong(row[2])
+                ))
+                .collect(Collectors.toList());
+        stats.setRevenueByMonth(revenueByMonth);
+
+        // 5 nam gan nhat
+        LocalDateTime fiveYearsAgo = LocalDate.now().minusYears(5).withDayOfYear(1).atStartOfDay();
+        List<RevenueByPeriod> revenueByYear = orderRepository.sumRevenueByYear(fiveYearsAgo).stream()
+                .map(row -> new RevenueByPeriod(
+                        String.valueOf(row[0]),
+                        toBigDecimal(row[1]),
+                        toLong(row[2])
+                ))
+                .collect(Collectors.toList());
+        stats.setRevenueByYear(revenueByYear);
+
+        // =====================================================
+        // TOP 10 SAN PHAM BAN CHAY (tu don COMPLETED/DELIVERED)
+        // =====================================================
+        List<BestSellingProduct> bestSelling = orderRepository.findBestSellingProducts(10).stream()
+                .map(row -> new BestSellingProduct(
+                        row[0] == null ? null : ((Number) row[0]).longValue(),
+                        String.valueOf(row[1]),
+                        toLong(row[2]),
+                        toBigDecimal(row[3])
+                ))
+                .collect(Collectors.toList());
+        stats.setBestSellingProducts(bestSelling);
 
         return stats;
+    }
+
+    /**
+     * Chuyển đổi an toàn từ Object sang BigDecimal (xử lý BigDecimal, Number, String, null)
+     */
+    private BigDecimal toBigDecimal(Object val) {
+        if (val == null) return BigDecimal.ZERO;
+        if (val instanceof BigDecimal) return (BigDecimal) val;
+        if (val instanceof Number) return BigDecimal.valueOf(((Number) val).doubleValue());
+        try {
+            return new BigDecimal(String.valueOf(val));
+        } catch (NumberFormatException ex) {
+            return BigDecimal.ZERO;
+        }
+    }
+
+    /**
+     * Chuyển đổi an toàn từ Object sang long (xử lý Number, String, null)
+     */
+    private long toLong(Object val) {
+        if (val == null) return 0L;
+        if (val instanceof Number) return ((Number) val).longValue();
+        try {
+            return Long.parseLong(String.valueOf(val));
+        } catch (NumberFormatException ex) {
+            return 0L;
+        }
     }
 
     // =============================================
