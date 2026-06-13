@@ -9,16 +9,15 @@ import { transformOrderFromBE } from "../utils/orderHelpers";
 import { Package, Inbox, RefreshCw, Loader2 } from "lucide-react";
 import { apiGetMyOrders, apiCancelOrder, isLoggedIn } from "../utils/api";
 
-// Nhãn trạng thái đơn hàng
+// Nhãn trạng thái đơn hàng - phản ánh hành động của admin
 const STATUS_LABEL = {
-  PENDING:         { text: "Chờ xác nhận", color: "#f59e0b" },
-  CONFIRMED:       { text: "Đã xác nhận",  color: "var(--green)" },
-  PROCESSING:      { text: "Đang xử lý",   color: "#3b82f6" },
-  SHIPPED:         { text: "Đang giao",     color: "#8b5cf6" },
-  DELIVERED:       { text: "Đã giao",       color: "var(--green)" },
-  COMPLETED:       { text: "Hoàn thành",    color: "#10b981" },
-  CANCELLED:       { text: "Đã hủy",        color: "var(--red)" },
-  PENDING_CONFIRM: { text: "Chờ thanh toán", color: "#3b82f6" },
+  PENDING:           { text: "Chờ xác nhận",            color: "#f59e0b" },
+  CONFIRMED:         { text: "Admin đã xác nhận đơn hàng", color: "var(--blue)" },
+  DELIVERED:         { text: "Đã nhận hàng",            color: "var(--green)" },
+  COMPLETED:         { text: "Hoàn thành",               color: "#10b981" },
+  CANCELLED:         { text: "Admin đã hủy đơn",        color: "var(--red)" },
+  DELIVERED_FAILED:  { text: "Giao hàng thất bại",      color: "#ef4444" },
+  PENDING_CONFIRM:   { text: "Chờ thanh toán",          color: "#3b82f6" },
 };
 
 // Format ngày từ LocalDateTime của Java
@@ -228,13 +227,13 @@ const OrderPage = ({ navigate, onViewOrderDetail, user, showToast }) => {
         {/* Filter tabs */}
         <div className="order-tabs">
           {[
-            { key: "all", label: "Tất cả" },
-            { key: "pending", label: "Chờ xác nhận" },
-            { key: "pending_confirm", label: "Chờ thanh toán" },
-            { key: "confirmed", label: "Đã xác nhận" },
-            { key: "delivered", label: "Đã giao" },
-            { key: "completed", label: "Hoàn thành" },
-            { key: "cancelled", label: "Đã hủy" },
+            { key: "all",              label: "Tất cả"                         },
+            { key: "pending",          label: "Chờ xác nhận"                  },
+            { key: "pending_confirm",  label: "Chờ thanh toán"                },
+            { key: "confirmed",        label: "Admin đã xác nhận đơn hàng"   },
+            { key: "delivered",        label: "Đã nhận hàng"                 },
+            { key: "completed",        label: "Hoàn thành"                    },
+            { key: "cancelled",        label: "Admin đã hủy đơn"             },
           ].map((tab) => (
             <button
               key={tab.key}

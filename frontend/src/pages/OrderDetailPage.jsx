@@ -6,12 +6,15 @@
 import { formatPrice } from "../utils/productHelpers";
 import { transformOrderFromBE } from "../utils/orderHelpers";
 
+// Nhãn trạng thái đơn hàng - phản ánh hành động của admin
 const STATUS_CONFIG = {
-  PENDING:   { label: "Chờ xác nhận",  color: "#f59e0b", bg: "rgba(245,158,11,0.1)",  border: "#f59e0b" },
-  PENDING_CONFIRM: { label: "Chờ admin xác nhận thanh toán", color: "#3b82f6", bg: "rgba(59,130,246,0.1)", border: "#3b82f6" },
-  CONFIRMED: { label: "Đã xác nhận",   color: "var(--green)", bg: "rgba(34,197,94,0.1)", border: "var(--green)" },
-  CANCELLED: { label: "Đã hủy",         color: "var(--red)",   bg: "rgba(239,68,68,0.1)", border: "var(--red)"   },
-  CANCELLED_lower: { label: "Đã hủy",  color: "var(--red)",   bg: "rgba(239,68,68,0.1)", border: "var(--red)"   },
+  PENDING:           { label: "Chờ xác nhận",              color: "#f59e0b", bg: "rgba(245,158,11,0.1)",  border: "#f59e0b" },
+  PENDING_CONFIRM:   { label: "Chờ thanh toán",            color: "#3b82f6", bg: "rgba(59,130,246,0.1)", border: "#3b82f6" },
+  CONFIRMED:         { label: "Admin đã xác nhận đơn hàng", color: "var(--blue)", bg: "rgba(59,130,246,0.1)", border: "var(--blue)" },
+  DELIVERED:         { label: "Đã nhận hàng",              color: "var(--green)", bg: "rgba(34,197,94,0.1)", border: "var(--green)" },
+  COMPLETED:         { label: "Hoàn thành",                 color: "#10b981", bg: "rgba(16,185,129,0.1)", border: "#10b981" },
+  CANCELLED:         { label: "Admin đã hủy đơn",          color: "var(--red)", bg: "rgba(239,68,68,0.1)", border: "var(--red)" },
+  DELIVERED_FAILED:  { label: "Giao hàng thất bại",        color: "#ef4444", bg: "rgba(239,68,68,0.1)", border: "#ef4444" },
 };
 
 const OrderDetailPage = ({ order, navigate, onAddToCart }) => {
@@ -34,15 +37,12 @@ const OrderDetailPage = ({ order, navigate, onAddToCart }) => {
     );
   }
 
-  const statusKey = safeOrder.paymentStatus?.toUpperCase() === "PENDING_CONFIRM" ? "PENDING_CONFIRM"
-    : safeOrder.status?.toUpperCase() === "CANCELLED" ? "CANCELLED"
-    : safeOrder.status?.toUpperCase() === "CONFIRMED" ? "CONFIRMED"
-    : safeOrder.status?.toUpperCase() === "PENDING" ? "PENDING"
-    : safeOrder.status?.toLowerCase() === "cancelled" ? "CANCELLED_lower"
-    : "PENDING";
+  const statusKey =
+    safeOrder.paymentStatus?.toUpperCase() === "PENDING_CONFIRM" ? "PENDING_CONFIRM"
+    : safeOrder.status?.toUpperCase();
 
   const st = STATUS_CONFIG[statusKey] || STATUS_CONFIG.PENDING;
-  const isCancelled = safeOrder.status?.toLowerCase() === "cancelled" || safeOrder.status?.toUpperCase() === "CANCELLED";
+  const isCancelled = safeOrder.status?.toUpperCase() === "CANCELLED" || safeOrder.status?.toUpperCase() === "DELIVERED_FAILED";
 
   return (
     <div>
@@ -102,15 +102,35 @@ const OrderDetailPage = ({ order, navigate, onAddToCart }) => {
                   </div>
                   {safeOrder.paymentStatus?.toUpperCase() === "PENDING_CONFIRM" && (
                     <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 4 }}>
-                      Bạn đã báo thanh toán. Đơn đang được admin ưu tiên kiểm tra và xác nhận.
+                      Bạn đã báo thanh toán. Đơn đang được admin kiểm tra và xác nhận.
                     </div>
                   )}
                   {safeOrder.status?.toUpperCase() === "CONFIRMED" && (
                     <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 4 }}>
-                      ✓ Admin đã xác nhận thanh toán thành công
+                      Đơn hàng đã được admin xác nhận và đang được chuẩn bị.
                     </div>
                   )}
-                  {safeOrder.status?.toLowerCase() === "pending" && (
+                  {safeOrder.status?.toUpperCase() === "DELIVERED" && (
+                    <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 4 }}>
+                      Đơn hàng đã được giao thành công.
+                    </div>
+                  )}
+                  {safeOrder.status?.toUpperCase() === "COMPLETED" && (
+                    <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 4 }}>
+                      Đơn hàng đã hoàn thành. Cảm ơn bạn đã mua sắm tại ProFit!
+                    </div>
+                  )}
+                  {safeOrder.status?.toUpperCase() === "CANCELLED" && (
+                    <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 4 }}>
+                      Đơn hàng đã bị hủy bởi quản trị viên.
+                    </div>
+                  )}
+                  {safeOrder.status?.toUpperCase() === "DELIVERED_FAILED" && (
+                    <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 4 }}>
+                      Giao hàng không thành công. Vui lòng liên hệ support để được hỗ trợ.
+                    </div>
+                  )}
+                  {safeOrder.status?.toUpperCase() === "PENDING" && (
                     <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 4 }}>
                       Đang chờ admin xác nhận đơn hàng...
                     </div>
