@@ -284,6 +284,8 @@ Sau khi chạy:
 - 🤖 **Chatbot API**: [http://localhost:8000](http://localhost:8000)
 - 📊 **Health Check**: `GET http://localhost:8000/health`
 
+> **🗄️ Auto-migration**: Service `db-migrate` tự động chạy các file `.sql` trong `mysql/initdb.d/` mỗi lần `docker compose up` (idempotent, an toàn chạy lại). Backend chỉ start sau khi migration xong. Member pull code về chỉ cần `docker compose up -d --build`, không cần chạy SQL thủ công.
+
 ### Cách 2 — Chạy từng thành phần
 
 **Backend:**

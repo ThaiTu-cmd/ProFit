@@ -11,6 +11,10 @@ services:
       MYSQL_ROOT_HOST: '%'
     volumes:
       - mysql_data:/var/lib/mysql
+      # Auto-run .sql files in this directory when the DB is empty (first
+      # boot) or when MYSQL_DATABASE is recreated. Files run in alphabetical
+      # order. 03_sync_local_extra_tables_and_fields.sql is idempotent.
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
       interval: 5s
@@ -32,6 +36,20 @@ services:
       FRONTEND_BASE_URL: http://localhost:5173
     ports:
       - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+      db-migrate:
+        condition: service_completed_successfully
+    networks:
+      - profit-net
+
+  db-migrate:
+    build:
+      context: ./mysql
+      dockerfile: migrate.Dockerfile
+    container_name: profit-db-migrate
+    restart: on-failure
     depends_on:
       mysql:
         condition: service_healthy
@@ -57,6 +75,7 @@ services:
   pgvector:
     image: pgvector/pgvector:pg16
     container_name: pgvector-container
+    profiles: ["chatbot"]
     restart: unless-stopped
     environment:
       POSTGRES_USER: langchain
@@ -77,6 +96,7 @@ services:
       context: ./chatbot
       dockerfile: Dockerfile
     container_name: profit-chatbot
+    profiles: ["chatbot"]
     restart: unless-stopped
     env_file:
       - ./chatbot/.env
