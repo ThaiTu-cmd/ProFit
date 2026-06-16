@@ -359,8 +359,12 @@ public class OrderServiceImpl implements OrderService {
             // Cap nhat trang thai moi
             order.setStatus(request.getStatus());
 
-            // BUOC 3: Khi hoan thanh -> tru kho
-            if ("COMPLETED".equals(targetStatus)) {
+            // BUOC 3: Set timestamps tuong ung voi trang thai
+            // - DELIVERED -> set deliveredAt (dung cho thong ke doanh thu theo thoi gian)
+            // - COMPLETED -> set completedAt (trang thai ket thuc, tru kho)
+            if ("DELIVERED".equals(targetStatus)) {
+                order.setDeliveredAt(LocalDateTime.now());
+            } else if ("COMPLETED".equals(targetStatus)) {
                 order.setCompletedAt(LocalDateTime.now());
                 reduceStock(order);  // TRU KHO: San pham da ban
             }
@@ -423,6 +427,7 @@ public class OrderServiceImpl implements OrderService {
         // Cap nhat trang thai
         order.setStatus("DELIVERED_FAILED");
         order.setCompletedAt(null);  // Xoa thoi gian hoan thanh
+        order.setDeliveredAt(null);  // Xoa thoi gian giao (vi khong con giao thanh cong nua)
 
         // Hoan kho vi san pham chua duoc giao
         restoreStock(order);
@@ -715,9 +720,9 @@ public class OrderServiceImpl implements OrderService {
         stats.setCancelledOrders(orderRepository.countByStatus("CANCELLED"));
         stats.setDeliveredFailedOrders(orderRepository.countByStatus("DELIVERED_FAILED"));
         stats.setPendingConfirmOrders(orderRepository.countByPaymentStatus("PENDING_CONFIRM"));
-        stats.setCompletedOrders(
-            orderRepository.countByStatus("COMPLETED") + orderRepository.countByStatus("DELIVERED")
-        );
+        // COMPLETED chi dem don o trang thai COMPLETED (khong cong DELIVERED)
+        // tranh dem trung khi dashboard hien thi ca "Da giao" lan "Hoan thanh"
+        stats.setCompletedOrders(orderRepository.countByStatus("COMPLETED"));
 
         // Tinh doanh thu
         stats.setTotalRevenue(orderRepository.sumRevenueFromCompletedOrders());

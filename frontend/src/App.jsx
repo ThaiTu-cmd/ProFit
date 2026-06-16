@@ -318,7 +318,6 @@ const App = () => {
         if (user && user.role === "admin") { navigate("admin-dashboard"); return null; }
         return (
           <OrderPage
-            key={orders.length + Date.now()}
             user={user}
             navigate={navigate}
             onViewOrderDetail={handleViewOrder}

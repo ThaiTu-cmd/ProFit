@@ -68,6 +68,14 @@ const OrderPage = ({ navigate, onViewOrderDetail, user, showToast }) => {
     fetchOrders();
   }, []);
 
+  // Tu dong refetch khi user quay lai tab (focus) hoac khi orders trong App thay doi
+  useEffect(() => {
+    const handleFocus = () => fetchOrders();
+    window.addEventListener("focus", handleFocus);
+    return () => window.removeEventListener("focus", handleFocus);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const handleCancelOrder = async (orderId) => {
     if (!window.confirm("Bạn có chắc muốn hủy đơn hàng này?")) return;
     setCancellingId(orderId);
@@ -157,7 +165,20 @@ const OrderPage = ({ navigate, onViewOrderDetail, user, showToast }) => {
     <div>
       <div className="page-hero">
         <h1>LỊCH SỬ <span>ĐƠN HÀNG</span></h1>
-        <p>{sortedOrders.length} đơn hàng</p>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, justifyContent: "center" }}>
+          <p style={{ margin: 0 }}>{sortedOrders.length} đơn hàng</p>
+          <button
+            onClick={fetchOrders}
+            style={{
+              background: "var(--dark3)", color: "var(--white)", border: "1px solid var(--dark4)",
+              padding: "6px 12px", borderRadius: 6, fontSize: 13, cursor: "pointer",
+              display: "inline-flex", alignItems: "center", gap: 6,
+            }}
+            title="Làm mới danh sách đơn hàng từ server"
+          >
+            <RefreshCw size={14} /> Làm mới
+          </button>
+        </div>
       </div>
 
       <section className="section">

@@ -206,7 +206,7 @@ const OrderDetailPage = ({ order, navigate, onAddToCart }) => {
                         marginTop: 4,
                       }}
                     >
-                      {formatPrice(item.product.price)} × {item.qty}
+                      {formatPrice(item.product.price)} × {item.quantity}
                     </div>
                   </div>
                   <div
@@ -334,7 +334,7 @@ const OrderDetailPage = ({ order, navigate, onAddToCart }) => {
             >
               ← Về danh sách đơn
             </button>
-            {safeOrder.status?.toLowerCase() === "confirmed" && onAddToCart && (
+            {safeOrder.status?.toUpperCase() === "CONFIRMED" && onAddToCart && (
               <button
                 className="btn-primary"
                 style={{ width: "100%", padding: "12px 0", marginTop: 10 }}

@@ -66,6 +66,10 @@ const OrderManagePage = ({ onUpdateStatus, showToast }) => {
     .filter((o) => {
       if (filter === "all") return true;
       if (filter === "PENDING_CONFIRM") return o.paymentStatus === "PENDING_CONFIRM";
+      if (filter === "PENDING") {
+        // Loc don PENDING nhung KHONG tinh don dang cho xac nhan thanh toan
+        return o.status === "PENDING" && o.paymentStatus !== "PENDING_CONFIRM";
+      }
       if (filter === "CANCELLED") return o.status === "CANCELLED" || o.status === "DELIVERED_FAILED";
       if (filter === "DELIVERED_FAILED") return o.status === "DELIVERED_FAILED";
       return o.status === filter;
@@ -83,6 +87,11 @@ const OrderManagePage = ({ onUpdateStatus, showToast }) => {
   const countByStatus = (key) => {
     if (key === "all") return orders.length;
     if (key === "PENDING_CONFIRM") return orders.filter(o => o.paymentStatus === "PENDING_CONFIRM").length;
+    if (key === "PENDING") {
+      // Dem don PENDING nhung KHONG tinh don dang cho xac nhan thanh toan
+      // (de tranh dem trung voi tab PENDING_CONFIRM)
+      return orders.filter(o => o.status === "PENDING" && o.paymentStatus !== "PENDING_CONFIRM").length;
+    }
     if (key === "CANCELLED") return orders.filter(o => o.status === "CANCELLED" || o.status === "DELIVERED_FAILED").length;
     if (key === "DELIVERED_FAILED") return orders.filter(o => o.status === "DELIVERED_FAILED").length;
     return orders.filter(o => o.status === key).length;
