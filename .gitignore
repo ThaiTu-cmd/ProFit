@@ -68,5 +68,8 @@ backup_*.sql
 db_running_schema.sql
 profitsupps_mysql_completed.sql
 
+# 8. Backup folders (sinh ra bởi pull-safe.ps1)
+_backups/
+
 # Lưu ý: Các thư mục frontend/ và backend/ đã có .gitignore riêng,
 # file này đảm bảo các file rác sinh ra ở thư mục gốc (root) cũng bị bỏ qua.
