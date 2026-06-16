@@ -63,5 +63,10 @@ stream_out.txt
 migrate_llm_calls.sql
 read_toc.py
 
+# 7. SQL dump / backup tạm thời (DB local)
+backup_*.sql
+db_running_schema.sql
+profitsupps_mysql_completed.sql
+
 # Lưu ý: Các thư mục frontend/ và backend/ đã có .gitignore riêng,
 # file này đảm bảo các file rác sinh ra ở thư mục gốc (root) cũng bị bỏ qua.
