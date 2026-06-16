@@ -51,5 +51,17 @@ application.yaml
 .DS_Store
 Thumbs.db
 
+# 6. File test/debug tạm thời ở root (không push lên repo)
+test_chat.py
+test_socket.py
+test_stream.py
+test_req.json
+test_req2.json
+login_test.json
+out.txt
+stream_out.txt
+migrate_llm_calls.sql
+read_toc.py
+
 # Lưu ý: Các thư mục frontend/ và backend/ đã có .gitignore riêng,
 # file này đảm bảo các file rác sinh ra ở thư mục gốc (root) cũng bị bỏ qua.

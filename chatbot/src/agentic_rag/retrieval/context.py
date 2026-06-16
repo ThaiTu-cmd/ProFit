@@ -208,7 +208,11 @@ def format_documents_for_llm(
     if not docs:
         return "(không có tài liệu)"
     sliced = docs[:max_docs]
-    if route_id == "product":
+    # Both "product" (recommendation) and "metadata_query" use the
+    # product-block formatter so the LLM sees structured fields (sku, brand,
+    # price, weight, flavor, lactose, origin, …) and can answer precise
+    # metadata questions without paraphrasing page_content.
+    if route_id in ("product", "metadata_query"):
         sliced = catalog_products_only(sliced) or sliced
         blocks = [
             f"[Sản phẩm {i + 1}]\n{compact_product_block(d)}"

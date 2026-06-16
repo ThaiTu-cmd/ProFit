@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Send, Bot, User, X, Minimize2, Maximize2, Loader2, MessageCircle } from 'lucide-react';
+import { Send, Bot, User, X, Minimize2, Maximize2, Loader2, MessageCircle, ShoppingBag, ExternalLink } from 'lucide-react';
 import './ChatWidget.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/ProFitSuppsDB';
@@ -14,9 +14,10 @@ const WELCOME_MESSAGE = {
 • Thông tin về chính sách đổi trả, vận chuyển
 • Giờ mở cửa showroom
 • Chương trình tích điểm thành viên
-• Cách sử dụng sản phẩm
+• Cách sử sản phẩm
 
-Bạn cần hỏi gì nào? 😊`
+Bạn cần hỏi gì nào? 😊`,
+  products: []
 };
 
 const ChatWidget = ({ className = '' }) => {
@@ -28,7 +29,7 @@ const ChatWidget = ({ className = '' }) => {
   const [error, setError] = useState(null);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
-  const abortControllerRef = useRef(null);
+  const threadIdRef = useRef(`web_${Date.now()}`);
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -46,63 +47,81 @@ const ChatWidget = ({ className = '' }) => {
 
   const generateId = () => `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
-  const handleStreamResponse = async (userMessage, assistantMessageId) => {
-    try {
-      const response = await fetch(`${CHAT_API_URL}/chat/stream`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: userMessage,
-          thread_id: `web_${Date.now()}`,
-          user_id: 'web_user',
-        }),
-      });
+  // Streaming SSE chat with token-by-token text + final products payload
+  const callChatStream = async (userMessage, assistantMessageId) => {
+    const response = await fetch(`${CHAT_API_URL}/chat/stream`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: userMessage,
+        thread_id: threadIdRef.current,
+        user_id: 'web_user',
+      }),
+    });
 
-      if (!response.ok) {
-        throw new Error('API request failed');
-      }
+    if (!response.ok) {
+      const errText = await response.text();
+      throw new Error(errText || 'API request failed');
+    }
 
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-      let fullResponse = '';
-      let buffer = '';
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let fullResponse = '';
+    let buffer = '';
+    let currentEvent = 'message';
 
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
+    // Reset assistant content at start
+    setMessages(prev => prev.map(msg =>
+      msg.id === assistantMessageId ? { ...msg, content: '', products: [] } : msg
+    ));
 
-        const chunk = decoder.decode(value, { stream: true });
-        buffer += chunk;
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
 
-        // Parse SSE format: "data: text\n\n"
-        const lines = buffer.split('\n');
-        buffer = lines.pop() || '';
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop() || '';
 
-        for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            const data = line.slice(6);
-            if (data === '[DONE]') continue;
-            if (data.startsWith('[Lỗi]')) {
-              throw new Error(data);
-            }
+      for (const raw of lines) {
+        const line = raw.replace(/\r$/, '');
+        if (!line) {
+          // Empty line = end of SSE record; reset event name
+          currentEvent = 'message';
+          continue;
+        }
+        if (line.startsWith('event: ')) {
+          currentEvent = line.slice(7).trim();
+        } else if (line.startsWith('data: ')) {
+          const data = line.slice(6);
+          if (currentEvent === 'token') {
             fullResponse += data;
-
             setMessages(prev => prev.map(msg =>
               msg.id === assistantMessageId
                 ? { ...msg, content: fullResponse }
                 : msg
             ));
+          } else if (currentEvent === 'metadata') {
+            // optional: route_id, session_id — stored in state if needed
+            try { console.debug('[chat] metadata', JSON.parse(data)); } catch (_) { /* noop */ }
+          } else if (currentEvent === 'products') {
+            try {
+              const products = JSON.parse(data) || [];
+              setMessages(prev => prev.map(msg =>
+                msg.id === assistantMessageId ? { ...msg, products } : msg
+              ));
+            } catch (e) {
+              console.error('Failed to parse products', e);
+            }
+          } else if (currentEvent === 'error') {
+            throw new Error(data);
           }
+          // 'done' ignored (full text already in state)
         }
       }
-
-      return fullResponse;
-    } catch (err) {
-      console.error('Stream error:', err);
-      throw err;
     }
+
+    return fullResponse;
   };
 
   const handleSubmit = async (e) => {
@@ -120,10 +139,12 @@ const ChatWidget = ({ className = '' }) => {
       timestamp: new Date().toISOString(),
     };
 
+    const assistantMsgId = generateId();
     const assistantMsg = {
-      id: generateId(),
+      id: assistantMsgId,
       role: 'assistant',
       content: '',
+      products: [],
       timestamp: new Date().toISOString(),
     };
 
@@ -131,10 +152,11 @@ const ChatWidget = ({ className = '' }) => {
     setIsLoading(true);
 
     try {
-      await handleStreamResponse(userMessage, assistantMsg.id);
+      await callChatStream(userMessage, assistantMsgId);
     } catch (err) {
+      console.error('Chat error:', err);
       setMessages(prev => prev.map(msg =>
-        msg.id === assistantMsg.id
+        msg.id === assistantMsgId
           ? { ...msg, content: 'Xin lỗi, mình đang gặp trục trặc kỹ thuật. Bạn có thể thử lại sau hoặc liên hệ hotline 1900 6868 để được hỗ trợ trực tiếp nhé!' }
           : msg
       ));
@@ -169,7 +191,6 @@ const ChatWidget = ({ className = '' }) => {
 
   return (
     <div className={`chat-widget-container ${className}`}>
-      {/* Toggle Button */}
       <button
         className={`chat-toggle-btn ${isOpen ? 'active' : ''}`}
         onClick={toggleChat}
@@ -181,9 +202,7 @@ const ChatWidget = ({ className = '' }) => {
         )}
       </button>
 
-      {/* Chat Window */}
       <div className={`chat-window ${isOpen ? 'open' : ''} ${isMinimized ? 'minimized' : ''}`}>
-        {/* Header */}
         <div className="chat-header">
           <div className="chat-header-info">
             <div className="chat-avatar">
@@ -215,14 +234,13 @@ const ChatWidget = ({ className = '' }) => {
           </div>
         </div>
 
-        {/* Messages */}
         {!isMinimized && (
           <>
             <div className="chat-messages">
               {messages.map((message) => (
                 <div
                   key={message.id}
-                  className={`message ${message.role} ${!message.content && isLoading && message.role === 'assistant' && message.id === messages[messages.length - 1]?.id ? 'loading' : ''}`}
+                  className={`message ${message.role}`}
                 >
                   {message.role === 'assistant' && (
                     <div className="message-avatar">
@@ -230,11 +248,61 @@ const ChatWidget = ({ className = '' }) => {
                     </div>
                   )}
                   <div className="message-content">
-                    <div className="message-bubble">
-                      {message.content.split('\n').map((line, i) => (
-                        <p key={i}>{line || <br />}</p>
-                      ))}
-                    </div>
+                    {message.content && (
+                      <div className="message-bubble">
+                        {message.content.split('\n').map((line, i) => (
+                          <p key={i}>{line || <br />}</p>
+                        ))}
+                      </div>
+                    )}
+
+                    {message.products && message.products.length > 0 && (
+                      <div className="message-products">
+                        <div className="message-products-header">
+                          <ShoppingBag size={14} />
+                          <span>Sản phẩm gợi ý ({message.products.length})</span>
+                        </div>
+                        <div className="product-cards">
+                          {message.products.map((product, idx) => (
+                            <div key={product.name || product.product_url || idx} className="product-card">
+                              {product.image_url && (
+                                <div className="product-card-image">
+                                  <img
+                                    src={product.image_url}
+                                    alt={product.name || 'Product'}
+                                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                                  />
+                                </div>
+                              )}
+                              <div className="product-card-body">
+                                {product.brand && (
+                                  <span className="product-card-brand">{product.brand}</span>
+                                )}
+                                <h4 className="product-card-name">
+                                  {product.name || 'Sản phẩm'}
+                                </h4>
+                                {product.price_display && (
+                                  <div className="product-card-price">
+                                    {product.price_display}
+                                  </div>
+                                )}
+                                {product.product_url && (
+                                  <a
+                                    className="product-card-link"
+                                    href={product.product_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                  >
+                                    Xem chi tiết <ExternalLink size={12} />
+                                  </a>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     {message.timestamp && (
                       <span className="message-time">
                         {formatTime(message.timestamp)}
@@ -249,7 +317,7 @@ const ChatWidget = ({ className = '' }) => {
                 </div>
               ))}
 
-              {isLoading && messages[messages.length - 1]?.content === '' && (
+              {isLoading && (
                 <div className="message assistant">
                   <div className="message-avatar">
                     <Bot size={16} />
@@ -274,7 +342,7 @@ const ChatWidget = ({ className = '' }) => {
                         setError(null);
                         const lastUserMsg = messages.filter(m => m.role === 'user').pop();
                         if (lastUserMsg) {
-                          setMessages(prev => prev.filter(m => m.id !== messages[messages.length - 1]?.id));
+                          setMessages(prev => prev.slice(0, -1));
                           setInputValue(lastUserMsg.content);
                         }
                       }}
@@ -288,7 +356,6 @@ const ChatWidget = ({ className = '' }) => {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input */}
             <form className="chat-input-form" onSubmit={handleSubmit}>
               <div className="chat-input-wrapper">
                 <textarea
