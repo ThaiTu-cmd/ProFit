@@ -32,39 +32,50 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     // Revenue: sum totalAmount where status is COMPLETED or DELIVERED (order delivered = revenue realized)
     @Query("SELECT COALESCE(SUM(o.totalAmount), 0) FROM Order o WHERE o.status IN ('COMPLETED', 'DELIVERED')")
     BigDecimal sumRevenueFromCompletedOrders();
-    
+
     // Today's completed/delivered orders count
-    @Query("SELECT COUNT(o) FROM Order o WHERE o.status IN ('COMPLETED', 'DELIVERED') AND o.completedAt >= :startOfDay")
+    // Dung COALESCE de lay deliveredAt (neu DELIVERED) hoac completedAt (neu COMPLETED)
+    @Query(value = "SELECT COUNT(*) FROM orders o WHERE o.status IN ('COMPLETED', 'DELIVERED') " +
+                   "AND COALESCE(o.delivered_at, o.completed_at) >= :startOfDay", nativeQuery = true)
     long countCompletedOrdersToday(@Param("startOfDay") LocalDateTime startOfDay);
-    
+
     // Today's completed/delivered revenue
-    @Query("SELECT COALESCE(SUM(o.totalAmount), 0) FROM Order o WHERE o.status IN ('COMPLETED', 'DELIVERED') AND o.completedAt >= :startOfDay")
+    @Query(value = "SELECT COALESCE(SUM(o.total_amount), 0) FROM orders o WHERE o.status IN ('COMPLETED', 'DELIVERED') " +
+                   "AND COALESCE(o.delivered_at, o.completed_at) >= :startOfDay", nativeQuery = true)
     BigDecimal sumRevenueToday(@Param("startOfDay") LocalDateTime startOfDay);
-    
+
     // This month's completed/delivered revenue
-    @Query("SELECT COALESCE(SUM(o.totalAmount), 0) FROM Order o WHERE o.status IN ('COMPLETED', 'DELIVERED') AND o.completedAt >= :startOfMonth")
+    @Query(value = "SELECT COALESCE(SUM(o.total_amount), 0) FROM orders o WHERE o.status IN ('COMPLETED', 'DELIVERED') " +
+                   "AND COALESCE(o.delivered_at, o.completed_at) >= :startOfMonth", nativeQuery = true)
     BigDecimal sumRevenueThisMonth(@Param("startOfMonth") LocalDateTime startOfMonth);
-    
+
     // This year's completed/delivered revenue
-    @Query("SELECT COALESCE(SUM(o.totalAmount), 0) FROM Order o WHERE o.status IN ('COMPLETED', 'DELIVERED') AND o.completedAt >= :startOfYear")
+    @Query(value = "SELECT COALESCE(SUM(o.total_amount), 0) FROM orders o WHERE o.status IN ('COMPLETED', 'DELIVERED') " +
+                   "AND COALESCE(o.delivered_at, o.completed_at) >= :startOfYear", nativeQuery = true)
     BigDecimal sumRevenueThisYear(@Param("startOfYear") LocalDateTime startOfYear);
-    
+
     // Daily revenue for last N days (7 or 30)
-    @Query(value = "SELECT CAST(completed_at AS DATE) as period, COALESCE(SUM(total_amount), 0) as revenue, COUNT(*) as order_count " +
-                   "FROM orders WHERE status IN ('COMPLETED', 'DELIVERED') AND completed_at >= :startDate " +
-                   "GROUP BY CAST(completed_at AS DATE) ORDER BY period ASC", nativeQuery = true)
+    @Query(value = "SELECT CAST(COALESCE(o.delivered_at, o.completed_at) AS DATE) as period, " +
+                   "COALESCE(SUM(o.total_amount), 0) as revenue, COUNT(*) as order_count " +
+                   "FROM orders o WHERE o.status IN ('COMPLETED', 'DELIVERED') " +
+                   "AND COALESCE(o.delivered_at, o.completed_at) >= :startDate " +
+                   "GROUP BY CAST(COALESCE(o.delivered_at, o.completed_at) AS DATE) ORDER BY period ASC", nativeQuery = true)
     List<Object[]> sumRevenueByDay(@Param("startDate") LocalDateTime startDate);
 
     // Monthly revenue for last N months (12)
-    @Query(value = "SELECT DATE_FORMAT(completed_at, '%Y-%m') as period, COALESCE(SUM(total_amount), 0) as revenue, COUNT(*) as order_count " +
-                   "FROM orders WHERE status IN ('COMPLETED', 'DELIVERED') AND completed_at >= :startDate " +
-                   "GROUP BY DATE_FORMAT(completed_at, '%Y-%m') ORDER BY period ASC", nativeQuery = true)
+    @Query(value = "SELECT DATE_FORMAT(COALESCE(o.delivered_at, o.completed_at), '%Y-%m') as period, " +
+                   "COALESCE(SUM(o.total_amount), 0) as revenue, COUNT(*) as order_count " +
+                   "FROM orders o WHERE o.status IN ('COMPLETED', 'DELIVERED') " +
+                   "AND COALESCE(o.delivered_at, o.completed_at) >= :startDate " +
+                   "GROUP BY DATE_FORMAT(COALESCE(o.delivered_at, o.completed_at), '%Y-%m') ORDER BY period ASC", nativeQuery = true)
     List<Object[]> sumRevenueByMonth(@Param("startDate") LocalDateTime startDate);
 
     // Yearly revenue for last N years (5)
-    @Query(value = "SELECT YEAR(completed_at) as period, COALESCE(SUM(total_amount), 0) as revenue, COUNT(*) as order_count " +
-                   "FROM orders WHERE status IN ('COMPLETED', 'DELIVERED') AND completed_at >= :startDate " +
-                   "GROUP BY YEAR(completed_at) ORDER BY period ASC", nativeQuery = true)
+    @Query(value = "SELECT YEAR(COALESCE(o.delivered_at, o.completed_at)) as period, " +
+                   "COALESCE(SUM(o.total_amount), 0) as revenue, COUNT(*) as order_count " +
+                   "FROM orders o WHERE o.status IN ('COMPLETED', 'DELIVERED') " +
+                   "AND COALESCE(o.delivered_at, o.completed_at) >= :startDate " +
+                   "GROUP BY YEAR(COALESCE(o.delivered_at, o.completed_at)) ORDER BY period ASC", nativeQuery = true)
     List<Object[]> sumRevenueByYear(@Param("startDate") LocalDateTime startDate);
 
     // Best selling products (from completed/delivered orders)

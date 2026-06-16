@@ -1,5 +1,14 @@
 // =====================================================
-// pages/BankingQRPage.jsx – QR Code thanh toán ngân hàng
+// pages/BankingQRPage.jsx – Trang Thanh Toán Chuyển Khoản
+// =====================================================
+// LUONG HOAT DONG:
+// 1. Doc thong tin don hang tu localStorage (key: pendingBankingOrder)
+// 2. Hien thi QR code ngan hang BIDV de khach quet
+// 3. Khach mo app ngan hang, quet QR, chuyen khoan
+// 4. Khach nhan nut "Da thanh toan" de gui yeu cau xac nhan
+// 5. Backend cap nhat paymentStatus: UNPAID -> PENDING_CONFIRM
+// 6. Admin se kiem tra bien dong so du tai khoan BIDV
+//    de xac nhan thanh toan va doi status -> CONFIRMED
 // =====================================================
 
 import { useEffect, useState } from "react";
@@ -7,60 +16,157 @@ import { formatPrice } from "../utils/productHelpers";
 import { apiConfirmBankingPayment, isLoggedIn } from "../utils/api";
 import { Loader2, CheckCircle, AlertCircle, ArrowLeft } from "lucide-react";
 
-// THÔNG TIN NGÂN HÀNG CỦA ADMIN - CẬP NHẬT THÔNG TIN THỰC TẾ
+// =============================================
+// THONG TIN TAI KHOAN NGAN HANG CUA ADMIN
+// =============================================
+// CẬP NHẬT thông tin thực tế khi triển khai production!
+// Hiện tại đang dùng tài khoản test cho môi trường development
 const BANK_INFO = {
-  bankName: "BIDV",
-  accountNumber: "8890014407",
-  accountHolder: "Le Vu Hao", // Cập nhật tên tài khoản thực
-  branch: "BIDV-PGD Phù Cát",
+  bankName: "BIDV",               // Ten ngan hang
+  accountNumber: "8890014407",    // So tai khoan
+  accountHolder: "Le Vu Hao",     // Ten chu tai khoan
+  branch: "BIDV-PGD Phù Cát",    // Chi nhanh
 };
 
+// =============================================
+// COMPONENT: BankingQRPage
+// Props:
+//   - order: Thong tin don hang tu localStorage
+//   - navigate: Ham chuyen trang
+//   - showToast: Ham hien thi thong bao
+//   - onPlaceOrder: Callback khi xac nhan thanh toan thanh cong
+//   - onClearCart: Callback xoa gio hang
+// =============================================
 const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }) => {
-  const [step, setStep] = useState("qr"); // "qr" | "confirming" | "success"
+
+  // =============================================
+  // STATE - QUAN LY TRANG THAI GIAO DIEN
+  // =============================================
+
+  // step: Quan ly buoc hien tai trong quy trinh
+  // "qr"          - Hien thi man hinh QR code (mac dinh)
+  // "confirming"  - Dang goi API xac nhan thanh toan
+  // "success"     - Xac nhan thanh cong, hien thi thong bao
+  const [step, setStep] = useState("qr");
+
+  // error: Luu thong bao loi neu xay ra
   const [error, setError] = useState(null);
 
-  // Chuyển đổi total sang number để tránh lỗi concatenate string
-  // Backend trả về BigDecimal dạng string (VD: "70000.00")
+  // =============================================
+  // TINH TOAN THONG TIN THANH TOAN
+  // =============================================
+
+  // paymentAmount: So tien can chuyen khoan
+  // Lay tu order.total (FE tinh) hoac order.totalAmount (Backend tra)
+  // Ep kieu Number() de tranh loi noi chuoi khi so tien la string
   const paymentAmount = Number(order?.total) || Number(order?.totalAmount) || 0;
+
+  // =============================================
+  // TAO NOI DUNG QR CODE
+  // =============================================
+  // QR code su dung dinh dang "Bank ID" (NAPAS)
+  // Cau truc: bidv:{so_tai_khoan}?acc_name={ten}&amount={so_tien}&memo={ghi_chu}
+  // Khi quet QR, app ngan hang se tu dong dien thong tin
+  // Tai khoan nguoi nhan, so tien, noi dung chuyen khoan
   const qrContent = `bidv:${BANK_INFO.accountNumber}?acc_name=${BANK_INFO.accountHolder}&amount=${paymentAmount}&memo=Thanh toan don hang ${order?.orderCode || ""}`;
 
+  // =============================================
+  // XU LY XAC NHAN DA CHUYEN KHOAN
+  // =============================================
+  // handleConfirmPayment:
+  // DUONG:
+  //   1. Kiem tra order co ton tai khong
+  //   2. Goi API POST /api/v1/banking/confirm/{orderId}
+  //   3. Backend doi paymentStatus: UNPAID -> PENDING_CONFIRM
+  //   4. Xoa gio hang (onClearCart)
+  //   5. Them don vao danh sach orders (onPlaceOrder)
+  //   6. Don bay gio cho phep admin xac nhan
+  // =============================================
   const handleConfirmPayment = async () => {
+
+    // BUOC 1: VALIDATE
+    // Kiem tra xem co thong tin don hang khong
+    // order.id can ton tai de goi API
     if (!order?.id) {
       setError("Không tìm thấy thông tin đơn hàng");
       return;
     }
 
-    setStep("confirming");
-    setError(null);
+    // BUOC 2: BAT DAU GOI API
+    setStep("confirming");   // Hien thi man hinh loading
+    setError(null);          // Xoa loi cu
 
     try {
+      // =============================================
+      // GOI API XAC NHAN THANH TOAN BANKING
+      // =============================================
+      // POST /api/v1/banking/confirm/{orderId}
+      // Header: Authorization: Bearer {jwt_token}
+      // Backend se thuc hien:
+      //   - Kiem tra don ton tai
+      //   - Kiem tra quyen so huu (user/guest)
+      //   - paymentStatus: UNPAID -> PENDING_CONFIRM
+      //   - paymentMethod: set = "BANKING"
+      //   - paidAt: thoi gian hien tai
+      // =============================================
       await apiConfirmBankingPayment(order.id);
-      // Xóa giỏ hàng và thêm order vào danh sách khi xác nhận thanh toán thành công
+
+      // =============================================
+      // XU LY SAU KHI XAC NHAN THANH CONG
+      // =============================================
+
+      // Xoa gio hang
+      // Chi goi khi da xac nhan thanh toan thanh cong
+      // Vi: Don COD -> xoa ngay, Don Banking -> chi xoa khi xac nhan
       if (onClearCart) onClearCart();
+
+      // Them don hang vao danh sach orders
+      // App.jsx se them vao mang orders va cap nhat localStorage
       if (onPlaceOrder) onPlaceOrder(order);
+
+      // Xoa thong tin don hang tam (da xu ly xong)
+      // Don da chuyen sang trang thai PENDING_CONFIRM
+      localStorage.removeItem("pendingBankingOrder");
+
+      // Chuyen buoc hien thi thanh cong
       setStep("success");
+
+      // Hien thi thong bao
+      // Giai thich cho khach biet: admin se xac nhan trong thoi gian toi
       showToast(
         "Đã gửi yêu cầu xác nhận thanh toán. Vui lòng chờ admin xác nhận.",
       );
+
     } catch (err) {
+      // XU LY LOI
       console.error("Lỗi xác nhận thanh toán:", err);
       setError(err.message || "Xác nhận thất bại. Vui lòng thử lại.");
+
+      // Quay lai man hinh QR
+      // Cho phep khach thu lai
       setStep("qr");
     }
   };
 
+  // Quay lai trang checkout
+  // Neu khach chua chuyen khoan, co the quay lai sua thong tin
   const handleGoBack = () => {
     navigate("checkout");
   };
 
-  // =====================================================
-  // MÀN HÌNH QR CODE
-  // =====================================================
+  // =============================================
+  // RENDER: GIAO DIEN THEO BUOC
+  // =============================================
+
+  // ==============================
+  // MAN HINH 1: QR CODE (mac dinh)
+  // ==============================
   if (step === "qr") {
     return (
       <div className="section">
         <div style={{ maxWidth: 480, margin: "0 auto", padding: "40px 20px" }}>
-          {/* Header */}
+
+          {/* HEADER: Tieu de trang */}
           <div style={{ textAlign: "center", marginBottom: 24 }}>
             <h2
               style={{
@@ -78,7 +184,7 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
             </p>
           </div>
 
-          {/* QR Code Container */}
+          {/* KHUNG CHINH: QR code + thong tin tai khoan */}
           <div
             style={{
               background: "var(--card-bg)",
@@ -88,7 +194,10 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
               textAlign: "center",
             }}
           >
-            {/* QR Code */}
+            {/* ----- QR CODE ----- */}
+            {/* QR code duoc tao bang Google Charts API */}
+            {/* Encode URIComponent dam bao ky tu dac biet duoc xu ly dung */}
+            {/* Kich thuoc: 200x200 pixel */}
             <div
               style={{
                 background: "white",
@@ -98,7 +207,6 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
                 display: "inline-block",
               }}
             >
-              {/* Sử dụng Google Charts API để tạo QR code */}
               <img
                 src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qrContent)}`}
                 alt="QR Code Thanh Toán"
@@ -106,7 +214,9 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
               />
             </div>
 
-            {/* Số tiền nổi bật */}
+            {/* ----- SO TIEN NOI BAT ----- */}
+            {/* Hien thi so tien can chuyen khoan */}
+            {/* So tien nay phai chinh xac de admin de xac nhan */}
             <div
               style={{
                 background: "rgba(255,92,0,0.08)",
@@ -116,11 +226,11 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
                 marginBottom: 20,
               }}
             >
-              <div
-                style={{ fontSize: 13, color: "var(--gray)", marginBottom: 4 }}
-              >
+              <div style={{ fontSize: 13, color: "var(--gray)", marginBottom: 4 }}>
                 Số tiền cần chuyển
               </div>
+              {/* Hien thi so tien voi dinh dang VND */}
+              {/* VD: 750.000 đ */}
               <div
                 style={{
                   fontFamily: "'Bebas Neue', sans-serif",
@@ -131,6 +241,7 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
               >
                 {formatPrice(paymentAmount)}
               </div>
+              {/* Hien thi ma don hang de admin doi soat */}
               <div style={{ fontSize: 12, color: "var(--gray)", marginTop: 4 }}>
                 Mã đơn:{" "}
                 <strong style={{ color: "var(--white)" }}>
@@ -139,7 +250,9 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
               </div>
             </div>
 
-            {/* Thông tin tài khoản */}
+            {/* ----- THONG TIN TAI KHOAN ----- */}
+            {/* Hien thi thong tin tai khoan ngan hang nhan tien */}
+            {/* Khach hang se nhap thong tin nay vao app ngan hang */}
             <div
               style={{
                 background: "rgba(255,255,255,0.03)",
@@ -162,6 +275,8 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
               >
                 <span>🏦</span> Thông tin tài khoản
               </div>
+
+              {/* Hien thi tung truong thong tin */}
               {[
                 { label: "Ngân hàng", value: BANK_INFO.bankName },
                 { label: "Số tài khoản", value: BANK_INFO.accountNumber },
@@ -185,7 +300,8 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
               ))}
             </div>
 
-            {/* Hướng dẫn */}
+            {/* ----- HUONG DAN ----- */}
+            {/* Nhac nho khach hang cac buoc can lam */}
             <div
               style={{
                 background: "rgba(245,158,11,0.08)",
@@ -195,9 +311,7 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
                 marginBottom: 24,
               }}
             >
-              <div
-                style={{ display: "flex", alignItems: "flex-start", gap: 10 }}
-              >
+              <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
                 <AlertCircle
                   size={18}
                   color="var(--amber)"
@@ -211,14 +325,18 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
                   }}
                 >
                   <strong style={{ color: "var(--amber)" }}>Lưu ý:</strong> Vui
-                  lòng chuyển khoản đúng số tiền và nội dung ghi chú để admin
+                  lòng chuyển khoản <strong>đúng số tiền</strong> và{" "}
+                  <strong>nội dung ghi chú</strong> để admin
                   xác nhận nhanh chóng.
                 </div>
               </div>
             </div>
 
-            {/* Nút bấm */}
+            {/* ----- CAC NUT HANH DONG ----- */}
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+
+              {/* NUT CHINH: Da thanh toan online qua ngan hang */}
+              {/* Khach da chuyen khoan xong, nhan nut nay de gui xac nhan */}
               <button
                 className="btn-primary"
                 style={{
@@ -231,6 +349,9 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
               >
                 ✓ Đã thanh toán online qua ngân hàng
               </button>
+
+              {/* NUT PHU: Quay lai */}
+              {/* Neu chua chuyen khoan, co the quay lai sua thong tin */}
               <button
                 className="btn-outline"
                 style={{
@@ -248,7 +369,7 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
             </div>
           </div>
 
-          {/* Footer */}
+          {/* FOOTER: Nhac nho khach hang */}
           <p
             style={{
               textAlign: "center",
@@ -265,9 +386,11 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
     );
   }
 
-  // =====================================================
-  // MÀN HÌNH ĐANG XỬ LÝ
-  // =====================================================
+  // ==============================
+  // MAN HINH 2: DANG XU LY
+  // ==============================
+  // Hien thi khi dang goi API xac nhan thanh toan
+  // Spinner xoay de bao hieu dang cho
   if (step === "confirming") {
     return (
       <div className="section">
@@ -293,13 +416,18 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
     );
   }
 
-  // =====================================================
-  // MÀN HÌNH THÀNH CÔNG
-  // =====================================================
+  // ==============================
+  // MAN HINH 3: THANH CONG
+  // ==============================
+  // Hien thi sau khi xac nhan thanh toan thanh cong
+  // Don hang bay gio o trang thai PENDING_CONFIRM
+  // Admin se kiem tra tai khoan BIDV de xac nhan
   if (step === "success") {
     return (
       <div className="section">
         <div style={{ textAlign: "center", padding: "60px 20px" }}>
+
+          {/* ICON THANH CONG */}
           <div style={{ marginBottom: 24 }}>
             <CheckCircle
               size={80}
@@ -308,6 +436,7 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
             />
           </div>
 
+          {/* TIEU DE */}
           <h2
             style={{
               fontFamily: "'Bebas Neue', sans-serif",
@@ -323,6 +452,8 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
             Cảm ơn bạn đã chuyển khoản.
           </p>
 
+          {/* THONG BAO CHO KHACH BIET */}
+          {/* Admin can xac nhan thu cong bang cach kiem tra tai khoan BIDV */}
           <p
             style={{
               color: "var(--amber)",
@@ -334,6 +465,8 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
             Vui lòng chờ xác nhận của admin để hoàn tất đơn hàng.
           </p>
 
+          {/* THONG TIN DON HANG */}
+          {/* Hien thi de khach kiem tra */}
           {order && (
             <div
               style={{
@@ -346,33 +479,21 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
                 border: "1px solid #2a2a2a",
               }}
             >
-              <div
-                style={{ fontSize: 13, color: "var(--gray)", marginBottom: 12 }}
-              >
+              <div style={{ fontSize: 13, color: "var(--gray)", marginBottom: 12 }}>
                 Thông tin đơn hàng
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    gap: 40,
-                    fontSize: 14,
-                  }}
-                >
+
+                {/* Ma don hang */}
+                <div style={{ display: "flex", justifyContent: "space-between", gap: 40, fontSize: 14 }}>
                   <span style={{ color: "var(--gray)" }}>Mã đơn hàng</span>
                   <span style={{ color: "var(--white)", fontWeight: 700 }}>
                     {order.orderCode}
                   </span>
                 </div>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    gap: 40,
-                    fontSize: 14,
-                  }}
-                >
+
+                {/* So tien */}
+                <div style={{ display: "flex", justifyContent: "space-between", gap: 40, fontSize: 14 }}>
                   <span style={{ color: "var(--gray)" }}>Số tiền</span>
                   <span
                     style={{
@@ -385,14 +506,9 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
                     {formatPrice(Number(order.total) || Number(order.totalAmount) || 0)}
                   </span>
                 </div>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    gap: 40,
-                    fontSize: 14,
-                  }}
-                >
+
+                {/* Trang thai thanh toan */}
+                <div style={{ display: "flex", justifyContent: "space-between", gap: 40, fontSize: 14 }}>
                   <span style={{ color: "var(--gray)" }}>Trạng thái</span>
                   <span style={{ color: "var(--amber)", fontWeight: 700 }}>
                     Chờ xác nhận
@@ -402,7 +518,10 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
             </div>
           )}
 
+          {/* CAC NUT CHUYEN TRANG */}
           <div style={{ display: "flex", gap: 16, justifyContent: "center" }}>
+
+            {/* Xem danh sach don hang */}
             <button
               className="btn-primary"
               style={{ padding: "14px 32px" }}
@@ -410,6 +529,8 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
             >
               Xem đơn hàng
             </button>
+
+            {/* Ve trang chu */}
             <button
               className="btn-outline"
               style={{ padding: "14px 32px" }}
@@ -423,6 +544,7 @@ const BankingQRPage = ({ order, navigate, showToast, onPlaceOrder, onClearCart }
     );
   }
 
+  // Fallback: Khong co gi de hien thi
   return null;
 };
 

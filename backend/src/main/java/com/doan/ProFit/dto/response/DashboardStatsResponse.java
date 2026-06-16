@@ -8,6 +8,11 @@ public class DashboardStatsResponse {
     private long totalOrders;
     private long completedOrders;
     private long pendingOrders;
+    private long confirmedOrders;
+    private long deliveredOrders;
+    private long cancelledOrders;
+    private long pendingConfirmOrders;
+    private long deliveredFailedOrders;
     private long todayOrders;
     private BigDecimal todayRevenue;
     private BigDecimal monthRevenue;
@@ -73,6 +78,16 @@ public class DashboardStatsResponse {
     public void setCompletedOrders(long completedOrders) { this.completedOrders = completedOrders; }
     public long getPendingOrders() { return pendingOrders; }
     public void setPendingOrders(long pendingOrders) { this.pendingOrders = pendingOrders; }
+    public long getConfirmedOrders() { return confirmedOrders; }
+    public void setConfirmedOrders(long confirmedOrders) { this.confirmedOrders = confirmedOrders; }
+    public long getDeliveredOrders() { return deliveredOrders; }
+    public void setDeliveredOrders(long deliveredOrders) { this.deliveredOrders = deliveredOrders; }
+    public long getCancelledOrders() { return cancelledOrders; }
+    public void setCancelledOrders(long cancelledOrders) { this.cancelledOrders = cancelledOrders; }
+    public long getPendingConfirmOrders() { return pendingConfirmOrders; }
+    public void setPendingConfirmOrders(long pendingConfirmOrders) { this.pendingConfirmOrders = pendingConfirmOrders; }
+    public long getDeliveredFailedOrders() { return deliveredFailedOrders; }
+    public void setDeliveredFailedOrders(long deliveredFailedOrders) { this.deliveredFailedOrders = deliveredFailedOrders; }
     public long getTodayOrders() { return todayOrders; }
     public void setTodayOrders(long todayOrders) { this.todayOrders = todayOrders; }
     public BigDecimal getTodayRevenue() { return todayRevenue; }

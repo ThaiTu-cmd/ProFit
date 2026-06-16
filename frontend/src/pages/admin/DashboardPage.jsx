@@ -5,6 +5,16 @@ import {
 } from "recharts";
 import { adminService } from "../../services/adminService";
 
+const ORDER_STATUS_SUMMARY = [
+  { key: "totalOrders", label: "Tổng đơn", icon: "📦", color: "var(--gray)" },
+  { key: "pendingOrders", label: "Chờ xác nhận", icon: "⏳", color: "var(--amber)" },
+  { key: "pendingConfirmOrders", label: "Chờ đối soát", icon: "💳", color: "var(--cyan)" },
+  { key: "confirmedOrders", label: "Đã xác nhận", icon: "✅", color: "var(--blue)" },
+  { key: "deliveredOrders", label: "Đã giao", icon: "🚚", color: "var(--purple)" },
+  { key: "completedOrders", label: "Hoàn thành", icon: "🏁", color: "var(--green)" },
+  { key: "cancelledOrders", label: "Đã hủy", icon: "❌", color: "var(--red)" },
+];
+
 const formatPrice = (price) => {
   if (!price) return "0 ₫";
   if (price >= 1000000000) return (price / 1000000000).toFixed(1) + " tỷ ₫";
@@ -73,22 +83,22 @@ const DashboardPage = ({ navigate }) => {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("day"); // day | month | year
   const [pendingConfirmCount, setPendingConfirmCount] = useState(0);
-  const [unreadMessageCount, setUnreadMessageCount] = useState(0);
+  const [pendingOrderCount, setPendingOrderCount] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [statsData, ordersData, notifData] = await Promise.all([
+        const [statsData, ordersData] = await Promise.all([
           adminService.getDashboardStats(),
           adminService.getAllOrders(),
-          adminService.getUnreadCount(),
         ]);
         setStats(statsData);
         setOrders(ordersData);
 
-        const pending = ordersData.filter(o => o.paymentStatus === "PENDING_CONFIRM").length;
-        setPendingConfirmCount(pending);
-        setUnreadMessageCount(notifData.count || 0);
+        const pendingPayment = ordersData.filter(o => o.paymentStatus === "PENDING_CONFIRM").length;
+        const pendingOrder = ordersData.filter(o => o.status === "PENDING").length;
+        setPendingConfirmCount(pendingPayment);
+        setPendingOrderCount(pendingOrder);
       } catch (error) {
         console.error("Lỗi tải dữ liệu dashboard:", error);
       } finally {
@@ -143,30 +153,6 @@ const DashboardPage = ({ navigate }) => {
   return (
     <div className="section">
       {/* Alert Banners */}
-      {unreadMessageCount > 0 && (
-        <div style={{
-          background: "rgba(255, 92, 0, 0.1)",
-          border: "1px solid rgba(255, 92, 0, 0.3)",
-          borderRadius: 12, padding: "14px 20px", marginBottom: 16,
-          display: "flex", alignItems: "center", justifyContent: "space-between", cursor: "pointer",
-        }}
-          onClick={() => navigate("admin-contact")}
-          onMouseEnter={e => e.currentTarget.style.borderColor = "var(--primary)"}
-          onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(255, 92, 0, 0.3)"}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <span style={{ fontSize: 26 }}>💬</span>
-            <div>
-              <div style={{ fontWeight: 700, color: "var(--primary)", fontSize: 15 }}>Tin nhắn liên hệ mới</div>
-              <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 2 }}>
-                Có <strong style={{ color: "var(--primary)" }}>{unreadMessageCount}</strong> tin nhắn chưa xem
-              </div>
-            </div>
-          </div>
-          <span style={{ color: "var(--primary)", fontWeight: 700, fontSize: 14 }}>Xem ngay →</span>
-        </div>
-      )}
-
       {pendingConfirmCount > 0 && (
         <div style={{
           background: "rgba(59, 130, 246, 0.1)",
@@ -188,6 +174,30 @@ const DashboardPage = ({ navigate }) => {
             </div>
           </div>
           <span style={{ color: "var(--blue)", fontWeight: 700, fontSize: 14 }}>Xem ngay →</span>
+        </div>
+      )}
+
+      {pendingOrderCount > 0 && (
+        <div style={{
+          background: "rgba(245, 158, 11, 0.1)",
+          border: "1px solid rgba(245, 158, 11, 0.3)",
+          borderRadius: 12, padding: "14px 20px", marginBottom: 16,
+          display: "flex", alignItems: "center", justifyContent: "space-between", cursor: "pointer",
+        }}
+          onClick={() => navigate("admin-orders")}
+          onMouseEnter={e => e.currentTarget.style.borderColor = "var(--primary)"}
+          onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(245, 158, 11, 0.3)"}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <span style={{ fontSize: 26 }}>📦</span>
+            <div>
+              <div style={{ fontWeight: 700, color: "var(--amber)", fontSize: 15 }}>Yêu cầu xác nhận đơn hàng</div>
+              <div style={{ fontSize: 13, color: "var(--gray)", marginTop: 2 }}>
+                Có <strong style={{ color: "var(--amber)" }}>{pendingOrderCount}</strong> đơn hàng COD chờ xác nhận
+              </div>
+            </div>
+          </div>
+          <span style={{ color: "var(--amber)", fontWeight: 700, fontSize: 14 }}>Xem ngay →</span>
         </div>
       )}
 
@@ -430,6 +440,33 @@ const DashboardPage = ({ navigate }) => {
             ))}
           </div>
 
+          <div style={{
+            background: "var(--card-bg)", borderRadius: 18,
+            padding: "20px 22px", border: "1px solid var(--dark4)", marginBottom: 20
+          }}>
+            <h4 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 16, letterSpacing: 1, margin: "0 0 14px", color: "var(--gray)" }}>
+              TÓM TẮT TRẠNG THÁI ĐƠN HÀNG
+            </h4>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: 10 }}>
+              {ORDER_STATUS_SUMMARY.map((item) => (
+                <div key={item.key} style={{
+                  background: "var(--dark3)",
+                  border: "1px solid var(--dark4)",
+                  borderRadius: 12,
+                  padding: "12px 14px"
+                }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
+                    <span style={{ fontSize: 18 }}>{item.icon}</span>
+                    <span style={{ fontSize: 12, color: "var(--gray)" }}>{item.label}</span>
+                  </div>
+                  <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 24, color: item.color }}>
+                    {stats?.[item.key] || 0}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Quick Navigation */}
           <div style={{
             background: "var(--card-bg)", borderRadius: 18,
@@ -440,9 +477,8 @@ const DashboardPage = ({ navigate }) => {
             </h4>
             {[
               { icon: "📦", label: "Quản lý sản phẩm", page: "admin-products", desc: "CRUD sản phẩm" },
-              { icon: "🛒", label: "Quản lý đơn hàng", page: "admin-orders", desc: "Xử lý đơn hàng" },
+              { icon: "📦", label: "Quản lý đơn hàng", page: "admin-orders", desc: "Xử lý đơn hàng" },
               { icon: "👥", label: "Quản lý User", page: "admin-users", desc: "Người dùng" },
-              { icon: "💬", label: "Hộp thư liên hệ", page: "admin-contact", desc: "Tin nhắn", badge: unreadMessageCount },
             ].map(item => (
               <div key={item.label} onClick={() => navigate(item.page)}
                 style={{

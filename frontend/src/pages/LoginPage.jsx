@@ -7,7 +7,7 @@ import { apiLogin } from "../utils/api";
 import ForgotPasswordModal from "../components/ForgotPasswordModal";
 
 const LoginPage = ({ onLogin, navigate }) => {
-  const [form, setForm] = useState({ email: "admin@profit.com", password: "Admin@123" });
+  const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
@@ -129,7 +129,7 @@ const LoginPage = ({ onLogin, navigate }) => {
 
         {/* Demo hint */}
         <div className="demo-hint">
-          Demo: <strong style={{ color: "var(--primary)" }}>admin@profit.com</strong> / <strong style={{ color: "var(--primary)" }}>Admin@123</strong>
+          Tài khoản demo: <strong style={{ color: "var(--primary)" }}>admin@profit.com</strong> / <strong style={{ color: "var(--primary)" }}>Admin@123</strong>
         </div>
 
         {/* Form */}

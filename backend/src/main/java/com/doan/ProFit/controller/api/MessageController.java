@@ -1,7 +1,6 @@
 package com.doan.ProFit.controller.api;
 
 import com.doan.ProFit.dto.request.MessageRequest;
-import com.doan.ProFit.dto.request.MessageReplyRequest;
 import com.doan.ProFit.dto.response.MessageResponse;
 import com.doan.ProFit.service.MessageService;
 import jakarta.validation.Valid;
@@ -42,47 +41,5 @@ public class MessageController {
         } catch (IllegalArgumentException ex) {
             return ResponseEntity.badRequest().body(Map.of("error", ex.getMessage()));
         }
-    }
-
-    @GetMapping("/admin/all")
-    public ResponseEntity<List<MessageResponse>> getAllMessages(Authentication authentication) {
-        List<MessageResponse> messages = messageService.getAllMessages();
-        return ResponseEntity.ok(messages);
-    }
-
-    @GetMapping("/admin/{id}")
-    public ResponseEntity<?> getMessage(@PathVariable Long id) {
-        try {
-            MessageResponse response = messageService.getMessageById(id);
-            return ResponseEntity.ok(response);
-        } catch (IllegalArgumentException ex) {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @PostMapping("/admin/{id}/reply")
-    public ResponseEntity<?> replyMessage(@PathVariable Long id, @RequestBody MessageReplyRequest request) {
-        try {
-            MessageResponse response = messageService.replyToMessage(id, request);
-            return ResponseEntity.ok(response);
-        } catch (IllegalArgumentException ex) {
-            return ResponseEntity.badRequest().body(Map.of("error", ex.getMessage()));
-        }
-    }
-
-    @PostMapping("/admin/{id}/read")
-    public ResponseEntity<?> markAsRead(@PathVariable Long id) {
-        try {
-            messageService.markAsRead(id);
-            return ResponseEntity.ok(Map.of("message", "OK"));
-        } catch (IllegalArgumentException ex) {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @GetMapping("/admin/unread-count")
-    public ResponseEntity<?> getUnreadCount() {
-        long count = messageService.getUnreadCount();
-        return ResponseEntity.ok(Map.of("count", count));
     }
 }

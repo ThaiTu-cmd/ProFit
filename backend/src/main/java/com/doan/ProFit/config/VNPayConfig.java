@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class VNPayConfig {
 
-    @Value("${app.vnpay.tmn-code:SY273SZH}")
+    @Value("${app.vnpay.tmn-code}")
     private String vnpTmnCode;
 
-    @Value("${app.vnpay.hash-secret:SFP53JL1Z5AS4O5WFIEBMEARJAEMDTBT}")
+    @Value("${app.vnpay.hash-secret}")
     private String vnpHashSecret;
 
     @Value("${app.vnpay.url:https://sandbox.vnpayment.vn/paymentv2/vpcpay.html}")

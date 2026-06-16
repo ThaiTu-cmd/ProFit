@@ -5,6 +5,7 @@
 import { useEffect, useState } from "react";
 import { formatPrice } from "../utils/productHelpers";
 import { CheckCircle, XCircle, Loader2, ArrowLeft, Home, ShoppingBag } from "lucide-react";
+import { apiGetVNPayReturnResult } from "../utils/api";
 
 const VNPayPaymentPage = ({ showToast, navigate, onPlaceOrder }) => {
   const [loading, setLoading] = useState(true);
@@ -14,44 +15,40 @@ const VNPayPaymentPage = ({ showToast, navigate, onPlaceOrder }) => {
   useEffect(() => {
     const processReturn = async () => {
       try {
-        // Build params object from URL
         const params = {};
         const searchParams = new URLSearchParams(window.location.search);
         searchParams.forEach((value, key) => {
           params[key] = value;
         });
 
-        // Get order from localStorage
         const savedOrder = localStorage.getItem("pendingVNPayOrder");
         const order = savedOrder ? JSON.parse(savedOrder) : null;
+        const serverResult = await apiGetVNPayReturnResult(params);
+        const isSuccess = !!serverResult?.success;
 
-        // Check if success
-        const responseCode = params.vnp_ResponseCode;
-        const transactionStatus = params.vnp_TransactionStatus;
-        const isSuccess = responseCode === "00" && transactionStatus === "00";
-
-        // Clear pending order from localStorage
         localStorage.removeItem("pendingVNPayOrder");
         localStorage.removeItem("pendingVNPayOrderCode");
 
         setResult({
           success: isSuccess,
-          orderCode: params.vnp_TxnRef || order?.orderCode || "",
-          transactionId: params.vnp_TransactionNo || "",
-          amount: params.vnp_Amount ? (parseInt(params.vnp_Amount) / 100) : (order?.total || 0),
-          responseCode: responseCode,
-          message: isSuccess 
-            ? "Thanh toán thành công qua VNPAY!" 
-            : `Thanh toán thất bại. Mã lỗi: ${responseCode}`,
+          orderCode: serverResult.orderCode || order?.orderCode || "",
+          transactionId: serverResult.transactionId || "",
+          amount: serverResult.amount || order?.total || 0,
+          responseCode: serverResult.responseCode,
+          message: serverResult.message || (isSuccess ? "Thanh toán thành công qua VNPAY!" : "Thanh toán thất bại"),
           order: order,
         });
 
         if (isSuccess) {
           showToast("Thanh toán VNPAY thành công!");
-          // Xóa giỏ hàng và thêm đơn vào danh sách
           localStorage.removeItem("cart");
           if (onPlaceOrder && order) {
-            onPlaceOrder(order);
+            onPlaceOrder({
+              ...order,
+              paymentStatus: "PAID",
+              status: "CONFIRMED",
+              vnpTransactionNo: serverResult.transactionId || order.vnpTransactionNo,
+            });
           }
         } else {
           showToast("Thanh toán VNPAY thất bại!");
@@ -119,7 +116,7 @@ const VNPayPaymentPage = ({ showToast, navigate, onPlaceOrder }) => {
             <button
               className="btn-primary"
               style={{ padding: "14px 32px" }}
-              onClick={() => navigate("/")}
+              onClick={() => navigate("home")}
             >
               <Home size={18} style={{ marginRight: 8, verticalAlign: "middle" }} />
               Về trang chủ
@@ -127,7 +124,7 @@ const VNPayPaymentPage = ({ showToast, navigate, onPlaceOrder }) => {
             <button
               className="btn-outline"
               style={{ padding: "14px 32px" }}
-              onClick={() => navigate("/checkout")}
+              onClick={() => navigate("checkout")}
             >
               <ArrowLeft size={18} style={{ marginRight: 8, verticalAlign: "middle" }} />
               Thử lại thanh toán
@@ -219,7 +216,7 @@ const VNPayPaymentPage = ({ showToast, navigate, onPlaceOrder }) => {
               <button
                 className="btn-primary"
                 style={{ padding: "14px 32px" }}
-                onClick={() => navigate("/orders")}
+                onClick={() => navigate("orders")}
               >
                 <ShoppingBag size={18} style={{ marginRight: 8, verticalAlign: "middle" }} />
                 Xem đơn hàng
@@ -227,7 +224,7 @@ const VNPayPaymentPage = ({ showToast, navigate, onPlaceOrder }) => {
               <button
                 className="btn-outline"
                 style={{ padding: "14px 32px" }}
-                onClick={() => navigate("/")}
+                onClick={() => navigate("home")}
               >
                 <Home size={18} style={{ marginRight: 8, verticalAlign: "middle" }} />
                 Về trang chủ
@@ -303,7 +300,7 @@ const VNPayPaymentPage = ({ showToast, navigate, onPlaceOrder }) => {
               <button
                 className="btn-primary"
                 style={{ padding: "14px 32px" }}
-                onClick={() => navigate("/checkout")}
+                onClick={() => navigate("checkout")}
               >
                 <ArrowLeft size={18} style={{ marginRight: 8, verticalAlign: "middle" }} />
                 Thử lại thanh toán
@@ -311,7 +308,7 @@ const VNPayPaymentPage = ({ showToast, navigate, onPlaceOrder }) => {
               <button
                 className="btn-outline"
                 style={{ padding: "14px 32px" }}
-                onClick={() => navigate("/")}
+                onClick={() => navigate("home")}
               >
                 <Home size={18} style={{ marginRight: 8, verticalAlign: "middle" }} />
                 Về trang chủ

@@ -44,27 +44,42 @@ const API = {
 
   // ── ORDERS ──────────────────────────────────────────────────
   async getOrders() {
-    return MOCK.orders; /* await (await fetch(`${DB_CONFIG.apiBase}/orders`,{headers:this._h()})).json() */
+    const response = await fetch(`${DB_CONFIG.apiBase}/order/all`, {
+      headers: this._h(),
+    });
+    if (!response.ok) {
+      throw new Error("Không thể tải danh sách đơn hàng");
+    }
+    return response.json();
   },
   async getOrderById(id) {
-    return (
-      MOCK.orderDetails[id] ?? {
-        ...MOCK.orders.find((o) => o.id === id),
-        shipping_address_id: 10,
-        payment_method_id: 2,
-        shipping_method_id: 1,
-        discount_code_id: null,
-        subtotal: 800000,
-        total_amount: 850000,
-      }
-    );
+    const response = await fetch(`${DB_CONFIG.apiBase}/order/${id}`, {
+      headers: this._h(),
+    });
+    if (!response.ok) {
+      throw new Error("Không thể tải chi tiết đơn hàng");
+    }
+    return response.json();
   },
   async updateOrder(id, d) {
-    console.log("UPDATE ORDER", id, d);
-    return true;
+    const response = await fetch(`${DB_CONFIG.apiBase}/order/${id}/status`, {
+      method: "PUT",
+      headers: this._h(),
+      body: JSON.stringify(d),
+    });
+    if (!response.ok) {
+      throw new Error("Không thể cập nhật đơn hàng");
+    }
+    return response.json();
   },
   async deleteOrder(id) {
-    console.log("DELETE ORDER", id);
+    const response = await fetch(`${DB_CONFIG.apiBase}/order/${id}`, {
+      method: "DELETE",
+      headers: this._h(),
+    });
+    if (!response.ok) {
+      throw new Error("Không thể xóa đơn hàng");
+    }
     return true;
   },
 
@@ -219,12 +234,15 @@ const Utils = {
 
   statusBadge(s) {
     const map = {
-      completed: ["badge-success", "✓ Hoàn thành"],
-      pending: ["badge-warning", "⏳ Chờ xử lý"],
-      shipping: ["badge-info", "🚚 Đang giao"],
-      cancelled: ["badge-danger", "✗ Đã hủy"],
+      COMPLETED: ["badge-success", "✓ Hoàn thành"],
+      PENDING: ["badge-warning", "⏳ Chờ xác nhận"],
+      PENDING_CONFIRM: ["badge-info", "💳 Chờ thanh toán"],
+      CONFIRMED: ["badge-purple", "✅ Đã xác nhận"],
+      DELIVERED: ["badge-blue", "🚚 Đã giao hàng"],
+      CANCELLED: ["badge-danger", "✗ Đã hủy"],
+      DELIVERED_FAILED: ["badge-danger", "⚠ Giao thất bại"],
     };
-    const [cls, lbl] = map[s] || ["badge-gray", s];
+    const [cls, lbl] = map[String(s || "").toUpperCase()] || ["badge-gray", s];
     return `<span class="badge ${cls}">${lbl}</span>`;
   },
 

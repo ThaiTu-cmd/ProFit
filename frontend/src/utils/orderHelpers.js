@@ -22,7 +22,9 @@ export const transformOrderFromBE = (beOrder) => {
     subtotal: safeTotal,
     shipping: 0,
     discount: 0,
-    status: beOrder.status?.toLowerCase() || "pending",
+    // Luu nguyen xi status UPPERCASE tu backend (PENDING, CONFIRMED, DELIVERED, COMPLETED, CANCELLED, DELIVERED_FAILED)
+    // De khop voi STATUS_LABEL/STATUS_CONFIG, filter tabs, va don trong localStorage.
+    status: beOrder.status || "PENDING",
     paymentStatus: beOrder.paymentStatus,
     createdAt: beOrder.placedAt || beOrder.createdAt,
     placedAt: beOrder.placedAt,

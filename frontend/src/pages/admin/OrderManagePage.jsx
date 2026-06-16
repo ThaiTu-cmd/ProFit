@@ -6,29 +6,31 @@ const formatPrice = (price) => {
 };
 
 const STATUS_LIST = [
-  { key: "all",            label: "Tất cả"         },
-  { key: "PENDING",        label: "Chờ xác nhận"   },
-  { key: "CONFIRMED",      label: "Đã xác nhận"    },
-  { key: "DELIVERED",      label: "Đã giao hàng"   },
-  { key: "COMPLETED",      label: "Hoàn thành"     },
-  { key: "CANCELLED",      label: "Đã hủy"         },
-  { key: "PENDING_CONFIRM", label: "Chờ thanh toán" },
+  { key: "all",             label: "Tất cả"          },
+  { key: "PENDING",         label: "Chờ xác nhận"    },
+  { key: "CONFIRMED",       label: "Đã xác nhận"     },
+  { key: "DELIVERED",       label: "Đã giao hàng"    },
+  { key: "COMPLETED",       label: "Hoàn thành"      },
+  { key: "CANCELLED",       label: "Đã hủy"          },
+  { key: "PENDING_CONFIRM",  label: "Chờ thanh toán"  },
+  { key: "DELIVERED_FAILED", label: "Giao thất bại"   },
 ];
 
 const STATUS_NEXT = {
   PENDING: "CONFIRMED",
-  PENDING_CONFIRM: "CONFIRMED", // Admin confirm banking payment
-  CONFIRMED: "DELIVERED",       // Shipper marks as delivered
-  DELIVERED: "COMPLETED",       // Admin confirms customer received (reduces stock)
+  PENDING_CONFIRM: "CONFIRMED",
+  CONFIRMED: "DELIVERED",
+  DELIVERED: "COMPLETED",
 };
 
 const STATUS_COLOR = {
-  PENDING:        "#f59e0b",
-  CONFIRMED:      "#8b5cf6",    // Purple for confirmed
-  DELIVERED:      "#3b82f6",    // Blue for delivered
-  COMPLETED:      "var(--green)",
-  CANCELLED:      "var(--red)",
-  PENDING_CONFIRM: "#3b82f6", // Blue for banking payment pending
+  PENDING:         "#f59e0b",
+  CONFIRMED:       "#8b5cf6",
+  DELIVERED:       "#3b82f6",
+  COMPLETED:       "var(--green)",
+  CANCELLED:       "var(--red)",
+  PENDING_CONFIRM:  "#3b82f6",
+  DELIVERED_FAILED: "#ef4444",
 };
 
 const OrderManagePage = ({ onUpdateStatus, showToast }) => {
@@ -44,7 +46,7 @@ const OrderManagePage = ({ onUpdateStatus, showToast }) => {
       const data = await adminService.getAllOrders();
       setOrders(data);
     } catch (error) {
-      showToast(`❌ Lỗi tải đơn hàng: ${error.message}`);
+      showToast(`Lỗi tải đơn hàng: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -54,43 +56,56 @@ const OrderManagePage = ({ onUpdateStatus, showToast }) => {
     fetchOrders();
   }, []);
 
-  // Sắp xếp ưu tiên: PENDING_CONFIRM lên đầu, sau đó theo thời gian
   const sortedOrders = [...orders].sort((a, b) => {
-    // Ưu tiên PENDING_CONFIRM lên đầu
     if (a.paymentStatus === "PENDING_CONFIRM" && b.paymentStatus !== "PENDING_CONFIRM") return -1;
     if (a.paymentStatus !== "PENDING_CONFIRM" && b.paymentStatus === "PENDING_CONFIRM") return 1;
-    // Sau đó theo thời gian (mới nhất lên đầu)
     return new Date(b.createdAt) - new Date(a.createdAt);
   });
 
-  const filtered = sortedOrders.filter((o) => {
-    const matchStatus = filter === "all" || o.status === filter;
-    // Nếu filter là PENDING_CONFIRM thì lọc theo paymentStatus
-    const matchPaymentStatus = filter === "PENDING_CONFIRM" 
-      ? o.paymentStatus === "PENDING_CONFIRM" 
-      : true;
-    const matchSearch = String(o.orderCode).toLowerCase().includes(search.toLowerCase()) || 
-                        (o.recipientName || "").toLowerCase().includes(search.toLowerCase()) ||
-                        String(o.id).includes(search);
-    return matchStatus && matchSearch && matchPaymentStatus;
-  });
+  const filtered = sortedOrders
+    .filter((o) => {
+      if (filter === "all") return true;
+      if (filter === "PENDING_CONFIRM") return o.paymentStatus === "PENDING_CONFIRM";
+      if (filter === "PENDING") {
+        // Loc don PENDING nhung KHONG tinh don dang cho xac nhan thanh toan
+        return o.status === "PENDING" && o.paymentStatus !== "PENDING_CONFIRM";
+      }
+      if (filter === "CANCELLED") return o.status === "CANCELLED" || o.status === "DELIVERED_FAILED";
+      if (filter === "DELIVERED_FAILED") return o.status === "DELIVERED_FAILED";
+      return o.status === filter;
+    })
+    .filter((o) => {
+      const q = search.toLowerCase();
+      if (!q) return true;
+      return (
+        String(o.orderCode || "").toLowerCase().includes(q) ||
+        (o.recipientName || "").toLowerCase().includes(q) ||
+        String(o.id).includes(q)
+      );
+    });
 
   const countByStatus = (key) => {
     if (key === "all") return orders.length;
     if (key === "PENDING_CONFIRM") return orders.filter(o => o.paymentStatus === "PENDING_CONFIRM").length;
+    if (key === "PENDING") {
+      // Dem don PENDING nhung KHONG tinh don dang cho xac nhan thanh toan
+      // (de tranh dem trung voi tab PENDING_CONFIRM)
+      return orders.filter(o => o.status === "PENDING" && o.paymentStatus !== "PENDING_CONFIRM").length;
+    }
+    if (key === "CANCELLED") return orders.filter(o => o.status === "CANCELLED" || o.status === "DELIVERED_FAILED").length;
+    if (key === "DELIVERED_FAILED") return orders.filter(o => o.status === "DELIVERED_FAILED").length;
     return orders.filter(o => o.status === key).length;
   };
 
   const handleUpdateStatus = async (orderId, statusData) => {
     try {
-      // Support both string (backward compatible) and object format
       const data = typeof statusData === 'string' ? { status: statusData } : statusData;
       await adminService.updateOrderStatus(orderId, data);
-      showToast(`✅ Đã cập nhật trạng thái đơn #${orderId}`);
+      showToast(`Đã cập nhật trạng thái đơn #${orderId}`);
       if (onUpdateStatus) onUpdateStatus(orderId, data.status || data.paymentStatus);
       fetchOrders();
     } catch (error) {
-      showToast(`❌ Lỗi cập nhật trạng thái: ${error.message}`);
+      showToast(`Lỗi cập nhật trạng thái: ${error.message}`);
     }
   };
 
@@ -98,11 +113,23 @@ const OrderManagePage = ({ onUpdateStatus, showToast }) => {
     if (!window.confirm("Bạn có chắc muốn hủy đơn hàng này?")) return;
     try {
       await adminService.updateOrderStatus(orderId, { status: "CANCELLED" });
-      showToast(`🗑 Đã hủy đơn #${orderId}`);
+      showToast(`Đã hủy đơn #${orderId}`);
       if (onUpdateStatus) onUpdateStatus(orderId, "CANCELLED");
       fetchOrders();
     } catch (error) {
-      showToast(`❌ Lỗi hủy đơn: ${error.message}`);
+      showToast(`Lỗi hủy đơn: ${error.message}`);
+    }
+  };
+
+  const handleDeliveryFailed = async (orderId) => {
+    if (!window.confirm("Xác nhận giao hàng thất bại?\n\nHàng sẽ được hoàn trả kho và đơn hàng sẽ bị đánh dấu giao thất bại.")) return;
+    try {
+      await adminService.markDeliveryFailed(orderId);
+      showToast(`Đã đánh dấu giao thất bại đơn #${orderId}. Hàng đã hoàn trả kho.`);
+      if (onUpdateStatus) onUpdateStatus(orderId, "DELIVERED_FAILED");
+      fetchOrders();
+    } catch (error) {
+      showToast(`Lỗi: ${error.message}`);
     }
   };
 
@@ -146,7 +173,7 @@ const OrderManagePage = ({ onUpdateStatus, showToast }) => {
             const isExpanded  = expandedId === order.id;
             const nextStatus  = STATUS_NEXT[order.status] || (order.paymentStatus === "PENDING_CONFIRM" ? "CONFIRMED" : null);
             const statusColor = STATUS_COLOR[order.status] ?? STATUS_COLOR[order.paymentStatus] ?? "var(--gray)";
-            const statusLabel = STATUS_LIST.find(s => s.key === order.status)?.label ?? 
+            const statusLabel = STATUS_LIST.find(s => s.key === order.status)?.label ??
                                (order.paymentStatus === "PENDING_CONFIRM" ? "Chờ thanh toán" : order.status);
             const isPendingConfirm = order.paymentStatus === "PENDING_CONFIRM";
 
@@ -175,7 +202,7 @@ const OrderManagePage = ({ onUpdateStatus, showToast }) => {
                     </span>
                     {isPendingConfirm && (
                       <div style={{ fontSize: 11, color: "var(--amber)", marginTop: 4 }}>
-                        💳 Thanh toán chuyển khoản
+                        Thanh toán chuyển khoản
                       </div>
                     )}
                   </div>
@@ -195,33 +222,48 @@ const OrderManagePage = ({ onUpdateStatus, showToast }) => {
                     </div>
 
                     <div style={{ fontSize: 13, color: "var(--gray)", marginBottom: 20 }}>
-                      📍 {order.shippingAddressLine1}, {order.shippingCity}, {order.shippingProvince}
+                      {order.shippingAddressLine1}, {order.shippingCity}, {order.shippingProvince}
                     </div>
 
                     <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                      {/* Nút xác nhận thanh toán cho banking */}
                       {order.paymentStatus === "PENDING_CONFIRM" && (
-                        <button className="btn-primary" style={{ padding: "10px 20px", fontSize: 13, background: "var(--green)" }}
-                          onClick={() => handleUpdateStatus(order.id, { status: "CONFIRMED", paymentStatus: "PAID" })}>
-                          ✓ Xác nhận thanh toán
-                        </button>
+                        <>
+                          <button className="btn-primary" style={{ padding: "10px 20px", fontSize: 13, background: "var(--green)" }}
+                            onClick={() => handleUpdateStatus(order.id, { status: "CONFIRMED", paymentStatus: "PAID" })}>
+                            Xác nhận thanh toán
+                          </button>
+                          <button className="btn-danger" style={{ padding: "10px 20px", fontSize: 13 }}
+                            onClick={() => handleCancel(order.id)}>
+                            Hủy đơn
+                          </button>
+                        </>
                       )}
                       {nextStatus && order.paymentStatus !== "PENDING_CONFIRM" && (
-                        <button className="btn-primary" style={{ padding: "10px 20px", fontSize: 13 }}
-                          onClick={() => handleUpdateStatus(order.id, { status: nextStatus })}>
-                          {order.status === "CONFIRMED" ? "🚚 Đã giao hàng" : 
-                           order.status === "DELIVERED" ? "✓ Xác nhận hoàn thành" : 
-                           "✓ Xác nhận đơn hàng"}
-                        </button>
-                      )}
-                      {order.status === "PENDING" && order.paymentStatus !== "PENDING_CONFIRM" && (
-                        <button className="btn-danger" onClick={() => handleCancel(order.id)}>Hủy đơn</button>
+                        <>
+                          <button className="btn-primary" style={{ padding: "10px 20px", fontSize: 13 }}
+                            onClick={() => handleUpdateStatus(order.id, { status: nextStatus })}>
+                            {order.status === "CONFIRMED" ? "Đã giao hàng" :
+                             order.status === "DELIVERED" ? "Xác nhận hoàn thành" :
+                             "Xác nhận đơn hàng"}
+                          </button>
+                          {order.status === "CONFIRMED" && (
+                            <button style={{ padding: "10px 20px", fontSize: 13, background: "#f59e0b", color: "#fff", border: "none", borderRadius: 8, cursor: "pointer", fontWeight: 700 }}
+                              onClick={() => handleDeliveryFailed(order.id)}>
+                              Giao thất bại
+                            </button>
+                          )}
+                          {order.status === "PENDING" && (
+                            <button className="btn-danger" style={{ padding: "10px 20px", fontSize: 13 }}
+                              onClick={() => handleCancel(order.id)}>
+                              Hủy đơn
+                            </button>
+                          )}
+                        </>
                       )}
                     </div>
-                    {/* Thông báo trạng thái kho */}
                     {order.status === "DELIVERED" && (
                       <div style={{ marginTop: 12, fontSize: 12, color: "var(--amber)", background: "rgba(251,191,36,0.1)", padding: "10px 14px", borderRadius: 8 }}>
-                        ⚠️ Khi xác nhận hoàn thành, số lượng sản phẩm trong kho sẽ được trừ đi.
+                        Khi xác nhận hoàn thành, số lượng sản phẩm trong kho sẽ được trừ đi.
                       </div>
                     )}
                   </div>

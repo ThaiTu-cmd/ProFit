@@ -9,7 +9,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/ProFitSuppsDB?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Ho_Chi_Minh&connectionCharacterSet=UTF-8
     username: root
-    password: root
+    password: 123456
   sql:
     init:
       mode: never
@@ -17,8 +17,15 @@ spring:
   jpa:
     defer-datasource-initialization: false
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    open-in-view: false
+  sql:
+    init:
+      mode: never
     properties:
       hibernate:
         jdbc:
@@ -42,6 +49,12 @@ app:
       email: admin@profit.com
       phone: "0123456789"
       password: Admin@123
+    customer:
+      enabled: true
+      full-name: Khách Hàng Test
+      email: khachhang@gmail.com
+      phone: "0987654321"
+      password: Customer@123
   frontend:
     base-url: "http://localhost:5173"
   vnpay:

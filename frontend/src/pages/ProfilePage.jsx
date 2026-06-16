@@ -15,7 +15,7 @@ const DEFAULT_USER_INFO = {
   note: "",
 };
 
-const ProfilePage = ({ navigate, user }) => {
+const ProfilePage = ({ navigate, user, showToast }) => {
   const [form, setForm] = useState(DEFAULT_USER_INFO);
   const [saved, setSaved] = useState(false);
 
@@ -53,7 +53,7 @@ const ProfilePage = ({ navigate, user }) => {
 
   const handleSave = () => {
     if (!form.fullName.trim() || !form.phone.trim() || !form.address.trim() || !form.city.trim()) {
-      alert("Vui lòng nhập đầy đủ họ tên, số điện thoại, địa chỉ và tỉnh/thành phố.");
+      showToast("Vui lòng nhập đầy đủ họ tên, số điện thoại, địa chỉ và tỉnh/thành phố.");
       return;
     }
 

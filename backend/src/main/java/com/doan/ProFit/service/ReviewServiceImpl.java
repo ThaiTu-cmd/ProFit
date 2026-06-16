@@ -55,6 +55,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<ReviewResponse> getReviewsByProductId(Long productId) {
         return reviewRepository.findByProductIdOrderByCreatedAtDesc(productId)
                 .stream()
@@ -63,6 +64,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<ReviewResponse> getMyReviews(String userEmail) {
         User user = userRepository.findByEmailOrPhone(userEmail, userEmail)
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
@@ -117,6 +119,7 @@ public class ReviewServiceImpl implements ReviewService {
         updateProductRating(productId);
     }
 
+    @Transactional
     private void updateProductRating(Long productId) {
         BigDecimal avg = reviewRepository.getAverageRatingByProductId(productId);
         Long count = reviewRepository.countByProductId(productId);

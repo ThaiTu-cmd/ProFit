@@ -31,7 +31,6 @@ import DashboardPage     from "./pages/admin/DashboardPage";
 import ProductManagePage from "./pages/admin/ProductManagePage";
 import OrderManagePage   from "./pages/admin/OrderManagePage";
 import UserManagePage    from "./pages/admin/UserManagePage";
-import ContactInboxPage  from "./pages/admin/ContactInboxPage";
 
 import "./styles/global.css";
 import { transformOrderFromBE } from "./utils/orderHelpers";
@@ -137,6 +136,8 @@ const App = () => {
   useEffect(() => {
     if (currentBankingOrder) {
       localStorage.setItem("pendingBankingOrder", JSON.stringify(currentBankingOrder));
+    } else {
+      localStorage.removeItem("pendingBankingOrder");
     }
   }, [currentBankingOrder]);
 
@@ -314,12 +315,13 @@ const App = () => {
 
       // ── [MỚI] Các trang mới ──────────────────────
       case "orders":
+        if (user && user.role === "admin") { navigate("admin-dashboard"); return null; }
         return (
           <OrderPage
-            key={orders.length + Date.now()}
             user={user}
             navigate={navigate}
             onViewOrderDetail={handleViewOrder}
+            showToast={showToast}
           />
         );
 
@@ -339,7 +341,7 @@ const App = () => {
         return <RegisterPage onLogin={handleLogin} navigate={navigate} />;
 
       case "profile":
-        return <ProfilePage navigate={navigate} user={user} />;
+        return <ProfilePage navigate={navigate} user={user} showToast={showToast} />;
 
       case "reset-password":
         return <ResetPasswordPage showToast={showToast} />;
@@ -361,7 +363,7 @@ const App = () => {
       // ── Admin (guard quyền) ───────────────────────
       case "admin-dashboard":
         if (!user || user.role !== "admin") { navigate("login"); return null; }
-        return <DashboardPage orders={orders} navigate={navigate} />;
+        return <DashboardPage navigate={navigate} />;
 
       case "admin-products":
         if (!user || user.role !== "admin") { navigate("login"); return null; }
@@ -369,15 +371,11 @@ const App = () => {
 
       case "admin-orders":
         if (!user || user.role !== "admin") { navigate("login"); return null; }
-        return <OrderManagePage orders={orders} onUpdateStatus={handleUpdateOrderStatus} showToast={showToast} />;
+        return <OrderManagePage onUpdateStatus={handleUpdateOrderStatus} showToast={showToast} />;
 
       case "admin-users":
         if (!user || user.role !== "admin") { navigate("login"); return null; }
         return <UserManagePage showToast={showToast} navigate={navigate} />;
-
-      case "admin-contact":
-        if (!user || user.role !== "admin") { navigate("login"); return null; }
-        return <ContactInboxPage showToast={showToast} />;
 
       default:
         return <HomePage navigate={navigate} onAddToCart={handleAddToCart} onViewDetail={handleViewDetail} />;
