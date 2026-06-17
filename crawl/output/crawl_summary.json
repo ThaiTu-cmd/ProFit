@@ -1,0 +1,24 @@
+{
+  "crawled_at": "2026-06-17T12:25:13.768Z",
+  "source": {
+    "project_root": "C:\\Users\\Admin\\profit_new\\profit",
+    "db": "mysql://root@localhost:3306/profitsuppsdb",
+    "images": "C:\\Users\\Admin\\profit_new\\profit\\backend\\src\\main\\resources\\static\\uploads\\products",
+    "mode": "READ-ONLY (project source files NOT modified)"
+  },
+  "counts": {
+    "categories": 4,
+    "products": 65,
+    "images_total": 65,
+    "images_copied": 0,
+    "images_skipped": 65,
+    "images_missing": 0,
+    "total_bytes": 535183
+  },
+  "outputs": {
+    "products_csv": "C:\\Users\\Admin\\profit_new\\profit\\crawl\\output\\products.csv",
+    "categories_csv": "C:\\Users\\Admin\\profit_new\\profit\\crawl\\output\\categories.csv",
+    "product_images_csv": "C:\\Users\\Admin\\profit_new\\profit\\crawl\\output\\product_images.csv",
+    "images_dir": "C:\\Users\\Admin\\profit_new\\profit\\crawl\\output\\images"
+  }
+}

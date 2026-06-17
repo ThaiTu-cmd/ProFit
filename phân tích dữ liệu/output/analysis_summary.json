@@ -1,0 +1,36 @@
+﻿{
+    "generated_at":  "2026-06-17T18:25:03.8769034+07:00",
+    "folder":  "C:\\Users\\Admin\\profit_new\\profit\\phân tích dữ liệu",
+    "total_files":  4,
+    "total_records":  280,
+    "files":  [
+                  {
+                      "name":  "creatine_samples",
+                      "records":  70,
+                      "category":  "creatine",
+                      "brands":  "Allmax, ATP Lab, Beast Sports, BPI Sports, BulkSupplements, Con-Cret, Creapure, Dymatize, EFX Sports, GAT Sport, Jacked Factory, Kaged Muscle, MET-Rx, MusclePharm, MuscleTech, NOW Sports, NutraBio, Nutricost, Optimum Nutrition, PrimaForce, ProLab, Rule 1, Thorne, Transparent Labs, Universal Nutrition",
+                      "flavors":  "Blue Raspberry, Fruit Punch, Grape, Unflavored, Watermelon"
+                  },
+                  {
+                      "name":  "preworkout_samples",
+                      "records":  70,
+                      "category":  "preworkout",
+                      "brands":  "1st Phorm, Alpha Lion, Axe \u0026 Sledge, BPI Sports, BSN, Bucked Up, Cellucor, Dymatize, EVL, GAT Sport, Ghost, Gorilla Mode, Huge Supplements, Jacked Factory, Kaged Muscle, Legion Athletics, MAN Sports, MusclePharm, Nitraflex, NutraBio, Onnit, ProSupps, Redcon1, RYSE, Transparent Labs",
+                      "flavors":  "Black Cherry, Blue Raspberry, Cherry Limeade, Citrus Burst, Cotton Candy, Fruit Punch, Grape, Green Apple, Icy Blue Razz, Mango, Orange Mango, Peach Rings, Pink Lemonade, Sour Gummy, Sour Worm, Strawberry, Strawberry Lemonade, Tropical Punch, Watermelon"
+                  },
+                  {
+                      "name":  "protein_bar_samples",
+                      "records":  70,
+                      "category":  "protein_bar",
+                      "brands":  "Atlas Bar, BSN, Built Bar, Clif Builders, Detour, Fulfil, Good! Snacks, Grenade, Kind Protein, Kirkland, MusclePharm, No Cow, PowerBar, Premier Protein, ProBar, Pure Protein, Quest Nutrition, RXBar, Think!",
+                      "flavors":  "Banana Nut, Birthday Cake, Blueberry Muffin, Chocolate Brownie, Chocolate Caramel, Chocolate Chip Cookie Dough, Cinnamon Roll, Coconut Chocolate, Cookies \u0026 Cream, Double Chocolate, Lemon Cake, Maple Glazed Donut, Oatmeal Chocolate Chip, Peanut Butter Chocolate, Peanut Butter Cup, Rocky Road, S\u0027mores, Strawberry Shortcake, Vanilla Almond, White Chocolate Raspberry"
+                  },
+                  {
+                      "name":  "whey_protein_samples",
+                      "records":  70,
+                      "category":  "whey_protein",
+                      "brands":  "Allmax, Ascent, Bowmar, BSN, BulkSupplements, Dymatize, Gaspari Nutrition, Ghost, Labrada, Momentous, MusclePharm, MuscleTech, MyProtein, NOW Sports, Nutricost, Optimum Nutrition, PEScience, Reflex Nutrition, Rivalus, Rule 1, Thorne, Transparent Labs, Vitalibis",
+                      "flavors":  "Banana Cream, Birthday Cake, Butterscotch, Chocolate Hazelnut, Chocolate Mint, Chocolate Peanut Butter, Cinnamon Roll, Coconut, Cookies \u0026 Cream, Double Rich Chocolate, Dulce de Leche, Fruity Cereal, Mango Peach, Mocha Cappuccino, Peach Cream, Peanut Butter, Pumpkin Spice, Rocky Road, Salted Caramel, Strawberry, Unflavored, Vanilla Ice Cream, White Chocolate"
+                  }
+              ]
+}

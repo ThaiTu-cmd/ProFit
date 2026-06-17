@@ -1,0 +1,290 @@
+[
+  {
+    "id": "PTS-S01",
+    "page_content": "Quest Nutrition Protein Bar 60g in Chocolate Chip Cookie Dough is a premium protein bar from USA. Thanh đạm ăn kiêng bán chạy nhất thế giới giàu xơ ít carb tinh Each 60g serving is designed for daily training with 1 servings per container and a total weight of 0.060 kg.",
+    "metadata": {
+      "sku": "PTS-S01",
+      "name": "Quest Nutrition Protein Bar 60g",
+      "brand": "Quest Nutrition",
+      "category": "protein_bar",
+      "price": 65000,
+      "weight_kg": 0.06,
+      "flavor": "Chocolate Chip Cookie Dough",
+      "origin_country": "USA",
+      "image_url": "https://profit.local/uploads/products/image-43.jpg",
+      "product_url": "https://profit.local/products/quest-nutrition-protein-bar-60g"
+    },
+    "attributes": {
+      "product_type": "protein_bar",
+      "protein_source": "whey",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 200,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 60,
+      "pieces_per_package": 1,
+      "texture": "chewy",
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "recovery",
+        "snack"
+      ]
+    }
+  },
+  {
+    "id": "PTS-S02",
+    "page_content": "Grenade Carb Killa Protein Bar 60g in Cookies & Cream is a premium protein bar from UK. Bánh đạm nướng tinh tế cấu trúc nhiều lớp giòn tan ít đường Each 60g serving is designed for daily training with 1 servings per container and a total weight of 0.060 kg.",
+    "metadata": {
+      "sku": "PTS-S02",
+      "name": "Grenade Carb Killa Protein Bar 60g",
+      "brand": "Grenade",
+      "category": "protein_bar",
+      "price": 70000,
+      "weight_kg": 0.06,
+      "flavor": "Cookies & Cream",
+      "origin_country": "UK",
+      "image_url": "https://profit.local/uploads/products/image-44.jpg",
+      "product_url": "https://profit.local/products/grenade-carb-killa-60g"
+    },
+    "attributes": {
+      "product_type": "protein_bar",
+      "protein_source": "whey",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 200,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 60,
+      "pieces_per_package": 1,
+      "texture": "chewy",
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "recovery",
+        "snack"
+      ]
+    }
+  },
+  {
+    "id": "PTS-S03",
+    "page_content": "Barebells Protein Bar Thụy Điển 55g in Birthday Cake is a premium protein bar from Australia. Bánh xốp dinh dưỡng protein không thêm đường vị ngon chuẩn Châu Âu Each 60g serving is designed for daily training with 1 servings per container and a total weight of 0.055 kg.",
+    "metadata": {
+      "sku": "PTS-S03",
+      "name": "Barebells Protein Bar Thụy Điển 55g",
+      "brand": "Barebells",
+      "category": "protein_bar",
+      "price": 68000,
+      "weight_kg": 0.055,
+      "flavor": "Birthday Cake",
+      "origin_country": "Australia",
+      "image_url": "https://profit.local/uploads/products/image-45.jpg",
+      "product_url": "https://profit.local/products/barebells-protein-bar-55g"
+    },
+    "attributes": {
+      "product_type": "protein_bar",
+      "protein_source": "whey",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 200,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 55,
+      "pieces_per_package": 1,
+      "texture": "chewy",
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "recovery",
+        "snack"
+      ]
+    }
+  },
+  {
+    "id": "PTS-S04",
+    "page_content": "MyProtein Impact Protein Bar 64g in Salty Peanut is a premium protein bar from Netherlands. Thanh đạm 3 lớp bổ vị caramel béo ngậy ít calo Each 60g serving is designed for daily training with 1 servings per container and a total weight of 0.064 kg.",
+    "metadata": {
+      "sku": "PTS-S04",
+      "name": "MyProtein Impact Protein Bar 64g",
+      "brand": "MyProtein",
+      "category": "protein_bar",
+      "price": 62000,
+      "weight_kg": 0.064,
+      "flavor": "Salty Peanut",
+      "origin_country": "Netherlands",
+      "image_url": "https://profit.local/uploads/products/image-46.jpg",
+      "product_url": "https://profit.local/products/myprotein-impact-protein-bar-64g"
+    },
+    "attributes": {
+      "product_type": "protein_bar",
+      "protein_source": "whey",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 200,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 64,
+      "pieces_per_package": 1,
+      "texture": "chewy",
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "recovery",
+        "snack"
+      ]
+    }
+  },
+  {
+    "id": "PTS-S05",
+    "page_content": "Combat Crunch Protein Bar MusclePharm 63g in Brownie is a premium protein bar from Ireland. Bánh quy protein nướng đạt nhiều chứng nhận danh giá thể hình Each 60g serving is designed for daily training with 1 servings per container and a total weight of 0.063 kg.",
+    "metadata": {
+      "sku": "PTS-S05",
+      "name": "Combat Crunch Protein Bar MusclePharm 63g",
+      "brand": "Combat",
+      "category": "protein_bar",
+      "price": 65000,
+      "weight_kg": 0.063,
+      "flavor": "Brownie",
+      "origin_country": "Ireland",
+      "image_url": "https://profit.local/uploads/products/image-47.jpg",
+      "product_url": "https://profit.local/products/musclepharm-combat-crunch-63g"
+    },
+    "attributes": {
+      "product_type": "protein_bar",
+      "protein_source": "whey",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 200,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 63,
+      "pieces_per_package": 1,
+      "texture": "chewy",
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "recovery",
+        "snack"
+      ]
+    }
+  },
+  {
+    "id": "PTS-S06",
+    "page_content": "BSN Protein Crisp Syntha-6 Bar 57g in Chocolate Brownie is a premium protein bar from Canada. Thanh đạm giòn xốp như cốm gạo nhẹ bụng dễ hấp thụ sau tập Each 60g serving is designed for daily training with 1 servings per container and a total weight of 0.057 kg.",
+    "metadata": {
+      "sku": "PTS-S06",
+      "name": "BSN Protein Crisp Syntha-6 Bar 57g",
+      "brand": "BSN",
+      "category": "protein_bar",
+      "price": 65000,
+      "weight_kg": 0.057,
+      "flavor": "Chocolate Brownie",
+      "origin_country": "Canada",
+      "image_url": "https://profit.local/uploads/products/image-48.jpg",
+      "product_url": "https://profit.local/products/bsn-protein-crisp-syntha6-57g"
+    },
+    "attributes": {
+      "product_type": "protein_bar",
+      "protein_source": "whey",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 200,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 57,
+      "pieces_per_package": 1,
+      "texture": "chewy",
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "recovery",
+        "snack"
+      ]
+    }
+  },
+  {
+    "id": "PTS-S07",
+    "page_content": "Robert Irvine Fit Crunch Bar 46g in Peanut Butter is a premium protein bar from Germany. Bánh đạm thiết kế bởi đầu bếp Mỹ Robert Irvine hương vị thượng hạng Each 60g serving is designed for daily training with 1 servings per container and a total weight of 0.046 kg.",
+    "metadata": {
+      "sku": "PTS-S07",
+      "name": "Robert Irvine Fit Crunch Bar 46g",
+      "brand": "Robert Irvine",
+      "category": "protein_bar",
+      "price": 60000,
+      "weight_kg": 0.046,
+      "flavor": "Peanut Butter",
+      "origin_country": "Germany",
+      "image_url": "https://profit.local/uploads/products/image-49.jpg",
+      "product_url": "https://profit.local/products/robert-irvine-fit-crunch-bar-46g"
+    },
+    "attributes": {
+      "product_type": "protein_bar",
+      "protein_source": "whey",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 200,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 46,
+      "pieces_per_package": 1,
+      "texture": "chewy",
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "recovery",
+        "snack"
+      ]
+    }
+  },
+  {
+    "id": "PTS-S08",
+    "page_content": "ONE Brands ONE Protein Bar 60g in Caramel Pecan is a premium protein bar from USA. Cung cấp 20g đạm tinh khiết, hàm lượng đường cực thấp chỉ 1g Each 60g serving is designed for daily training with 1 servings per container and a total weight of 0.060 kg.",
+    "metadata": {
+      "sku": "PTS-S08",
+      "name": "ONE Brands ONE Protein Bar 60g",
+      "brand": "ONE Brands",
+      "category": "protein_bar",
+      "price": 65000,
+      "weight_kg": 0.06,
+      "flavor": "Caramel Pecan",
+      "origin_country": "USA",
+      "image_url": "https://profit.local/uploads/products/image-50.jpg",
+      "product_url": "https://profit.local/products/one-brands-protein-bar-60g"
+    },
+    "attributes": {
+      "product_type": "protein_bar",
+      "protein_source": "whey",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 200,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 60,
+      "pieces_per_package": 1,
+      "texture": "chewy",
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "recovery",
+        "snack"
+      ]
+    }
+  }
+]

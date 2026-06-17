@@ -1,0 +1,2601 @@
+[
+  {
+    "id": "bar-001",
+    "page_content": "Atlas Protein Bar bar in Coffee provides 25g protein with crispy texture. 263 kcal, 16g carbs, 11g fat, 3g sugar, 15g fiber.. Vegan. Great for weight loss and muscle maintenance.",
+    "metadata": {
+      "sku": "BAR-ATL-BAR-001",
+      "name": "Protein Bar - Coffee",
+      "brand": "Atlas Bar",
+      "category": "protein_bar",
+      "price": 30.63,
+      "weight_kg": 0.789,
+      "flavor": "Coffee",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/atlas-bar-protein-bar---coffee-coffee.jpg",
+      "product_url": "https://example.com/products/atlas-bar-protein-bar---coffee-coffee"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "blend_protein",
+      "protein_per_serving_g": 25,
+      "carbs_per_serving_g": 16,
+      "fat_per_serving_g": 11,
+      "calories_per_serving": 263,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 15,
+      "serving_size_g": 71,
+      "pieces_per_package": 10,
+      "texture": "crispy",
+      "dietary": [
+        "vegan",
+        "dairy-free",
+        "gluten-free"
+      ],
+      "goals": [
+        "weight_loss",
+        "muscle_maintenance"
+      ]
+    }
+  },
+  {
+    "id": "bar-002",
+    "page_content": "Try BSN brownie in Hazelnut — 25g protein, soft texture. 218 kcal, 16g carbs, 6g fat, 4g sugar, 13g fiber.. Organic. Ideal for muscle maintenance and meal replacement.",
+    "metadata": {
+      "sku": "BAR-BSN-BRO-002",
+      "name": "Protein Brownie - Hazelnut",
+      "brand": "BSN",
+      "category": "protein_bar",
+      "price": 35.45,
+      "weight_kg": 1.682,
+      "flavor": "Hazelnut",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/bsn-protein-brownie---hazelnut-hazelnut.jpg",
+      "product_url": "https://example.com/products/bsn-protein-brownie---hazelnut-hazelnut"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "whey_concentrate",
+      "protein_per_serving_g": 25,
+      "carbs_per_serving_g": 16,
+      "fat_per_serving_g": 6,
+      "calories_per_serving": 218,
+      "sugar_per_serving_g": 4,
+      "fiber_per_serving_g": 13,
+      "serving_size_g": 66,
+      "pieces_per_package": 24,
+      "texture": "soft",
+      "dietary": [
+        "organic",
+        "non-gmo"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "meal_replacement"
+      ]
+    }
+  },
+  {
+    "id": "bar-003",
+    "page_content": "Try Kirkland bar in S'mores — 17g protein, soft texture. 228 kcal, 22g carbs, 8g fat, 5g sugar, 10g fiber.. Dairy free. Ideal for muscle maintenance and low carb snack.",
+    "metadata": {
+      "sku": "BAR-KIR-BAR-003",
+      "name": "Protein Bar - S'mores",
+      "brand": "Kirkland",
+      "category": "protein_bar",
+      "price": 32.34,
+      "weight_kg": 1.17,
+      "flavor": "S'mores",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/kirkland-protein-bar---s-mores-s-mores.jpg",
+      "product_url": "https://example.com/products/kirkland-protein-bar---s-mores-s-mores"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "rice_protein",
+      "protein_per_serving_g": 17,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 228,
+      "sugar_per_serving_g": 5,
+      "fiber_per_serving_g": 10,
+      "serving_size_g": 74,
+      "pieces_per_package": 15,
+      "texture": "soft",
+      "dietary": [
+        "dairy-free",
+        "low-sugar",
+        "keto-friendly"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "low_carb_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-004",
+    "page_content": "Try Grenade brownie in Oatmeal Chocolate Chip — 20g protein, soft texture. 238 kcal, 26g carbs, 6g fat, 5g sugar, 4g fiber.. Non gmo. Ideal for high protein snack and daily protein.",
+    "metadata": {
+      "sku": "BAR-GRE-BRO-004",
+      "name": "Protein Brownie - Oatmeal Chocolate Chip",
+      "brand": "Grenade",
+      "category": "protein_bar",
+      "price": 29.19,
+      "weight_kg": 1.176,
+      "flavor": "Oatmeal Chocolate Chip",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/grenade-protein-brownie---oatmeal-chocolate-chip-oatmeal-chocolate-chip.jpg",
+      "product_url": "https://example.com/products/grenade-protein-brownie---oatmeal-chocolate-chip-oatmeal-chocolate-chip"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "rice_protein",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 26,
+      "fat_per_serving_g": 6,
+      "calories_per_serving": 238,
+      "sugar_per_serving_g": 5,
+      "fiber_per_serving_g": 4,
+      "serving_size_g": 72,
+      "pieces_per_package": 15,
+      "texture": "soft",
+      "dietary": [
+        "non-gmo",
+        "organic",
+        "keto-friendly"
+      ],
+      "goals": [
+        "high_protein_snack",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "bar-005",
+    "page_content": "ProBar bar in Cherry delivers 15g of protein from blend of whey and casein. Light and crispy layer for crunch lovers. Each serving has 211 kcal, 22g carbs, 7g fat, 1g sugar, and 10g fiber. Vegan. Supports daily protein and high protein snack.",
+    "metadata": {
+      "sku": "BAR-PRO-BAR-005",
+      "name": "Protein Bar - Cherry",
+      "brand": "ProBar",
+      "category": "protein_bar",
+      "price": 28.9,
+      "weight_kg": 0.679,
+      "flavor": "Cherry",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/probar-protein-bar---cherry-cherry.jpg",
+      "product_url": "https://example.com/products/probar-protein-bar---cherry-cherry"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "blend_protein",
+      "protein_per_serving_g": 15,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 7,
+      "calories_per_serving": 211,
+      "sugar_per_serving_g": 1,
+      "fiber_per_serving_g": 10,
+      "serving_size_g": 51,
+      "pieces_per_package": 12,
+      "texture": "crispy",
+      "dietary": [
+        "vegan",
+        "organic"
+      ],
+      "goals": [
+        "daily_protein",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-006",
+    "page_content": "Kind Protein bar in Salted Caramel delivers 21g of protein from whey protein concentrate. Soft and indulgent texture. Each serving has 240 kcal, 21g carbs, 8g fat, 6g sugar, and 12g fiber. Gluten free. Supports daily protein and high protein snack.",
+    "metadata": {
+      "sku": "BAR-KIN-BAR-006",
+      "name": "Protein Bar - Salted Caramel",
+      "brand": "Kind Protein",
+      "category": "protein_bar",
+      "price": 27.54,
+      "weight_kg": 0.523,
+      "flavor": "Salted Caramel",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/kind-protein-protein-bar---salted-caramel-salted-caramel.jpg",
+      "product_url": "https://example.com/products/kind-protein-protein-bar---salted-caramel-salted-caramel"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "whey_concentrate",
+      "protein_per_serving_g": 21,
+      "carbs_per_serving_g": 21,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 240,
+      "sugar_per_serving_g": 6,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 74,
+      "pieces_per_package": 6,
+      "texture": "soft",
+      "dietary": [
+        "gluten-free",
+        "vegan",
+        "keto-friendly"
+      ],
+      "goals": [
+        "daily_protein",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-007",
+    "page_content": "ONE bar in Peanut Butter Cup delivers 25g of protein from casein and whey blend. Light and crispy layer for crunch lovers. Each serving has 232 kcal, 24g carbs, 4g fat, 1g sugar, and 12g fiber. Dairy free. Supports weight loss and muscle maintenance.",
+    "metadata": {
+      "sku": "BAR-ONE-BAR-007",
+      "name": "Protein Bar - Peanut Butter Cup",
+      "brand": "ONE",
+      "category": "protein_bar",
+      "price": 30.87,
+      "weight_kg": 0.579,
+      "flavor": "Peanut Butter Cup",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/one-protein-bar---peanut-butter-cup-peanut-butter-cup.jpg",
+      "product_url": "https://example.com/products/one-protein-bar---peanut-butter-cup-peanut-butter-cup"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 25,
+      "carbs_per_serving_g": 24,
+      "fat_per_serving_g": 4,
+      "calories_per_serving": 232,
+      "sugar_per_serving_g": 1,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 60,
+      "pieces_per_package": 8,
+      "texture": "crispy",
+      "dietary": [
+        "dairy-free",
+        "vegan",
+        "non-gmo"
+      ],
+      "goals": [
+        "weight_loss",
+        "muscle_maintenance"
+      ]
+    }
+  },
+  {
+    "id": "bar-008",
+    "page_content": "Quest Hero bar in Hazelnut delivers 24g of protein from soy protein isolate. Soft and indulgent texture. Each serving has 242 kcal, 23g carbs, 6g fat, 1g sugar, and 13g fiber. Low carb. Supports low carb snack and muscle maintenance.",
+    "metadata": {
+      "sku": "BAR-QUE-BAR-008",
+      "name": "Protein Bar - Hazelnut",
+      "brand": "Quest Hero",
+      "category": "protein_bar",
+      "price": 38.12,
+      "weight_kg": 1.08,
+      "flavor": "Hazelnut",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/quest-hero-protein-bar---hazelnut-hazelnut.jpg",
+      "product_url": "https://example.com/products/quest-hero-protein-bar---hazelnut-hazelnut"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "soy_protein",
+      "protein_per_serving_g": 24,
+      "carbs_per_serving_g": 23,
+      "fat_per_serving_g": 6,
+      "calories_per_serving": 242,
+      "sugar_per_serving_g": 1,
+      "fiber_per_serving_g": 13,
+      "serving_size_g": 68,
+      "pieces_per_package": 15,
+      "texture": "soft",
+      "dietary": [
+        "low-carb",
+        "dairy-free",
+        "keto-friendly"
+      ],
+      "goals": [
+        "low_carb_snack",
+        "muscle_maintenance"
+      ]
+    }
+  },
+  {
+    "id": "bar-009",
+    "page_content": "No Cow bar in Cookies & Cream delivers 21g of protein from soy protein isolate. Light and crispy layer for crunch lovers. Each serving has 247 kcal, 25g carbs, 7g fat, 1g sugar, and 11g fiber. Non gmo. Supports meal replacement and low carb snack.",
+    "metadata": {
+      "sku": "BAR-NO -BAR-009",
+      "name": "Protein Bar - Cookies & Cream",
+      "brand": "No Cow",
+      "category": "protein_bar",
+      "price": 35.7,
+      "weight_kg": 1.203,
+      "flavor": "Cookies & Cream",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/no-cow-protein-bar---cookies---cream-cookies---cream.jpg",
+      "product_url": "https://example.com/products/no-cow-protein-bar---cookies---cream-cookies---cream"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "soy_protein",
+      "protein_per_serving_g": 21,
+      "carbs_per_serving_g": 25,
+      "fat_per_serving_g": 7,
+      "calories_per_serving": 247,
+      "sugar_per_serving_g": 1,
+      "fiber_per_serving_g": 11,
+      "serving_size_g": 57,
+      "pieces_per_package": 20,
+      "texture": "crispy",
+      "dietary": [
+        "non-gmo",
+        "dairy-free"
+      ],
+      "goals": [
+        "meal_replacement",
+        "low_carb_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-010",
+    "page_content": "Think! Protein Crisp Bar crisp_bar in Double Chocolate provides 24g protein with chewy texture. 267 kcal, 18g carbs, 11g fat, 5g sugar, 8g fiber.. Non gmo. Great for meal replacement and muscle maintenance.",
+    "metadata": {
+      "sku": "BAR-THI-CRI-010",
+      "name": "Protein Crisp Bar - Double Chocolate",
+      "brand": "Think!",
+      "category": "protein_bar",
+      "price": 36.54,
+      "weight_kg": 1.515,
+      "flavor": "Double Chocolate",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/think--protein-crisp-bar---double-chocolate-double-chocolate.jpg",
+      "product_url": "https://example.com/products/think--protein-crisp-bar---double-chocolate-double-chocolate"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "egg_white",
+      "protein_per_serving_g": 24,
+      "carbs_per_serving_g": 18,
+      "fat_per_serving_g": 11,
+      "calories_per_serving": 267,
+      "sugar_per_serving_g": 5,
+      "fiber_per_serving_g": 8,
+      "serving_size_g": 71,
+      "pieces_per_package": 20,
+      "texture": "chewy",
+      "dietary": [
+        "non-gmo",
+        "organic",
+        "gluten-free"
+      ],
+      "goals": [
+        "meal_replacement",
+        "muscle_maintenance"
+      ]
+    }
+  },
+  {
+    "id": "bar-011",
+    "page_content": "ThinkThin Protein Bar bar in Salted Caramel provides 16g protein with soft texture. 261 kcal, 29g carbs, 9g fat, 7g sugar, 18g fiber.. Dairy free. Great for low carb snack and meal replacement.",
+    "metadata": {
+      "sku": "BAR-THI-BAR-011",
+      "name": "Protein Bar - Salted Caramel",
+      "brand": "ThinkThin",
+      "category": "protein_bar",
+      "price": 31.11,
+      "weight_kg": 0.976,
+      "flavor": "Salted Caramel",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/thinkthin-protein-bar---salted-caramel-salted-caramel.jpg",
+      "product_url": "https://example.com/products/thinkthin-protein-bar---salted-caramel-salted-caramel"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "soy_protein",
+      "protein_per_serving_g": 16,
+      "carbs_per_serving_g": 29,
+      "fat_per_serving_g": 9,
+      "calories_per_serving": 261,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 18,
+      "serving_size_g": 74,
+      "pieces_per_package": 12,
+      "texture": "soft",
+      "dietary": [
+        "dairy-free"
+      ],
+      "goals": [
+        "low_carb_snack",
+        "meal_replacement"
+      ]
+    }
+  },
+  {
+    "id": "bar-012",
+    "page_content": "Premier Protein Bar bar in Peanut Butter Cup provides 23g protein with crispy texture. 222 kcal, 19g carbs, 6g fat, 6g sugar, 17g fiber.. Dairy free. Great for daily protein and muscle gain.",
+    "metadata": {
+      "sku": "BAR-PRE-BAR-012",
+      "name": "Protein Bar - Peanut Butter Cup",
+      "brand": "Premier Protein",
+      "category": "protein_bar",
+      "price": 29.68,
+      "weight_kg": 0.647,
+      "flavor": "Peanut Butter Cup",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/premier-protein-protein-bar---peanut-butter-cup-peanut-butter-cup.jpg",
+      "product_url": "https://example.com/products/premier-protein-protein-bar---peanut-butter-cup-peanut-butter-cup"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "whey_protein_isolate",
+      "protein_per_serving_g": 23,
+      "carbs_per_serving_g": 19,
+      "fat_per_serving_g": 6,
+      "calories_per_serving": 222,
+      "sugar_per_serving_g": 6,
+      "fiber_per_serving_g": 17,
+      "serving_size_g": 71,
+      "pieces_per_package": 8,
+      "texture": "crispy",
+      "dietary": [
+        "dairy-free"
+      ],
+      "goals": [
+        "daily_protein",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "bar-013",
+    "page_content": "Fulfil crisp_bar in Cookies & Cream delivers 22g of protein from casein and whey blend. Chewy texture with satisfying bite. Each serving has 276 kcal, 29g carbs, 8g fat, 1g sugar, and 15g fiber. Low carb. Supports muscle maintenance and meal replacement.",
+    "metadata": {
+      "sku": "BAR-FUL-CRI-013",
+      "name": "Protein Crisp Bar - Cookies & Cream",
+      "brand": "Fulfil",
+      "category": "protein_bar",
+      "price": 39.19,
+      "weight_kg": 0.829,
+      "flavor": "Cookies & Cream",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/fulfil-protein-crisp-bar---cookies---cream-cookies---cream.jpg",
+      "product_url": "https://example.com/products/fulfil-protein-crisp-bar---cookies---cream-cookies---cream"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 22,
+      "carbs_per_serving_g": 29,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 276,
+      "sugar_per_serving_g": 1,
+      "fiber_per_serving_g": 15,
+      "serving_size_g": 50,
+      "pieces_per_package": 15,
+      "texture": "chewy",
+      "dietary": [
+        "low-carb"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "meal_replacement"
+      ]
+    }
+  },
+  {
+    "id": "bar-014",
+    "page_content": "Try Lenny cookie in Dark Chocolate — 14g protein, soft texture. 242 kcal, 24g carbs, 10g fat, 3g sugar, 7g fiber.. Low carb. Ideal for meal replacement and daily protein.",
+    "metadata": {
+      "sku": "BAR-LEN-COO-014",
+      "name": "Protein Cookie - Dark Chocolate",
+      "brand": "Lenny & Larry's",
+      "category": "protein_bar",
+      "price": 43.89,
+      "weight_kg": 1.289,
+      "flavor": "Dark Chocolate",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/lenny---larry-s-protein-cookie---dark-chocolate-dark-chocolate.jpg",
+      "product_url": "https://example.com/products/lenny---larry-s-protein-cookie---dark-chocolate-dark-chocolate"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "casein",
+      "protein_per_serving_g": 14,
+      "carbs_per_serving_g": 24,
+      "fat_per_serving_g": 10,
+      "calories_per_serving": 242,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 7,
+      "serving_size_g": 61,
+      "pieces_per_package": 20,
+      "texture": "soft",
+      "dietary": [
+        "low-carb",
+        "gluten-free"
+      ],
+      "goals": [
+        "meal_replacement",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "bar-015",
+    "page_content": "Pure Protein crisp_bar in Dark Chocolate delivers 22g of protein from milk protein casein. Light and crispy layer for crunch lovers. Each serving has 304 kcal, 27g carbs, 12g fat, 3g sugar, and 10g fiber. Low carb. Supports daily protein and high protein snack.",
+    "metadata": {
+      "sku": "BAR-PUR-CRI-015",
+      "name": "Protein Crisp Bar - Dark Chocolate",
+      "brand": "Pure Protein",
+      "category": "protein_bar",
+      "price": 26.54,
+      "weight_kg": 0.509,
+      "flavor": "Dark Chocolate",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/pure-protein-protein-crisp-bar---dark-chocolate-dark-chocolate.jpg",
+      "product_url": "https://example.com/products/pure-protein-protein-crisp-bar---dark-chocolate-dark-chocolate"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "casein",
+      "protein_per_serving_g": 22,
+      "carbs_per_serving_g": 27,
+      "fat_per_serving_g": 12,
+      "calories_per_serving": 304,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 10,
+      "serving_size_g": 74,
+      "pieces_per_package": 6,
+      "texture": "crispy",
+      "dietary": [
+        "low-carb",
+        "non-gmo",
+        "keto-friendly"
+      ],
+      "goals": [
+        "daily_protein",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-016",
+    "page_content": "Detour Protein Bar bar in Double Chocolate provides 25g protein with crispy texture. 208 kcal, 18g carbs, 4g fat, 7g sugar, 3g fiber.. Gluten free. Great for meal replacement and muscle gain.",
+    "metadata": {
+      "sku": "BAR-DET-BAR-016",
+      "name": "Protein Bar - Double Chocolate",
+      "brand": "Detour",
+      "category": "protein_bar",
+      "price": 28.41,
+      "weight_kg": 0.752,
+      "flavor": "Double Chocolate",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/detour-protein-bar---double-chocolate-double-chocolate.jpg",
+      "product_url": "https://example.com/products/detour-protein-bar---double-chocolate-double-chocolate"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "blend_protein",
+      "protein_per_serving_g": 25,
+      "carbs_per_serving_g": 18,
+      "fat_per_serving_g": 4,
+      "calories_per_serving": 208,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 3,
+      "serving_size_g": 56,
+      "pieces_per_package": 12,
+      "texture": "crispy",
+      "dietary": [
+        "gluten-free",
+        "vegan"
+      ],
+      "goals": [
+        "meal_replacement",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "bar-017",
+    "page_content": "Try Clif Builders bar in Dark Chocolate — 16g protein, chewy texture. 223 kcal, 24g carbs, 7g fat, 6g sugar, 13g fiber.. Keto friendly. Ideal for muscle maintenance and muscle gain.",
+    "metadata": {
+      "sku": "BAR-CLI-BAR-017",
+      "name": "Protein Bar - Dark Chocolate",
+      "brand": "Clif Builders",
+      "category": "protein_bar",
+      "price": 40.54,
+      "weight_kg": 0.807,
+      "flavor": "Dark Chocolate",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/clif-builders-protein-bar---dark-chocolate-dark-chocolate.jpg",
+      "product_url": "https://example.com/products/clif-builders-protein-bar---dark-chocolate-dark-chocolate"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "egg_white",
+      "protein_per_serving_g": 16,
+      "carbs_per_serving_g": 24,
+      "fat_per_serving_g": 7,
+      "calories_per_serving": 223,
+      "sugar_per_serving_g": 6,
+      "fiber_per_serving_g": 13,
+      "serving_size_g": 59,
+      "pieces_per_package": 12,
+      "texture": "chewy",
+      "dietary": [
+        "keto-friendly",
+        "dairy-free",
+        "low-sugar"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "bar-018",
+    "page_content": "MusclePharm bar in Strawberry delivers 14g of protein from whey protein concentrate. Soft and indulgent texture. Each serving has 250 kcal, 26g carbs, 10g fat, 6g sugar, and 16g fiber. Dairy free. Supports muscle maintenance and meal replacement.",
+    "metadata": {
+      "sku": "BAR-MUS-BAR-018",
+      "name": "Protein Bar - Strawberry",
+      "brand": "MusclePharm",
+      "category": "protein_bar",
+      "price": 33.5,
+      "weight_kg": 1.139,
+      "flavor": "Strawberry",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/musclepharm-protein-bar---strawberry-strawberry.jpg",
+      "product_url": "https://example.com/products/musclepharm-protein-bar---strawberry-strawberry"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "whey_concentrate",
+      "protein_per_serving_g": 14,
+      "carbs_per_serving_g": 26,
+      "fat_per_serving_g": 10,
+      "calories_per_serving": 250,
+      "sugar_per_serving_g": 6,
+      "fiber_per_serving_g": 16,
+      "serving_size_g": 54,
+      "pieces_per_package": 20,
+      "texture": "soft",
+      "dietary": [
+        "dairy-free",
+        "vegan",
+        "low-carb"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "meal_replacement"
+      ]
+    }
+  },
+  {
+    "id": "bar-019",
+    "page_content": "Built Bar bar in Strawberry delivers 20g of protein from pea protein isolate. Soft and indulgent texture. Each serving has 246 kcal, 19g carbs, 10g fat, 4g sugar, and 11g fiber. Vegan. Supports meal replacement and high protein snack.",
+    "metadata": {
+      "sku": "BAR-BUI-BAR-019",
+      "name": "Protein Bar - Strawberry",
+      "brand": "Built Bar",
+      "category": "protein_bar",
+      "price": 37.1,
+      "weight_kg": 0.816,
+      "flavor": "Strawberry",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/built-bar-protein-bar---strawberry-strawberry.jpg",
+      "product_url": "https://example.com/products/built-bar-protein-bar---strawberry-strawberry"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "pea_protein",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 19,
+      "fat_per_serving_g": 10,
+      "calories_per_serving": 246,
+      "sugar_per_serving_g": 4,
+      "fiber_per_serving_g": 11,
+      "serving_size_g": 60,
+      "pieces_per_package": 12,
+      "texture": "soft",
+      "dietary": [
+        "vegan",
+        "non-gmo"
+      ],
+      "goals": [
+        "meal_replacement",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-020",
+    "page_content": "Try Barebells bar in Oatmeal Chocolate Chip — 23g protein, crispy texture. 275 kcal, 21g carbs, 11g fat, 4g sugar, 13g fiber.. Vegan. Ideal for high protein snack and meal replacement.",
+    "metadata": {
+      "sku": "BAR-BAR-BAR-020",
+      "name": "Protein Bar - Oatmeal Chocolate Chip",
+      "brand": "Barebells",
+      "category": "protein_bar",
+      "price": 31.18,
+      "weight_kg": 0.81,
+      "flavor": "Oatmeal Chocolate Chip",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/barebells-protein-bar---oatmeal-chocolate-chip-oatmeal-chocolate-chip.jpg",
+      "product_url": "https://example.com/products/barebells-protein-bar---oatmeal-chocolate-chip-oatmeal-chocolate-chip"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "casein",
+      "protein_per_serving_g": 23,
+      "carbs_per_serving_g": 21,
+      "fat_per_serving_g": 11,
+      "calories_per_serving": 275,
+      "sugar_per_serving_g": 4,
+      "fiber_per_serving_g": 13,
+      "serving_size_g": 50,
+      "pieces_per_package": 15,
+      "texture": "crispy",
+      "dietary": [
+        "vegan",
+        "organic",
+        "keto-friendly"
+      ],
+      "goals": [
+        "high_protein_snack",
+        "meal_replacement"
+      ]
+    }
+  },
+  {
+    "id": "bar-021",
+    "page_content": "Power Crunch bar in Dark Chocolate delivers 18g of protein from egg white protein. Crunchy texture with delightful bite. Each serving has 279 kcal, 27g carbs, 11g fat, 6g sugar, and 12g fiber. Dairy free. Supports daily protein and muscle maintenance.",
+    "metadata": {
+      "sku": "BAR-POW-BAR-021",
+      "name": "Protein Bar - Dark Chocolate",
+      "brand": "Power Crunch",
+      "category": "protein_bar",
+      "price": 35.69,
+      "weight_kg": 0.99,
+      "flavor": "Dark Chocolate",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/power-crunch-protein-bar---dark-chocolate-dark-chocolate.jpg",
+      "product_url": "https://example.com/products/power-crunch-protein-bar---dark-chocolate-dark-chocolate"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "egg_white",
+      "protein_per_serving_g": 18,
+      "carbs_per_serving_g": 27,
+      "fat_per_serving_g": 11,
+      "calories_per_serving": 279,
+      "sugar_per_serving_g": 6,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 61,
+      "pieces_per_package": 15,
+      "texture": "crunchy",
+      "dietary": [
+        "dairy-free"
+      ],
+      "goals": [
+        "daily_protein",
+        "muscle_maintenance"
+      ]
+    }
+  },
+  {
+    "id": "bar-022",
+    "page_content": "Quest Nutrition Protein Bar bar in Pecan provides 25g protein with crispy texture. 212 kcal, 19g carbs, 4g fat, 5g sugar, 16g fiber.. Keto friendly. Great for meal replacement and daily protein.",
+    "metadata": {
+      "sku": "BAR-QUE-BAR-022",
+      "name": "Protein Bar - Pecan",
+      "brand": "Quest Nutrition",
+      "category": "protein_bar",
+      "price": 30.94,
+      "weight_kg": 0.872,
+      "flavor": "Pecan",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/quest-nutrition-protein-bar---pecan-pecan.jpg",
+      "product_url": "https://example.com/products/quest-nutrition-protein-bar---pecan-pecan"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "whey_protein_isolate",
+      "protein_per_serving_g": 25,
+      "carbs_per_serving_g": 19,
+      "fat_per_serving_g": 4,
+      "calories_per_serving": 212,
+      "sugar_per_serving_g": 5,
+      "fiber_per_serving_g": 16,
+      "serving_size_g": 54,
+      "pieces_per_package": 15,
+      "texture": "crispy",
+      "dietary": [
+        "keto-friendly",
+        "dairy-free",
+        "non-gmo"
+      ],
+      "goals": [
+        "meal_replacement",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "bar-023",
+    "page_content": "RXBar bar in Blueberry delivers 16g of protein from casein and whey blend. Soft and indulgent texture. Each serving has 222 kcal, 26g carbs, 6g fat, 3g sugar, and 18g fiber. Gluten free. Supports daily protein and meal replacement.",
+    "metadata": {
+      "sku": "BAR-RXB-BAR-023",
+      "name": "Protein Bar - Blueberry",
+      "brand": "RXBar",
+      "category": "protein_bar",
+      "price": 41.85,
+      "weight_kg": 0.768,
+      "flavor": "Blueberry",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/rxbar-protein-bar---blueberry-blueberry.jpg",
+      "product_url": "https://example.com/products/rxbar-protein-bar---blueberry-blueberry"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 16,
+      "carbs_per_serving_g": 26,
+      "fat_per_serving_g": 6,
+      "calories_per_serving": 222,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 18,
+      "serving_size_g": 67,
+      "pieces_per_package": 10,
+      "texture": "soft",
+      "dietary": [
+        "gluten-free",
+        "low-carb",
+        "dairy-free"
+      ],
+      "goals": [
+        "daily_protein",
+        "meal_replacement"
+      ]
+    }
+  },
+  {
+    "id": "bar-024",
+    "page_content": "Try Good! Snacks bar in Cherry — 15g protein, crispy texture. 172 kcal, 19g carbs, 4g fat, 4g sugar, 17g fiber.. Dairy free. Ideal for muscle gain and daily protein.",
+    "metadata": {
+      "sku": "BAR-GOO-BAR-024",
+      "name": "Protein Bar - Cherry",
+      "brand": "Good! Snacks",
+      "category": "protein_bar",
+      "price": 37.87,
+      "weight_kg": 1.001,
+      "flavor": "Cherry",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/good--snacks-protein-bar---cherry-cherry.jpg",
+      "product_url": "https://example.com/products/good--snacks-protein-bar---cherry-cherry"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "soy_protein",
+      "protein_per_serving_g": 15,
+      "carbs_per_serving_g": 19,
+      "fat_per_serving_g": 4,
+      "calories_per_serving": 172,
+      "sugar_per_serving_g": 4,
+      "fiber_per_serving_g": 17,
+      "serving_size_g": 51,
+      "pieces_per_package": 18,
+      "texture": "crispy",
+      "dietary": [
+        "dairy-free",
+        "organic",
+        "keto-friendly"
+      ],
+      "goals": [
+        "muscle_gain",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "bar-025",
+    "page_content": "PowerBar crisp_bar in Chocolate Chip delivers 22g of protein from whey protein isolate. Crunchy texture with delightful bite. Each serving has 220 kcal, 24g carbs, 4g fat, 7g sugar, and 8g fiber. Non gmo. Supports muscle maintenance and weight loss.",
+    "metadata": {
+      "sku": "BAR-POW-CRI-025",
+      "name": "Protein Crisp Bar - Chocolate Chip",
+      "brand": "PowerBar",
+      "category": "protein_bar",
+      "price": 34.47,
+      "weight_kg": 0.486,
+      "flavor": "Chocolate Chip",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/powerbar-protein-crisp-bar---chocolate-chip-chocolate-chip.jpg",
+      "product_url": "https://example.com/products/powerbar-protein-crisp-bar---chocolate-chip-chocolate-chip"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "whey_protein_isolate",
+      "protein_per_serving_g": 22,
+      "carbs_per_serving_g": 24,
+      "fat_per_serving_g": 4,
+      "calories_per_serving": 220,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 8,
+      "serving_size_g": 53,
+      "pieces_per_package": 8,
+      "texture": "crunchy",
+      "dietary": [
+        "non-gmo",
+        "low-carb",
+        "low-sugar"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "weight_loss"
+      ]
+    }
+  },
+  {
+    "id": "bar-026",
+    "page_content": "Atlas Bar bar in Maple delivers 25g of protein from casein and whey blend. Light and crispy layer for crunch lovers. Each serving has 260 kcal, 22g carbs, 8g fat, 2g sugar, and 4g fiber. Gluten free. Supports meal replacement and high protein snack.",
+    "metadata": {
+      "sku": "BAR-ATL-BAR-026",
+      "name": "Protein Bar - Maple",
+      "brand": "Atlas Bar",
+      "category": "protein_bar",
+      "price": 32.29,
+      "weight_kg": 0.574,
+      "flavor": "Maple",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/atlas-bar-protein-bar---maple-maple.jpg",
+      "product_url": "https://example.com/products/atlas-bar-protein-bar---maple-maple"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 25,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 260,
+      "sugar_per_serving_g": 2,
+      "fiber_per_serving_g": 4,
+      "serving_size_g": 62,
+      "pieces_per_package": 8,
+      "texture": "crispy",
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "meal_replacement",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-027",
+    "page_content": "BSN bar in Double Chocolate delivers 22g of protein from plant-based protein blend. Chewy texture with satisfying bite. Each serving has 215 kcal, 16g carbs, 7g fat, 4g sugar, and 18g fiber. Gluten free. Supports daily protein and muscle maintenance.",
+    "metadata": {
+      "sku": "BAR-BSN-BAR-027",
+      "name": "Protein Bar - Double Chocolate",
+      "brand": "BSN",
+      "category": "protein_bar",
+      "price": 41.86,
+      "weight_kg": 0.849,
+      "flavor": "Double Chocolate",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/bsn-protein-bar---double-chocolate-double-chocolate.jpg",
+      "product_url": "https://example.com/products/bsn-protein-bar---double-chocolate-double-chocolate"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "plant_protein",
+      "protein_per_serving_g": 22,
+      "carbs_per_serving_g": 16,
+      "fat_per_serving_g": 7,
+      "calories_per_serving": 215,
+      "sugar_per_serving_g": 4,
+      "fiber_per_serving_g": 18,
+      "serving_size_g": 51,
+      "pieces_per_package": 15,
+      "texture": "chewy",
+      "dietary": [
+        "gluten-free",
+        "vegan"
+      ],
+      "goals": [
+        "daily_protein",
+        "muscle_maintenance"
+      ]
+    }
+  },
+  {
+    "id": "bar-028",
+    "page_content": "Kirkland bar in Peanut Butter Cup delivers 18g of protein from whey protein concentrate. Chewy texture with satisfying bite. Each serving has 215 kcal, 20g carbs, 7g fat, 7g sugar, and 13g fiber. Vegan. Supports muscle maintenance and muscle gain.",
+    "metadata": {
+      "sku": "BAR-KIR-BAR-028",
+      "name": "Protein Bar - Peanut Butter Cup",
+      "brand": "Kirkland",
+      "category": "protein_bar",
+      "price": 40.1,
+      "weight_kg": 1.57,
+      "flavor": "Peanut Butter Cup",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/kirkland-protein-bar---peanut-butter-cup-peanut-butter-cup.jpg",
+      "product_url": "https://example.com/products/kirkland-protein-bar---peanut-butter-cup-peanut-butter-cup"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "whey_concentrate",
+      "protein_per_serving_g": 18,
+      "carbs_per_serving_g": 20,
+      "fat_per_serving_g": 7,
+      "calories_per_serving": 215,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 13,
+      "serving_size_g": 74,
+      "pieces_per_package": 20,
+      "texture": "chewy",
+      "dietary": [
+        "vegan",
+        "non-gmo",
+        "organic"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "bar-029",
+    "page_content": "Grenade Protein Bar bar in Cookie Dough provides 19g protein with soft texture. 208 kcal, 15g carbs, 8g fat, 8g sugar, 18g fiber.. Low carb. Great for muscle gain and low carb snack.",
+    "metadata": {
+      "sku": "BAR-GRE-BAR-029",
+      "name": "Protein Bar - Cookie Dough",
+      "brand": "Grenade",
+      "category": "protein_bar",
+      "price": 35.7,
+      "weight_kg": 0.801,
+      "flavor": "Cookie Dough",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/grenade-protein-bar---cookie-dough-cookie-dough.jpg",
+      "product_url": "https://example.com/products/grenade-protein-bar---cookie-dough-cookie-dough"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "plant_protein",
+      "protein_per_serving_g": 19,
+      "carbs_per_serving_g": 15,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 208,
+      "sugar_per_serving_g": 8,
+      "fiber_per_serving_g": 18,
+      "serving_size_g": 61,
+      "pieces_per_package": 12,
+      "texture": "soft",
+      "dietary": [
+        "low-carb"
+      ],
+      "goals": [
+        "muscle_gain",
+        "low_carb_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-030",
+    "page_content": "ProBar crisp_bar in Cookies & Cream delivers 16g of protein from milk protein casein. Crunchy texture with delightful bite. Each serving has 226 kcal, 27g carbs, 6g fat, 7g sugar, and 13g fiber. Organic. Supports muscle maintenance and muscle gain.",
+    "metadata": {
+      "sku": "BAR-PRO-CRI-030",
+      "name": "Protein Crisp Bar - Cookies & Cream",
+      "brand": "ProBar",
+      "category": "protein_bar",
+      "price": 29.97,
+      "weight_kg": 1.051,
+      "flavor": "Cookies & Cream",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/probar-protein-crisp-bar---cookies---cream-cookies---cream.jpg",
+      "product_url": "https://example.com/products/probar-protein-crisp-bar---cookies---cream-cookies---cream"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "casein",
+      "protein_per_serving_g": 16,
+      "carbs_per_serving_g": 27,
+      "fat_per_serving_g": 6,
+      "calories_per_serving": 226,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 13,
+      "serving_size_g": 53,
+      "pieces_per_package": 18,
+      "texture": "crunchy",
+      "dietary": [
+        "organic",
+        "low-carb"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "bar-031",
+    "page_content": "Kind Protein cookie in Salted Caramel delivers 15g of protein from casein and whey blend. Soft and indulgent texture. Each serving has 165 kcal, 15g carbs, 5g fat, 6g sugar, and 5g fiber. Keto friendly. Supports low carb snack and daily protein.",
+    "metadata": {
+      "sku": "BAR-KIN-COO-031",
+      "name": "Protein Cookie - Salted Caramel",
+      "brand": "Kind Protein",
+      "category": "protein_bar",
+      "price": 28.79,
+      "weight_kg": 1.187,
+      "flavor": "Salted Caramel",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/kind-protein-protein-cookie---salted-caramel-salted-caramel.jpg",
+      "product_url": "https://example.com/products/kind-protein-protein-cookie---salted-caramel-salted-caramel"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 15,
+      "carbs_per_serving_g": 15,
+      "fat_per_serving_g": 5,
+      "calories_per_serving": 165,
+      "sugar_per_serving_g": 6,
+      "fiber_per_serving_g": 5,
+      "serving_size_g": 62,
+      "pieces_per_package": 18,
+      "texture": "soft",
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "low_carb_snack",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "bar-032",
+    "page_content": "Try ONE crisp_bar in Raspberry — 18g protein, crunchy texture. 263 kcal, 23g carbs, 11g fat, 3g sugar, 5g fiber.. Organic. Ideal for muscle maintenance and high protein snack.",
+    "metadata": {
+      "sku": "BAR-ONE-CRI-032",
+      "name": "Protein Crisp Bar - Raspberry",
+      "brand": "ONE",
+      "category": "protein_bar",
+      "price": 31.14,
+      "weight_kg": 0.695,
+      "flavor": "Raspberry",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/one-protein-crisp-bar---raspberry-raspberry.jpg",
+      "product_url": "https://example.com/products/one-protein-crisp-bar---raspberry-raspberry"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "soy_protein",
+      "protein_per_serving_g": 18,
+      "carbs_per_serving_g": 23,
+      "fat_per_serving_g": 11,
+      "calories_per_serving": 263,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 5,
+      "serving_size_g": 63,
+      "pieces_per_package": 10,
+      "texture": "crunchy",
+      "dietary": [
+        "organic"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-033",
+    "page_content": "Try Quest Hero crisp_bar in Dark Chocolate — 16g protein, chewy texture. 196 kcal, 24g carbs, 4g fat, 7g sugar, 13g fiber.. Low sugar. Ideal for muscle maintenance and low carb snack.",
+    "metadata": {
+      "sku": "BAR-QUE-CRI-033",
+      "name": "Protein Crisp Bar - Dark Chocolate",
+      "brand": "Quest Hero",
+      "category": "protein_bar",
+      "price": 41.93,
+      "weight_kg": 1.572,
+      "flavor": "Dark Chocolate",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/quest-hero-protein-crisp-bar---dark-chocolate-dark-chocolate.jpg",
+      "product_url": "https://example.com/products/quest-hero-protein-crisp-bar---dark-chocolate-dark-chocolate"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 16,
+      "carbs_per_serving_g": 24,
+      "fat_per_serving_g": 4,
+      "calories_per_serving": 196,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 13,
+      "serving_size_g": 75,
+      "pieces_per_package": 20,
+      "texture": "chewy",
+      "dietary": [
+        "low-sugar",
+        "dairy-free"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "low_carb_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-034",
+    "page_content": "No Cow bar in Chocolate delivers 19g of protein from soy protein isolate. Soft and indulgent texture. Each serving has 271 kcal, 24g carbs, 11g fat, 4g sugar, and 13g fiber. Keto friendly. Supports low carb snack and daily protein.",
+    "metadata": {
+      "sku": "BAR-NO -BAR-034",
+      "name": "Protein Bar - Chocolate",
+      "brand": "No Cow",
+      "category": "protein_bar",
+      "price": 41.25,
+      "weight_kg": 1.23,
+      "flavor": "Chocolate",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/no-cow-protein-bar---chocolate-chocolate.jpg",
+      "product_url": "https://example.com/products/no-cow-protein-bar---chocolate-chocolate"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "soy_protein",
+      "protein_per_serving_g": 19,
+      "carbs_per_serving_g": 24,
+      "fat_per_serving_g": 11,
+      "calories_per_serving": 271,
+      "sugar_per_serving_g": 4,
+      "fiber_per_serving_g": 13,
+      "serving_size_g": 58,
+      "pieces_per_package": 20,
+      "texture": "soft",
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "low_carb_snack",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "bar-035",
+    "page_content": "Try Think! bar in Pecan — 25g protein, soft texture. 283 kcal, 21g carbs, 11g fat, 5g sugar, 5g fiber.. Non gmo. Ideal for meal replacement and high protein snack.",
+    "metadata": {
+      "sku": "BAR-THI-BAR-035",
+      "name": "Protein Bar - Pecan",
+      "brand": "Think!",
+      "category": "protein_bar",
+      "price": 36.49,
+      "weight_kg": 1.502,
+      "flavor": "Pecan",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/think--protein-bar---pecan-pecan.jpg",
+      "product_url": "https://example.com/products/think--protein-bar---pecan-pecan"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "whey_protein_isolate",
+      "protein_per_serving_g": 25,
+      "carbs_per_serving_g": 21,
+      "fat_per_serving_g": 11,
+      "calories_per_serving": 283,
+      "sugar_per_serving_g": 5,
+      "fiber_per_serving_g": 5,
+      "serving_size_g": 71,
+      "pieces_per_package": 20,
+      "texture": "soft",
+      "dietary": [
+        "non-gmo"
+      ],
+      "goals": [
+        "meal_replacement",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-036",
+    "page_content": "ThinkThin Protein Bar bar in Hazelnut provides 23g protein with soft texture. 302 kcal, 30g carbs, 10g fat, 7g sugar, 4g fiber.. Vegan. Great for meal replacement and daily protein.",
+    "metadata": {
+      "sku": "BAR-THI-BAR-036",
+      "name": "Protein Bar - Hazelnut",
+      "brand": "ThinkThin",
+      "category": "protein_bar",
+      "price": 42.03,
+      "weight_kg": 1.373,
+      "flavor": "Hazelnut",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/thinkthin-protein-bar---hazelnut-hazelnut.jpg",
+      "product_url": "https://example.com/products/thinkthin-protein-bar---hazelnut-hazelnut"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "casein",
+      "protein_per_serving_g": 23,
+      "carbs_per_serving_g": 30,
+      "fat_per_serving_g": 10,
+      "calories_per_serving": 302,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 4,
+      "serving_size_g": 72,
+      "pieces_per_package": 18,
+      "texture": "soft",
+      "dietary": [
+        "vegan",
+        "gluten-free",
+        "dairy-free"
+      ],
+      "goals": [
+        "meal_replacement",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "bar-037",
+    "page_content": "Try Premier Protein brownie in Dark Chocolate — 19g protein, soft texture. 233 kcal, 28g carbs, 5g fat, 1g sugar, 6g fiber.. Keto friendly. Ideal for weight loss and daily protein.",
+    "metadata": {
+      "sku": "BAR-PRE-BRO-037",
+      "name": "Protein Brownie - Dark Chocolate",
+      "brand": "Premier Protein",
+      "category": "protein_bar",
+      "price": 35.66,
+      "weight_kg": 0.931,
+      "flavor": "Dark Chocolate",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/premier-protein-protein-brownie---dark-chocolate-dark-chocolate.jpg",
+      "product_url": "https://example.com/products/premier-protein-protein-brownie---dark-chocolate-dark-chocolate"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "rice_protein",
+      "protein_per_serving_g": 19,
+      "carbs_per_serving_g": 28,
+      "fat_per_serving_g": 5,
+      "calories_per_serving": 233,
+      "sugar_per_serving_g": 1,
+      "fiber_per_serving_g": 6,
+      "serving_size_g": 57,
+      "pieces_per_package": 15,
+      "texture": "soft",
+      "dietary": [
+        "keto-friendly",
+        "dairy-free",
+        "low-sugar"
+      ],
+      "goals": [
+        "weight_loss",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "bar-038",
+    "page_content": "Try Fulfil crisp_bar in S'mores — 14g protein, crunchy texture. 221 kcal, 30g carbs, 5g fat, 5g sugar, 16g fiber.. Non gmo. Ideal for weight loss and high protein snack.",
+    "metadata": {
+      "sku": "BAR-FUL-CRI-038",
+      "name": "Protein Crisp Bar - S'mores",
+      "brand": "Fulfil",
+      "category": "protein_bar",
+      "price": 39.07,
+      "weight_kg": 0.511,
+      "flavor": "S'mores",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/fulfil-protein-crisp-bar---s-mores-s-mores.jpg",
+      "product_url": "https://example.com/products/fulfil-protein-crisp-bar---s-mores-s-mores"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "soy_protein",
+      "protein_per_serving_g": 14,
+      "carbs_per_serving_g": 30,
+      "fat_per_serving_g": 5,
+      "calories_per_serving": 221,
+      "sugar_per_serving_g": 5,
+      "fiber_per_serving_g": 16,
+      "serving_size_g": 53,
+      "pieces_per_package": 8,
+      "texture": "crunchy",
+      "dietary": [
+        "non-gmo",
+        "low-sugar"
+      ],
+      "goals": [
+        "weight_loss",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-039",
+    "page_content": "Try Lenny & Larry's bar in Birthday Cake — 25g protein, soft texture. 297 kcal, 29g carbs, 9g fat, 2g sugar, 12g fiber.. Vegan. Ideal for daily protein and high protein snack.",
+    "metadata": {
+      "sku": "BAR-LEN-BAR-039",
+      "name": "Protein Bar - Birthday Cake",
+      "brand": "Lenny & Larry's",
+      "category": "protein_bar",
+      "price": 36.86,
+      "weight_kg": 0.501,
+      "flavor": "Birthday Cake",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/lenny---larry-s-protein-bar---birthday-cake-birthday-cake.jpg",
+      "product_url": "https://example.com/products/lenny---larry-s-protein-bar---birthday-cake-birthday-cake"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "casein",
+      "protein_per_serving_g": 25,
+      "carbs_per_serving_g": 29,
+      "fat_per_serving_g": 9,
+      "calories_per_serving": 297,
+      "sugar_per_serving_g": 2,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 75,
+      "pieces_per_package": 6,
+      "texture": "soft",
+      "dietary": [
+        "vegan",
+        "organic"
+      ],
+      "goals": [
+        "daily_protein",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-040",
+    "page_content": "Pure Protein Protein Bar bar in Coffee provides 19g protein with crispy texture. 287 kcal, 28g carbs, 11g fat, 4g sugar, 15g fiber.. Keto friendly. Great for weight loss and low carb snack.",
+    "metadata": {
+      "sku": "BAR-PUR-BAR-040",
+      "name": "Protein Bar - Coffee",
+      "brand": "Pure Protein",
+      "category": "protein_bar",
+      "price": 36.61,
+      "weight_kg": 0.622,
+      "flavor": "Coffee",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/pure-protein-protein-bar---coffee-coffee.jpg",
+      "product_url": "https://example.com/products/pure-protein-protein-bar---coffee-coffee"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "pea_protein",
+      "protein_per_serving_g": 19,
+      "carbs_per_serving_g": 28,
+      "fat_per_serving_g": 11,
+      "calories_per_serving": 287,
+      "sugar_per_serving_g": 4,
+      "fiber_per_serving_g": 15,
+      "serving_size_g": 55,
+      "pieces_per_package": 10,
+      "texture": "crispy",
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "weight_loss",
+        "low_carb_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-041",
+    "page_content": "Detour Protein Crisp Bar crisp_bar in Lemon provides 25g protein with crunchy texture. 213 kcal, 17g carbs, 5g fat, 3g sugar, 14g fiber.. Organic. Great for weight loss and low carb snack.",
+    "metadata": {
+      "sku": "BAR-DET-CRI-041",
+      "name": "Protein Crisp Bar - Lemon",
+      "brand": "Detour",
+      "category": "protein_bar",
+      "price": 35.46,
+      "weight_kg": 1.071,
+      "flavor": "Lemon",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/detour-protein-crisp-bar---lemon-lemon.jpg",
+      "product_url": "https://example.com/products/detour-protein-crisp-bar---lemon-lemon"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "egg_white",
+      "protein_per_serving_g": 25,
+      "carbs_per_serving_g": 17,
+      "fat_per_serving_g": 5,
+      "calories_per_serving": 213,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 14,
+      "serving_size_g": 56,
+      "pieces_per_package": 18,
+      "texture": "crunchy",
+      "dietary": [
+        "organic",
+        "non-gmo"
+      ],
+      "goals": [
+        "weight_loss",
+        "low_carb_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-042",
+    "page_content": "Try Clif bar in Almond — 23g protein, soft texture. 244 kcal, 20g carbs, 8g fat, 2g sugar, 7g fiber.. Low sugar. Ideal for weight loss and daily protein.",
+    "metadata": {
+      "sku": "BAR-CLI-BAR-042",
+      "name": "Protein Bar - Almond",
+      "brand": "Clif Builders",
+      "category": "protein_bar",
+      "price": 32.18,
+      "weight_kg": 1.01,
+      "flavor": "Almond",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/clif-builders-protein-bar---almond-almond.jpg",
+      "product_url": "https://example.com/products/clif-builders-protein-bar---almond-almond"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "plant_protein",
+      "protein_per_serving_g": 23,
+      "carbs_per_serving_g": 20,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 244,
+      "sugar_per_serving_g": 2,
+      "fiber_per_serving_g": 7,
+      "serving_size_g": 53,
+      "pieces_per_package": 18,
+      "texture": "soft",
+      "dietary": [
+        "low-sugar",
+        "non-gmo"
+      ],
+      "goals": [
+        "weight_loss",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "bar-043",
+    "page_content": "MusclePharm bar in Caramel delivers 21g of protein from whey protein concentrate. Light and crispy layer for crunch lovers. Each serving has 272 kcal, 20g carbs, 12g fat, 3g sugar, and 18g fiber. Gluten free. Supports muscle gain and weight loss.",
+    "metadata": {
+      "sku": "BAR-MUS-BAR-043",
+      "name": "Protein Bar - Caramel",
+      "brand": "MusclePharm",
+      "category": "protein_bar",
+      "price": 30.81,
+      "weight_kg": 0.902,
+      "flavor": "Caramel",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/musclepharm-protein-bar---caramel-caramel.jpg",
+      "product_url": "https://example.com/products/musclepharm-protein-bar---caramel-caramel"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "whey_concentrate",
+      "protein_per_serving_g": 21,
+      "carbs_per_serving_g": 20,
+      "fat_per_serving_g": 12,
+      "calories_per_serving": 272,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 18,
+      "serving_size_g": 54,
+      "pieces_per_package": 15,
+      "texture": "crispy",
+      "dietary": [
+        "gluten-free",
+        "low-carb",
+        "low-sugar"
+      ],
+      "goals": [
+        "muscle_gain",
+        "weight_loss"
+      ]
+    }
+  },
+  {
+    "id": "bar-044",
+    "page_content": "Built Bar bar in Chocolate Peanut Butter delivers 20g of protein from pea protein isolate. Soft and indulgent texture. Each serving has 290 kcal, 30g carbs, 10g fat, 8g sugar, and 18g fiber. Non gmo. Supports muscle gain and muscle maintenance.",
+    "metadata": {
+      "sku": "BAR-BUI-BAR-044",
+      "name": "Protein Bar - Chocolate Peanut Butter",
+      "brand": "Built Bar",
+      "category": "protein_bar",
+      "price": 35.48,
+      "weight_kg": 0.61,
+      "flavor": "Chocolate Peanut Butter",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/built-bar-protein-bar---chocolate-peanut-butter-chocolate-peanut-butter.jpg",
+      "product_url": "https://example.com/products/built-bar-protein-bar---chocolate-peanut-butter-chocolate-peanut-butter"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "pea_protein",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 30,
+      "fat_per_serving_g": 10,
+      "calories_per_serving": 290,
+      "sugar_per_serving_g": 8,
+      "fiber_per_serving_g": 18,
+      "serving_size_g": 52,
+      "pieces_per_package": 10,
+      "texture": "soft",
+      "dietary": [
+        "non-gmo"
+      ],
+      "goals": [
+        "muscle_gain",
+        "muscle_maintenance"
+      ]
+    }
+  },
+  {
+    "id": "bar-045",
+    "page_content": "Barebells cookie in Lemon delivers 22g of protein from casein and whey blend. Soft and indulgent texture. Each serving has 205 kcal, 18g carbs, 5g fat, 5g sugar, and 14g fiber. Vegan. Supports daily protein and meal replacement.",
+    "metadata": {
+      "sku": "BAR-BAR-COO-045",
+      "name": "Protein Cookie - Lemon",
+      "brand": "Barebells",
+      "category": "protein_bar",
+      "price": 36.98,
+      "weight_kg": 0.521,
+      "flavor": "Lemon",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/barebells-protein-cookie---lemon-lemon.jpg",
+      "product_url": "https://example.com/products/barebells-protein-cookie---lemon-lemon"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 22,
+      "carbs_per_serving_g": 18,
+      "fat_per_serving_g": 5,
+      "calories_per_serving": 205,
+      "sugar_per_serving_g": 5,
+      "fiber_per_serving_g": 14,
+      "serving_size_g": 74,
+      "pieces_per_package": 6,
+      "texture": "soft",
+      "dietary": [
+        "vegan",
+        "organic"
+      ],
+      "goals": [
+        "daily_protein",
+        "meal_replacement"
+      ]
+    }
+  },
+  {
+    "id": "bar-046",
+    "page_content": "Power Crunch cookie in Almond delivers 19g of protein from casein and whey blend. Crunchy texture with delightful bite. Each serving has 243 kcal, 17g carbs, 11g fat, 2g sugar, and 10g fiber. Low carb. Supports high protein snack and daily protein.",
+    "metadata": {
+      "sku": "BAR-POW-COO-046",
+      "name": "Protein Cookie - Almond",
+      "brand": "Power Crunch",
+      "category": "protein_bar",
+      "price": 38.46,
+      "weight_kg": 0.984,
+      "flavor": "Almond",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/power-crunch-protein-cookie---almond-almond.jpg",
+      "product_url": "https://example.com/products/power-crunch-protein-cookie---almond-almond"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 19,
+      "carbs_per_serving_g": 17,
+      "fat_per_serving_g": 11,
+      "calories_per_serving": 243,
+      "sugar_per_serving_g": 2,
+      "fiber_per_serving_g": 10,
+      "serving_size_g": 75,
+      "pieces_per_package": 12,
+      "texture": "crunchy",
+      "dietary": [
+        "low-carb",
+        "vegan",
+        "non-gmo"
+      ],
+      "goals": [
+        "high_protein_snack",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "bar-047",
+    "page_content": "Quest Nutrition crisp_bar in Blueberry delivers 23g of protein from pea protein isolate. Crunchy texture with delightful bite. Each serving has 253 kcal, 20g carbs, 9g fat, 5g sugar, and 12g fiber. Low sugar. Supports daily protein and weight loss.",
+    "metadata": {
+      "sku": "BAR-QUE-CRI-047",
+      "name": "Protein Crisp Bar - Blueberry",
+      "brand": "Quest Nutrition",
+      "category": "protein_bar",
+      "price": 42.78,
+      "weight_kg": 1.074,
+      "flavor": "Blueberry",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/quest-nutrition-protein-crisp-bar---blueberry-blueberry.jpg",
+      "product_url": "https://example.com/products/quest-nutrition-protein-crisp-bar---blueberry-blueberry"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "pea_protein",
+      "protein_per_serving_g": 23,
+      "carbs_per_serving_g": 20,
+      "fat_per_serving_g": 9,
+      "calories_per_serving": 253,
+      "sugar_per_serving_g": 5,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 66,
+      "pieces_per_package": 15,
+      "texture": "crunchy",
+      "dietary": [
+        "low-sugar"
+      ],
+      "goals": [
+        "daily_protein",
+        "weight_loss"
+      ]
+    }
+  },
+  {
+    "id": "bar-048",
+    "page_content": "RXBar Protein Bar bar in Chocolate Peanut Butter provides 16g protein with crispy texture. 227 kcal, 25g carbs, 7g fat, 7g sugar, 18g fiber.. Dairy free. Great for meal replacement and muscle gain.",
+    "metadata": {
+      "sku": "BAR-RXB-BAR-048",
+      "name": "Protein Bar - Chocolate Peanut Butter",
+      "brand": "RXBar",
+      "category": "protein_bar",
+      "price": 36.49,
+      "weight_kg": 0.761,
+      "flavor": "Chocolate Peanut Butter",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/rxbar-protein-bar---chocolate-peanut-butter-chocolate-peanut-butter.jpg",
+      "product_url": "https://example.com/products/rxbar-protein-bar---chocolate-peanut-butter-chocolate-peanut-butter"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "soy_protein",
+      "protein_per_serving_g": 16,
+      "carbs_per_serving_g": 25,
+      "fat_per_serving_g": 7,
+      "calories_per_serving": 227,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 18,
+      "serving_size_g": 68,
+      "pieces_per_package": 10,
+      "texture": "crispy",
+      "dietary": [
+        "dairy-free",
+        "gluten-free"
+      ],
+      "goals": [
+        "meal_replacement",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "bar-049",
+    "page_content": "Good! Snacks Protein Brownie brownie in Maple provides 21g protein with soft texture. 220 kcal, 25g carbs, 4g fat, 2g sugar, 17g fiber.. Keto friendly. Great for muscle maintenance and daily protein.",
+    "metadata": {
+      "sku": "BAR-GOO-BRO-049",
+      "name": "Protein Brownie - Maple",
+      "brand": "Good! Snacks",
+      "category": "protein_bar",
+      "price": 40.54,
+      "weight_kg": 1.006,
+      "flavor": "Maple",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/good--snacks-protein-brownie---maple-maple.jpg",
+      "product_url": "https://example.com/products/good--snacks-protein-brownie---maple-maple"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "plant_protein",
+      "protein_per_serving_g": 21,
+      "carbs_per_serving_g": 25,
+      "fat_per_serving_g": 4,
+      "calories_per_serving": 220,
+      "sugar_per_serving_g": 2,
+      "fiber_per_serving_g": 17,
+      "serving_size_g": 52,
+      "pieces_per_package": 18,
+      "texture": "soft",
+      "dietary": [
+        "keto-friendly",
+        "dairy-free"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "bar-050",
+    "page_content": "PowerBar bar in S'mores delivers 19g of protein from brown rice protein. Soft and indulgent texture. Each serving has 176 kcal, 16g carbs, 4g fat, 2g sugar, and 17g fiber. Gluten free. Supports high protein snack and meal replacement.",
+    "metadata": {
+      "sku": "BAR-POW-BAR-050",
+      "name": "Protein Bar - S'mores",
+      "brand": "PowerBar",
+      "category": "protein_bar",
+      "price": 40.14,
+      "weight_kg": 0.376,
+      "flavor": "S'mores",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/powerbar-protein-bar---s-mores-s-mores.jpg",
+      "product_url": "https://example.com/products/powerbar-protein-bar---s-mores-s-mores"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "rice_protein",
+      "protein_per_serving_g": 19,
+      "carbs_per_serving_g": 16,
+      "fat_per_serving_g": 4,
+      "calories_per_serving": 176,
+      "sugar_per_serving_g": 2,
+      "fiber_per_serving_g": 17,
+      "serving_size_g": 53,
+      "pieces_per_package": 6,
+      "texture": "soft",
+      "dietary": [
+        "gluten-free",
+        "keto-friendly"
+      ],
+      "goals": [
+        "high_protein_snack",
+        "meal_replacement"
+      ]
+    }
+  },
+  {
+    "id": "bar-051",
+    "page_content": "Atlas brownie in Chocolate Hazelnut delivers 15g of protein from soy protein isolate. Crunchy texture with delightful bite. Each serving has 236 kcal, 26g carbs, 8g fat, 2g sugar, and 14g fiber. Keto friendly. Supports muscle gain and meal replacement.",
+    "metadata": {
+      "sku": "BAR-ATL-BRO-051",
+      "name": "Protein Brownie - Chocolate Hazelnut",
+      "brand": "Atlas Bar",
+      "category": "protein_bar",
+      "price": 32.95,
+      "weight_kg": 0.575,
+      "flavor": "Chocolate Hazelnut",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/atlas-bar-protein-brownie---chocolate-hazelnut-chocolate-hazelnut.jpg",
+      "product_url": "https://example.com/products/atlas-bar-protein-brownie---chocolate-hazelnut-chocolate-hazelnut"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "soy_protein",
+      "protein_per_serving_g": 15,
+      "carbs_per_serving_g": 26,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 236,
+      "sugar_per_serving_g": 2,
+      "fiber_per_serving_g": 14,
+      "serving_size_g": 51,
+      "pieces_per_package": 10,
+      "texture": "crunchy",
+      "dietary": [
+        "keto-friendly",
+        "dairy-free",
+        "organic"
+      ],
+      "goals": [
+        "muscle_gain",
+        "meal_replacement"
+      ]
+    }
+  },
+  {
+    "id": "bar-052",
+    "page_content": "BSN Protein Bar bar in Blueberry provides 23g protein with crispy texture. 288 kcal, 22g carbs, 12g fat, 8g sugar, 3g fiber.. Low sugar. Great for muscle gain and high protein snack.",
+    "metadata": {
+      "sku": "BAR-BSN-BAR-052",
+      "name": "Protein Bar - Blueberry",
+      "brand": "BSN",
+      "category": "protein_bar",
+      "price": 31.35,
+      "weight_kg": 0.488,
+      "flavor": "Blueberry",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/bsn-protein-bar---blueberry-blueberry.jpg",
+      "product_url": "https://example.com/products/bsn-protein-bar---blueberry-blueberry"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "casein",
+      "protein_per_serving_g": 23,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 12,
+      "calories_per_serving": 288,
+      "sugar_per_serving_g": 8,
+      "fiber_per_serving_g": 3,
+      "serving_size_g": 72,
+      "pieces_per_package": 6,
+      "texture": "crispy",
+      "dietary": [
+        "low-sugar",
+        "keto-friendly"
+      ],
+      "goals": [
+        "muscle_gain",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-053",
+    "page_content": "Try Kirkland bar in Lemon — 19g protein, crunchy texture. 226 kcal, 24g carbs, 6g fat, 7g sugar, 7g fiber.. Low sugar. Ideal for meal replacement and high protein snack.",
+    "metadata": {
+      "sku": "BAR-KIR-BAR-053",
+      "name": "Protein Bar - Lemon",
+      "brand": "Kirkland",
+      "category": "protein_bar",
+      "price": 34.96,
+      "weight_kg": 0.57,
+      "flavor": "Lemon",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/kirkland-protein-bar---lemon-lemon.jpg",
+      "product_url": "https://example.com/products/kirkland-protein-bar---lemon-lemon"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "casein",
+      "protein_per_serving_g": 19,
+      "carbs_per_serving_g": 24,
+      "fat_per_serving_g": 6,
+      "calories_per_serving": 226,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 7,
+      "serving_size_g": 52,
+      "pieces_per_package": 10,
+      "texture": "crunchy",
+      "dietary": [
+        "low-sugar",
+        "keto-friendly",
+        "dairy-free"
+      ],
+      "goals": [
+        "meal_replacement",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-054",
+    "page_content": "Grenade crisp_bar in Cookie Dough delivers 17g of protein from brown rice protein. Soft and indulgent texture. Each serving has 181 kcal, 17g carbs, 5g fat, 3g sugar, and 6g fiber. Keto friendly. Supports muscle maintenance and meal replacement.",
+    "metadata": {
+      "sku": "BAR-GRE-CRI-054",
+      "name": "Protein Crisp Bar - Cookie Dough",
+      "brand": "Grenade",
+      "category": "protein_bar",
+      "price": 43.45,
+      "weight_kg": 1.286,
+      "flavor": "Cookie Dough",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/grenade-protein-crisp-bar---cookie-dough-cookie-dough.jpg",
+      "product_url": "https://example.com/products/grenade-protein-crisp-bar---cookie-dough-cookie-dough"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "rice_protein",
+      "protein_per_serving_g": 17,
+      "carbs_per_serving_g": 17,
+      "fat_per_serving_g": 5,
+      "calories_per_serving": 181,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 6,
+      "serving_size_g": 61,
+      "pieces_per_package": 20,
+      "texture": "soft",
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "meal_replacement"
+      ]
+    }
+  },
+  {
+    "id": "bar-055",
+    "page_content": "ProBar cookie in Coconut Almond delivers 17g of protein from whey protein isolate. Crunchy texture with delightful bite. Each serving has 242 kcal, 21g carbs, 10g fat, 5g sugar, and 4g fiber. Vegan. Supports muscle maintenance and daily protein.",
+    "metadata": {
+      "sku": "BAR-PRO-COO-055",
+      "name": "Protein Cookie - Coconut Almond",
+      "brand": "ProBar",
+      "category": "protein_bar",
+      "price": 33.19,
+      "weight_kg": 0.842,
+      "flavor": "Coconut Almond",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/probar-protein-cookie---coconut-almond-coconut-almond.jpg",
+      "product_url": "https://example.com/products/probar-protein-cookie---coconut-almond-coconut-almond"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "whey_protein_isolate",
+      "protein_per_serving_g": 17,
+      "carbs_per_serving_g": 21,
+      "fat_per_serving_g": 10,
+      "calories_per_serving": 242,
+      "sugar_per_serving_g": 5,
+      "fiber_per_serving_g": 4,
+      "serving_size_g": 65,
+      "pieces_per_package": 12,
+      "texture": "crunchy",
+      "dietary": [
+        "vegan",
+        "non-gmo",
+        "gluten-free"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "bar-056",
+    "page_content": "Kind Protein Protein Crisp Bar crisp_bar in Peanut Butter provides 21g protein with crispy texture. 188 kcal, 17g carbs, 4g fat, 2g sugar, 3g fiber.. Non gmo. Great for meal replacement and low carb snack.",
+    "metadata": {
+      "sku": "BAR-KIN-CRI-056",
+      "name": "Protein Crisp Bar - Peanut Butter",
+      "brand": "Kind Protein",
+      "category": "protein_bar",
+      "price": 28.6,
+      "weight_kg": 0.893,
+      "flavor": "Peanut Butter",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/kind-protein-protein-crisp-bar---peanut-butter-peanut-butter.jpg",
+      "product_url": "https://example.com/products/kind-protein-protein-crisp-bar---peanut-butter-peanut-butter"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "plant_protein",
+      "protein_per_serving_g": 21,
+      "carbs_per_serving_g": 17,
+      "fat_per_serving_g": 4,
+      "calories_per_serving": 188,
+      "sugar_per_serving_g": 2,
+      "fiber_per_serving_g": 3,
+      "serving_size_g": 56,
+      "pieces_per_package": 15,
+      "texture": "crispy",
+      "dietary": [
+        "non-gmo",
+        "organic"
+      ],
+      "goals": [
+        "meal_replacement",
+        "low_carb_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-057",
+    "page_content": "ONE crisp_bar in Birthday Cake delivers 18g of protein from milk protein casein. Light and crispy layer for crunch lovers. Each serving has 212 kcal, 17g carbs, 8g fat, 2g sugar, and 9g fiber. Vegan. Supports weight loss and meal replacement.",
+    "metadata": {
+      "sku": "BAR-ONE-CRI-057",
+      "name": "Protein Crisp Bar - Birthday Cake",
+      "brand": "ONE",
+      "category": "protein_bar",
+      "price": 31.9,
+      "weight_kg": 0.749,
+      "flavor": "Birthday Cake",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/one-protein-crisp-bar---birthday-cake-birthday-cake.jpg",
+      "product_url": "https://example.com/products/one-protein-crisp-bar---birthday-cake-birthday-cake"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "casein",
+      "protein_per_serving_g": 18,
+      "carbs_per_serving_g": 17,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 212,
+      "sugar_per_serving_g": 2,
+      "fiber_per_serving_g": 9,
+      "serving_size_g": 67,
+      "pieces_per_package": 10,
+      "texture": "crispy",
+      "dietary": [
+        "vegan",
+        "low-sugar",
+        "organic"
+      ],
+      "goals": [
+        "weight_loss",
+        "meal_replacement"
+      ]
+    }
+  },
+  {
+    "id": "bar-058",
+    "page_content": "Quest Protein Crisp Bar crisp_bar in Peanut Butter provides 21g protein with chewy texture. 220 kcal, 16g carbs, 8g fat, 3g sugar, 6g fiber.. Organic. Great for low carb snack and meal replacement.",
+    "metadata": {
+      "sku": "BAR-QUE-CRI-058",
+      "name": "Protein Crisp Bar - Peanut Butter",
+      "brand": "Quest Hero",
+      "category": "protein_bar",
+      "price": 28.26,
+      "weight_kg": 0.483,
+      "flavor": "Peanut Butter",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/quest-hero-protein-crisp-bar---peanut-butter-peanut-butter.jpg",
+      "product_url": "https://example.com/products/quest-hero-protein-crisp-bar---peanut-butter-peanut-butter"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "whey_concentrate",
+      "protein_per_serving_g": 21,
+      "carbs_per_serving_g": 16,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 220,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 6,
+      "serving_size_g": 72,
+      "pieces_per_package": 6,
+      "texture": "chewy",
+      "dietary": [
+        "organic",
+        "non-gmo"
+      ],
+      "goals": [
+        "low_carb_snack",
+        "meal_replacement"
+      ]
+    }
+  },
+  {
+    "id": "bar-059",
+    "page_content": "No Cow Protein Bar bar in Mint Chocolate provides 14g protein with chewy texture. 246 kcal, 25g carbs, 10g fat, 5g sugar, 5g fiber.. Dairy free. Great for muscle maintenance and muscle gain.",
+    "metadata": {
+      "sku": "BAR-NO -BAR-059",
+      "name": "Protein Bar - Mint Chocolate",
+      "brand": "No Cow",
+      "category": "protein_bar",
+      "price": 42.63,
+      "weight_kg": 1.161,
+      "flavor": "Mint Chocolate",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/no-cow-protein-bar---mint-chocolate-mint-chocolate.jpg",
+      "product_url": "https://example.com/products/no-cow-protein-bar---mint-chocolate-mint-chocolate"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "blend_protein",
+      "protein_per_serving_g": 14,
+      "carbs_per_serving_g": 25,
+      "fat_per_serving_g": 10,
+      "calories_per_serving": 246,
+      "sugar_per_serving_g": 5,
+      "fiber_per_serving_g": 5,
+      "serving_size_g": 72,
+      "pieces_per_package": 15,
+      "texture": "chewy",
+      "dietary": [
+        "dairy-free",
+        "non-gmo"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "bar-060",
+    "page_content": "Try Think! crisp_bar in Chocolate Peanut Butter — 18g protein, crispy texture. 189 kcal, 18g carbs, 5g fat, 4g sugar, 3g fiber.. Low sugar. Ideal for daily protein and muscle gain.",
+    "metadata": {
+      "sku": "BAR-THI-CRI-060",
+      "name": "Protein Crisp Bar - Chocolate Peanut Butter",
+      "brand": "Think!",
+      "category": "protein_bar",
+      "price": 29.87,
+      "weight_kg": 0.374,
+      "flavor": "Chocolate Peanut Butter",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/think--protein-crisp-bar---chocolate-peanut-butter-chocolate-peanut-butter.jpg",
+      "product_url": "https://example.com/products/think--protein-crisp-bar---chocolate-peanut-butter-chocolate-peanut-butter"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "plant_protein",
+      "protein_per_serving_g": 18,
+      "carbs_per_serving_g": 18,
+      "fat_per_serving_g": 5,
+      "calories_per_serving": 189,
+      "sugar_per_serving_g": 4,
+      "fiber_per_serving_g": 3,
+      "serving_size_g": 50,
+      "pieces_per_package": 6,
+      "texture": "crispy",
+      "dietary": [
+        "low-sugar",
+        "vegan"
+      ],
+      "goals": [
+        "daily_protein",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "bar-061",
+    "page_content": "ThinkThin bar in Chocolate Chip delivers 17g of protein from egg white protein. Crunchy texture with delightful bite. Each serving has 261 kcal, 28g carbs, 9g fat, 5g sugar, and 5g fiber. Keto friendly. Supports daily protein and low carb snack.",
+    "metadata": {
+      "sku": "BAR-THI-BAR-061",
+      "name": "Protein Bar - Chocolate Chip",
+      "brand": "ThinkThin",
+      "category": "protein_bar",
+      "price": 36.13,
+      "weight_kg": 1.049,
+      "flavor": "Chocolate Chip",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/thinkthin-protein-bar---chocolate-chip-chocolate-chip.jpg",
+      "product_url": "https://example.com/products/thinkthin-protein-bar---chocolate-chip-chocolate-chip"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "egg_white",
+      "protein_per_serving_g": 17,
+      "carbs_per_serving_g": 28,
+      "fat_per_serving_g": 9,
+      "calories_per_serving": 261,
+      "sugar_per_serving_g": 5,
+      "fiber_per_serving_g": 5,
+      "serving_size_g": 53,
+      "pieces_per_package": 18,
+      "texture": "crunchy",
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "daily_protein",
+        "low_carb_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-062",
+    "page_content": "Premier Protein bar in Peanut Butter Cup delivers 18g of protein from casein and whey blend. Crunchy texture with delightful bite. Each serving has 217 kcal, 25g carbs, 5g fat, 8g sugar, and 3g fiber. Keto friendly. Supports low carb snack and weight loss.",
+    "metadata": {
+      "sku": "BAR-PRE-BAR-062",
+      "name": "Protein Bar - Peanut Butter Cup",
+      "brand": "Premier Protein",
+      "category": "protein_bar",
+      "price": 32.97,
+      "weight_kg": 1.097,
+      "flavor": "Peanut Butter Cup",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/premier-protein-protein-bar---peanut-butter-cup-peanut-butter-cup.jpg",
+      "product_url": "https://example.com/products/premier-protein-protein-bar---peanut-butter-cup-peanut-butter-cup"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 18,
+      "carbs_per_serving_g": 25,
+      "fat_per_serving_g": 5,
+      "calories_per_serving": 217,
+      "sugar_per_serving_g": 8,
+      "fiber_per_serving_g": 3,
+      "serving_size_g": 56,
+      "pieces_per_package": 18,
+      "texture": "crunchy",
+      "dietary": [
+        "keto-friendly",
+        "dairy-free",
+        "low-sugar"
+      ],
+      "goals": [
+        "low_carb_snack",
+        "weight_loss"
+      ]
+    }
+  },
+  {
+    "id": "bar-063",
+    "page_content": "Fulfil Protein Bar bar in Maple provides 14g protein with crispy texture. 204 kcal, 28g carbs, 4g fat, 4g sugar, 14g fiber.. Non gmo. Great for low carb snack and high protein snack.",
+    "metadata": {
+      "sku": "BAR-FUL-BAR-063",
+      "name": "Protein Bar - Maple",
+      "brand": "Fulfil",
+      "category": "protein_bar",
+      "price": 26.22,
+      "weight_kg": 0.443,
+      "flavor": "Maple",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/fulfil-protein-bar---maple-maple.jpg",
+      "product_url": "https://example.com/products/fulfil-protein-bar---maple-maple"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "egg_white",
+      "protein_per_serving_g": 14,
+      "carbs_per_serving_g": 28,
+      "fat_per_serving_g": 4,
+      "calories_per_serving": 204,
+      "sugar_per_serving_g": 4,
+      "fiber_per_serving_g": 14,
+      "serving_size_g": 60,
+      "pieces_per_package": 6,
+      "texture": "crispy",
+      "dietary": [
+        "non-gmo",
+        "gluten-free",
+        "vegan"
+      ],
+      "goals": [
+        "low_carb_snack",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-064",
+    "page_content": "Try Lenny bar in Lemon — 15g protein, crunchy texture. 187 kcal, 16g carbs, 7g fat, 7g sugar, 14g fiber.. Low carb. Ideal for muscle gain and low carb snack.",
+    "metadata": {
+      "sku": "BAR-LEN-BAR-064",
+      "name": "Protein Bar - Lemon",
+      "brand": "Lenny & Larry's",
+      "category": "protein_bar",
+      "price": 31.07,
+      "weight_kg": 1.807,
+      "flavor": "Lemon",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/lenny---larry-s-protein-bar---lemon-lemon.jpg",
+      "product_url": "https://example.com/products/lenny---larry-s-protein-bar---lemon-lemon"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "soy_protein",
+      "protein_per_serving_g": 15,
+      "carbs_per_serving_g": 16,
+      "fat_per_serving_g": 7,
+      "calories_per_serving": 187,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 14,
+      "serving_size_g": 73,
+      "pieces_per_package": 24,
+      "texture": "crunchy",
+      "dietary": [
+        "low-carb"
+      ],
+      "goals": [
+        "muscle_gain",
+        "low_carb_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-065",
+    "page_content": "Pure Protein bar in Peanut Butter Cup delivers 18g of protein from egg white protein. Crunchy texture with delightful bite. Each serving has 262 kcal, 25g carbs, 10g fat, 6g sugar, and 13g fiber. Vegan. Supports high protein snack and muscle gain.",
+    "metadata": {
+      "sku": "BAR-PUR-BAR-065",
+      "name": "Protein Bar - Peanut Butter Cup",
+      "brand": "Pure Protein",
+      "category": "protein_bar",
+      "price": 33.3,
+      "weight_kg": 1.489,
+      "flavor": "Peanut Butter Cup",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/pure-protein-protein-bar---peanut-butter-cup-peanut-butter-cup.jpg",
+      "product_url": "https://example.com/products/pure-protein-protein-bar---peanut-butter-cup-peanut-butter-cup"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "egg_white",
+      "protein_per_serving_g": 18,
+      "carbs_per_serving_g": 25,
+      "fat_per_serving_g": 10,
+      "calories_per_serving": 262,
+      "sugar_per_serving_g": 6,
+      "fiber_per_serving_g": 13,
+      "serving_size_g": 58,
+      "pieces_per_package": 24,
+      "texture": "crunchy",
+      "dietary": [
+        "vegan"
+      ],
+      "goals": [
+        "high_protein_snack",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "bar-066",
+    "page_content": "Detour bar in Pecan delivers 22g of protein from whey protein concentrate. Chewy texture with satisfying bite. Each serving has 255 kcal, 26g carbs, 7g fat, 8g sugar, and 12g fiber. Non gmo. Supports meal replacement and low carb snack.",
+    "metadata": {
+      "sku": "BAR-DET-BAR-066",
+      "name": "Protein Bar - Pecan",
+      "brand": "Detour",
+      "category": "protein_bar",
+      "price": 42.59,
+      "weight_kg": 1.447,
+      "flavor": "Pecan",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/detour-protein-bar---pecan-pecan.jpg",
+      "product_url": "https://example.com/products/detour-protein-bar---pecan-pecan"
+    },
+    "attributes": {
+      "product_type": "bar",
+      "protein_source": "whey_concentrate",
+      "protein_per_serving_g": 22,
+      "carbs_per_serving_g": 26,
+      "fat_per_serving_g": 7,
+      "calories_per_serving": 255,
+      "sugar_per_serving_g": 8,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 58,
+      "pieces_per_package": 24,
+      "texture": "chewy",
+      "dietary": [
+        "non-gmo",
+        "low-carb",
+        "organic"
+      ],
+      "goals": [
+        "meal_replacement",
+        "low_carb_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-067",
+    "page_content": "Clif brownie in Coffee delivers 25g of protein from soy protein isolate. Chewy texture with satisfying bite. Each serving has 269 kcal, 22g carbs, 9g fat, 7g sugar, and 4g fiber. Dairy free. Supports meal replacement and low carb snack.",
+    "metadata": {
+      "sku": "BAR-CLI-BRO-067",
+      "name": "Protein Brownie - Coffee",
+      "brand": "Clif Builders",
+      "category": "protein_bar",
+      "price": 40.3,
+      "weight_kg": 0.929,
+      "flavor": "Coffee",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/clif-builders-protein-brownie---coffee-coffee.jpg",
+      "product_url": "https://example.com/products/clif-builders-protein-brownie---coffee-coffee"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "soy_protein",
+      "protein_per_serving_g": 25,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 9,
+      "calories_per_serving": 269,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 4,
+      "serving_size_g": 58,
+      "pieces_per_package": 15,
+      "texture": "chewy",
+      "dietary": [
+        "dairy-free",
+        "non-gmo"
+      ],
+      "goals": [
+        "meal_replacement",
+        "low_carb_snack"
+      ]
+    }
+  },
+  {
+    "id": "bar-068",
+    "page_content": "MusclePharm brownie in Cherry delivers 14g of protein from soy protein isolate. Chewy texture with satisfying bite. Each serving has 183 kcal, 16g carbs, 7g fat, 3g sugar, and 9g fiber. Non gmo. Supports daily protein and muscle gain.",
+    "metadata": {
+      "sku": "BAR-MUS-BRO-068",
+      "name": "Protein Brownie - Cherry",
+      "brand": "MusclePharm",
+      "category": "protein_bar",
+      "price": 39.29,
+      "weight_kg": 1.317,
+      "flavor": "Cherry",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/musclepharm-protein-brownie---cherry-cherry.jpg",
+      "product_url": "https://example.com/products/musclepharm-protein-brownie---cherry-cherry"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "soy_protein",
+      "protein_per_serving_g": 14,
+      "carbs_per_serving_g": 16,
+      "fat_per_serving_g": 7,
+      "calories_per_serving": 183,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 9,
+      "serving_size_g": 61,
+      "pieces_per_package": 20,
+      "texture": "chewy",
+      "dietary": [
+        "non-gmo"
+      ],
+      "goals": [
+        "daily_protein",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "bar-069",
+    "page_content": "Built Protein Crisp Bar crisp_bar in Fudge Brownie provides 15g protein with crispy texture. 205 kcal, 25g carbs, 5g fat, 1g sugar, 17g fiber.. Low carb. Great for weight loss and meal replacement.",
+    "metadata": {
+      "sku": "BAR-BUI-CRI-069",
+      "name": "Protein Crisp Bar - Fudge Brownie",
+      "brand": "Built Bar",
+      "category": "protein_bar",
+      "price": 40.06,
+      "weight_kg": 0.402,
+      "flavor": "Fudge Brownie",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/built-bar-protein-crisp-bar---fudge-brownie-fudge-brownie.jpg",
+      "product_url": "https://example.com/products/built-bar-protein-crisp-bar---fudge-brownie-fudge-brownie"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 15,
+      "carbs_per_serving_g": 25,
+      "fat_per_serving_g": 5,
+      "calories_per_serving": 205,
+      "sugar_per_serving_g": 1,
+      "fiber_per_serving_g": 17,
+      "serving_size_g": 55,
+      "pieces_per_package": 6,
+      "texture": "crispy",
+      "dietary": [
+        "low-carb",
+        "keto-friendly",
+        "gluten-free"
+      ],
+      "goals": [
+        "weight_loss",
+        "meal_replacement"
+      ]
+    }
+  },
+  {
+    "id": "bar-070",
+    "page_content": "Barebells crisp_bar in Oatmeal Chocolate Chip delivers 18g of protein from soy protein isolate. Crunchy texture with delightful bite. Each serving has 242 kcal, 29g carbs, 6g fat, 1g sugar, and 10g fiber. Vegan. Supports muscle maintenance and weight loss.",
+    "metadata": {
+      "sku": "BAR-BAR-CRI-070",
+      "name": "Protein Crisp Bar - Oatmeal Chocolate Chip",
+      "brand": "Barebells",
+      "category": "protein_bar",
+      "price": 34.18,
+      "weight_kg": 1.053,
+      "flavor": "Oatmeal Chocolate Chip",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/barebells-protein-crisp-bar---oatmeal-chocolate-chip-oatmeal-chocolate-chip.jpg",
+      "product_url": "https://example.com/products/barebells-protein-crisp-bar---oatmeal-chocolate-chip-oatmeal-chocolate-chip"
+    },
+    "attributes": {
+      "product_type": "crisp_bar",
+      "protein_source": "soy_protein",
+      "protein_per_serving_g": 18,
+      "carbs_per_serving_g": 29,
+      "fat_per_serving_g": 6,
+      "calories_per_serving": 242,
+      "sugar_per_serving_g": 1,
+      "fiber_per_serving_g": 10,
+      "serving_size_g": 65,
+      "pieces_per_package": 15,
+      "texture": "crunchy",
+      "dietary": [
+        "vegan"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "weight_loss"
+      ]
+    }
+  }
+]

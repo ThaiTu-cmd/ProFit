@@ -1,0 +1,497 @@
+[
+  {
+    "id": "PTS-C01",
+    "page_content": "Optimum Nutrition Micronized Creatine 600g in Unflavored is a premium creatine monohydrate from USA. Creatine tinh khiết 100% giúp tăng sức mạnh và kích thước cơ bắp Each 5g serving is designed for daily training with 120 servings per container and a total weight of 0.600 kg.",
+    "metadata": {
+      "sku": "PTS-C01",
+      "name": "Optimum Nutrition Micronized Creatine 600g",
+      "brand": "Optimum Nutrition",
+      "category": "creatine",
+      "price": 650000,
+      "weight_kg": 0.6,
+      "flavor": "Unflavored",
+      "origin_country": "USA",
+      "image_url": "https://profit.local/uploads/products/image-51.jpg",
+      "product_url": "https://profit.local/products/on-micronized-creatine-powder-600g"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 120,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "PTS-C02",
+    "page_content": "MuscleTech Platinum 100% Creatine 400g in Watermelon is a premium creatine monohydrate from UK. Hỗ trợ tăng cơ nạc, phục hồi nhanh chóng Each 5g serving is designed for daily training with 80 servings per container and a total weight of 0.400 kg.",
+    "metadata": {
+      "sku": "PTS-C02",
+      "name": "MuscleTech Platinum 100% Creatine 400g",
+      "brand": "MuscleTech",
+      "category": "creatine",
+      "price": 450000,
+      "weight_kg": 0.4,
+      "flavor": "Watermelon",
+      "origin_country": "UK",
+      "image_url": "https://profit.local/uploads/products/image-52.jpg",
+      "product_url": "https://profit.local/products/muscletech-platinum-creatine-400g"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 80,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "PTS-C03",
+    "page_content": "Rule 1 R1 Creatine 375g in Blue Raspberry is a premium creatine monohydrate from Australia. 100% Creatine Monohydrate chuẩn y tế Each 5g serving is designed for daily training with 75 servings per container and a total weight of 0.375 kg.",
+    "metadata": {
+      "sku": "PTS-C03",
+      "name": "Rule 1 R1 Creatine 375g",
+      "brand": "Rule 1",
+      "category": "creatine",
+      "price": 420000,
+      "weight_kg": 0.375,
+      "flavor": "Blue Raspberry",
+      "origin_country": "Australia",
+      "image_url": "https://profit.local/uploads/products/image-53.jpg",
+      "product_url": "https://profit.local/products/rule-1-r1-creatine-375g"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 75,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "PTS-C04",
+    "page_content": "Mutant Creakong CX8 249g in Lemon Lime is a premium creatine monohydrate from Netherlands. Phức hợp 3 loại Creatine cao cấp nhất Each 5g serving is designed for daily training with 50 servings per container and a total weight of 0.249 kg.",
+    "metadata": {
+      "sku": "PTS-C04",
+      "name": "Mutant Creakong CX8 249g",
+      "brand": "Mutant",
+      "category": "creatine",
+      "price": 550000,
+      "weight_kg": 0.249,
+      "flavor": "Lemon Lime",
+      "origin_country": "Netherlands",
+      "image_url": "https://profit.local/uploads/products/image-54.jpg",
+      "product_url": "https://profit.local/products/mutant-creakong-cx8-249g"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 50,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "PTS-C05",
+    "page_content": "MyProtein Creatine Monohydrate 250g in Fruit Punch is a premium creatine monohydrate from Ireland. Giải pháp tăng sức mạnh tiết kiệm và hiệu quả Each 5g serving is designed for daily training with 50 servings per container and a total weight of 0.250 kg.",
+    "metadata": {
+      "sku": "PTS-C05",
+      "name": "MyProtein Creatine Monohydrate 250g",
+      "brand": "MyProtein",
+      "category": "creatine",
+      "price": 250000,
+      "weight_kg": 0.25,
+      "flavor": "Fruit Punch",
+      "origin_country": "Ireland",
+      "image_url": "https://profit.local/uploads/products/image-55.jpg",
+      "product_url": "https://profit.local/products/myprotein-creatine-monohydrate-250g"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 50,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "PTS-C06",
+    "page_content": "Cellucor COR-Performance Creatine 360g in Cherry is a premium creatine monohydrate from Canada. Tối ưu hóa sức bền và khối lượng tạ Each 5g serving is designed for daily training with 72 servings per container and a total weight of 0.360 kg.",
+    "metadata": {
+      "sku": "PTS-C06",
+      "name": "Cellucor COR-Performance Creatine 360g",
+      "brand": "Cellucor",
+      "category": "creatine",
+      "price": 480000,
+      "weight_kg": 0.36,
+      "flavor": "Cherry",
+      "origin_country": "Canada",
+      "image_url": "https://profit.local/uploads/products/image-56.jpg",
+      "product_url": "https://profit.local/products/cellucor-cor-performance-creatine-360g"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 72,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "PTS-C07",
+    "page_content": "Dymatize Creatine Micronized 500g in Unflavored is a premium creatine monohydrate from Germany. Sản xuất theo tiêu chuẩn Creapure Đức Each 5g serving is designed for daily training with 100 servings per container and a total weight of 0.500 kg.",
+    "metadata": {
+      "sku": "PTS-C07",
+      "name": "Dymatize Creatine Micronized 500g",
+      "brand": "Dymatize",
+      "category": "creatine",
+      "price": 680000,
+      "weight_kg": 0.5,
+      "flavor": "Unflavored",
+      "origin_country": "Germany",
+      "image_url": "https://profit.local/uploads/products/image-57.jpg",
+      "product_url": "https://profit.local/products/dymatize-creatine-micronized-500g"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 100,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "PTS-C08",
+    "page_content": "BPI Sports Best Creatine 300g in Watermelon is a premium creatine monohydrate from USA. Pha trộn 6 loại Creatine khác nhau Each 5g serving is designed for daily training with 60 servings per container and a total weight of 0.300 kg.",
+    "metadata": {
+      "sku": "PTS-C08",
+      "name": "BPI Sports Best Creatine 300g",
+      "brand": "BPI Sports",
+      "category": "creatine",
+      "price": 520000,
+      "weight_kg": 0.3,
+      "flavor": "Watermelon",
+      "origin_country": "USA",
+      "image_url": "https://profit.local/uploads/products/image-58.jpg",
+      "product_url": "https://profit.local/products/bpi-sports-best-creatine-300g"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 60,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "PTS-C09",
+    "page_content": "Nutrex Creatine Drive 300g in Blue Raspberry is a premium creatine monohydrate from UK. Creatine nguyên chất 100% không pha tạp Each 5g serving is designed for daily training with 60 servings per container and a total weight of 0.300 kg.",
+    "metadata": {
+      "sku": "PTS-C09",
+      "name": "Nutrex Creatine Drive 300g",
+      "brand": "Nutrex",
+      "category": "creatine",
+      "price": 400000,
+      "weight_kg": 0.3,
+      "flavor": "Blue Raspberry",
+      "origin_country": "UK",
+      "image_url": "https://profit.local/uploads/products/image-59.jpg",
+      "product_url": "https://profit.local/products/nutrex-creatine-drive-300g"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 60,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "PTS-C10",
+    "page_content": "AllMax Nutrition Creatine 400g in Lemon Lime is a premium creatine monohydrate from Australia. Creatine siêu vi hạt chuẩn dược phẩm Each 5g serving is designed for daily training with 80 servings per container and a total weight of 0.400 kg.",
+    "metadata": {
+      "sku": "PTS-C10",
+      "name": "AllMax Nutrition Creatine 400g",
+      "brand": "ALLMAX",
+      "category": "creatine",
+      "price": 490000,
+      "weight_kg": 0.4,
+      "flavor": "Lemon Lime",
+      "origin_country": "Australia",
+      "image_url": "https://profit.local/uploads/products/image-60.jpg",
+      "product_url": "https://profit.local/products/allmax-creatine-monohydrate-400g"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 80,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "PTS-C11",
+    "page_content": "BiotechUSA 100% Creatine Monohydrate 300g in Fruit Punch is a premium creatine monohydrate from Netherlands. Tăng sinh ATP tự nhiên cho cơ bắp Each 5g serving is designed for daily training with 60 servings per container and a total weight of 0.300 kg.",
+    "metadata": {
+      "sku": "PTS-C11",
+      "name": "BiotechUSA 100% Creatine Monohydrate 300g",
+      "brand": "BiotechUSA",
+      "category": "creatine",
+      "price": 350000,
+      "weight_kg": 0.3,
+      "flavor": "Fruit Punch",
+      "origin_country": "Netherlands",
+      "image_url": "https://profit.local/uploads/products/image-61.jpg",
+      "product_url": "https://profit.local/products/biotechusa-100-creatine-monohydrate-300g"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 60,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "PTS-C12",
+    "page_content": "Scitec Nutrition 100% Creatine 300g in Cherry is a premium creatine monohydrate from Ireland. Hỗ trợ phồng cơ, giữ nước nội bào Each 5g serving is designed for daily training with 60 servings per container and a total weight of 0.300 kg.",
+    "metadata": {
+      "sku": "PTS-C12",
+      "name": "Scitec Nutrition 100% Creatine 300g",
+      "brand": "Scitec",
+      "category": "creatine",
+      "price": 380000,
+      "weight_kg": 0.3,
+      "flavor": "Cherry",
+      "origin_country": "Ireland",
+      "image_url": "https://profit.local/uploads/products/image-62.jpg",
+      "product_url": "https://profit.local/products/scitec-100-creatine-monohydrate-300g"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 60,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "PTS-C13",
+    "page_content": "Kaged Muscle Creatine HCl 75 Servings in Unflavored is a premium creatine monohydrate from Canada. Creatine HCl hấp thụ cực mạnh không tích nước dưới da Each 5g serving is designed for daily training with 75 servings per container and a total weight of 0.375 kg.",
+    "metadata": {
+      "sku": "PTS-C13",
+      "name": "Kaged Muscle Creatine HCl 75 Servings",
+      "brand": "Kaged Muscle",
+      "category": "creatine",
+      "price": 650000,
+      "weight_kg": 0.375,
+      "flavor": "Unflavored",
+      "origin_country": "Canada",
+      "image_url": "https://profit.local/uploads/products/image-63.jpg",
+      "product_url": "https://profit.local/products/kaged-muscle-creatine-hcl-75-serv"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 75,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "PTS-C14",
+    "page_content": "RSP Nutrition Creatine Monohydrate 500g in Watermelon is a premium creatine monohydrate from Germany. Giải pháp phục hồi siêu tốc sau buổi tập Each 5g serving is designed for daily training with 100 servings per container and a total weight of 0.500 kg.",
+    "metadata": {
+      "sku": "PTS-C14",
+      "name": "RSP Nutrition Creatine Monohydrate 500g",
+      "brand": "RSP Nutrition",
+      "category": "creatine",
+      "price": 460000,
+      "weight_kg": 0.5,
+      "flavor": "Watermelon",
+      "origin_country": "Germany",
+      "image_url": "https://profit.local/uploads/products/image-64.jpg",
+      "product_url": "https://profit.local/products/rsp-creatine-monohydrate-500g"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 100,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "PTS-C15",
+    "page_content": "PVL 100% Pure Creatine 300g in Blue Raspberry is a premium creatine monohydrate from USA. Creatine tinh khiết đã qua kiểm định Informed-Choice Each 5g serving is designed for daily training with 60 servings per container and a total weight of 0.300 kg.",
+    "metadata": {
+      "sku": "PTS-C15",
+      "name": "PVL 100% Pure Creatine 300g",
+      "brand": "PVL",
+      "category": "creatine",
+      "price": 430000,
+      "weight_kg": 0.3,
+      "flavor": "Blue Raspberry",
+      "origin_country": "USA",
+      "image_url": "https://profit.local/uploads/products/image-65.jpg",
+      "product_url": "https://profit.local/products/pvl-100-pure-creatine-300g"
+    },
+    "attributes": {
+      "creatine_type": "creatine_monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 5,
+      "purity_percent": 99.9,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 60,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  }
+]

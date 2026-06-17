@@ -1,0 +1,1111 @@
+[
+  {
+    "id": "ckie-001",
+    "page_content": "Bhu Foods brownie in Oatmeal Raisin provides 15g protein per 83g serving. Crunchy texture with delightful bite. 289 kcal, 28g carbs, 13g fat, 12g sugar, 7g fiber.. Low sugar. Perfect for muscle gain and weight loss.",
+    "metadata": {
+      "sku": "PCK-BHU-BRO-001",
+      "name": "Protein Brownie - Oatmeal Raisin",
+      "brand": "Bhu Foods",
+      "category": "protein_cookie",
+      "price": 33.82,
+      "weight_kg": 2.052,
+      "flavor": "Oatmeal Raisin",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/bhu-foods-protein-brownie---oatmeal-raisin-oatmeal-raisin.jpg",
+      "product_url": "https://example.com/products/bhu-foods-protein-brownie---oatmeal-raisin-oatmeal-raisin"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "blend_protein",
+      "protein_per_serving_g": 15,
+      "carbs_per_serving_g": 28,
+      "fat_per_serving_g": 13,
+      "calories_per_serving": 289,
+      "sugar_per_serving_g": 12,
+      "fiber_per_serving_g": 7,
+      "serving_size_g": 83,
+      "pieces_per_package": 24,
+      "texture": "crunchy",
+      "dietary": [
+        "low-sugar",
+        "soy-free"
+      ],
+      "goals": [
+        "muscle_gain",
+        "weight_loss"
+      ]
+    }
+  },
+  {
+    "id": "ckie-002",
+    "page_content": "Indulge in ThinkThin protein cookie Salted Caramel — 15g protein, crunchy texture. 267 kcal, 36g carbs, 7g fat, 10g sugar, 7g fiber.. Low sugar. Supports weight loss and muscle maintenance.",
+    "metadata": {
+      "sku": "PCK-THI-COO-002",
+      "name": "Protein Cookie - Salted Caramel",
+      "brand": "ThinkThin",
+      "category": "protein_cookie",
+      "price": 31.49,
+      "weight_kg": 0.873,
+      "flavor": "Salted Caramel",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/thinkthin-protein-cookie---salted-caramel-salted-caramel.jpg",
+      "product_url": "https://example.com/products/thinkthin-protein-cookie---salted-caramel-salted-caramel"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 15,
+      "carbs_per_serving_g": 36,
+      "fat_per_serving_g": 7,
+      "calories_per_serving": 267,
+      "sugar_per_serving_g": 10,
+      "fiber_per_serving_g": 7,
+      "serving_size_g": 78,
+      "pieces_per_package": 10,
+      "texture": "crunchy",
+      "dietary": [
+        "low-sugar"
+      ],
+      "goals": [
+        "weight_loss",
+        "muscle_maintenance"
+      ]
+    }
+  },
+  {
+    "id": "ckie-003",
+    "page_content": "RXBar brownie in Snickerdoodle provides 14g protein per 65g serving. Crunchy texture with delightful bite. 254 kcal, 18g carbs, 14g fat, 7g sugar, 11g fiber.. Soy free. Perfect for daily protein and high protein snack.",
+    "metadata": {
+      "sku": "PCK-RXB-BRO-003",
+      "name": "Protein Brownie - Snickerdoodle",
+      "brand": "RXBar",
+      "category": "protein_cookie",
+      "price": 35.14,
+      "weight_kg": 0.603,
+      "flavor": "Snickerdoodle",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/rxbar-protein-brownie---snickerdoodle-snickerdoodle.jpg",
+      "product_url": "https://example.com/products/rxbar-protein-brownie---snickerdoodle-snickerdoodle"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "whey_protein_isolate",
+      "protein_per_serving_g": 14,
+      "carbs_per_serving_g": 18,
+      "fat_per_serving_g": 14,
+      "calories_per_serving": 254,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 11,
+      "serving_size_g": 65,
+      "pieces_per_package": 8,
+      "texture": "crunchy",
+      "dietary": [
+        "soy-free"
+      ],
+      "goals": [
+        "daily_protein",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "ckie-004",
+    "page_content": "Premier Protein cookie in Cinnamon Bun provides 13g protein per 82g serving. Chewy texture with satisfying bite. 242 kcal, 34g carbs, 6g fat, 2g sugar, 4g fiber.. Gluten free. Perfect for daily protein and weight loss.",
+    "metadata": {
+      "sku": "PCK-PRE-COO-004",
+      "name": "Protein Cookie - Cinnamon Bun",
+      "brand": "Premier Protein",
+      "category": "protein_cookie",
+      "price": 24.1,
+      "weight_kg": 0.711,
+      "flavor": "Cinnamon Bun",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/premier-protein-protein-cookie---cinnamon-bun-cinnamon-bun.jpg",
+      "product_url": "https://example.com/products/premier-protein-protein-cookie---cinnamon-bun-cinnamon-bun"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "whey_concentrate",
+      "protein_per_serving_g": 13,
+      "carbs_per_serving_g": 34,
+      "fat_per_serving_g": 6,
+      "calories_per_serving": 242,
+      "sugar_per_serving_g": 2,
+      "fiber_per_serving_g": 4,
+      "serving_size_g": 82,
+      "pieces_per_package": 8,
+      "texture": "chewy",
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "daily_protein",
+        "weight_loss"
+      ]
+    }
+  },
+  {
+    "id": "ckie-005",
+    "page_content": "Indulge in Myprotein protein brownie Cinnamon Bun — 15g protein, crispy texture. 262 kcal, 37g carbs, 6g fat, 2g sugar, 5g fiber.. Gluten free. Supports convenient snack and weight loss.",
+    "metadata": {
+      "sku": "PCK-MYP-BRO-005",
+      "name": "Protein Brownie - Cinnamon Bun",
+      "brand": "Myprotein",
+      "category": "protein_cookie",
+      "price": 40.45,
+      "weight_kg": 1.352,
+      "flavor": "Cinnamon Bun",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/myprotein-protein-brownie---cinnamon-bun-cinnamon-bun.jpg",
+      "product_url": "https://example.com/products/myprotein-protein-brownie---cinnamon-bun-cinnamon-bun"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "whey_protein_isolate",
+      "protein_per_serving_g": 15,
+      "carbs_per_serving_g": 37,
+      "fat_per_serving_g": 6,
+      "calories_per_serving": 262,
+      "sugar_per_serving_g": 2,
+      "fiber_per_serving_g": 5,
+      "serving_size_g": 70,
+      "pieces_per_package": 18,
+      "texture": "crispy",
+      "dietary": [
+        "gluten-free",
+        "low-sugar",
+        "non-gmo"
+      ],
+      "goals": [
+        "convenient_snack",
+        "weight_loss"
+      ]
+    }
+  },
+  {
+    "id": "ckie-006",
+    "page_content": "Quest Hero cookie in Birthday Cake provides 20g protein per 85g serving. Light and crispy layer for crunch lovers. 210 kcal, 19g carbs, 6g fat, 6g sugar, 3g fiber.. Egg free. Perfect for daily protein and high protein snack.",
+    "metadata": {
+      "sku": "PCK-QUE-COO-006",
+      "name": "Protein Cookie - Birthday Cake",
+      "brand": "Quest Hero",
+      "category": "protein_cookie",
+      "price": 31.91,
+      "weight_kg": 0.735,
+      "flavor": "Birthday Cake",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/quest-hero-protein-cookie---birthday-cake-birthday-cake.jpg",
+      "product_url": "https://example.com/products/quest-hero-protein-cookie---birthday-cake-birthday-cake"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 19,
+      "fat_per_serving_g": 6,
+      "calories_per_serving": 210,
+      "sugar_per_serving_g": 6,
+      "fiber_per_serving_g": 3,
+      "serving_size_g": 85,
+      "pieces_per_package": 8,
+      "texture": "crispy",
+      "dietary": [
+        "egg-free",
+        "vegan",
+        "soy-free"
+      ],
+      "goals": [
+        "daily_protein",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "ckie-007",
+    "page_content": "ONE cookie in Peanut Butter provides 13g protein per 77g serving. Crunchy texture with delightful bite. 330 kcal, 38g carbs, 14g fat, 7g sugar, 12g fiber.. Egg free. Perfect for daily protein and muscle maintenance.",
+    "metadata": {
+      "sku": "PCK-ONE-COO-007",
+      "name": "Protein Cookie - Peanut Butter",
+      "brand": "ONE",
+      "category": "protein_cookie",
+      "price": 35.04,
+      "weight_kg": 1.018,
+      "flavor": "Peanut Butter",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/one-protein-cookie---peanut-butter-peanut-butter.jpg",
+      "product_url": "https://example.com/products/one-protein-cookie---peanut-butter-peanut-butter"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 13,
+      "carbs_per_serving_g": 38,
+      "fat_per_serving_g": 14,
+      "calories_per_serving": 330,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 77,
+      "pieces_per_package": 12,
+      "texture": "crunchy",
+      "dietary": [
+        "egg-free"
+      ],
+      "goals": [
+        "daily_protein",
+        "muscle_maintenance"
+      ]
+    }
+  },
+  {
+    "id": "ckie-008",
+    "page_content": "Indulge in Grenade protein cookie Salted Caramel — 20g protein, crispy texture. 282 kcal, 28g carbs, 10g fat, 8g sugar, 12g fiber.. Non gmo. Supports weight loss and convenient snack.",
+    "metadata": {
+      "sku": "PCK-GRE-COO-008",
+      "name": "Protein Cookie - Salted Caramel",
+      "brand": "Grenade",
+      "category": "protein_cookie",
+      "price": 36.01,
+      "weight_kg": 1.052,
+      "flavor": "Salted Caramel",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/grenade-protein-cookie---salted-caramel-salted-caramel.jpg",
+      "product_url": "https://example.com/products/grenade-protein-cookie---salted-caramel-salted-caramel"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "whey_concentrate",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 28,
+      "fat_per_serving_g": 10,
+      "calories_per_serving": 282,
+      "sugar_per_serving_g": 8,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 81,
+      "pieces_per_package": 12,
+      "texture": "crispy",
+      "dietary": [
+        "non-gmo",
+        "low-sugar"
+      ],
+      "goals": [
+        "weight_loss",
+        "convenient_snack"
+      ]
+    }
+  },
+  {
+    "id": "ckie-009",
+    "page_content": "Built protein cookie in Coconut delivers 20g of protein from whey protein concentrate. Chewy texture with satisfying bite. Each cookie has 249 kcal, 22g carbs, 9g fat, 2g sugar, and 6g fiber. Low sugar. Great for weight loss and muscle maintenance.",
+    "metadata": {
+      "sku": "PCK-BUI-BRO-009",
+      "name": "Protein Brownie - Coconut",
+      "brand": "Built Bar",
+      "category": "protein_cookie",
+      "price": 37.29,
+      "weight_kg": 0.539,
+      "flavor": "Coconut",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/built-bar-protein-brownie---coconut-coconut.jpg",
+      "product_url": "https://example.com/products/built-bar-protein-brownie---coconut-coconut"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "whey_concentrate",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 9,
+      "calories_per_serving": 249,
+      "sugar_per_serving_g": 2,
+      "fiber_per_serving_g": 6,
+      "serving_size_g": 61,
+      "pieces_per_package": 8,
+      "texture": "chewy",
+      "dietary": [
+        "low-sugar",
+        "gluten-free",
+        "egg-free"
+      ],
+      "goals": [
+        "weight_loss",
+        "muscle_maintenance"
+      ]
+    }
+  },
+  {
+    "id": "ckie-010",
+    "page_content": "Good! Snacks protein cookie in Snickerdoodle delivers 15g of protein from casein and whey blend. Soft and indulgent texture. Each cookie has 245 kcal, 26g carbs, 9g fat, 3g sugar, and 11g fiber. Low sugar. Great for convenient snack and daily protein.",
+    "metadata": {
+      "sku": "PCK-GOO-BRO-010",
+      "name": "Protein Brownie - Snickerdoodle",
+      "brand": "Good! Snacks",
+      "category": "protein_cookie",
+      "price": 39.09,
+      "weight_kg": 0.963,
+      "flavor": "Snickerdoodle",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/good--snacks-protein-brownie---snickerdoodle-snickerdoodle.jpg",
+      "product_url": "https://example.com/products/good--snacks-protein-brownie---snickerdoodle-snickerdoodle"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 15,
+      "carbs_per_serving_g": 26,
+      "fat_per_serving_g": 9,
+      "calories_per_serving": 245,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 11,
+      "serving_size_g": 73,
+      "pieces_per_package": 12,
+      "texture": "soft",
+      "dietary": [
+        "low-sugar",
+        "keto-friendly"
+      ],
+      "goals": [
+        "convenient_snack",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "ckie-011",
+    "page_content": "Indulge in MuscleTech protein cookie Oatmeal Raisin — 13g protein, crunchy texture. 218 kcal, 19g carbs, 10g fat, 7g sugar, 8g fiber.. Gluten free. Supports weight loss and muscle gain.",
+    "metadata": {
+      "sku": "PCK-MUS-COO-011",
+      "name": "Protein Cookie - Oatmeal Raisin",
+      "brand": "MuscleTech",
+      "category": "protein_cookie",
+      "price": 38.29,
+      "weight_kg": 1.101,
+      "flavor": "Oatmeal Raisin",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/muscletech-protein-cookie---oatmeal-raisin-oatmeal-raisin.jpg",
+      "product_url": "https://example.com/products/muscletech-protein-cookie---oatmeal-raisin-oatmeal-raisin"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "whey_protein_isolate",
+      "protein_per_serving_g": 13,
+      "carbs_per_serving_g": 19,
+      "fat_per_serving_g": 10,
+      "calories_per_serving": 218,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 8,
+      "serving_size_g": 84,
+      "pieces_per_package": 12,
+      "texture": "crunchy",
+      "dietary": [
+        "gluten-free",
+        "dairy-free",
+        "egg-free"
+      ],
+      "goals": [
+        "weight_loss",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "ckie-012",
+    "page_content": "PhD protein cookie in Peanut Butter delivers 17g of protein from casein and whey blend. Soft and indulgent texture. Each cookie has 276 kcal, 34g carbs, 8g fat, 4g sugar, and 2g fiber. Egg free. Great for muscle maintenance and weight loss.",
+    "metadata": {
+      "sku": "PCK-PHD-COO-012",
+      "name": "Protein Cookie - Peanut Butter",
+      "brand": "PhD Nutrition",
+      "category": "protein_cookie",
+      "price": 41.56,
+      "weight_kg": 1.503,
+      "flavor": "Peanut Butter",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/phd-nutrition-protein-cookie---peanut-butter-peanut-butter.jpg",
+      "product_url": "https://example.com/products/phd-nutrition-protein-cookie---peanut-butter-peanut-butter"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 17,
+      "carbs_per_serving_g": 34,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 276,
+      "sugar_per_serving_g": 4,
+      "fiber_per_serving_g": 2,
+      "serving_size_g": 78,
+      "pieces_per_package": 18,
+      "texture": "soft",
+      "dietary": [
+        "egg-free"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "weight_loss"
+      ]
+    }
+  },
+  {
+    "id": "ckie-013",
+    "page_content": "Kirkland protein cookie in Fudge Brownie delivers 20g of protein from plant-based protein blend. Chewy texture with satisfying bite. Each cookie has 281 kcal, 30g carbs, 9g fat, 3g sugar, and 8g fiber. Keto friendly. Great for weight loss and daily protein.",
+    "metadata": {
+      "sku": "PCK-KIR-COO-013",
+      "name": "Protein Cookie - Fudge Brownie",
+      "brand": "Kirkland",
+      "category": "protein_cookie",
+      "price": 37.38,
+      "weight_kg": 1.077,
+      "flavor": "Fudge Brownie",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/kirkland-protein-cookie---fudge-brownie-fudge-brownie.jpg",
+      "product_url": "https://example.com/products/kirkland-protein-cookie---fudge-brownie-fudge-brownie"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "plant_protein",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 30,
+      "fat_per_serving_g": 9,
+      "calories_per_serving": 281,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 8,
+      "serving_size_g": 68,
+      "pieces_per_package": 15,
+      "texture": "chewy",
+      "dietary": [
+        "keto-friendly",
+        "soy-free"
+      ],
+      "goals": [
+        "weight_loss",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "ckie-014",
+    "page_content": "Clif brownie in Chocolate Chip provides 13g protein per 57g serving. Soft and indulgent texture. 255 kcal, 26g carbs, 11g fat, 7g sugar, 12g fiber.. Keto friendly. Perfect for muscle maintenance and daily protein.",
+    "metadata": {
+      "sku": "PCK-CLI-BRO-014",
+      "name": "Protein Brownie - Chocolate Chip",
+      "brand": "Clif Builders",
+      "category": "protein_cookie",
+      "price": 26.8,
+      "weight_kg": 0.926,
+      "flavor": "Chocolate Chip",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/clif-builders-protein-brownie---chocolate-chip-chocolate-chip.jpg",
+      "product_url": "https://example.com/products/clif-builders-protein-brownie---chocolate-chip-chocolate-chip"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "blend_protein",
+      "protein_per_serving_g": 13,
+      "carbs_per_serving_g": 26,
+      "fat_per_serving_g": 11,
+      "calories_per_serving": 255,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 57,
+      "pieces_per_package": 15,
+      "texture": "soft",
+      "dietary": [
+        "keto-friendly",
+        "low-sugar"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "ckie-015",
+    "page_content": "Quest Nutrition protein cookie in Chocolate Chip delivers 21g of protein from blend of whey and casein. Light and crispy layer for crunch lovers. Each cookie has 338 kcal, 32g carbs, 14g fat, 4g sugar, and 9g fiber. Vegan. Great for muscle gain and convenient snack.",
+    "metadata": {
+      "sku": "PCK-QUE-BRO-015",
+      "name": "Protein Brownie - Chocolate Chip",
+      "brand": "Quest Nutrition",
+      "category": "protein_cookie",
+      "price": 36.29,
+      "weight_kg": 0.564,
+      "flavor": "Chocolate Chip",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/quest-nutrition-protein-brownie---chocolate-chip-chocolate-chip.jpg",
+      "product_url": "https://example.com/products/quest-nutrition-protein-brownie---chocolate-chip-chocolate-chip"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "blend_protein",
+      "protein_per_serving_g": 21,
+      "carbs_per_serving_g": 32,
+      "fat_per_serving_g": 14,
+      "calories_per_serving": 338,
+      "sugar_per_serving_g": 4,
+      "fiber_per_serving_g": 9,
+      "serving_size_g": 84,
+      "pieces_per_package": 6,
+      "texture": "crispy",
+      "dietary": [
+        "vegan"
+      ],
+      "goals": [
+        "muscle_gain",
+        "convenient_snack"
+      ]
+    }
+  },
+  {
+    "id": "ckie-016",
+    "page_content": "Lenny & Larry's cookie in Fudge Brownie provides 17g protein per 65g serving. Chewy texture with satisfying bite. 233 kcal, 21g carbs, 9g fat, 9g sugar, 9g fiber.. Non gmo. Perfect for daily protein and high protein snack.",
+    "metadata": {
+      "sku": "PCK-LEN-COO-016",
+      "name": "Protein Cookie - Fudge Brownie",
+      "brand": "Lenny & Larry's",
+      "category": "protein_cookie",
+      "price": 26.54,
+      "weight_kg": 0.467,
+      "flavor": "Fudge Brownie",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/lenny---larry-s-protein-cookie---fudge-brownie-fudge-brownie.jpg",
+      "product_url": "https://example.com/products/lenny---larry-s-protein-cookie---fudge-brownie-fudge-brownie"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "whey_concentrate",
+      "protein_per_serving_g": 17,
+      "carbs_per_serving_g": 21,
+      "fat_per_serving_g": 9,
+      "calories_per_serving": 233,
+      "sugar_per_serving_g": 9,
+      "fiber_per_serving_g": 9,
+      "serving_size_g": 65,
+      "pieces_per_package": 6,
+      "texture": "chewy",
+      "dietary": [
+        "non-gmo",
+        "soy-free",
+        "keto-friendly"
+      ],
+      "goals": [
+        "daily_protein",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "ckie-017",
+    "page_content": "Barebells cookie in Sugar provides 16g protein per 77g serving. Chewy texture with satisfying bite. 201 kcal, 23g carbs, 5g fat, 6g sugar, 5g fiber.. Egg free. Perfect for convenient snack and muscle maintenance.",
+    "metadata": {
+      "sku": "PCK-BAR-COO-017",
+      "name": "Protein Cookie - Sugar",
+      "brand": "Barebells",
+      "category": "protein_cookie",
+      "price": 36.69,
+      "weight_kg": 1.901,
+      "flavor": "Sugar",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/barebells-protein-cookie---sugar-sugar.jpg",
+      "product_url": "https://example.com/products/barebells-protein-cookie---sugar-sugar"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "plant_protein",
+      "protein_per_serving_g": 16,
+      "carbs_per_serving_g": 23,
+      "fat_per_serving_g": 5,
+      "calories_per_serving": 201,
+      "sugar_per_serving_g": 6,
+      "fiber_per_serving_g": 5,
+      "serving_size_g": 77,
+      "pieces_per_package": 24,
+      "texture": "chewy",
+      "dietary": [
+        "egg-free"
+      ],
+      "goals": [
+        "convenient_snack",
+        "muscle_maintenance"
+      ]
+    }
+  },
+  {
+    "id": "ckie-018",
+    "page_content": "Bhu Foods cookie in Mint Chocolate Chip provides 16g protein per 77g serving. Chewy texture with satisfying bite. 315 kcal, 38g carbs, 11g fat, 5g sugar, 8g fiber.. Keto friendly. Perfect for daily protein and weight loss.",
+    "metadata": {
+      "sku": "PCK-BHU-COO-018",
+      "name": "Protein Cookie - Mint Chocolate Chip",
+      "brand": "Bhu Foods",
+      "category": "protein_cookie",
+      "price": 26.59,
+      "weight_kg": 1.221,
+      "flavor": "Mint Chocolate Chip",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/bhu-foods-protein-cookie---mint-chocolate-chip-mint-chocolate-chip.jpg",
+      "product_url": "https://example.com/products/bhu-foods-protein-cookie---mint-chocolate-chip-mint-chocolate-chip"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "whey_protein_isolate",
+      "protein_per_serving_g": 16,
+      "carbs_per_serving_g": 38,
+      "fat_per_serving_g": 11,
+      "calories_per_serving": 315,
+      "sugar_per_serving_g": 5,
+      "fiber_per_serving_g": 8,
+      "serving_size_g": 77,
+      "pieces_per_package": 15,
+      "texture": "chewy",
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "daily_protein",
+        "weight_loss"
+      ]
+    }
+  },
+  {
+    "id": "ckie-019",
+    "page_content": "ThinkThin brownie in White Chocolate Macadamia provides 20g protein per 60g serving. Soft and indulgent texture. 278 kcal, 27g carbs, 10g fat, 9g sugar, 8g fiber.. Non gmo. Perfect for muscle maintenance and muscle gain.",
+    "metadata": {
+      "sku": "PCK-THI-BRO-019",
+      "name": "Protein Brownie - White Chocolate Macadamia",
+      "brand": "ThinkThin",
+      "category": "protein_cookie",
+      "price": 25.89,
+      "weight_kg": 1.164,
+      "flavor": "White Chocolate Macadamia",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/thinkthin-protein-brownie---white-chocolate-macadamia-white-chocolate-macadamia.jpg",
+      "product_url": "https://example.com/products/thinkthin-protein-brownie---white-chocolate-macadamia-white-chocolate-macadamia"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "whey_protein_isolate",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 27,
+      "fat_per_serving_g": 10,
+      "calories_per_serving": 278,
+      "sugar_per_serving_g": 9,
+      "fiber_per_serving_g": 8,
+      "serving_size_g": 60,
+      "pieces_per_package": 18,
+      "texture": "soft",
+      "dietary": [
+        "non-gmo",
+        "vegan",
+        "soy-free"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "ckie-020",
+    "page_content": "Indulge in RXBar protein cookie Double Chocolate — 15g protein, crispy texture. 238 kcal, 22g carbs, 10g fat, 8g sugar, 12g fiber.. Keto friendly. Supports high protein snack and weight loss.",
+    "metadata": {
+      "sku": "PCK-RXB-COO-020",
+      "name": "Protein Cookie - Double Chocolate",
+      "brand": "RXBar",
+      "category": "protein_cookie",
+      "price": 35.28,
+      "weight_kg": 0.532,
+      "flavor": "Double Chocolate",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/rxbar-protein-cookie---double-chocolate-double-chocolate.jpg",
+      "product_url": "https://example.com/products/rxbar-protein-cookie---double-chocolate-double-chocolate"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "whey_protein_isolate",
+      "protein_per_serving_g": 15,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 10,
+      "calories_per_serving": 238,
+      "sugar_per_serving_g": 8,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 57,
+      "pieces_per_package": 8,
+      "texture": "crispy",
+      "dietary": [
+        "keto-friendly",
+        "non-gmo"
+      ],
+      "goals": [
+        "high_protein_snack",
+        "weight_loss"
+      ]
+    }
+  },
+  {
+    "id": "ckie-021",
+    "page_content": "Indulge in Premier protein cookie Snickerdoodle — 15g protein, soft texture. 275 kcal, 38g carbs, 7g fat, 11g sugar, 10g fiber.. Low sugar. Supports daily protein and high protein snack.",
+    "metadata": {
+      "sku": "PCK-PRE-COO-021",
+      "name": "Protein Cookie - Snickerdoodle",
+      "brand": "Premier Protein",
+      "category": "protein_cookie",
+      "price": 28.84,
+      "weight_kg": 1.497,
+      "flavor": "Snickerdoodle",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/premier-protein-protein-cookie---snickerdoodle-snickerdoodle.jpg",
+      "product_url": "https://example.com/products/premier-protein-protein-cookie---snickerdoodle-snickerdoodle"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "plant_protein",
+      "protein_per_serving_g": 15,
+      "carbs_per_serving_g": 38,
+      "fat_per_serving_g": 7,
+      "calories_per_serving": 275,
+      "sugar_per_serving_g": 11,
+      "fiber_per_serving_g": 10,
+      "serving_size_g": 80,
+      "pieces_per_package": 18,
+      "texture": "soft",
+      "dietary": [
+        "low-sugar",
+        "dairy-free"
+      ],
+      "goals": [
+        "daily_protein",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "ckie-022",
+    "page_content": "Myprotein protein cookie in Double Chocolate delivers 17g of protein from whey protein isolate. Soft and indulgent texture. Each cookie has 201 kcal, 22g carbs, 5g fat, 7g sugar, and 8g fiber. Keto friendly. Great for muscle gain and high protein snack.",
+    "metadata": {
+      "sku": "PCK-MYP-BRO-022",
+      "name": "Protein Brownie - Double Chocolate",
+      "brand": "Myprotein",
+      "category": "protein_cookie",
+      "price": 31.49,
+      "weight_kg": 0.865,
+      "flavor": "Double Chocolate",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/myprotein-protein-brownie---double-chocolate-double-chocolate.jpg",
+      "product_url": "https://example.com/products/myprotein-protein-brownie---double-chocolate-double-chocolate"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "whey_protein_isolate",
+      "protein_per_serving_g": 17,
+      "carbs_per_serving_g": 22,
+      "fat_per_serving_g": 5,
+      "calories_per_serving": 201,
+      "sugar_per_serving_g": 7,
+      "fiber_per_serving_g": 8,
+      "serving_size_g": 64,
+      "pieces_per_package": 12,
+      "texture": "soft",
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "muscle_gain",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "ckie-023",
+    "page_content": "Quest protein cookie in Salted Caramel delivers 21g of protein from casein and whey blend. Soft and indulgent texture. Each cookie has 256 kcal, 25g carbs, 8g fat, 12g sugar, and 2g fiber. Dairy free. Great for weight loss and convenient snack.",
+    "metadata": {
+      "sku": "PCK-QUE-BRO-023",
+      "name": "Protein Brownie - Salted Caramel",
+      "brand": "Quest Hero",
+      "category": "protein_cookie",
+      "price": 35.01,
+      "weight_kg": 0.644,
+      "flavor": "Salted Caramel",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/quest-hero-protein-brownie---salted-caramel-salted-caramel.jpg",
+      "product_url": "https://example.com/products/quest-hero-protein-brownie---salted-caramel-salted-caramel"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 21,
+      "carbs_per_serving_g": 25,
+      "fat_per_serving_g": 8,
+      "calories_per_serving": 256,
+      "sugar_per_serving_g": 12,
+      "fiber_per_serving_g": 2,
+      "serving_size_g": 57,
+      "pieces_per_package": 10,
+      "texture": "soft",
+      "dietary": [
+        "dairy-free",
+        "vegan",
+        "keto-friendly"
+      ],
+      "goals": [
+        "weight_loss",
+        "convenient_snack"
+      ]
+    }
+  },
+  {
+    "id": "ckie-024",
+    "page_content": "Indulge in ONE protein brownie Apple Pie — 12g protein, crunchy texture. 251 kcal, 26g carbs, 11g fat, 5g sugar, 12g fiber.. Soy free. Supports weight loss and high protein snack.",
+    "metadata": {
+      "sku": "PCK-ONE-BRO-024",
+      "name": "Protein Brownie - Apple Pie",
+      "brand": "ONE",
+      "category": "protein_cookie",
+      "price": 26.87,
+      "weight_kg": 0.691,
+      "flavor": "Apple Pie",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/one-protein-brownie---apple-pie-apple-pie.jpg",
+      "product_url": "https://example.com/products/one-protein-brownie---apple-pie-apple-pie"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "whey_protein_isolate",
+      "protein_per_serving_g": 12,
+      "carbs_per_serving_g": 26,
+      "fat_per_serving_g": 11,
+      "calories_per_serving": 251,
+      "sugar_per_serving_g": 5,
+      "fiber_per_serving_g": 12,
+      "serving_size_g": 79,
+      "pieces_per_package": 8,
+      "texture": "crunchy",
+      "dietary": [
+        "soy-free",
+        "dairy-free",
+        "low-sugar"
+      ],
+      "goals": [
+        "weight_loss",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "ckie-025",
+    "page_content": "Grenade cookie in Red Velvet provides 17g protein per 71g serving. Crunchy texture with delightful bite. 314 kcal, 30g carbs, 14g fat, 11g sugar, 11g fiber.. Vegan. Perfect for muscle gain and high protein snack.",
+    "metadata": {
+      "sku": "PCK-GRE-COO-025",
+      "name": "Protein Cookie - Red Velvet",
+      "brand": "Grenade",
+      "category": "protein_cookie",
+      "price": 35.26,
+      "weight_kg": 1.15,
+      "flavor": "Red Velvet",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/grenade-protein-cookie---red-velvet-red-velvet.jpg",
+      "product_url": "https://example.com/products/grenade-protein-cookie---red-velvet-red-velvet"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 17,
+      "carbs_per_serving_g": 30,
+      "fat_per_serving_g": 14,
+      "calories_per_serving": 314,
+      "sugar_per_serving_g": 11,
+      "fiber_per_serving_g": 11,
+      "serving_size_g": 71,
+      "pieces_per_package": 15,
+      "texture": "crunchy",
+      "dietary": [
+        "vegan",
+        "keto-friendly",
+        "egg-free"
+      ],
+      "goals": [
+        "muscle_gain",
+        "high_protein_snack"
+      ]
+    }
+  },
+  {
+    "id": "ckie-026",
+    "page_content": "Built Bar protein cookie in Salted Caramel delivers 20g of protein from casein and whey blend. Crunchy texture with delightful bite. Each cookie has 277 kcal, 38g carbs, 5g fat, 5g sugar, and 6g fiber. Low sugar. Great for muscle maintenance and daily protein.",
+    "metadata": {
+      "sku": "PCK-BUI-BRO-026",
+      "name": "Protein Brownie - Salted Caramel",
+      "brand": "Built Bar",
+      "category": "protein_cookie",
+      "price": 38.55,
+      "weight_kg": 0.893,
+      "flavor": "Salted Caramel",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/built-bar-protein-brownie---salted-caramel-salted-caramel.jpg",
+      "product_url": "https://example.com/products/built-bar-protein-brownie---salted-caramel-salted-caramel"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "casein_whey_blend",
+      "protein_per_serving_g": 20,
+      "carbs_per_serving_g": 38,
+      "fat_per_serving_g": 5,
+      "calories_per_serving": 277,
+      "sugar_per_serving_g": 5,
+      "fiber_per_serving_g": 6,
+      "serving_size_g": 67,
+      "pieces_per_package": 12,
+      "texture": "crunchy",
+      "dietary": [
+        "low-sugar",
+        "keto-friendly"
+      ],
+      "goals": [
+        "muscle_maintenance",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "ckie-027",
+    "page_content": "Good! Snacks brownie in Double Chocolate provides 13g protein per 72g serving. Crunchy texture with delightful bite. 242 kcal, 34g carbs, 6g fat, 4g sugar, 11g fiber.. Low sugar. Perfect for weight loss and daily protein.",
+    "metadata": {
+      "sku": "PCK-GOO-BRO-027",
+      "name": "Protein Brownie - Double Chocolate",
+      "brand": "Good! Snacks",
+      "category": "protein_cookie",
+      "price": 27.76,
+      "weight_kg": 1.367,
+      "flavor": "Double Chocolate",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/good--snacks-protein-brownie---double-chocolate-double-chocolate.jpg",
+      "product_url": "https://example.com/products/good--snacks-protein-brownie---double-chocolate-double-chocolate"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "plant_protein",
+      "protein_per_serving_g": 13,
+      "carbs_per_serving_g": 34,
+      "fat_per_serving_g": 6,
+      "calories_per_serving": 242,
+      "sugar_per_serving_g": 4,
+      "fiber_per_serving_g": 11,
+      "serving_size_g": 72,
+      "pieces_per_package": 18,
+      "texture": "crunchy",
+      "dietary": [
+        "low-sugar"
+      ],
+      "goals": [
+        "weight_loss",
+        "daily_protein"
+      ]
+    }
+  },
+  {
+    "id": "ckie-028",
+    "page_content": "MuscleTech protein cookie in Salted Caramel delivers 17g of protein from whey protein isolate. Light and crispy layer for crunch lovers. Each cookie has 283 kcal, 38g carbs, 7g fat, 3g sugar, and 3g fiber. Low sugar. Great for weight loss and muscle gain.",
+    "metadata": {
+      "sku": "PCK-MUS-BRO-028",
+      "name": "Protein Brownie - Salted Caramel",
+      "brand": "MuscleTech",
+      "category": "protein_cookie",
+      "price": 30.39,
+      "weight_kg": 0.53,
+      "flavor": "Salted Caramel",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/muscletech-protein-brownie---salted-caramel-salted-caramel.jpg",
+      "product_url": "https://example.com/products/muscletech-protein-brownie---salted-caramel-salted-caramel"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "whey_protein_isolate",
+      "protein_per_serving_g": 17,
+      "carbs_per_serving_g": 38,
+      "fat_per_serving_g": 7,
+      "calories_per_serving": 283,
+      "sugar_per_serving_g": 3,
+      "fiber_per_serving_g": 3,
+      "serving_size_g": 77,
+      "pieces_per_package": 6,
+      "texture": "crispy",
+      "dietary": [
+        "low-sugar",
+        "keto-friendly",
+        "non-gmo"
+      ],
+      "goals": [
+        "weight_loss",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "ckie-029",
+    "page_content": "PhD Nutrition cookie in Almond Joy provides 14g protein per 79g serving. Soft and indulgent texture. 231 kcal, 19g carbs, 11g fat, 6g sugar, 6g fiber.. Low sugar. Perfect for high protein snack and muscle gain.",
+    "metadata": {
+      "sku": "PCK-PHD-COO-029",
+      "name": "Protein Cookie - Almond Joy",
+      "brand": "PhD Nutrition",
+      "category": "protein_cookie",
+      "price": 40.98,
+      "weight_kg": 1.486,
+      "flavor": "Almond Joy",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/phd-nutrition-protein-cookie---almond-joy-almond-joy.jpg",
+      "product_url": "https://example.com/products/phd-nutrition-protein-cookie---almond-joy-almond-joy"
+    },
+    "attributes": {
+      "product_type": "cookie",
+      "protein_source": "blend_protein",
+      "protein_per_serving_g": 14,
+      "carbs_per_serving_g": 19,
+      "fat_per_serving_g": 11,
+      "calories_per_serving": 231,
+      "sugar_per_serving_g": 6,
+      "fiber_per_serving_g": 6,
+      "serving_size_g": 79,
+      "pieces_per_package": 18,
+      "texture": "soft",
+      "dietary": [
+        "low-sugar"
+      ],
+      "goals": [
+        "high_protein_snack",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "ckie-030",
+    "page_content": "Kirkland protein cookie in Fudge Brownie delivers 19g of protein from plant-based protein blend. Crunchy texture with delightful bite. Each cookie has 261 kcal, 35g carbs, 5g fat, 11g sugar, and 9g fiber. Vegan. Great for daily protein and muscle gain.",
+    "metadata": {
+      "sku": "PCK-KIR-BRO-030",
+      "name": "Protein Brownie - Fudge Brownie",
+      "brand": "Kirkland",
+      "category": "protein_cookie",
+      "price": 33.02,
+      "weight_kg": 0.562,
+      "flavor": "Fudge Brownie",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/kirkland-protein-brownie---fudge-brownie-fudge-brownie.jpg",
+      "product_url": "https://example.com/products/kirkland-protein-brownie---fudge-brownie-fudge-brownie"
+    },
+    "attributes": {
+      "product_type": "brownie",
+      "protein_source": "plant_protein",
+      "protein_per_serving_g": 19,
+      "carbs_per_serving_g": 35,
+      "fat_per_serving_g": 5,
+      "calories_per_serving": 261,
+      "sugar_per_serving_g": 11,
+      "fiber_per_serving_g": 9,
+      "serving_size_g": 61,
+      "pieces_per_package": 8,
+      "texture": "crunchy",
+      "dietary": [
+        "vegan",
+        "non-gmo"
+      ],
+      "goals": [
+        "daily_protein",
+        "muscle_gain"
+      ]
+    }
+  }
+]

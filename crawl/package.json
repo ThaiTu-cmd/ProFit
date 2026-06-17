@@ -1,0 +1,15 @@
+{
+  "name": "profit-crawl",
+  "version": "1.0.0",
+  "description": "ProFit - crawl Shopify demo store -> CSV + images",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node crawl_products.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "mysql2": "^3.22.5",
+    "sharp": "^0.35.1"
+  }
+}

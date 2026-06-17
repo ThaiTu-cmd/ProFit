@@ -1,0 +1,1349 @@
+[
+  {
+    "id": "cre-001",
+    "page_content": "BulkSupplements micronized creatine powder capsule in Blue Raspberry provides 4.6g creatine per serving. Convenient capsule form for precise dosing. Non gmo. Ultra-pure at 99.8% with no fillers. Formulated for performance and muscle gain. 250 capsules per container.",
+    "metadata": {
+      "sku": "CRE-MICR-MICR-001",
+      "name": "Micronized Creatine - Blue Raspberry",
+      "brand": "BulkSupplements",
+      "category": "creatine",
+      "price": 62.59,
+      "weight_kg": 0.781,
+      "flavor": "Blue Raspberry",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/bulksupplements-micronized-creatine---blue-raspberry-blue-raspberry.jpg",
+      "product_url": "https://example.com/products/bulksupplements-micronized-creatine---blue-raspberry-blue-raspberry"
+    },
+    "attributes": {
+      "creatine_type": "micronized",
+      "form": "capsule",
+      "creatine_per_serving_g": 4.6,
+      "purity_percent": 99.8,
+      "third_party_tested": true,
+      "serving_size_g": 3,
+      "servings_per_container": 250,
+      "dietary": [
+        "non-gmo"
+      ],
+      "goals": [
+        "performance",
+        "muscle_gain"
+      ],
+      "capsules_per_serving": 2,
+      "capsules_per_container": 500
+    }
+  },
+  {
+    "id": "cre-002",
+    "page_content": "Discover Transparent Labs creatine monohydrate powder — 3.8g of pure creatine tablet. Easy-to-swallow tablets for on-the-go use. At 98.9% purity it is formulated for maximum effectiveness. Third-party tested for purity and banned substance safety. Supports explosive power and endurance. 120 tablets per container.",
+    "metadata": {
+      "sku": "CRE-MONO-MONO-002",
+      "name": "Creatine Monohydrate - Fruit Punch",
+      "brand": "Transparent Labs",
+      "category": "creatine",
+      "price": 21.97,
+      "weight_kg": 0.39,
+      "flavor": "Fruit Punch",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/transparent-labs-creatine-monohydrate---fruit-punch-fruit-punch.jpg",
+      "product_url": "https://example.com/products/transparent-labs-creatine-monohydrate---fruit-punch-fruit-punch"
+    },
+    "attributes": {
+      "creatine_type": "monohydrate",
+      "form": "tablet",
+      "creatine_per_serving_g": 3.8,
+      "purity_percent": 98.9,
+      "third_party_tested": true,
+      "serving_size_g": 3,
+      "servings_per_container": 120,
+      "dietary": [
+        "vegan"
+      ],
+      "goals": [
+        "explosive_power",
+        "endurance"
+      ],
+      "capsules_per_serving": 3,
+      "capsules_per_container": 360
+    }
+  },
+  {
+    "id": "cre-003",
+    "page_content": "Creapure creatine HCl capsule powder in Green Apple provides 5.0g creatine per serving. Fast-dissolving powder for easy mixing. Vegan. At 97.8% purity it is formulated for maximum effectiveness. Formulated for explosive power and strength. 30 servings per container.",
+    "metadata": {
+      "sku": "CRE-HCL-HCL-003",
+      "name": "Creatine HCl - Green Apple",
+      "brand": "Creapure",
+      "category": "creatine",
+      "price": 38.07,
+      "weight_kg": 0.194,
+      "flavor": "Green Apple",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/creapure-creatine-hcl---green-apple-green-apple.jpg",
+      "product_url": "https://example.com/products/creapure-creatine-hcl---green-apple-green-apple"
+    },
+    "attributes": {
+      "creatine_type": "HCl",
+      "form": "powder",
+      "creatine_per_serving_g": 5.0,
+      "purity_percent": 97.8,
+      "third_party_tested": false,
+      "serving_size_g": 5,
+      "servings_per_container": 30,
+      "dietary": [
+        "vegan"
+      ],
+      "goals": [
+        "explosive_power",
+        "strength"
+      ]
+    }
+  },
+  {
+    "id": "cre-004",
+    "page_content": "Discover Universal Nutrition buffered creatine formula — 2.2g of pure creatine capsule. Convenient capsule form for precise dosing. At 97.5% purity it is formulated for maximum effectiveness. Third-party tested for purity and banned substance safety. Supports explosive power and muscle gain. 30 capsules per container.",
+    "metadata": {
+      "sku": "CRE-BUFF-BUFF-004",
+      "name": "Buffered Creatine - Grape",
+      "brand": "Universal Nutrition",
+      "category": "creatine",
+      "price": 37.52,
+      "weight_kg": 0.222,
+      "flavor": "Grape",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/universal-nutrition-buffered-creatine---grape-grape.jpg",
+      "product_url": "https://example.com/products/universal-nutrition-buffered-creatine---grape-grape"
+    },
+    "attributes": {
+      "creatine_type": "buffered",
+      "form": "capsule",
+      "creatine_per_serving_g": 2.2,
+      "purity_percent": 97.5,
+      "third_party_tested": true,
+      "serving_size_g": 6,
+      "servings_per_container": 30,
+      "dietary": [
+        "non-gmo"
+      ],
+      "goals": [
+        "explosive_power",
+        "muscle_gain"
+      ],
+      "capsules_per_serving": 2,
+      "capsules_per_container": 60
+    }
+  },
+  {
+    "id": "cre-005",
+    "page_content": "Discover Kaged creatine HCl capsule — 3.4g of pure creatine capsule. Convenient capsule form for precise dosing. At 97.2% purity it is formulated for maximum effectiveness. Third-party tested for purity and banned substance safety. Supports lean muscle and strength. 30 capsules per container.",
+    "metadata": {
+      "sku": "CRE-HCL-HCL-005",
+      "name": "Creatine HCl - Blue Raspberry",
+      "brand": "Kaged Muscle",
+      "category": "creatine",
+      "price": 33.62,
+      "weight_kg": 0.203,
+      "flavor": "Blue Raspberry",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/kaged-muscle-creatine-hcl---blue-raspberry-blue-raspberry.jpg",
+      "product_url": "https://example.com/products/kaged-muscle-creatine-hcl---blue-raspberry-blue-raspberry"
+    },
+    "attributes": {
+      "creatine_type": "HCl",
+      "form": "capsule",
+      "creatine_per_serving_g": 3.4,
+      "purity_percent": 97.2,
+      "third_party_tested": true,
+      "serving_size_g": 6,
+      "servings_per_container": 30,
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "lean_muscle",
+        "strength"
+      ],
+      "capsules_per_serving": 3,
+      "capsules_per_container": 90
+    }
+  },
+  {
+    "id": "cre-006",
+    "page_content": "NutraBio buffered creatine formula tablet in Green Apple provides 3.1g creatine per serving. Easy-to-swallow tablets for on-the-go use. Non gmo. Ultra-pure at 99.1% with no fillers. Formulated for performance and strength. 300 tablets per container.",
+    "metadata": {
+      "sku": "CRE-BUFF-BUFF-006",
+      "name": "Buffered Creatine - Green Apple",
+      "brand": "NutraBio",
+      "category": "creatine",
+      "price": 43.69,
+      "weight_kg": 1.538,
+      "flavor": "Green Apple",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/nutrabio-buffered-creatine---green-apple-green-apple.jpg",
+      "product_url": "https://example.com/products/nutrabio-buffered-creatine---green-apple-green-apple"
+    },
+    "attributes": {
+      "creatine_type": "buffered",
+      "form": "tablet",
+      "creatine_per_serving_g": 3.1,
+      "purity_percent": 99.1,
+      "third_party_tested": false,
+      "serving_size_g": 5,
+      "servings_per_container": 300,
+      "dietary": [
+        "non-gmo"
+      ],
+      "goals": [
+        "performance",
+        "strength"
+      ],
+      "capsules_per_serving": 5,
+      "capsules_per_container": 1500
+    }
+  },
+  {
+    "id": "cre-007",
+    "page_content": "Beast Creatine Ethyl Ester in Cherry Limeade delivers 2.9g of creatine per 5g capsule. Ultra-pure at 99.1% with no fillers. Manufactured in GMP-certified facilities. At 99.1% purity it supports lean muscle and strength. 200 capsules per container.",
+    "metadata": {
+      "sku": "CRE-ETHY-ETHY-007",
+      "name": "Creatine Ethyl Ester - Cherry Limeade",
+      "brand": "Beast Sports",
+      "category": "creatine",
+      "price": 48.61,
+      "weight_kg": 1.031,
+      "flavor": "Cherry Limeade",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/beast-sports-creatine-ethyl-ester---cherry-limeade-cherry-limeade.jpg",
+      "product_url": "https://example.com/products/beast-sports-creatine-ethyl-ester---cherry-limeade-cherry-limeade"
+    },
+    "attributes": {
+      "creatine_type": "ethyl_ester",
+      "form": "capsule",
+      "creatine_per_serving_g": 2.9,
+      "purity_percent": 99.1,
+      "third_party_tested": false,
+      "serving_size_g": 5,
+      "servings_per_container": 200,
+      "dietary": [
+        "dairy-free"
+      ],
+      "goals": [
+        "lean_muscle",
+        "strength"
+      ],
+      "capsules_per_serving": 2,
+      "capsules_per_container": 400
+    }
+  },
+  {
+    "id": "cre-008",
+    "page_content": "Discover ProLab micronized creatine powder — 3.7g of pure creatine tablet. Easy-to-swallow tablets for on-the-go use. At 98.7% purity it is formulated for maximum effectiveness. Third-party tested for purity and banned substance safety. Supports explosive power and lean muscle. 30 tablets per container.",
+    "metadata": {
+      "sku": "CRE-MICR-MICR-008",
+      "name": "Micronized Creatine - Green Apple",
+      "brand": "ProLab",
+      "category": "creatine",
+      "price": 43.13,
+      "weight_kg": 0.182,
+      "flavor": "Green Apple",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/prolab-micronized-creatine---green-apple-green-apple.jpg",
+      "product_url": "https://example.com/products/prolab-micronized-creatine---green-apple-green-apple"
+    },
+    "attributes": {
+      "creatine_type": "micronized",
+      "form": "tablet",
+      "creatine_per_serving_g": 3.7,
+      "purity_percent": 98.7,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 30,
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "explosive_power",
+        "lean_muscle"
+      ],
+      "capsules_per_serving": 2,
+      "capsules_per_container": 60
+    }
+  },
+  {
+    "id": "cre-009",
+    "page_content": "Discover MusclePharm micronized creatine powder — 2.3g of pure creatine powder. Fast-dissolving powder for easy mixing. At 97.7% purity it is formulated for maximum effectiveness. Third-party tested for purity and banned substance safety. Supports explosive power and lean muscle. 250 servings per container.",
+    "metadata": {
+      "sku": "CRE-MICR-MICR-009",
+      "name": "Micronized Creatine - Grape",
+      "brand": "MusclePharm",
+      "category": "creatine",
+      "price": 38.67,
+      "weight_kg": 2.043,
+      "flavor": "Grape",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/musclepharm-micronized-creatine---grape-grape.jpg",
+      "product_url": "https://example.com/products/musclepharm-micronized-creatine---grape-grape"
+    },
+    "attributes": {
+      "creatine_type": "micronized",
+      "form": "powder",
+      "creatine_per_serving_g": 2.3,
+      "purity_percent": 97.7,
+      "third_party_tested": true,
+      "serving_size_g": 8,
+      "servings_per_container": 250,
+      "dietary": [
+        "third-party tested"
+      ],
+      "goals": [
+        "explosive_power",
+        "lean_muscle"
+      ]
+    }
+  },
+  {
+    "id": "cre-010",
+    "page_content": "Discover Nutricost creatine monohydrate powder — 2.9g of pure creatine powder. Fast-dissolving powder for easy mixing. Ultra-pure at 99.0% with no fillers. Manufactured in GMP-certified facilities. Supports performance and lean muscle. 150 servings per container.",
+    "metadata": {
+      "sku": "CRE-MONO-MONO-010",
+      "name": "Creatine Monohydrate - Sour Gummy",
+      "brand": "Nutricost",
+      "category": "creatine",
+      "price": 34.69,
+      "weight_kg": 0.925,
+      "flavor": "Sour Gummy",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/nutricost-creatine-monohydrate---sour-gummy-sour-gummy.jpg",
+      "product_url": "https://example.com/products/nutricost-creatine-monohydrate---sour-gummy-sour-gummy"
+    },
+    "attributes": {
+      "creatine_type": "monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 2.9,
+      "purity_percent": 99.0,
+      "third_party_tested": false,
+      "serving_size_g": 6,
+      "servings_per_container": 150,
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "performance",
+        "lean_muscle"
+      ]
+    }
+  },
+  {
+    "id": "cre-011",
+    "page_content": "Con-Cret Creatine Monohydrate in Cherry Limeade delivers 3.3g of creatine per 5g tablet. At 97.6% purity it is formulated for maximum effectiveness. Manufactured in GMP-certified facilities. At 97.6% purity it supports endurance and explosive power. 300 tablets per container.",
+    "metadata": {
+      "sku": "CRE-MONO-MONO-011",
+      "name": "Creatine Monohydrate - Cherry Limeade",
+      "brand": "Con-Cret",
+      "category": "creatine",
+      "price": 32.14,
+      "weight_kg": 1.529,
+      "flavor": "Cherry Limeade",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/con-cret-creatine-monohydrate---cherry-limeade-cherry-limeade.jpg",
+      "product_url": "https://example.com/products/con-cret-creatine-monohydrate---cherry-limeade-cherry-limeade"
+    },
+    "attributes": {
+      "creatine_type": "monohydrate",
+      "form": "tablet",
+      "creatine_per_serving_g": 3.3,
+      "purity_percent": 97.6,
+      "third_party_tested": false,
+      "serving_size_g": 5,
+      "servings_per_container": 300,
+      "dietary": [
+        "vegan"
+      ],
+      "goals": [
+        "endurance",
+        "explosive_power"
+      ],
+      "capsules_per_serving": 2,
+      "capsules_per_container": 600
+    }
+  },
+  {
+    "id": "cre-012",
+    "page_content": "BPI creatine HCl capsule capsule in Tropical provides 3.3g creatine per serving. Convenient capsule form for precise dosing. Third party tested. At 98.4% purity it is formulated for maximum effectiveness. Formulated for strength and muscle gain. 200 capsules per container.",
+    "metadata": {
+      "sku": "CRE-HCL-HCL-012",
+      "name": "Creatine HCl - Tropical",
+      "brand": "BPI Sports",
+      "category": "creatine",
+      "price": 31.07,
+      "weight_kg": 1.035,
+      "flavor": "Tropical",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/bpi-sports-creatine-hcl---tropical-tropical.jpg",
+      "product_url": "https://example.com/products/bpi-sports-creatine-hcl---tropical-tropical"
+    },
+    "attributes": {
+      "creatine_type": "HCl",
+      "form": "capsule",
+      "creatine_per_serving_g": 3.3,
+      "purity_percent": 98.4,
+      "third_party_tested": false,
+      "serving_size_g": 5,
+      "servings_per_container": 200,
+      "dietary": [
+        "third-party tested",
+        "banned-substance-free"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ],
+      "capsules_per_serving": 5,
+      "capsules_per_container": 1000
+    }
+  },
+  {
+    "id": "cre-013",
+    "page_content": "Discover EFX Sports creatine monohydrate powder — 4.3g of pure creatine powder. Fast-dissolving powder for easy mixing. Ultra-pure at 99.7% with no fillers. Third-party tested for purity and banned substance safety. Supports lean muscle and power. 150 servings per container.",
+    "metadata": {
+      "sku": "CRE-MONO-MONO-013",
+      "name": "Creatine Monohydrate - Blue Raspberry",
+      "brand": "EFX Sports",
+      "category": "creatine",
+      "price": 32.29,
+      "weight_kg": 0.924,
+      "flavor": "Blue Raspberry",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/efx-sports-creatine-monohydrate---blue-raspberry-blue-raspberry.jpg",
+      "product_url": "https://example.com/products/efx-sports-creatine-monohydrate---blue-raspberry-blue-raspberry"
+    },
+    "attributes": {
+      "creatine_type": "monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 4.3,
+      "purity_percent": 99.7,
+      "third_party_tested": true,
+      "serving_size_g": 6,
+      "servings_per_container": 150,
+      "dietary": [
+        "non-gmo"
+      ],
+      "goals": [
+        "lean_muscle",
+        "power"
+      ]
+    }
+  },
+  {
+    "id": "cre-014",
+    "page_content": "Discover Jacked Factory buffered creatine formula — 4.6g of pure creatine tablet. Easy-to-swallow tablets for on-the-go use. At 97.2% purity it is formulated for maximum effectiveness. Manufactured in GMP-certified facilities. Supports muscle gain and endurance. 180 tablets per container.",
+    "metadata": {
+      "sku": "CRE-BUFF-BUFF-014",
+      "name": "Buffered Creatine - Cherry Limeade",
+      "brand": "Jacked Factory",
+      "category": "creatine",
+      "price": 39.01,
+      "weight_kg": 0.574,
+      "flavor": "Cherry Limeade",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/jacked-factory-buffered-creatine---cherry-limeade-cherry-limeade.jpg",
+      "product_url": "https://example.com/products/jacked-factory-buffered-creatine---cherry-limeade-cherry-limeade"
+    },
+    "attributes": {
+      "creatine_type": "buffered",
+      "form": "tablet",
+      "creatine_per_serving_g": 4.6,
+      "purity_percent": 97.2,
+      "third_party_tested": false,
+      "serving_size_g": 3,
+      "servings_per_container": 180,
+      "dietary": [
+        "third-party tested",
+        "non-gmo"
+      ],
+      "goals": [
+        "muscle_gain",
+        "endurance"
+      ],
+      "capsules_per_serving": 4,
+      "capsules_per_container": 720
+    }
+  },
+  {
+    "id": "cre-015",
+    "page_content": "Discover PrimaForce creatine ethyl ester tablet — 4.8g of pure creatine powder. Fast-dissolving powder for easy mixing. At 97.5% purity it is formulated for maximum effectiveness. Manufactured in GMP-certified facilities. Supports explosive power and strength. 180 servings per container.",
+    "metadata": {
+      "sku": "CRE-ETHY-ETHY-015",
+      "name": "Creatine Ethyl Ester - Cherry Limeade",
+      "brand": "PrimaForce",
+      "category": "creatine",
+      "price": 54.45,
+      "weight_kg": 1.308,
+      "flavor": "Cherry Limeade",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/primaforce-creatine-ethyl-ester---cherry-limeade-cherry-limeade.jpg",
+      "product_url": "https://example.com/products/primaforce-creatine-ethyl-ester---cherry-limeade-cherry-limeade"
+    },
+    "attributes": {
+      "creatine_type": "ethyl_ester",
+      "form": "powder",
+      "creatine_per_serving_g": 4.8,
+      "purity_percent": 97.5,
+      "third_party_tested": false,
+      "serving_size_g": 7,
+      "servings_per_container": 180,
+      "dietary": [
+        "non-gmo"
+      ],
+      "goals": [
+        "explosive_power",
+        "strength"
+      ]
+    }
+  },
+  {
+    "id": "cre-016",
+    "page_content": "MuscleTech Creatine Ethyl Ester in Cherry Limeade delivers 4.3g of creatine per 3g capsule. At 97.6% purity it is formulated for maximum effectiveness. Third-party tested for purity and banned substance safety. At 97.6% purity it supports explosive power and muscle gain. 180 capsules per container.",
+    "metadata": {
+      "sku": "CRE-ETHY-ETHY-016",
+      "name": "Creatine Ethyl Ester - Cherry Limeade",
+      "brand": "MuscleTech",
+      "category": "creatine",
+      "price": 41.91,
+      "weight_kg": 0.563,
+      "flavor": "Cherry Limeade",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/muscletech-creatine-ethyl-ester---cherry-limeade-cherry-limeade.jpg",
+      "product_url": "https://example.com/products/muscletech-creatine-ethyl-ester---cherry-limeade-cherry-limeade"
+    },
+    "attributes": {
+      "creatine_type": "ethyl_ester",
+      "form": "capsule",
+      "creatine_per_serving_g": 4.3,
+      "purity_percent": 97.6,
+      "third_party_tested": true,
+      "serving_size_g": 3,
+      "servings_per_container": 180,
+      "dietary": [
+        "banned-substance-free",
+        "dairy-free"
+      ],
+      "goals": [
+        "explosive_power",
+        "muscle_gain"
+      ],
+      "capsules_per_serving": 3,
+      "capsules_per_container": 540
+    }
+  },
+  {
+    "id": "cre-017",
+    "page_content": "Discover Thorne micronized creatine powder — 4.0g of pure creatine powder. Fast-dissolving powder for easy mixing. Ultra-pure at 99.2% with no fillers. Third-party tested for purity and banned substance safety. Supports endurance and explosive power. 90 servings per container.",
+    "metadata": {
+      "sku": "CRE-MICR-MICR-017",
+      "name": "Micronized Creatine - Sour Gummy",
+      "brand": "Thorne",
+      "category": "creatine",
+      "price": 56.1,
+      "weight_kg": 0.489,
+      "flavor": "Sour Gummy",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/thorne-micronized-creatine---sour-gummy-sour-gummy.jpg",
+      "product_url": "https://example.com/products/thorne-micronized-creatine---sour-gummy-sour-gummy"
+    },
+    "attributes": {
+      "creatine_type": "micronized",
+      "form": "powder",
+      "creatine_per_serving_g": 4.0,
+      "purity_percent": 99.2,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 90,
+      "dietary": [
+        "banned-substance-free",
+        "third-party tested"
+      ],
+      "goals": [
+        "endurance",
+        "explosive_power"
+      ]
+    }
+  },
+  {
+    "id": "cre-018",
+    "page_content": "Rule1 Creatine HCl in Grape delivers 3.3g of creatine per 6g powder. At 97.2% purity it is formulated for maximum effectiveness. Third-party tested for purity and banned substance safety. At 97.2% purity it supports strength and muscle gain. 250 servings per container.",
+    "metadata": {
+      "sku": "CRE-HCL-HCL-018",
+      "name": "Creatine HCl - Grape",
+      "brand": "Rule1",
+      "category": "creatine",
+      "price": 55.39,
+      "weight_kg": 1.538,
+      "flavor": "Grape",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/rule1-creatine-hcl---grape-grape.jpg",
+      "product_url": "https://example.com/products/rule1-creatine-hcl---grape-grape"
+    },
+    "attributes": {
+      "creatine_type": "HCl",
+      "form": "powder",
+      "creatine_per_serving_g": 3.3,
+      "purity_percent": 97.2,
+      "third_party_tested": true,
+      "serving_size_g": 6,
+      "servings_per_container": 250,
+      "dietary": [
+        "non-gmo",
+        "vegan"
+      ],
+      "goals": [
+        "strength",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "cre-019",
+    "page_content": "Discover Optimum Nutrition creatine monohydrate powder — 3.5g of pure creatine tablet. Easy-to-swallow tablets for on-the-go use. At 98.8% purity it is formulated for maximum effectiveness. Third-party tested for purity and banned substance safety. Supports strength and lean muscle. 60 tablets per container.",
+    "metadata": {
+      "sku": "CRE-MONO-MONO-019",
+      "name": "Creatine Monohydrate - Cherry Limeade",
+      "brand": "Optimum Nutrition",
+      "category": "creatine",
+      "price": 40.63,
+      "weight_kg": 0.409,
+      "flavor": "Cherry Limeade",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/optimum-nutrition-creatine-monohydrate---cherry-limeade-cherry-limeade.jpg",
+      "product_url": "https://example.com/products/optimum-nutrition-creatine-monohydrate---cherry-limeade-cherry-limeade"
+    },
+    "attributes": {
+      "creatine_type": "monohydrate",
+      "form": "tablet",
+      "creatine_per_serving_g": 3.5,
+      "purity_percent": 98.8,
+      "third_party_tested": true,
+      "serving_size_g": 6,
+      "servings_per_container": 60,
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "strength",
+        "lean_muscle"
+      ],
+      "capsules_per_serving": 3,
+      "capsules_per_container": 180
+    }
+  },
+  {
+    "id": "cre-020",
+    "page_content": "ATP Lab creatine ethyl ester tablet powder in Fruit Punch provides 2.3g creatine per serving. Fast-dissolving powder for easy mixing. Keto friendly. Ultra-pure at 99.8% with no fillers. Formulated for endurance and explosive power. 180 servings per container.",
+    "metadata": {
+      "sku": "CRE-ETHY-ETHY-020",
+      "name": "Creatine Ethyl Ester - Fruit Punch",
+      "brand": "ATP Lab",
+      "category": "creatine",
+      "price": 23.53,
+      "weight_kg": 0.941,
+      "flavor": "Fruit Punch",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/atp-lab-creatine-ethyl-ester---fruit-punch-fruit-punch.jpg",
+      "product_url": "https://example.com/products/atp-lab-creatine-ethyl-ester---fruit-punch-fruit-punch"
+    },
+    "attributes": {
+      "creatine_type": "ethyl_ester",
+      "form": "powder",
+      "creatine_per_serving_g": 2.3,
+      "purity_percent": 99.8,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 180,
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "endurance",
+        "explosive_power"
+      ]
+    }
+  },
+  {
+    "id": "cre-021",
+    "page_content": "NOW Sports Creatine Ethyl Ester in Unflavored delivers 3.9g of creatine per 3g capsule. Ultra-pure at 99.3% with no fillers. Third-party tested for purity and banned substance safety. At 99.3% purity it supports muscle gain and performance. 30 capsules per container.",
+    "metadata": {
+      "sku": "CRE-ETHY-ETHY-021",
+      "name": "Creatine Ethyl Ester - Unflavored",
+      "brand": "NOW Sports",
+      "category": "creatine",
+      "price": 29.86,
+      "weight_kg": 0.127,
+      "flavor": "Unflavored",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/now-sports-creatine-ethyl-ester---unflavored-unflavored.jpg",
+      "product_url": "https://example.com/products/now-sports-creatine-ethyl-ester---unflavored-unflavored"
+    },
+    "attributes": {
+      "creatine_type": "ethyl_ester",
+      "form": "capsule",
+      "creatine_per_serving_g": 3.9,
+      "purity_percent": 99.3,
+      "third_party_tested": true,
+      "serving_size_g": 3,
+      "servings_per_container": 30,
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "muscle_gain",
+        "performance"
+      ],
+      "capsules_per_serving": 3,
+      "capsules_per_container": 90
+    }
+  },
+  {
+    "id": "cre-022",
+    "page_content": "Discover Allmax creatine HCl capsule — 4.1g of pure creatine tablet. Easy-to-swallow tablets for on-the-go use. At 97.4% purity it is formulated for maximum effectiveness. Third-party tested for purity and banned substance safety. Supports explosive power and power. 200 tablets per container.",
+    "metadata": {
+      "sku": "CRE-HCL-HCL-022",
+      "name": "Creatine HCl - Unflavored",
+      "brand": "Allmax",
+      "category": "creatine",
+      "price": 34.74,
+      "weight_kg": 0.631,
+      "flavor": "Unflavored",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/allmax-creatine-hcl---unflavored-unflavored.jpg",
+      "product_url": "https://example.com/products/allmax-creatine-hcl---unflavored-unflavored"
+    },
+    "attributes": {
+      "creatine_type": "HCl",
+      "form": "tablet",
+      "creatine_per_serving_g": 4.1,
+      "purity_percent": 97.4,
+      "third_party_tested": true,
+      "serving_size_g": 3,
+      "servings_per_container": 200,
+      "dietary": [
+        "banned-substance-free"
+      ],
+      "goals": [
+        "explosive_power",
+        "power"
+      ],
+      "capsules_per_serving": 4,
+      "capsules_per_container": 800
+    }
+  },
+  {
+    "id": "cre-023",
+    "page_content": "MET-Rx creatine HCl capsule capsule in Tropical provides 3.0g creatine per serving. Convenient capsule form for precise dosing. Banned substance free. Ultra-pure at 99.8% with no fillers. Formulated for muscle gain and strength. 90 capsules per container.",
+    "metadata": {
+      "sku": "CRE-HCL-HCL-023",
+      "name": "Creatine HCl - Tropical",
+      "brand": "MET-Rx",
+      "category": "creatine",
+      "price": 26.49,
+      "weight_kg": 0.59,
+      "flavor": "Tropical",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/met-rx-creatine-hcl---tropical-tropical.jpg",
+      "product_url": "https://example.com/products/met-rx-creatine-hcl---tropical-tropical"
+    },
+    "attributes": {
+      "creatine_type": "HCl",
+      "form": "capsule",
+      "creatine_per_serving_g": 3.0,
+      "purity_percent": 99.8,
+      "third_party_tested": false,
+      "serving_size_g": 6,
+      "servings_per_container": 90,
+      "dietary": [
+        "banned-substance-free"
+      ],
+      "goals": [
+        "muscle_gain",
+        "strength"
+      ],
+      "capsules_per_serving": 3,
+      "capsules_per_container": 270
+    }
+  },
+  {
+    "id": "cre-024",
+    "page_content": "Discover GAT Sport micronized creatine powder — 4.3g of pure creatine powder. Fast-dissolving powder for easy mixing. Ultra-pure at 99.4% with no fillers. Third-party tested for purity and banned substance safety. Supports performance and power. 90 servings per container.",
+    "metadata": {
+      "sku": "CRE-MICR-MICR-024",
+      "name": "Micronized Creatine - Fruit Punch",
+      "brand": "GAT Sport",
+      "category": "creatine",
+      "price": 47.13,
+      "weight_kg": 0.471,
+      "flavor": "Fruit Punch",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/gat-sport-micronized-creatine---fruit-punch-fruit-punch.jpg",
+      "product_url": "https://example.com/products/gat-sport-micronized-creatine---fruit-punch-fruit-punch"
+    },
+    "attributes": {
+      "creatine_type": "micronized",
+      "form": "powder",
+      "creatine_per_serving_g": 4.3,
+      "purity_percent": 99.4,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 90,
+      "dietary": [
+        "third-party tested",
+        "keto-friendly"
+      ],
+      "goals": [
+        "performance",
+        "power"
+      ]
+    }
+  },
+  {
+    "id": "cre-025",
+    "page_content": "Dymatize buffered creatine formula powder in Watermelon provides 4.4g creatine per serving. Fast-dissolving powder for easy mixing. Third party tested. Ultra-pure at 99.8% with no fillers. Formulated for lean muscle and muscle gain. 150 servings per container.",
+    "metadata": {
+      "sku": "CRE-BUFF-BUFF-025",
+      "name": "Buffered Creatine - Watermelon",
+      "brand": "Dymatize",
+      "category": "creatine",
+      "price": 35.35,
+      "weight_kg": 0.798,
+      "flavor": "Watermelon",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/dymatize-buffered-creatine---watermelon-watermelon.jpg",
+      "product_url": "https://example.com/products/dymatize-buffered-creatine---watermelon-watermelon"
+    },
+    "attributes": {
+      "creatine_type": "buffered",
+      "form": "powder",
+      "creatine_per_serving_g": 4.4,
+      "purity_percent": 99.8,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 150,
+      "dietary": [
+        "third-party tested",
+        "dairy-free"
+      ],
+      "goals": [
+        "lean_muscle",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "cre-026",
+    "page_content": "BulkSupplements buffered creatine formula powder in Mango provides 3.4g creatine per serving. Fast-dissolving powder for easy mixing. Vegan. At 97.2% purity it is formulated for maximum effectiveness. Formulated for explosive power and strength. 150 servings per container.",
+    "metadata": {
+      "sku": "CRE-BUFF-BUFF-026",
+      "name": "Buffered Creatine - Mango",
+      "brand": "BulkSupplements",
+      "category": "creatine",
+      "price": 42.63,
+      "weight_kg": 0.923,
+      "flavor": "Mango",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/bulksupplements-buffered-creatine---mango-mango.jpg",
+      "product_url": "https://example.com/products/bulksupplements-buffered-creatine---mango-mango"
+    },
+    "attributes": {
+      "creatine_type": "buffered",
+      "form": "powder",
+      "creatine_per_serving_g": 3.4,
+      "purity_percent": 97.2,
+      "third_party_tested": true,
+      "serving_size_g": 6,
+      "servings_per_container": 150,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "explosive_power",
+        "strength"
+      ]
+    }
+  },
+  {
+    "id": "cre-027",
+    "page_content": "Transparent Labs Micronized Creatine in Green Apple delivers 2.7g of creatine per 6g capsule. Ultra-pure at 99.7% with no fillers. Third-party tested for purity and banned substance safety. At 99.7% purity it supports lean muscle and endurance. 60 capsules per container.",
+    "metadata": {
+      "sku": "CRE-MICR-MICR-027",
+      "name": "Micronized Creatine - Green Apple",
+      "brand": "Transparent Labs",
+      "category": "creatine",
+      "price": 52.5,
+      "weight_kg": 0.408,
+      "flavor": "Green Apple",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/transparent-labs-micronized-creatine---green-apple-green-apple.jpg",
+      "product_url": "https://example.com/products/transparent-labs-micronized-creatine---green-apple-green-apple"
+    },
+    "attributes": {
+      "creatine_type": "micronized",
+      "form": "capsule",
+      "creatine_per_serving_g": 2.7,
+      "purity_percent": 99.7,
+      "third_party_tested": true,
+      "serving_size_g": 6,
+      "servings_per_container": 60,
+      "dietary": [
+        "gluten-free",
+        "non-gmo"
+      ],
+      "goals": [
+        "lean_muscle",
+        "endurance"
+      ],
+      "capsules_per_serving": 2,
+      "capsules_per_container": 120
+    }
+  },
+  {
+    "id": "cre-028",
+    "page_content": "Creapure Creatine Monohydrate in Green Apple delivers 2.4g of creatine per 5g tablet. Ultra-pure at 99.3% with no fillers. Third-party tested for purity and banned substance safety. At 99.3% purity it supports explosive power and performance. 180 tablets per container.",
+    "metadata": {
+      "sku": "CRE-MONO-MONO-028",
+      "name": "Creatine Monohydrate - Green Apple",
+      "brand": "Creapure",
+      "category": "creatine",
+      "price": 57.78,
+      "weight_kg": 0.934,
+      "flavor": "Green Apple",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/creapure-creatine-monohydrate---green-apple-green-apple.jpg",
+      "product_url": "https://example.com/products/creapure-creatine-monohydrate---green-apple-green-apple"
+    },
+    "attributes": {
+      "creatine_type": "monohydrate",
+      "form": "tablet",
+      "creatine_per_serving_g": 2.4,
+      "purity_percent": 99.3,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 180,
+      "dietary": [
+        "non-gmo",
+        "third-party tested"
+      ],
+      "goals": [
+        "explosive_power",
+        "performance"
+      ],
+      "capsules_per_serving": 2,
+      "capsules_per_container": 360
+    }
+  },
+  {
+    "id": "cre-029",
+    "page_content": "Universal micronized creatine powder powder in Tropical provides 3.8g creatine per serving. Fast-dissolving powder for easy mixing. Banned substance free. Ultra-pure at 99.7% with no fillers. Formulated for strength and power. 300 servings per container.",
+    "metadata": {
+      "sku": "CRE-MICR-MICR-029",
+      "name": "Micronized Creatine - Tropical",
+      "brand": "Universal Nutrition",
+      "category": "creatine",
+      "price": 30.34,
+      "weight_kg": 2.129,
+      "flavor": "Tropical",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/universal-nutrition-micronized-creatine---tropical-tropical.jpg",
+      "product_url": "https://example.com/products/universal-nutrition-micronized-creatine---tropical-tropical"
+    },
+    "attributes": {
+      "creatine_type": "micronized",
+      "form": "powder",
+      "creatine_per_serving_g": 3.8,
+      "purity_percent": 99.7,
+      "third_party_tested": false,
+      "serving_size_g": 7,
+      "servings_per_container": 300,
+      "dietary": [
+        "banned-substance-free",
+        "third-party tested"
+      ],
+      "goals": [
+        "strength",
+        "power"
+      ]
+    }
+  },
+  {
+    "id": "cre-030",
+    "page_content": "Discover Kaged buffered creatine formula — 3.7g of pure creatine tablet. Easy-to-swallow tablets for on-the-go use. At 98.8% purity it is formulated for maximum effectiveness. Third-party tested for purity and banned substance safety. Supports endurance and lean muscle. 30 tablets per container.",
+    "metadata": {
+      "sku": "CRE-BUFF-BUFF-030",
+      "name": "Buffered Creatine - Grape",
+      "brand": "Kaged Muscle",
+      "category": "creatine",
+      "price": 28.36,
+      "weight_kg": 0.14,
+      "flavor": "Grape",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/kaged-muscle-buffered-creatine---grape-grape.jpg",
+      "product_url": "https://example.com/products/kaged-muscle-buffered-creatine---grape-grape"
+    },
+    "attributes": {
+      "creatine_type": "buffered",
+      "form": "tablet",
+      "creatine_per_serving_g": 3.7,
+      "purity_percent": 98.8,
+      "third_party_tested": true,
+      "serving_size_g": 4,
+      "servings_per_container": 30,
+      "dietary": [
+        "banned-substance-free"
+      ],
+      "goals": [
+        "endurance",
+        "lean_muscle"
+      ],
+      "capsules_per_serving": 4,
+      "capsules_per_container": 120
+    }
+  },
+  {
+    "id": "cre-031",
+    "page_content": "NutraBio Buffered Creatine in Mango delivers 3.5g of creatine per 3g tablet. Ultra-pure at 99.3% with no fillers. Third-party tested for purity and banned substance safety. At 99.3% purity it supports muscle gain and explosive power. 300 tablets per container.",
+    "metadata": {
+      "sku": "CRE-BUFF-BUFF-031",
+      "name": "Buffered Creatine - Mango",
+      "brand": "NutraBio",
+      "category": "creatine",
+      "price": 41.23,
+      "weight_kg": 0.934,
+      "flavor": "Mango",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/nutrabio-buffered-creatine---mango-mango.jpg",
+      "product_url": "https://example.com/products/nutrabio-buffered-creatine---mango-mango"
+    },
+    "attributes": {
+      "creatine_type": "buffered",
+      "form": "tablet",
+      "creatine_per_serving_g": 3.5,
+      "purity_percent": 99.3,
+      "third_party_tested": true,
+      "serving_size_g": 3,
+      "servings_per_container": 300,
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "muscle_gain",
+        "explosive_power"
+      ],
+      "capsules_per_serving": 2,
+      "capsules_per_container": 600
+    }
+  },
+  {
+    "id": "cre-032",
+    "page_content": "Beast Micronized Creatine in Cherry Limeade delivers 4.4g of creatine per 5g powder. At 98.6% purity it is formulated for maximum effectiveness. Third-party tested for purity and banned substance safety. At 98.6% purity it supports lean muscle and performance. 180 servings per container.",
+    "metadata": {
+      "sku": "CRE-MICR-MICR-032",
+      "name": "Micronized Creatine - Cherry Limeade",
+      "brand": "Beast Sports",
+      "category": "creatine",
+      "price": 54.38,
+      "weight_kg": 0.941,
+      "flavor": "Cherry Limeade",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/beast-sports-micronized-creatine---cherry-limeade-cherry-limeade.jpg",
+      "product_url": "https://example.com/products/beast-sports-micronized-creatine---cherry-limeade-cherry-limeade"
+    },
+    "attributes": {
+      "creatine_type": "micronized",
+      "form": "powder",
+      "creatine_per_serving_g": 4.4,
+      "purity_percent": 98.6,
+      "third_party_tested": true,
+      "serving_size_g": 5,
+      "servings_per_container": 180,
+      "dietary": [
+        "dairy-free"
+      ],
+      "goals": [
+        "lean_muscle",
+        "performance"
+      ]
+    }
+  },
+  {
+    "id": "cre-033",
+    "page_content": "Discover ProLab creatine monohydrate powder — 2.6g of pure creatine capsule. Convenient capsule form for precise dosing. At 97.1% purity it is formulated for maximum effectiveness. Third-party tested for purity and banned substance safety. Supports explosive power and endurance. 120 capsules per container.",
+    "metadata": {
+      "sku": "CRE-MONO-MONO-033",
+      "name": "Creatine Monohydrate - Grape",
+      "brand": "ProLab",
+      "category": "creatine",
+      "price": 32.31,
+      "weight_kg": 0.389,
+      "flavor": "Grape",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/prolab-creatine-monohydrate---grape-grape.jpg",
+      "product_url": "https://example.com/products/prolab-creatine-monohydrate---grape-grape"
+    },
+    "attributes": {
+      "creatine_type": "monohydrate",
+      "form": "capsule",
+      "creatine_per_serving_g": 2.6,
+      "purity_percent": 97.1,
+      "third_party_tested": true,
+      "serving_size_g": 3,
+      "servings_per_container": 120,
+      "dietary": [
+        "keto-friendly",
+        "vegan"
+      ],
+      "goals": [
+        "explosive_power",
+        "endurance"
+      ],
+      "capsules_per_serving": 4,
+      "capsules_per_container": 480
+    }
+  },
+  {
+    "id": "cre-034",
+    "page_content": "MusclePharm creatine HCl capsule capsule in Strawberry Lemonade provides 3.3g creatine per serving. Convenient capsule form for precise dosing. Keto friendly. Ultra-pure at 99.3% with no fillers. Formulated for power and lean muscle. 60 capsules per container.",
+    "metadata": {
+      "sku": "CRE-HCL-HCL-034",
+      "name": "Creatine HCl - Strawberry Lemonade",
+      "brand": "MusclePharm",
+      "category": "creatine",
+      "price": 46.99,
+      "weight_kg": 0.407,
+      "flavor": "Strawberry Lemonade",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/musclepharm-creatine-hcl---strawberry-lemonade-strawberry-lemonade.jpg",
+      "product_url": "https://example.com/products/musclepharm-creatine-hcl---strawberry-lemonade-strawberry-lemonade"
+    },
+    "attributes": {
+      "creatine_type": "HCl",
+      "form": "capsule",
+      "creatine_per_serving_g": 3.3,
+      "purity_percent": 99.3,
+      "third_party_tested": true,
+      "serving_size_g": 6,
+      "servings_per_container": 60,
+      "dietary": [
+        "keto-friendly",
+        "third-party tested"
+      ],
+      "goals": [
+        "power",
+        "lean_muscle"
+      ],
+      "capsules_per_serving": 5,
+      "capsules_per_container": 300
+    }
+  },
+  {
+    "id": "cre-035",
+    "page_content": "Nutricost creatine ethyl ester tablet tablet in Cherry Limeade provides 3.0g creatine per serving. Easy-to-swallow tablets for on-the-go use. Banned substance free. At 98.6% purity it is formulated for maximum effectiveness. Formulated for performance and lean muscle. 90 tablets per container.",
+    "metadata": {
+      "sku": "CRE-ETHY-ETHY-035",
+      "name": "Creatine Ethyl Ester - Cherry Limeade",
+      "brand": "Nutricost",
+      "category": "creatine",
+      "price": 31.79,
+      "weight_kg": 0.299,
+      "flavor": "Cherry Limeade",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/nutricost-creatine-ethyl-ester---cherry-limeade-cherry-limeade.jpg",
+      "product_url": "https://example.com/products/nutricost-creatine-ethyl-ester---cherry-limeade-cherry-limeade"
+    },
+    "attributes": {
+      "creatine_type": "ethyl_ester",
+      "form": "tablet",
+      "creatine_per_serving_g": 3.0,
+      "purity_percent": 98.6,
+      "third_party_tested": true,
+      "serving_size_g": 3,
+      "servings_per_container": 90,
+      "dietary": [
+        "banned-substance-free"
+      ],
+      "goals": [
+        "performance",
+        "lean_muscle"
+      ],
+      "capsules_per_serving": 2,
+      "capsules_per_container": 180
+    }
+  },
+  {
+    "id": "cre-036",
+    "page_content": "Con-Cret Buffered Creatine in Strawberry Lemonade delivers 4.4g of creatine per 3g capsule. At 98.9% purity it is formulated for maximum effectiveness. Third-party tested for purity and banned substance safety. At 98.9% purity it supports explosive power and performance. 150 capsules per container.",
+    "metadata": {
+      "sku": "CRE-BUFF-BUFF-036",
+      "name": "Buffered Creatine - Strawberry Lemonade",
+      "brand": "Con-Cret",
+      "category": "creatine",
+      "price": 23.93,
+      "weight_kg": 0.489,
+      "flavor": "Strawberry Lemonade",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/con-cret-buffered-creatine---strawberry-lemonade-strawberry-lemonade.jpg",
+      "product_url": "https://example.com/products/con-cret-buffered-creatine---strawberry-lemonade-strawberry-lemonade"
+    },
+    "attributes": {
+      "creatine_type": "buffered",
+      "form": "capsule",
+      "creatine_per_serving_g": 4.4,
+      "purity_percent": 98.9,
+      "third_party_tested": true,
+      "serving_size_g": 3,
+      "servings_per_container": 150,
+      "dietary": [
+        "vegan"
+      ],
+      "goals": [
+        "explosive_power",
+        "performance"
+      ],
+      "capsules_per_serving": 5,
+      "capsules_per_container": 750
+    }
+  },
+  {
+    "id": "cre-037",
+    "page_content": "Discover BPI micronized creatine powder — 3.1g of pure creatine powder. Fast-dissolving powder for easy mixing. Ultra-pure at 99.3% with no fillers. Manufactured in GMP-certified facilities. Supports lean muscle and muscle gain. 120 servings per container.",
+    "metadata": {
+      "sku": "CRE-MICR-MICR-037",
+      "name": "Micronized Creatine - Cherry Limeade",
+      "brand": "BPI Sports",
+      "category": "creatine",
+      "price": 57.03,
+      "weight_kg": 0.861,
+      "flavor": "Cherry Limeade",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/bpi-sports-micronized-creatine---cherry-limeade-cherry-limeade.jpg",
+      "product_url": "https://example.com/products/bpi-sports-micronized-creatine---cherry-limeade-cherry-limeade"
+    },
+    "attributes": {
+      "creatine_type": "micronized",
+      "form": "powder",
+      "creatine_per_serving_g": 3.1,
+      "purity_percent": 99.3,
+      "third_party_tested": false,
+      "serving_size_g": 7,
+      "servings_per_container": 120,
+      "dietary": [
+        "non-gmo",
+        "vegan"
+      ],
+      "goals": [
+        "lean_muscle",
+        "muscle_gain"
+      ]
+    }
+  },
+  {
+    "id": "cre-038",
+    "page_content": "EFX Sports creatine ethyl ester tablet capsule in Tropical provides 2.3g creatine per serving. Convenient capsule form for precise dosing. Gluten free. At 97.7% purity it is formulated for maximum effectiveness. Formulated for muscle gain and explosive power. 150 capsules per container.",
+    "metadata": {
+      "sku": "CRE-ETHY-ETHY-038",
+      "name": "Creatine Ethyl Ester - Tropical",
+      "brand": "EFX Sports",
+      "category": "creatine",
+      "price": 40.46,
+      "weight_kg": 0.632,
+      "flavor": "Tropical",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/efx-sports-creatine-ethyl-ester---tropical-tropical.jpg",
+      "product_url": "https://example.com/products/efx-sports-creatine-ethyl-ester---tropical-tropical"
+    },
+    "attributes": {
+      "creatine_type": "ethyl_ester",
+      "form": "capsule",
+      "creatine_per_serving_g": 2.3,
+      "purity_percent": 97.7,
+      "third_party_tested": true,
+      "serving_size_g": 4,
+      "servings_per_container": 150,
+      "dietary": [
+        "gluten-free",
+        "third-party tested"
+      ],
+      "goals": [
+        "muscle_gain",
+        "explosive_power"
+      ],
+      "capsules_per_serving": 5,
+      "capsules_per_container": 750
+    }
+  },
+  {
+    "id": "cre-039",
+    "page_content": "Discover Jacked Factory creatine monohydrate powder — 4.7g of pure creatine powder. Fast-dissolving powder for easy mixing. At 98.3% purity it is formulated for maximum effectiveness. Third-party tested for purity and banned substance safety. Supports muscle gain and performance. 60 servings per container.",
+    "metadata": {
+      "sku": "CRE-MONO-MONO-039",
+      "name": "Creatine Monohydrate - Blue Raspberry",
+      "brand": "Jacked Factory",
+      "category": "creatine",
+      "price": 56.89,
+      "weight_kg": 0.464,
+      "flavor": "Blue Raspberry",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/jacked-factory-creatine-monohydrate---blue-raspberry-blue-raspberry.jpg",
+      "product_url": "https://example.com/products/jacked-factory-creatine-monohydrate---blue-raspberry-blue-raspberry"
+    },
+    "attributes": {
+      "creatine_type": "monohydrate",
+      "form": "powder",
+      "creatine_per_serving_g": 4.7,
+      "purity_percent": 98.3,
+      "third_party_tested": true,
+      "serving_size_g": 7,
+      "servings_per_container": 60,
+      "dietary": [
+        "banned-substance-free",
+        "vegan"
+      ],
+      "goals": [
+        "muscle_gain",
+        "performance"
+      ]
+    }
+  },
+  {
+    "id": "cre-040",
+    "page_content": "PrimaForce micronized creatine powder tablet in Grape provides 3.5g creatine per serving. Easy-to-swallow tablets for on-the-go use. Third party tested. Ultra-pure at 99.3% with no fillers. Formulated for lean muscle and strength. 90 tablets per container.",
+    "metadata": {
+      "sku": "CRE-MICR-MICR-040",
+      "name": "Micronized Creatine - Grape",
+      "brand": "PrimaForce",
+      "category": "creatine",
+      "price": 57.42,
+      "weight_kg": 0.314,
+      "flavor": "Grape",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/primaforce-micronized-creatine---grape-grape.jpg",
+      "product_url": "https://example.com/products/primaforce-micronized-creatine---grape-grape"
+    },
+    "attributes": {
+      "creatine_type": "micronized",
+      "form": "tablet",
+      "creatine_per_serving_g": 3.5,
+      "purity_percent": 99.3,
+      "third_party_tested": false,
+      "serving_size_g": 3,
+      "servings_per_container": 90,
+      "dietary": [
+        "third-party tested",
+        "dairy-free"
+      ],
+      "goals": [
+        "lean_muscle",
+        "strength"
+      ],
+      "capsules_per_serving": 3,
+      "capsules_per_container": 270
+    }
+  }
+]

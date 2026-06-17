@@ -1,0 +1,2931 @@
+[
+  {
+    "id": "pre-001",
+    "page_content": "Redcon1 Training Stack is a stimulant-free pre-workout in Watermelon featuring 0mg of caffeine per serving. Key ingredients: Creatine Monohydrate, DMHA, Caffeine Citrate, Huperzine A, Betaine Anhydrous. Includes creatine for added strength support.. Stim free available. Designed to support focus and intensity for peak performance.",
+    "metadata": {
+      "sku": "PRE-RED-NON-001",
+      "name": "Training Stack - Watermelon",
+      "brand": "Redcon1",
+      "category": "preworkout",
+      "price": 64.63,
+      "weight_kg": 0.943,
+      "flavor": "Watermelon",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/redcon1-training-stack---watermelon-watermelon.jpg",
+      "product_url": "https://example.com/products/redcon1-training-stack---watermelon-watermelon"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "none",
+      "caffeine_per_serving_mg": 0,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "DMHA",
+        "Caffeine Citrate",
+        "Huperzine A",
+        "Betaine Anhydrous"
+      ],
+      "serving_size_g": 9.0,
+      "servings_per_container": 100,
+      "dietary": [
+        "stim-free-available"
+      ],
+      "goals": [
+        "focus",
+        "intensity"
+      ]
+    }
+  },
+  {
+    "id": "pre-002",
+    "page_content": "Unlock your potential with Onnit Training Formula — low-stimulant intensity, 270mg caffeine. Huperzine A, Taurine, Agmatine Sulfate, Caffeine Anhydrous, Beta-Alanine.. Stimulant-free formula without creatine.. Keto friendly. Built for intensity and strength.",
+    "metadata": {
+      "sku": "PRE-ONN-LOW-002",
+      "name": "Training Formula - Rainbow",
+      "brand": "Onnit",
+      "category": "preworkout",
+      "price": 42.55,
+      "weight_kg": 0.427,
+      "flavor": "Rainbow",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/onnit-training-formula---rainbow-rainbow.jpg",
+      "product_url": "https://example.com/products/onnit-training-formula---rainbow-rainbow"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "low",
+      "caffeine_per_serving_mg": 270,
+      "beta_alanine_mg": 2794,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "Huperzine A",
+        "Taurine",
+        "Agmatine Sulfate",
+        "Caffeine Anhydrous",
+        "Beta-Alanine",
+        "Betaine"
+      ],
+      "serving_size_g": 5.0,
+      "servings_per_container": 80,
+      "dietary": [
+        "keto-friendly",
+        "non-gmo"
+      ],
+      "goals": [
+        "intensity",
+        "strength"
+      ]
+    }
+  },
+  {
+    "id": "pre-003",
+    "page_content": "C4 Pre-Workout in Tropical Punch delivers 91mg caffeine (extreme-stimulant) per serving. Ingredients: Creatine Monohydrate, Betaine, Alpha-Yohimbine, Agmatine Sulfate, L-Tyrosine, Creatine Nitrate. Stimulant-free formula without creatine.. Sugar free. Supports intensity and performance.",
+    "metadata": {
+      "sku": "PRE-C4-EXT-003",
+      "name": "Pre-Workout - Tropical Punch",
+      "brand": "C4",
+      "category": "preworkout",
+      "price": 30.72,
+      "weight_kg": 0.178,
+      "flavor": "Tropical Punch",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/c4-pre-workout---tropical-punch-tropical-punch.jpg",
+      "product_url": "https://example.com/products/c4-pre-workout---tropical-punch-tropical-punch"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 91,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Betaine",
+        "Alpha-Yohimbine",
+        "Agmatine Sulfate",
+        "L-Tyrosine",
+        "Creatine Nitrate"
+      ],
+      "serving_size_g": 7.5,
+      "servings_per_container": 20,
+      "dietary": [
+        "sugar-free"
+      ],
+      "goals": [
+        "intensity",
+        "performance"
+      ]
+    }
+  },
+  {
+    "id": "pre-004",
+    "page_content": "MAN Sports Pre-Workout Igniter is a extreme-stimulant pre-workout in Tiger's Blood featuring 186mg of caffeine per serving. Key ingredients: Creatine Monohydrate, Electrolytes, BCAAs, L-Arginine, L-Norvaline, Betaine Anhydrous, Taurine, Beta-Alanine. Includes creatine for added strength support.. Keto friendly. Designed to support performance and energy for peak performance.",
+    "metadata": {
+      "sku": "PRE-MAN-EXT-004",
+      "name": "Pre-Workout Igniter - Tiger's Blood",
+      "brand": "MAN Sports",
+      "category": "preworkout",
+      "price": 45.73,
+      "weight_kg": 0.317,
+      "flavor": "Tiger's Blood",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/man-sports-pre-workout-igniter---tiger-s-blood-tiger-s-blood.jpg",
+      "product_url": "https://example.com/products/man-sports-pre-workout-igniter---tiger-s-blood-tiger-s-blood"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 186,
+      "beta_alanine_mg": 3341,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Electrolytes",
+        "BCAAs",
+        "L-Arginine",
+        "L-Norvaline",
+        "Betaine Anhydrous",
+        "Taurine",
+        "Beta-Alanine"
+      ],
+      "serving_size_g": 7.0,
+      "servings_per_container": 40,
+      "dietary": [
+        "keto-friendly",
+        "gluten-free"
+      ],
+      "goals": [
+        "performance",
+        "energy"
+      ]
+    }
+  },
+  {
+    "id": "pre-005",
+    "page_content": "Dr Jekyll Training Formula in Frost Bite delivers 206mg caffeine (low-stimulant) per serving. Ingredients: BCAAs, Electrolytes, L-Tyrosine, CarnoSyn Beta-Alanine, Creatine Nitrate, Betaine, Creatine Monohydrate. Stimulant-free formula without creatine.. Sugar free. Supports intensity and energy.",
+    "metadata": {
+      "sku": "PRE-DR -LOW-005",
+      "name": "Training Formula - Frost Bite",
+      "brand": "Dr Jekyll",
+      "category": "preworkout",
+      "price": 60.63,
+      "weight_kg": 0.279,
+      "flavor": "Frost Bite",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/dr-jekyll-training-formula---frost-bite-frost-bite.jpg",
+      "product_url": "https://example.com/products/dr-jekyll-training-formula---frost-bite-frost-bite"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "low",
+      "caffeine_per_serving_mg": 206,
+      "beta_alanine_mg": 2519,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "BCAAs",
+        "Electrolytes",
+        "L-Tyrosine",
+        "CarnoSyn Beta-Alanine",
+        "Creatine Nitrate",
+        "Betaine",
+        "Creatine Monohydrate"
+      ],
+      "serving_size_g": 10.0,
+      "servings_per_container": 25,
+      "dietary": [
+        "sugar-free",
+        "vegan"
+      ],
+      "goals": [
+        "intensity",
+        "energy"
+      ]
+    }
+  },
+  {
+    "id": "pre-006",
+    "page_content": "Unlock your potential with Bucked Pre-Workout Igniter — moderate-stimulant intensity, 86mg caffeine. Creatine Monohydrate, Betaine Anhydrous, Creatine Nitrate, Beta-Alanine, Betaine.. Includes creatine for added strength support.. Stim free available. Built for endurance and energy.",
+    "metadata": {
+      "sku": "PRE-BUC-MOD-006",
+      "name": "Pre-Workout Igniter - Fruit Punch",
+      "brand": "Bucked Up",
+      "category": "preworkout",
+      "price": 42.63,
+      "weight_kg": 0.336,
+      "flavor": "Fruit Punch",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/bucked-up-pre-workout-igniter---fruit-punch-fruit-punch.jpg",
+      "product_url": "https://example.com/products/bucked-up-pre-workout-igniter---fruit-punch-fruit-punch"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 86,
+      "beta_alanine_mg": 3345,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Betaine Anhydrous",
+        "Creatine Nitrate",
+        "Beta-Alanine",
+        "Betaine",
+        "Arginine AKG",
+        "Natural Caffeine",
+        "Huperzine A"
+      ],
+      "serving_size_g": 12.0,
+      "servings_per_container": 25,
+      "dietary": [
+        "stim-free-available"
+      ],
+      "goals": [
+        "endurance",
+        "energy"
+      ]
+    }
+  },
+  {
+    "id": "pre-007",
+    "page_content": "Unlock your potential with Axe & Sledge Pre-Workout Igniter — extreme-stimulant intensity, 295mg caffeine. L-Tyrosine, BCAAs, Natural Caffeine, L-Citrulline, CarnoSyn Beta-Alanine.. Stimulant-free formula without creatine.. Vegan. Built for alertness and endurance.",
+    "metadata": {
+      "sku": "PRE-AXE-EXT-007",
+      "name": "Pre-Workout Igniter - Pink Lemonade",
+      "brand": "Axe & Sledge",
+      "category": "preworkout",
+      "price": 65.5,
+      "weight_kg": 0.239,
+      "flavor": "Pink Lemonade",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/axe---sledge-pre-workout-igniter---pink-lemonade-pink-lemonade.jpg",
+      "product_url": "https://example.com/products/axe---sledge-pre-workout-igniter---pink-lemonade-pink-lemonade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 295,
+      "beta_alanine_mg": 2056,
+      "l_citrulline_mg": 5619,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "L-Tyrosine",
+        "BCAAs",
+        "Natural Caffeine",
+        "L-Citrulline",
+        "CarnoSyn Beta-Alanine",
+        "Alpha-GPC",
+        "DMHA"
+      ],
+      "serving_size_g": 6.5,
+      "servings_per_container": 30,
+      "dietary": [
+        "vegan"
+      ],
+      "goals": [
+        "alertness",
+        "endurance"
+      ]
+    }
+  },
+  {
+    "id": "pre-008",
+    "page_content": "BPI Sports Training Stack in Cherry Limeade delivers 369mg caffeine (extreme-stimulant) per serving. Ingredients: Creatine Monohydrate, Taurine, Yohimbine, L-Norvaline. Includes creatine for added strength support.. Sugar free. Supports endurance and strength.",
+    "metadata": {
+      "sku": "PRE-BPI-EXT-008",
+      "name": "Training Stack - Cherry Limeade",
+      "brand": "BPI Sports",
+      "category": "preworkout",
+      "price": 35.64,
+      "weight_kg": 0.262,
+      "flavor": "Cherry Limeade",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/bpi-sports-training-stack---cherry-limeade-cherry-limeade.jpg",
+      "product_url": "https://example.com/products/bpi-sports-training-stack---cherry-limeade-cherry-limeade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 369,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Taurine",
+        "Yohimbine",
+        "L-Norvaline"
+      ],
+      "serving_size_g": 9.0,
+      "servings_per_container": 25,
+      "dietary": [
+        "sugar-free",
+        "non-gmo"
+      ],
+      "goals": [
+        "endurance",
+        "strength"
+      ]
+    }
+  },
+  {
+    "id": "pre-009",
+    "page_content": "Legion Athletics Training Formula in Miami Vice delivers 0mg caffeine (stimulant-free) per serving. Ingredients: Creatine Monohydrate, Beta-Alanine, Betaine, Caffeine Citrate, Quercetin, Betaine Anhydrous, Alpha-Yohimbine. Includes creatine for added strength support.. Gluten free. Supports endurance and focus.",
+    "metadata": {
+      "sku": "PRE-LEG-NON-009",
+      "name": "Training Formula - Miami Vice",
+      "brand": "Legion Athletics",
+      "category": "preworkout",
+      "price": 45.01,
+      "weight_kg": 0.264,
+      "flavor": "Miami Vice",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/legion-athletics-training-formula---miami-vice-miami-vice.jpg",
+      "product_url": "https://example.com/products/legion-athletics-training-formula---miami-vice-miami-vice"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "none",
+      "caffeine_per_serving_mg": 0,
+      "beta_alanine_mg": 2100,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Beta-Alanine",
+        "Betaine",
+        "Caffeine Citrate",
+        "Quercetin",
+        "Betaine Anhydrous",
+        "Alpha-Yohimbine"
+      ],
+      "serving_size_g": 7.5,
+      "servings_per_container": 30,
+      "dietary": [
+        "gluten-free",
+        "keto-friendly"
+      ],
+      "goals": [
+        "endurance",
+        "focus"
+      ]
+    }
+  },
+  {
+    "id": "pre-010",
+    "page_content": "Unlock your potential with Huge Supplements Training Formula — low-stimulant intensity, 275mg caffeine. Alpha-Yohimbine, Natural Caffeine, Agmatine Sulfate, Ashwagandha, L-Norvaline.. Stimulant-free formula without creatine.. Gluten free. Built for focus and energy.",
+    "metadata": {
+      "sku": "PRE-HUG-LOW-010",
+      "name": "Training Formula - Rocket Pop",
+      "brand": "Huge Supplements",
+      "category": "preworkout",
+      "price": 46.5,
+      "weight_kg": 0.689,
+      "flavor": "Rocket Pop",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/huge-supplements-training-formula---rocket-pop-rocket-pop.jpg",
+      "product_url": "https://example.com/products/huge-supplements-training-formula---rocket-pop-rocket-pop"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "low",
+      "caffeine_per_serving_mg": 275,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "Alpha-Yohimbine",
+        "Natural Caffeine",
+        "Agmatine Sulfate",
+        "Ashwagandha",
+        "L-Norvaline"
+      ],
+      "serving_size_g": 13.0,
+      "servings_per_container": 50,
+      "dietary": [
+        "gluten-free",
+        "dairy-free"
+      ],
+      "goals": [
+        "focus",
+        "energy"
+      ]
+    }
+  },
+  {
+    "id": "pre-011",
+    "page_content": "Unlock your potential with PEScience Pre-Workout Igniter — extreme-stimulant intensity, 103mg caffeine. Electrolytes, L-Citrulline Malate, Alpha-Yohimbine, L-Theanine, Arginine AKG.. Stimulant-free formula without creatine.. Gluten free. Built for strength and focus.",
+    "metadata": {
+      "sku": "PRE-PES-EXT-011",
+      "name": "Pre-Workout Igniter - Strawberry Lemonade",
+      "brand": "PEScience",
+      "category": "preworkout",
+      "price": 31.19,
+      "weight_kg": 0.162,
+      "flavor": "Strawberry Lemonade",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/pescience-pre-workout-igniter---strawberry-lemonade-strawberry-lemonade.jpg",
+      "product_url": "https://example.com/products/pescience-pre-workout-igniter---strawberry-lemonade-strawberry-lemonade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 103,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 6251,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "Electrolytes",
+        "L-Citrulline Malate",
+        "Alpha-Yohimbine",
+        "L-Theanine",
+        "Arginine AKG"
+      ],
+      "serving_size_g": 7.0,
+      "servings_per_container": 20,
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "focus"
+      ]
+    }
+  },
+  {
+    "id": "pre-012",
+    "page_content": "Alpha Lion Training Stack is a extreme-stimulant pre-workout in Tiger's Blood featuring 224mg of caffeine per serving. Key ingredients: Creatine Monohydrate, Betaine Anhydrous, CarnoSyn Beta-Alanine, BCAAs, L-Citrulline. Includes creatine for added strength support.. Gluten free. Designed to support intensity and pump for peak performance.",
+    "metadata": {
+      "sku": "PRE-ALP-EXT-012",
+      "name": "Training Stack - Tiger's Blood",
+      "brand": "Alpha Lion",
+      "category": "preworkout",
+      "price": 31.24,
+      "weight_kg": 0.209,
+      "flavor": "Tiger's Blood",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/alpha-lion-training-stack---tiger-s-blood-tiger-s-blood.jpg",
+      "product_url": "https://example.com/products/alpha-lion-training-stack---tiger-s-blood-tiger-s-blood"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 224,
+      "beta_alanine_mg": 2677,
+      "l_citrulline_mg": 7204,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Betaine Anhydrous",
+        "CarnoSyn Beta-Alanine",
+        "BCAAs",
+        "L-Citrulline"
+      ],
+      "serving_size_g": 7.5,
+      "servings_per_container": 25,
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "intensity",
+        "pump"
+      ]
+    }
+  },
+  {
+    "id": "pre-013",
+    "page_content": "RYSE Training Stack is a low-stimulant pre-workout in Miami Vice featuring 219mg of caffeine per serving. Key ingredients: BCAAs, Arginine AKG, DMHA, Betaine, Yohimbine, Taurine. Stimulant-free formula without creatine.. Sugar free. Designed to support endurance and focus for peak performance.",
+    "metadata": {
+      "sku": "PRE-RYS-LOW-013",
+      "name": "Training Stack - Miami Vice",
+      "brand": "RYSE",
+      "category": "preworkout",
+      "price": 63.16,
+      "weight_kg": 0.664,
+      "flavor": "Miami Vice",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/ryse-training-stack---miami-vice-miami-vice.jpg",
+      "product_url": "https://example.com/products/ryse-training-stack---miami-vice-miami-vice"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "low",
+      "caffeine_per_serving_mg": 219,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "BCAAs",
+        "Arginine AKG",
+        "DMHA",
+        "Betaine",
+        "Yohimbine",
+        "Taurine"
+      ],
+      "serving_size_g": 9.0,
+      "servings_per_container": 70,
+      "dietary": [
+        "sugar-free"
+      ],
+      "goals": [
+        "endurance",
+        "focus"
+      ]
+    }
+  },
+  {
+    "id": "pre-014",
+    "page_content": "Unlock your potential with Gorilla Mode Pre-Workout — moderate-stimulant intensity, 215mg caffeine. Betaine, BCAAs, Caffeine Citrate, Huperzine A, Alpha-GPC.. Stimulant-free formula without creatine.. Natural ingredients. Built for alertness and performance.",
+    "metadata": {
+      "sku": "PRE-GOR-MOD-014",
+      "name": "Pre-Workout - Sour Gummy",
+      "brand": "Gorilla Mode",
+      "category": "preworkout",
+      "price": 49.62,
+      "weight_kg": 0.287,
+      "flavor": "Sour Gummy",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/gorilla-mode-pre-workout---sour-gummy-sour-gummy.jpg",
+      "product_url": "https://example.com/products/gorilla-mode-pre-workout---sour-gummy-sour-gummy"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 215,
+      "beta_alanine_mg": 2210,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "Betaine",
+        "BCAAs",
+        "Caffeine Citrate",
+        "Huperzine A",
+        "Alpha-GPC",
+        "Caffeine Anhydrous",
+        "CarnoSyn Beta-Alanine",
+        "Ashwagandha"
+      ],
+      "serving_size_g": 6.5,
+      "servings_per_container": 40,
+      "dietary": [
+        "natural-ingredients",
+        "non-gmo"
+      ],
+      "goals": [
+        "alertness",
+        "performance"
+      ]
+    }
+  },
+  {
+    "id": "pre-015",
+    "page_content": "Jacked Factory Training Stack in Orange Citrus delivers 348mg caffeine (moderate-stimulant) per serving. Ingredients: Creatine Monohydrate, L-Arginine, Taurine, Ashwagandha, Alpha-GPC, Electrolytes, Creatine Nitrate, Alpha-Yohimbine. Includes creatine for added strength support.. Vegan. Supports performance and pump.",
+    "metadata": {
+      "sku": "PRE-JAC-MOD-015",
+      "name": "Training Stack - Orange Citrus",
+      "brand": "Jacked Factory",
+      "category": "preworkout",
+      "price": 53.26,
+      "weight_kg": 1.005,
+      "flavor": "Orange Citrus",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/jacked-factory-training-stack---orange-citrus-orange-citrus.jpg",
+      "product_url": "https://example.com/products/jacked-factory-training-stack---orange-citrus-orange-citrus"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 348,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "L-Arginine",
+        "Taurine",
+        "Ashwagandha",
+        "Alpha-GPC",
+        "Electrolytes",
+        "Creatine Nitrate",
+        "Alpha-Yohimbine"
+      ],
+      "serving_size_g": 8.0,
+      "servings_per_container": 120,
+      "dietary": [
+        "vegan",
+        "stim-free-available"
+      ],
+      "goals": [
+        "performance",
+        "pump"
+      ]
+    }
+  },
+  {
+    "id": "pre-016",
+    "page_content": "Ghost Pre-Training Formula in Tiger's Blood delivers 66mg caffeine (moderate-stimulant) per serving. Ingredients: Creatine Monohydrate, Ashwagandha, L-Citrulline, Arginine AKG. Includes creatine for added strength support.. Natural ingredients. Supports focus and pump.",
+    "metadata": {
+      "sku": "PRE-GHO-MOD-016",
+      "name": "Pre-Training Formula - Tiger's Blood",
+      "brand": "Ghost",
+      "category": "preworkout",
+      "price": 64.19,
+      "weight_kg": 0.438,
+      "flavor": "Tiger's Blood",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/ghost-pre-training-formula---tiger-s-blood-tiger-s-blood.jpg",
+      "product_url": "https://example.com/products/ghost-pre-training-formula---tiger-s-blood-tiger-s-blood"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 66,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 6126,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Ashwagandha",
+        "L-Citrulline",
+        "Arginine AKG"
+      ],
+      "serving_size_g": 5.0,
+      "servings_per_container": 80,
+      "dietary": [
+        "natural-ingredients",
+        "gluten-free"
+      ],
+      "goals": [
+        "focus",
+        "pump"
+      ]
+    }
+  },
+  {
+    "id": "pre-017",
+    "page_content": "NutraBio Pre-Workout Igniter in Cotton Candy delivers 290mg caffeine (low-stimulant) per serving. Ingredients: Electrolytes, L-Citrulline, L-Norvaline, Creatine Monohydrate, Yohimbine, Agmatine Sulfate, Ashwagandha. Stimulant-free formula without creatine.. Natural ingredients. Supports alertness and strength.",
+    "metadata": {
+      "sku": "PRE-NUT-LOW-017",
+      "name": "Pre-Workout Igniter - Cotton Candy",
+      "brand": "NutraBio",
+      "category": "preworkout",
+      "price": 67.52,
+      "weight_kg": 0.749,
+      "flavor": "Cotton Candy",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/nutrabio-pre-workout-igniter---cotton-candy-cotton-candy.jpg",
+      "product_url": "https://example.com/products/nutrabio-pre-workout-igniter---cotton-candy-cotton-candy"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "low",
+      "caffeine_per_serving_mg": 290,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 3721,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "Electrolytes",
+        "L-Citrulline",
+        "L-Norvaline",
+        "Creatine Monohydrate",
+        "Yohimbine",
+        "Agmatine Sulfate",
+        "Ashwagandha"
+      ],
+      "serving_size_g": 12.0,
+      "servings_per_container": 60,
+      "dietary": [
+        "natural-ingredients"
+      ],
+      "goals": [
+        "alertness",
+        "strength"
+      ]
+    }
+  },
+  {
+    "id": "pre-018",
+    "page_content": "ProSupps Training Formula in Frost Bite delivers 181mg caffeine (extreme-stimulant) per serving. Ingredients: Creatine Monohydrate, Quercetin, L-Citrulline Malate, L-Arginine, Alpha-GPC. Includes creatine for added strength support.. Keto friendly. Supports energy and focus.",
+    "metadata": {
+      "sku": "PRE-PRO-EXT-018",
+      "name": "Training Formula - Frost Bite",
+      "brand": "ProSupps",
+      "category": "preworkout",
+      "price": 34.14,
+      "weight_kg": 0.65,
+      "flavor": "Frost Bite",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/prosupps-training-formula---frost-bite-frost-bite.jpg",
+      "product_url": "https://example.com/products/prosupps-training-formula---frost-bite-frost-bite"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 181,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 6142,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Quercetin",
+        "L-Citrulline Malate",
+        "L-Arginine",
+        "Alpha-GPC"
+      ],
+      "serving_size_g": 7.0,
+      "servings_per_container": 90,
+      "dietary": [
+        "keto-friendly",
+        "gluten-free"
+      ],
+      "goals": [
+        "energy",
+        "focus"
+      ]
+    }
+  },
+  {
+    "id": "pre-019",
+    "page_content": "Unlock your potential with Beyond Raw Training Stack — moderate-stimulant intensity, 395mg caffeine. Creatine Monohydrate, Betaine Anhydrous, Agmatine Sulfate, Alpha-GPC.. Includes creatine for added strength support.. Keto friendly. Built for pump and focus.",
+    "metadata": {
+      "sku": "PRE-BEY-MOD-019",
+      "name": "Training Stack - Blue Raspberry",
+      "brand": "Beyond Raw",
+      "category": "preworkout",
+      "price": 37.94,
+      "weight_kg": 0.467,
+      "flavor": "Blue Raspberry",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/beyond-raw-training-stack---blue-raspberry-blue-raspberry.jpg",
+      "product_url": "https://example.com/products/beyond-raw-training-stack---blue-raspberry-blue-raspberry"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 395,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Betaine Anhydrous",
+        "Agmatine Sulfate",
+        "Alpha-GPC"
+      ],
+      "serving_size_g": 7.0,
+      "servings_per_container": 60,
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "pump",
+        "focus"
+      ]
+    }
+  },
+  {
+    "id": "pre-020",
+    "page_content": "Dymatize Training Stack is a moderate-stimulant pre-workout in Cotton Candy featuring 99mg of caffeine per serving. Key ingredients: Creatine Monohydrate, L-Theanine, Betaine, Taurine, Creatine Nitrate, Electrolytes, Ashwagandha. Includes creatine for added strength support.. Gluten free. Designed to support endurance and strength for peak performance.",
+    "metadata": {
+      "sku": "PRE-DYM-MOD-020",
+      "name": "Training Stack - Cotton Candy",
+      "brand": "Dymatize",
+      "category": "preworkout",
+      "price": 58.53,
+      "weight_kg": 0.741,
+      "flavor": "Cotton Candy",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/dymatize-training-stack---cotton-candy-cotton-candy.jpg",
+      "product_url": "https://example.com/products/dymatize-training-stack---cotton-candy-cotton-candy"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 99,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "L-Theanine",
+        "Betaine",
+        "Taurine",
+        "Creatine Nitrate",
+        "Electrolytes",
+        "Ashwagandha"
+      ],
+      "serving_size_g": 6.0,
+      "servings_per_container": 120,
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "endurance",
+        "strength"
+      ]
+    }
+  },
+  {
+    "id": "pre-021",
+    "page_content": "EVL Training Stack in Blueberry Lemonade delivers 88mg caffeine (extreme-stimulant) per serving. Ingredients: Creatine Monohydrate, L-Citrulline, DMHA, Alpha-Yohimbine, Electrolytes, Arginine AKG, L-Norvaline. Includes creatine for added strength support.. Keto friendly. Supports intensity and pump.",
+    "metadata": {
+      "sku": "PRE-EVL-EXT-021",
+      "name": "Training Stack - Blueberry Lemonade",
+      "brand": "EVL",
+      "category": "preworkout",
+      "price": 55.74,
+      "weight_kg": 1.198,
+      "flavor": "Blueberry Lemonade",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/evl-training-stack---blueberry-lemonade-blueberry-lemonade.jpg",
+      "product_url": "https://example.com/products/evl-training-stack---blueberry-lemonade-blueberry-lemonade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 88,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 6356,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "L-Citrulline",
+        "DMHA",
+        "Alpha-Yohimbine",
+        "Electrolytes",
+        "Arginine AKG",
+        "L-Norvaline"
+      ],
+      "serving_size_g": 13.0,
+      "servings_per_container": 90,
+      "dietary": [
+        "keto-friendly",
+        "gluten-free"
+      ],
+      "goals": [
+        "intensity",
+        "pump"
+      ]
+    }
+  },
+  {
+    "id": "pre-022",
+    "page_content": "Kaged Pre-Workout Igniter is a stimulant-free pre-workout in Orange Citrus featuring 0mg of caffeine per serving. Key ingredients: Creatine Monohydrate, L-Tyrosine, L-Norvaline, Arginine AKG, Agmatine Sulfate. Includes creatine for added strength support.. Non gmo. Designed to support endurance and focus for peak performance.",
+    "metadata": {
+      "sku": "PRE-KAG-NON-022",
+      "name": "Pre-Workout Igniter - Orange Citrus",
+      "brand": "Kaged Muscle",
+      "category": "preworkout",
+      "price": 67.65,
+      "weight_kg": 0.765,
+      "flavor": "Orange Citrus",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/kaged-muscle-pre-workout-igniter---orange-citrus-orange-citrus.jpg",
+      "product_url": "https://example.com/products/kaged-muscle-pre-workout-igniter---orange-citrus-orange-citrus"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "none",
+      "caffeine_per_serving_mg": 0,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "L-Tyrosine",
+        "L-Norvaline",
+        "Arginine AKG",
+        "Agmatine Sulfate"
+      ],
+      "serving_size_g": 6.0,
+      "servings_per_container": 120,
+      "dietary": [
+        "non-gmo",
+        "stim-free-available"
+      ],
+      "goals": [
+        "endurance",
+        "focus"
+      ]
+    }
+  },
+  {
+    "id": "pre-023",
+    "page_content": "Nitraflex Pre-Workout in Orange Citrus delivers 0mg caffeine (stimulant-free) per serving. Ingredients: Creatine Monohydrate, L-Norvaline, Beta-Alanine, Caffeine Anhydrous. Includes creatine for added strength support.. Sugar free. Supports endurance and performance.",
+    "metadata": {
+      "sku": "PRE-NIT-NON-023",
+      "name": "Pre-Workout - Orange Citrus",
+      "brand": "Nitraflex",
+      "category": "preworkout",
+      "price": 60.36,
+      "weight_kg": 0.429,
+      "flavor": "Orange Citrus",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/nitraflex-pre-workout---orange-citrus-orange-citrus.jpg",
+      "product_url": "https://example.com/products/nitraflex-pre-workout---orange-citrus-orange-citrus"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "none",
+      "caffeine_per_serving_mg": 0,
+      "beta_alanine_mg": 1698,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "L-Norvaline",
+        "Beta-Alanine",
+        "Caffeine Anhydrous"
+      ],
+      "serving_size_g": 8.0,
+      "servings_per_container": 50,
+      "dietary": [
+        "sugar-free",
+        "non-gmo"
+      ],
+      "goals": [
+        "endurance",
+        "performance"
+      ]
+    }
+  },
+  {
+    "id": "pre-024",
+    "page_content": "Unlock your potential with Cellucor Pre-Workout Matrix — stimulant-free intensity, 0mg caffeine. Huperzine A, Natural Caffeine, CarnoSyn Beta-Alanine, Creatine Monohydrate, Taurine.. Stimulant-free formula without creatine.. Natural ingredients. Built for intensity and alertness.",
+    "metadata": {
+      "sku": "PRE-CEL-NON-024",
+      "name": "Pre-Workout Matrix - Sour Gummy",
+      "brand": "Cellucor",
+      "category": "preworkout",
+      "price": 67.14,
+      "weight_kg": 0.658,
+      "flavor": "Sour Gummy",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/cellucor-pre-workout-matrix---sour-gummy-sour-gummy.jpg",
+      "product_url": "https://example.com/products/cellucor-pre-workout-matrix---sour-gummy-sour-gummy"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "none",
+      "caffeine_per_serving_mg": 0,
+      "beta_alanine_mg": 1652,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "Huperzine A",
+        "Natural Caffeine",
+        "CarnoSyn Beta-Alanine",
+        "Creatine Monohydrate",
+        "Taurine",
+        "Alpha-GPC",
+        "Beta-Alanine"
+      ],
+      "serving_size_g": 9.0,
+      "servings_per_container": 70,
+      "dietary": [
+        "natural-ingredients"
+      ],
+      "goals": [
+        "intensity",
+        "alertness"
+      ]
+    }
+  },
+  {
+    "id": "pre-025",
+    "page_content": "Unlock your potential with Transparent Labs Training Stack — moderate-stimulant intensity, 103mg caffeine. CarnoSyn Beta-Alanine, Caffeine Citrate, Caffeine Anhydrous, Quercetin, BCAAs.. Stimulant-free formula without creatine.. Sugar free. Built for pump and strength.",
+    "metadata": {
+      "sku": "PRE-TRA-MOD-025",
+      "name": "Training Stack - Pink Lemonade",
+      "brand": "Transparent Labs",
+      "category": "preworkout",
+      "price": 37.07,
+      "weight_kg": 0.832,
+      "flavor": "Pink Lemonade",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/transparent-labs-training-stack---pink-lemonade-pink-lemonade.jpg",
+      "product_url": "https://example.com/products/transparent-labs-training-stack---pink-lemonade-pink-lemonade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 103,
+      "beta_alanine_mg": 3361,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "CarnoSyn Beta-Alanine",
+        "Caffeine Citrate",
+        "Caffeine Anhydrous",
+        "Quercetin",
+        "BCAAs",
+        "Arginine AKG"
+      ],
+      "serving_size_g": 10.0,
+      "servings_per_container": 80,
+      "dietary": [
+        "sugar-free"
+      ],
+      "goals": [
+        "pump",
+        "strength"
+      ]
+    }
+  },
+  {
+    "id": "pre-026",
+    "page_content": "Myprotein Training Stack in Frost Bite delivers 59mg caffeine (high-stimulant) per serving. Ingredients: Creatine Monohydrate, L-Tyrosine, L-Norvaline, Ashwagandha, Caffeine Citrate. Includes creatine for added strength support.. Dairy free. Supports strength and endurance.",
+    "metadata": {
+      "sku": "PRE-MYP-HIG-026",
+      "name": "Training Stack - Frost Bite",
+      "brand": "Myprotein",
+      "category": "preworkout",
+      "price": 53.2,
+      "weight_kg": 0.814,
+      "flavor": "Frost Bite",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/myprotein-training-stack---frost-bite-frost-bite.jpg",
+      "product_url": "https://example.com/products/myprotein-training-stack---frost-bite-frost-bite"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "high",
+      "caffeine_per_serving_mg": 59,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "L-Tyrosine",
+        "L-Norvaline",
+        "Ashwagandha",
+        "Caffeine Citrate"
+      ],
+      "serving_size_g": 6.5,
+      "servings_per_container": 120,
+      "dietary": [
+        "dairy-free",
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "endurance"
+      ]
+    }
+  },
+  {
+    "id": "pre-027",
+    "page_content": "Unlock your potential with Optimum Nutrition Pre-Workout — stimulant-free intensity, 0mg caffeine. Creatine Monohydrate, Caffeine Citrate, Taurine, Ashwagandha, Agmatine Sulfate.. Includes creatine for added strength support.. Gluten free. Built for energy and alertness.",
+    "metadata": {
+      "sku": "PRE-OPT-NON-027",
+      "name": "Pre-Workout - Blackberry",
+      "brand": "Optimum Nutrition",
+      "category": "preworkout",
+      "price": 61.85,
+      "weight_kg": 0.833,
+      "flavor": "Blackberry",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/optimum-nutrition-pre-workout---blackberry-blackberry.jpg",
+      "product_url": "https://example.com/products/optimum-nutrition-pre-workout---blackberry-blackberry"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "none",
+      "caffeine_per_serving_mg": 0,
+      "beta_alanine_mg": 2652,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Caffeine Citrate",
+        "Taurine",
+        "Ashwagandha",
+        "Agmatine Sulfate",
+        "CarnoSyn Beta-Alanine",
+        "Caffeine Anhydrous"
+      ],
+      "serving_size_g": 10.0,
+      "servings_per_container": 80,
+      "dietary": [
+        "gluten-free",
+        "dairy-free"
+      ],
+      "goals": [
+        "energy",
+        "alertness"
+      ]
+    }
+  },
+  {
+    "id": "pre-028",
+    "page_content": "BSN Training Stack is a extreme-stimulant pre-workout in Mango featuring 365mg of caffeine per serving. Key ingredients: Creatine Monohydrate, Creatine Nitrate, L-Norvaline, DMHA, Huperzine A, Ashwagandha. Includes creatine for added strength support.. Stim free available. Designed to support pump and alertness for peak performance.",
+    "metadata": {
+      "sku": "PRE-BSN-EXT-028",
+      "name": "Training Stack - Mango",
+      "brand": "BSN",
+      "category": "preworkout",
+      "price": 61.71,
+      "weight_kg": 0.524,
+      "flavor": "Mango",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/bsn-training-stack---mango-mango.jpg",
+      "product_url": "https://example.com/products/bsn-training-stack---mango-mango"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 365,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Creatine Nitrate",
+        "L-Norvaline",
+        "DMHA",
+        "Huperzine A",
+        "Ashwagandha"
+      ],
+      "serving_size_g": 8.0,
+      "servings_per_container": 60,
+      "dietary": [
+        "stim-free-available",
+        "gluten-free"
+      ],
+      "goals": [
+        "pump",
+        "alertness"
+      ]
+    }
+  },
+  {
+    "id": "pre-029",
+    "page_content": "MusclePharm Pre-Workout Igniter is a moderate-stimulant pre-workout in Blackberry featuring 85mg of caffeine per serving. Key ingredients: Creatine Monohydrate, Taurine, Electrolytes, DMHA, L-Citrulline, Agmatine Sulfate, Alpha-Yohimbine. Includes creatine for added strength support.. Non gmo. Designed to support performance and energy for peak performance.",
+    "metadata": {
+      "sku": "PRE-MUS-MOD-029",
+      "name": "Pre-Workout Igniter - Blackberry",
+      "brand": "MusclePharm",
+      "category": "preworkout",
+      "price": 47.73,
+      "weight_kg": 0.175,
+      "flavor": "Blackberry",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/musclepharm-pre-workout-igniter---blackberry-blackberry.jpg",
+      "product_url": "https://example.com/products/musclepharm-pre-workout-igniter---blackberry-blackberry"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 85,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 4766,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Taurine",
+        "Electrolytes",
+        "DMHA",
+        "L-Citrulline",
+        "Agmatine Sulfate",
+        "Alpha-Yohimbine"
+      ],
+      "serving_size_g": 6.5,
+      "servings_per_container": 20,
+      "dietary": [
+        "non-gmo",
+        "sugar-free"
+      ],
+      "goals": [
+        "performance",
+        "energy"
+      ]
+    }
+  },
+  {
+    "id": "pre-030",
+    "page_content": "1st Phorm Pre-Workout Igniter in Watermelon delivers 297mg caffeine (high-stimulant) per serving. Ingredients: Ashwagandha, Arginine AKG, L-Norvaline, Creatine Monohydrate, Quercetin, Yohimbine, Agmatine Sulfate, Alpha-GPC. Includes creatine for added strength support.. Natural ingredients. Supports performance and endurance.",
+    "metadata": {
+      "sku": "PRE-1ST-HIG-030",
+      "name": "Pre-Workout Igniter - Watermelon",
+      "brand": "1st Phorm",
+      "category": "preworkout",
+      "price": 56.5,
+      "weight_kg": 0.247,
+      "flavor": "Watermelon",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/1st-phorm-pre-workout-igniter---watermelon-watermelon.jpg",
+      "product_url": "https://example.com/products/1st-phorm-pre-workout-igniter---watermelon-watermelon"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "high",
+      "caffeine_per_serving_mg": 297,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Ashwagandha",
+        "Arginine AKG",
+        "L-Norvaline",
+        "Creatine Monohydrate",
+        "Quercetin",
+        "Yohimbine",
+        "Agmatine Sulfate",
+        "Alpha-GPC"
+      ],
+      "serving_size_g": 10.5,
+      "servings_per_container": 20,
+      "dietary": [
+        "natural-ingredients"
+      ],
+      "goals": [
+        "performance",
+        "endurance"
+      ]
+    }
+  },
+  {
+    "id": "pre-031",
+    "page_content": "GAT Sport Pre-Workout in Cherry Limeade delivers 143mg caffeine (moderate-stimulant) per serving. Ingredients: Creatine Monohydrate, Caffeine Citrate, Quercetin, Agmatine Sulfate, Creatine Nitrate, CarnoSyn Beta-Alanine, L-Citrulline, BCAAs. Includes creatine for added strength support.. Keto friendly. Supports performance and intensity.",
+    "metadata": {
+      "sku": "PRE-GAT-MOD-031",
+      "name": "Pre-Workout - Cherry Limeade",
+      "brand": "GAT Sport",
+      "category": "preworkout",
+      "price": 52.19,
+      "weight_kg": 0.317,
+      "flavor": "Cherry Limeade",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/gat-sport-pre-workout---cherry-limeade-cherry-limeade.jpg",
+      "product_url": "https://example.com/products/gat-sport-pre-workout---cherry-limeade-cherry-limeade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 143,
+      "beta_alanine_mg": 2190,
+      "l_citrulline_mg": 5828,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Caffeine Citrate",
+        "Quercetin",
+        "Agmatine Sulfate",
+        "Creatine Nitrate",
+        "CarnoSyn Beta-Alanine",
+        "L-Citrulline",
+        "BCAAs"
+      ],
+      "serving_size_g": 9.0,
+      "servings_per_container": 30,
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "performance",
+        "intensity"
+      ]
+    }
+  },
+  {
+    "id": "pre-032",
+    "page_content": "Redcon1 Pre-Workout Matrix is a extreme-stimulant pre-workout in Cherry Limeade featuring 68mg of caffeine per serving. Key ingredients: L-Arginine, BCAAs, Electrolytes, Alpha-GPC, Alpha-Yohimbine. Stimulant-free formula without creatine.. Dairy free. Designed to support strength and alertness for peak performance.",
+    "metadata": {
+      "sku": "PRE-RED-EXT-032",
+      "name": "Pre-Workout Matrix - Cherry Limeade",
+      "brand": "Redcon1",
+      "category": "preworkout",
+      "price": 35.23,
+      "weight_kg": 0.22,
+      "flavor": "Cherry Limeade",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/redcon1-pre-workout-matrix---cherry-limeade-cherry-limeade.jpg",
+      "product_url": "https://example.com/products/redcon1-pre-workout-matrix---cherry-limeade-cherry-limeade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 68,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "L-Arginine",
+        "BCAAs",
+        "Electrolytes",
+        "Alpha-GPC",
+        "Alpha-Yohimbine"
+      ],
+      "serving_size_g": 9.0,
+      "servings_per_container": 20,
+      "dietary": [
+        "dairy-free"
+      ],
+      "goals": [
+        "strength",
+        "alertness"
+      ]
+    }
+  },
+  {
+    "id": "pre-033",
+    "page_content": "Onnit Training Stack in Pineapple delivers 0mg caffeine (stimulant-free) per serving. Ingredients: Creatine Monohydrate, Betaine, Betaine Anhydrous, Arginine AKG, Quercetin, L-Arginine, BCAAs, Beta-Alanine. Includes creatine for added strength support.. Sugar free. Supports energy and intensity.",
+    "metadata": {
+      "sku": "PRE-ONN-NON-033",
+      "name": "Training Stack - Pineapple",
+      "brand": "Onnit",
+      "category": "preworkout",
+      "price": 60.62,
+      "weight_kg": 1.246,
+      "flavor": "Pineapple",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/onnit-training-stack---pineapple-pineapple.jpg",
+      "product_url": "https://example.com/products/onnit-training-stack---pineapple-pineapple"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "none",
+      "caffeine_per_serving_mg": 0,
+      "beta_alanine_mg": 2587,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Betaine",
+        "Betaine Anhydrous",
+        "Arginine AKG",
+        "Quercetin",
+        "L-Arginine",
+        "BCAAs",
+        "Beta-Alanine"
+      ],
+      "serving_size_g": 12.0,
+      "servings_per_container": 100,
+      "dietary": [
+        "sugar-free",
+        "dairy-free"
+      ],
+      "goals": [
+        "energy",
+        "intensity"
+      ]
+    }
+  },
+  {
+    "id": "pre-034",
+    "page_content": "C4 Training Formula is a low-stimulant pre-workout in Blue Raspberry featuring 147mg of caffeine per serving. Key ingredients: Agmatine Sulfate, Arginine AKG, Taurine, Betaine, Beta-Alanine. Stimulant-free formula without creatine.. Dairy free. Designed to support focus and endurance for peak performance.",
+    "metadata": {
+      "sku": "PRE-C4-LOW-034",
+      "name": "Training Formula - Blue Raspberry",
+      "brand": "C4",
+      "category": "preworkout",
+      "price": 47.16,
+      "weight_kg": 0.35,
+      "flavor": "Blue Raspberry",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/c4-training-formula---blue-raspberry-blue-raspberry.jpg",
+      "product_url": "https://example.com/products/c4-training-formula---blue-raspberry-blue-raspberry"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "low",
+      "caffeine_per_serving_mg": 147,
+      "beta_alanine_mg": 2755,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "Agmatine Sulfate",
+        "Arginine AKG",
+        "Taurine",
+        "Betaine",
+        "Beta-Alanine"
+      ],
+      "serving_size_g": 7.5,
+      "servings_per_container": 40,
+      "dietary": [
+        "dairy-free",
+        "vegan"
+      ],
+      "goals": [
+        "focus",
+        "endurance"
+      ]
+    }
+  },
+  {
+    "id": "pre-035",
+    "page_content": "MAN Sports Pre-Workout Matrix is a stimulant-free pre-workout in Frost Bite featuring 0mg of caffeine per serving. Key ingredients: Creatine Monohydrate, Ashwagandha, Huperzine A, Yohimbine, Creatine Nitrate, L-Citrulline Malate. Includes creatine for added strength support.. Keto friendly. Designed to support pump and alertness for peak performance.",
+    "metadata": {
+      "sku": "PRE-MAN-NON-035",
+      "name": "Pre-Workout Matrix - Frost Bite",
+      "brand": "MAN Sports",
+      "category": "preworkout",
+      "price": 51.99,
+      "weight_kg": 0.283,
+      "flavor": "Frost Bite",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/man-sports-pre-workout-matrix---frost-bite-frost-bite.jpg",
+      "product_url": "https://example.com/products/man-sports-pre-workout-matrix---frost-bite-frost-bite"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "none",
+      "caffeine_per_serving_mg": 0,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 5603,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Ashwagandha",
+        "Huperzine A",
+        "Yohimbine",
+        "Creatine Nitrate",
+        "L-Citrulline Malate"
+      ],
+      "serving_size_g": 8.0,
+      "servings_per_container": 30,
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "pump",
+        "alertness"
+      ]
+    }
+  },
+  {
+    "id": "pre-036",
+    "page_content": "Dr Jekyll Pre-Workout in Cherry Limeade delivers 144mg caffeine (high-stimulant) per serving. Ingredients: Creatine Monohydrate, Arginine AKG, Ashwagandha, Creatine Nitrate, CarnoSyn Beta-Alanine, Caffeine Anhydrous, Taurine, L-Citrulline Malate. Includes creatine for added strength support.. Sugar free. Supports alertness and intensity.",
+    "metadata": {
+      "sku": "PRE-DR -HIG-036",
+      "name": "Pre-Workout - Cherry Limeade",
+      "brand": "Dr Jekyll",
+      "category": "preworkout",
+      "price": 46.92,
+      "weight_kg": 0.989,
+      "flavor": "Cherry Limeade",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/dr-jekyll-pre-workout---cherry-limeade-cherry-limeade.jpg",
+      "product_url": "https://example.com/products/dr-jekyll-pre-workout---cherry-limeade-cherry-limeade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "high",
+      "caffeine_per_serving_mg": 144,
+      "beta_alanine_mg": 1984,
+      "l_citrulline_mg": 4997,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Arginine AKG",
+        "Ashwagandha",
+        "Creatine Nitrate",
+        "CarnoSyn Beta-Alanine",
+        "Caffeine Anhydrous",
+        "Taurine",
+        "L-Citrulline Malate"
+      ],
+      "serving_size_g": 8.0,
+      "servings_per_container": 120,
+      "dietary": [
+        "sugar-free"
+      ],
+      "goals": [
+        "alertness",
+        "intensity"
+      ]
+    }
+  },
+  {
+    "id": "pre-037",
+    "page_content": "Bucked Up Training Stack is a stimulant-free pre-workout in Green Apple featuring 0mg of caffeine per serving. Key ingredients: Creatine Monohydrate, CarnoSyn Beta-Alanine, L-Citrulline, Caffeine Citrate, Arginine AKG, L-Tyrosine. Includes creatine for added strength support.. Vegan. Designed to support strength and performance for peak performance.",
+    "metadata": {
+      "sku": "PRE-BUC-NON-037",
+      "name": "Training Stack - Green Apple",
+      "brand": "Bucked Up",
+      "category": "preworkout",
+      "price": 52.02,
+      "weight_kg": 0.755,
+      "flavor": "Green Apple",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/bucked-up-training-stack---green-apple-green-apple.jpg",
+      "product_url": "https://example.com/products/bucked-up-training-stack---green-apple-green-apple"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "none",
+      "caffeine_per_serving_mg": 0,
+      "beta_alanine_mg": 1685,
+      "l_citrulline_mg": 7407,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "CarnoSyn Beta-Alanine",
+        "L-Citrulline",
+        "Caffeine Citrate",
+        "Arginine AKG",
+        "L-Tyrosine"
+      ],
+      "serving_size_g": 8.0,
+      "servings_per_container": 90,
+      "dietary": [
+        "vegan"
+      ],
+      "goals": [
+        "strength",
+        "performance"
+      ]
+    }
+  },
+  {
+    "id": "pre-038",
+    "page_content": "Axe & Sledge Pre-Training Formula in Cotton Candy delivers 0mg caffeine (stimulant-free) per serving. Ingredients: Creatine Monohydrate, CarnoSyn Beta-Alanine, L-Tyrosine, Agmatine Sulfate, BCAAs, Alpha-GPC, Caffeine Anhydrous. Includes creatine for added strength support.. Vegan. Supports pump and energy.",
+    "metadata": {
+      "sku": "PRE-AXE-NON-038",
+      "name": "Pre-Training Formula - Cotton Candy",
+      "brand": "Axe & Sledge",
+      "category": "preworkout",
+      "price": 60.83,
+      "weight_kg": 0.466,
+      "flavor": "Cotton Candy",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/axe---sledge-pre-training-formula---cotton-candy-cotton-candy.jpg",
+      "product_url": "https://example.com/products/axe---sledge-pre-training-formula---cotton-candy-cotton-candy"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "none",
+      "caffeine_per_serving_mg": 0,
+      "beta_alanine_mg": 2358,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "CarnoSyn Beta-Alanine",
+        "L-Tyrosine",
+        "Agmatine Sulfate",
+        "BCAAs",
+        "Alpha-GPC",
+        "Caffeine Anhydrous"
+      ],
+      "serving_size_g": 10.5,
+      "servings_per_container": 40,
+      "dietary": [
+        "vegan"
+      ],
+      "goals": [
+        "pump",
+        "energy"
+      ]
+    }
+  },
+  {
+    "id": "pre-039",
+    "page_content": "Unlock your potential with BPI Pre-Workout Igniter — moderate-stimulant intensity, 360mg caffeine. Creatine Monohydrate, L-Tyrosine, L-Norvaline, Agmatine Sulfate, Yohimbine.. Includes creatine for added strength support.. Vegan. Built for intensity and strength.",
+    "metadata": {
+      "sku": "PRE-BPI-MOD-039",
+      "name": "Pre-Workout Igniter - Frost Bite",
+      "brand": "BPI Sports",
+      "category": "preworkout",
+      "price": 33.11,
+      "weight_kg": 0.6,
+      "flavor": "Frost Bite",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/bpi-sports-pre-workout-igniter---frost-bite-frost-bite.jpg",
+      "product_url": "https://example.com/products/bpi-sports-pre-workout-igniter---frost-bite-frost-bite"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 360,
+      "beta_alanine_mg": 1434,
+      "l_citrulline_mg": 5374,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "L-Tyrosine",
+        "L-Norvaline",
+        "Agmatine Sulfate",
+        "Yohimbine",
+        "Beta-Alanine",
+        "Alpha-Yohimbine",
+        "L-Citrulline Malate"
+      ],
+      "serving_size_g": 8.0,
+      "servings_per_container": 70,
+      "dietary": [
+        "vegan",
+        "keto-friendly"
+      ],
+      "goals": [
+        "intensity",
+        "strength"
+      ]
+    }
+  },
+  {
+    "id": "pre-040",
+    "page_content": "Unlock your potential with Legion Athletics Pre-Training Formula — extreme-stimulant intensity, 275mg caffeine. Creatine Monohydrate, Caffeine Anhydrous, Creatine Nitrate, Huperzine A, Alpha-GPC.. Includes creatine for added strength support.. Natural ingredients. Built for pump and focus.",
+    "metadata": {
+      "sku": "PRE-LEG-EXT-040",
+      "name": "Pre-Training Formula - Miami Vice",
+      "brand": "Legion Athletics",
+      "category": "preworkout",
+      "price": 45.73,
+      "weight_kg": 0.827,
+      "flavor": "Miami Vice",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/legion-athletics-pre-training-formula---miami-vice-miami-vice.jpg",
+      "product_url": "https://example.com/products/legion-athletics-pre-training-formula---miami-vice-miami-vice"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 275,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Caffeine Anhydrous",
+        "Creatine Nitrate",
+        "Huperzine A",
+        "Alpha-GPC",
+        "Taurine"
+      ],
+      "serving_size_g": 6.5,
+      "servings_per_container": 120,
+      "dietary": [
+        "natural-ingredients"
+      ],
+      "goals": [
+        "pump",
+        "focus"
+      ]
+    }
+  },
+  {
+    "id": "pre-041",
+    "page_content": "Huge Supplements Training Formula is a low-stimulant pre-workout in Strawberry Lemonade featuring 165mg of caffeine per serving. Key ingredients: Beta-Alanine, L-Norvaline, Creatine Nitrate, L-Theanine, CarnoSyn Beta-Alanine, Huperzine A, L-Tyrosine, L-Arginine. Stimulant-free formula without creatine.. Vegan. Designed to support intensity and focus for peak performance.",
+    "metadata": {
+      "sku": "PRE-HUG-LOW-041",
+      "name": "Training Formula - Strawberry Lemonade",
+      "brand": "Huge Supplements",
+      "category": "preworkout",
+      "price": 61.05,
+      "weight_kg": 0.466,
+      "flavor": "Strawberry Lemonade",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/huge-supplements-training-formula---strawberry-lemonade-strawberry-lemonade.jpg",
+      "product_url": "https://example.com/products/huge-supplements-training-formula---strawberry-lemonade-strawberry-lemonade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "low",
+      "caffeine_per_serving_mg": 165,
+      "beta_alanine_mg": 1275,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "Beta-Alanine",
+        "L-Norvaline",
+        "Creatine Nitrate",
+        "L-Theanine",
+        "CarnoSyn Beta-Alanine",
+        "Huperzine A",
+        "L-Tyrosine",
+        "L-Arginine"
+      ],
+      "serving_size_g": 11.0,
+      "servings_per_container": 40,
+      "dietary": [
+        "vegan",
+        "stim-free-available"
+      ],
+      "goals": [
+        "intensity",
+        "focus"
+      ]
+    }
+  },
+  {
+    "id": "pre-042",
+    "page_content": "PEScience Training Formula is a stimulant-free pre-workout in Blue Raspberry featuring 0mg of caffeine per serving. Key ingredients: Creatine Monohydrate, DMHA, BCAAs, L-Arginine, Quercetin, Yohimbine. Includes creatine for added strength support.. Sugar free. Designed to support focus and energy for peak performance.",
+    "metadata": {
+      "sku": "PRE-PES-NON-042",
+      "name": "Training Formula - Blue Raspberry",
+      "brand": "PEScience",
+      "category": "preworkout",
+      "price": 34.01,
+      "weight_kg": 0.576,
+      "flavor": "Blue Raspberry",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/pescience-training-formula---blue-raspberry-blue-raspberry.jpg",
+      "product_url": "https://example.com/products/pescience-training-formula---blue-raspberry-blue-raspberry"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "none",
+      "caffeine_per_serving_mg": 0,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "DMHA",
+        "BCAAs",
+        "L-Arginine",
+        "Quercetin",
+        "Yohimbine"
+      ],
+      "serving_size_g": 11.0,
+      "servings_per_container": 50,
+      "dietary": [
+        "sugar-free",
+        "non-gmo"
+      ],
+      "goals": [
+        "focus",
+        "energy"
+      ]
+    }
+  },
+  {
+    "id": "pre-043",
+    "page_content": "Alpha Lion Training Stack is a moderate-stimulant pre-workout in Orange Citrus featuring 266mg of caffeine per serving. Key ingredients: Creatine Monohydrate, CarnoSyn Beta-Alanine, DMHA, L-Tyrosine. Includes creatine for added strength support.. Non gmo. Designed to support endurance and performance for peak performance.",
+    "metadata": {
+      "sku": "PRE-ALP-MOD-043",
+      "name": "Training Stack - Orange Citrus",
+      "brand": "Alpha Lion",
+      "category": "preworkout",
+      "price": 49.03,
+      "weight_kg": 0.843,
+      "flavor": "Orange Citrus",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/alpha-lion-training-stack---orange-citrus-orange-citrus.jpg",
+      "product_url": "https://example.com/products/alpha-lion-training-stack---orange-citrus-orange-citrus"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 266,
+      "beta_alanine_mg": 2149,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "CarnoSyn Beta-Alanine",
+        "DMHA",
+        "L-Tyrosine"
+      ],
+      "serving_size_g": 10.0,
+      "servings_per_container": 80,
+      "dietary": [
+        "non-gmo"
+      ],
+      "goals": [
+        "endurance",
+        "performance"
+      ]
+    }
+  },
+  {
+    "id": "pre-044",
+    "page_content": "Unlock your potential with RYSE Pre-Workout — extreme-stimulant intensity, 354mg caffeine. Creatine Monohydrate, Ashwagandha, CarnoSyn Beta-Alanine, L-Norvaline, Alpha-GPC.. Includes creatine for added strength support.. Vegan. Built for performance and endurance.",
+    "metadata": {
+      "sku": "PRE-RYS-EXT-044",
+      "name": "Pre-Workout - Frost Bite",
+      "brand": "RYSE",
+      "category": "preworkout",
+      "price": 66.63,
+      "weight_kg": 0.737,
+      "flavor": "Frost Bite",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/ryse-pre-workout---frost-bite-frost-bite.jpg",
+      "product_url": "https://example.com/products/ryse-pre-workout---frost-bite-frost-bite"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 354,
+      "beta_alanine_mg": 2191,
+      "l_citrulline_mg": 4096,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Ashwagandha",
+        "CarnoSyn Beta-Alanine",
+        "L-Norvaline",
+        "Alpha-GPC",
+        "L-Citrulline Malate",
+        "Betaine",
+        "Betaine Anhydrous"
+      ],
+      "serving_size_g": 7.0,
+      "servings_per_container": 100,
+      "dietary": [
+        "vegan",
+        "non-gmo"
+      ],
+      "goals": [
+        "performance",
+        "endurance"
+      ]
+    }
+  },
+  {
+    "id": "pre-045",
+    "page_content": "Gorilla Mode Training Formula is a extreme-stimulant pre-workout in Rocket Pop featuring 157mg of caffeine per serving. Key ingredients: L-Citrulline Malate, Betaine Anhydrous, Beta-Alanine, BCAAs, L-Citrulline, Arginine AKG. Stimulant-free formula without creatine.. Stim free available. Designed to support energy and performance for peak performance.",
+    "metadata": {
+      "sku": "PRE-GOR-EXT-045",
+      "name": "Training Formula - Rocket Pop",
+      "brand": "Gorilla Mode",
+      "category": "preworkout",
+      "price": 34.46,
+      "weight_kg": 0.683,
+      "flavor": "Rocket Pop",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/gorilla-mode-training-formula---rocket-pop-rocket-pop.jpg",
+      "product_url": "https://example.com/products/gorilla-mode-training-formula---rocket-pop-rocket-pop"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 157,
+      "beta_alanine_mg": 2479,
+      "l_citrulline_mg": 6179,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "L-Citrulline Malate",
+        "Betaine Anhydrous",
+        "Beta-Alanine",
+        "BCAAs",
+        "L-Citrulline",
+        "Arginine AKG"
+      ],
+      "serving_size_g": 8.0,
+      "servings_per_container": 80,
+      "dietary": [
+        "stim-free-available",
+        "gluten-free"
+      ],
+      "goals": [
+        "energy",
+        "performance"
+      ]
+    }
+  },
+  {
+    "id": "pre-046",
+    "page_content": "Unlock your potential with Jacked Pre-Workout Igniter — moderate-stimulant intensity, 133mg caffeine. Creatine Monohydrate, Arginine AKG, Electrolytes, Betaine.. Includes creatine for added strength support.. Sugar free. Built for performance and strength.",
+    "metadata": {
+      "sku": "PRE-JAC-MOD-046",
+      "name": "Pre-Workout Igniter - Miami Vice",
+      "brand": "Jacked Factory",
+      "category": "preworkout",
+      "price": 46.13,
+      "weight_kg": 0.878,
+      "flavor": "Miami Vice",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/jacked-factory-pre-workout-igniter---miami-vice-miami-vice.jpg",
+      "product_url": "https://example.com/products/jacked-factory-pre-workout-igniter---miami-vice-miami-vice"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 133,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Arginine AKG",
+        "Electrolytes",
+        "Betaine"
+      ],
+      "serving_size_g": 12.0,
+      "servings_per_container": 70,
+      "dietary": [
+        "sugar-free",
+        "natural-ingredients"
+      ],
+      "goals": [
+        "performance",
+        "strength"
+      ]
+    }
+  },
+  {
+    "id": "pre-047",
+    "page_content": "Unlock your potential with Ghost Pre-Training Formula — high-stimulant intensity, 189mg caffeine. Creatine Monohydrate, BCAAs, Betaine Anhydrous, Natural Caffeine.. Includes creatine for added strength support.. Vegan. Built for intensity and strength.",
+    "metadata": {
+      "sku": "PRE-GHO-HIG-047",
+      "name": "Pre-Training Formula - Miami Vice",
+      "brand": "Ghost",
+      "category": "preworkout",
+      "price": 37.73,
+      "weight_kg": 0.291,
+      "flavor": "Miami Vice",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/ghost-pre-training-formula---miami-vice-miami-vice.jpg",
+      "product_url": "https://example.com/products/ghost-pre-training-formula---miami-vice-miami-vice"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "high",
+      "caffeine_per_serving_mg": 189,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "BCAAs",
+        "Betaine Anhydrous",
+        "Natural Caffeine"
+      ],
+      "serving_size_g": 6.5,
+      "servings_per_container": 40,
+      "dietary": [
+        "vegan",
+        "non-gmo"
+      ],
+      "goals": [
+        "intensity",
+        "strength"
+      ]
+    }
+  },
+  {
+    "id": "pre-048",
+    "page_content": "Unlock your potential with NutraBio Pre-Workout Igniter — stimulant-free intensity, 0mg caffeine. Beta-Alanine, Yohimbine, Alpha-GPC, Alpha-Yohimbine, Creatine Monohydrate.. Stimulant-free formula without creatine.. Dairy free. Built for pump and intensity.",
+    "metadata": {
+      "sku": "PRE-NUT-NON-048",
+      "name": "Pre-Workout Igniter - Pink Lemonade",
+      "brand": "NutraBio",
+      "category": "preworkout",
+      "price": 35.6,
+      "weight_kg": 0.238,
+      "flavor": "Pink Lemonade",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/nutrabio-pre-workout-igniter---pink-lemonade-pink-lemonade.jpg",
+      "product_url": "https://example.com/products/nutrabio-pre-workout-igniter---pink-lemonade-pink-lemonade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "none",
+      "caffeine_per_serving_mg": 0,
+      "beta_alanine_mg": 2660,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "Beta-Alanine",
+        "Yohimbine",
+        "Alpha-GPC",
+        "Alpha-Yohimbine",
+        "Creatine Monohydrate",
+        "Electrolytes",
+        "Quercetin",
+        "Arginine AKG"
+      ],
+      "serving_size_g": 5.0,
+      "servings_per_container": 40,
+      "dietary": [
+        "dairy-free"
+      ],
+      "goals": [
+        "pump",
+        "intensity"
+      ]
+    }
+  },
+  {
+    "id": "pre-049",
+    "page_content": "Unlock your potential with ProSupps Pre-Workout Matrix — low-stimulant intensity, 152mg caffeine. Creatine Monohydrate, DMHA, Yohimbine, L-Tyrosine, Betaine Anhydrous.. Includes creatine for added strength support.. Gluten free. Built for strength and endurance.",
+    "metadata": {
+      "sku": "PRE-PRO-LOW-049",
+      "name": "Pre-Workout Matrix - Grape",
+      "brand": "ProSupps",
+      "category": "preworkout",
+      "price": 52.39,
+      "weight_kg": 1.225,
+      "flavor": "Grape",
+      "origin_country": "Australia",
+      "image_url": "https://example.com/images/prosupps-pre-workout-matrix---grape-grape.jpg",
+      "product_url": "https://example.com/products/prosupps-pre-workout-matrix---grape-grape"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "low",
+      "caffeine_per_serving_mg": 152,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "DMHA",
+        "Yohimbine",
+        "L-Tyrosine",
+        "Betaine Anhydrous",
+        "Betaine",
+        "Quercetin"
+      ],
+      "serving_size_g": 12.0,
+      "servings_per_container": 100,
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "strength",
+        "endurance"
+      ]
+    }
+  },
+  {
+    "id": "pre-050",
+    "page_content": "Beyond Raw Pre-Workout Igniter in Blueberry Lemonade delivers 56mg caffeine (extreme-stimulant) per serving. Ingredients: Creatine Monohydrate, Creatine Nitrate, Caffeine Anhydrous, L-Norvaline, BCAAs, CarnoSyn Beta-Alanine, Natural Caffeine, Arginine AKG. Includes creatine for added strength support.. Natural ingredients. Supports strength and alertness.",
+    "metadata": {
+      "sku": "PRE-BEY-EXT-050",
+      "name": "Pre-Workout Igniter - Blueberry Lemonade",
+      "brand": "Beyond Raw",
+      "category": "preworkout",
+      "price": 60.59,
+      "weight_kg": 0.968,
+      "flavor": "Blueberry Lemonade",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/beyond-raw-pre-workout-igniter---blueberry-lemonade-blueberry-lemonade.jpg",
+      "product_url": "https://example.com/products/beyond-raw-pre-workout-igniter---blueberry-lemonade-blueberry-lemonade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 56,
+      "beta_alanine_mg": 2517,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Creatine Nitrate",
+        "Caffeine Anhydrous",
+        "L-Norvaline",
+        "BCAAs",
+        "CarnoSyn Beta-Alanine",
+        "Natural Caffeine",
+        "Arginine AKG"
+      ],
+      "serving_size_g": 10.5,
+      "servings_per_container": 90,
+      "dietary": [
+        "natural-ingredients"
+      ],
+      "goals": [
+        "strength",
+        "alertness"
+      ]
+    }
+  },
+  {
+    "id": "pre-051",
+    "page_content": "Unlock your potential with Dymatize Pre-Training Formula — high-stimulant intensity, 132mg caffeine. Quercetin, Agmatine Sulfate, Huperzine A, Caffeine Anhydrous.. Stimulant-free formula without creatine.. Gluten free. Built for alertness and performance.",
+    "metadata": {
+      "sku": "PRE-DYM-HIG-051",
+      "name": "Pre-Training Formula - Grape",
+      "brand": "Dymatize",
+      "category": "preworkout",
+      "price": 51.79,
+      "weight_kg": 0.224,
+      "flavor": "Grape",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/dymatize-pre-training-formula---grape-grape.jpg",
+      "product_url": "https://example.com/products/dymatize-pre-training-formula---grape-grape"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "high",
+      "caffeine_per_serving_mg": 132,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "Quercetin",
+        "Agmatine Sulfate",
+        "Huperzine A",
+        "Caffeine Anhydrous"
+      ],
+      "serving_size_g": 7.5,
+      "servings_per_container": 25,
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "alertness",
+        "performance"
+      ]
+    }
+  },
+  {
+    "id": "pre-052",
+    "page_content": "EVL Training Stack in Watermelon delivers 234mg caffeine (moderate-stimulant) per serving. Ingredients: L-Norvaline, L-Citrulline, Natural Caffeine, Creatine Nitrate, Agmatine Sulfate, Ashwagandha, Creatine Monohydrate. Stimulant-free formula without creatine.. Dairy free. Supports performance and alertness.",
+    "metadata": {
+      "sku": "PRE-EVL-MOD-052",
+      "name": "Training Stack - Watermelon",
+      "brand": "EVL",
+      "category": "preworkout",
+      "price": 46.75,
+      "weight_kg": 0.556,
+      "flavor": "Watermelon",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/evl-training-stack---watermelon-watermelon.jpg",
+      "product_url": "https://example.com/products/evl-training-stack---watermelon-watermelon"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 234,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 6032,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "L-Norvaline",
+        "L-Citrulline",
+        "Natural Caffeine",
+        "Creatine Nitrate",
+        "Agmatine Sulfate",
+        "Ashwagandha",
+        "Creatine Monohydrate"
+      ],
+      "serving_size_g": 10.5,
+      "servings_per_container": 50,
+      "dietary": [
+        "dairy-free",
+        "keto-friendly"
+      ],
+      "goals": [
+        "performance",
+        "alertness"
+      ]
+    }
+  },
+  {
+    "id": "pre-053",
+    "page_content": "Unlock your potential with Kaged Pre-Workout — low-stimulant intensity, 307mg caffeine. CarnoSyn Beta-Alanine, Caffeine Anhydrous, L-Tyrosine, Alpha-GPC, Ashwagandha.. Stimulant-free formula without creatine.. Dairy free. Built for strength and focus.",
+    "metadata": {
+      "sku": "PRE-KAG-LOW-053",
+      "name": "Pre-Workout - Mango",
+      "brand": "Kaged Muscle",
+      "category": "preworkout",
+      "price": 54.1,
+      "weight_kg": 0.671,
+      "flavor": "Mango",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/kaged-muscle-pre-workout---mango-mango.jpg",
+      "product_url": "https://example.com/products/kaged-muscle-pre-workout---mango-mango"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "low",
+      "caffeine_per_serving_mg": 307,
+      "beta_alanine_mg": 1361,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "CarnoSyn Beta-Alanine",
+        "Caffeine Anhydrous",
+        "L-Tyrosine",
+        "Alpha-GPC",
+        "Ashwagandha",
+        "DMHA",
+        "Natural Caffeine"
+      ],
+      "serving_size_g": 10.5,
+      "servings_per_container": 60,
+      "dietary": [
+        "dairy-free"
+      ],
+      "goals": [
+        "strength",
+        "focus"
+      ]
+    }
+  },
+  {
+    "id": "pre-054",
+    "page_content": "Nitraflex Pre-Workout in Green Apple delivers 89mg caffeine (high-stimulant) per serving. Ingredients: Creatine Monohydrate, L-Arginine, L-Citrulline, Beta-Alanine, DMHA, Arginine AKG, Quercetin, Betaine Anhydrous. Includes creatine for added strength support.. Non gmo. Supports energy and pump.",
+    "metadata": {
+      "sku": "PRE-NIT-HIG-054",
+      "name": "Pre-Workout - Green Apple",
+      "brand": "Nitraflex",
+      "category": "preworkout",
+      "price": 48.3,
+      "weight_kg": 0.38,
+      "flavor": "Green Apple",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/nitraflex-pre-workout---green-apple-green-apple.jpg",
+      "product_url": "https://example.com/products/nitraflex-pre-workout---green-apple-green-apple"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "high",
+      "caffeine_per_serving_mg": 89,
+      "beta_alanine_mg": 1694,
+      "l_citrulline_mg": 3295,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "L-Arginine",
+        "L-Citrulline",
+        "Beta-Alanine",
+        "DMHA",
+        "Arginine AKG",
+        "Quercetin",
+        "Betaine Anhydrous"
+      ],
+      "serving_size_g": 12.0,
+      "servings_per_container": 30,
+      "dietary": [
+        "non-gmo",
+        "sugar-free"
+      ],
+      "goals": [
+        "energy",
+        "pump"
+      ]
+    }
+  },
+  {
+    "id": "pre-055",
+    "page_content": "Cellucor Pre-Workout Matrix is a high-stimulant pre-workout in Green Apple featuring 75mg of caffeine per serving. Key ingredients: Creatine Monohydrate, L-Citrulline Malate, Alpha-Yohimbine, Electrolytes, Betaine Anhydrous, DMHA, L-Citrulline, L-Theanine. Includes creatine for added strength support.. Dairy free. Designed to support focus and strength for peak performance.",
+    "metadata": {
+      "sku": "PRE-CEL-HIG-055",
+      "name": "Pre-Workout Matrix - Green Apple",
+      "brand": "Cellucor",
+      "category": "preworkout",
+      "price": 50.04,
+      "weight_kg": 0.192,
+      "flavor": "Green Apple",
+      "origin_country": "Japan",
+      "image_url": "https://example.com/images/cellucor-pre-workout-matrix---green-apple-green-apple.jpg",
+      "product_url": "https://example.com/products/cellucor-pre-workout-matrix---green-apple-green-apple"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "high",
+      "caffeine_per_serving_mg": 75,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 7709,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "L-Citrulline Malate",
+        "Alpha-Yohimbine",
+        "Electrolytes",
+        "Betaine Anhydrous",
+        "DMHA",
+        "L-Citrulline",
+        "L-Theanine"
+      ],
+      "serving_size_g": 6.0,
+      "servings_per_container": 25,
+      "dietary": [
+        "dairy-free"
+      ],
+      "goals": [
+        "focus",
+        "strength"
+      ]
+    }
+  },
+  {
+    "id": "pre-056",
+    "page_content": "Transparent Labs Training Stack is a moderate-stimulant pre-workout in Blueberry Lemonade featuring 245mg of caffeine per serving. Key ingredients: Creatine Monohydrate, BCAAs, L-Theanine, Yohimbine, Caffeine Anhydrous, Ashwagandha, Taurine. Includes creatine for added strength support.. Natural ingredients. Designed to support strength and performance for peak performance.",
+    "metadata": {
+      "sku": "PRE-TRA-MOD-056",
+      "name": "Training Stack - Blueberry Lemonade",
+      "brand": "Transparent Labs",
+      "category": "preworkout",
+      "price": 53.27,
+      "weight_kg": 0.763,
+      "flavor": "Blueberry Lemonade",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/transparent-labs-training-stack---blueberry-lemonade-blueberry-lemonade.jpg",
+      "product_url": "https://example.com/products/transparent-labs-training-stack---blueberry-lemonade-blueberry-lemonade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 245,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "BCAAs",
+        "L-Theanine",
+        "Yohimbine",
+        "Caffeine Anhydrous",
+        "Ashwagandha",
+        "Taurine"
+      ],
+      "serving_size_g": 9.0,
+      "servings_per_container": 80,
+      "dietary": [
+        "natural-ingredients"
+      ],
+      "goals": [
+        "strength",
+        "performance"
+      ]
+    }
+  },
+  {
+    "id": "pre-057",
+    "page_content": "Unlock your potential with Myprotein Training Stack — moderate-stimulant intensity, 181mg caffeine. Creatine Nitrate, Creatine Monohydrate, Ashwagandha, Caffeine Citrate.. Includes creatine for added strength support.. Non gmo. Built for endurance and pump.",
+    "metadata": {
+      "sku": "PRE-MYP-MOD-057",
+      "name": "Training Stack - Rocket Pop",
+      "brand": "Myprotein",
+      "category": "preworkout",
+      "price": 34.35,
+      "weight_kg": 0.34,
+      "flavor": "Rocket Pop",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/myprotein-training-stack---rocket-pop-rocket-pop.jpg",
+      "product_url": "https://example.com/products/myprotein-training-stack---rocket-pop-rocket-pop"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 181,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Nitrate",
+        "Creatine Monohydrate",
+        "Ashwagandha",
+        "Caffeine Citrate"
+      ],
+      "serving_size_g": 7.5,
+      "servings_per_container": 40,
+      "dietary": [
+        "non-gmo",
+        "dairy-free"
+      ],
+      "goals": [
+        "endurance",
+        "pump"
+      ]
+    }
+  },
+  {
+    "id": "pre-058",
+    "page_content": "Optimum Nutrition Pre-Workout Igniter in Pink Lemonade delivers 125mg caffeine (high-stimulant) per serving. Ingredients: Creatine Monohydrate, Alpha-GPC, L-Norvaline, Taurine, Huperzine A, L-Tyrosine. Includes creatine for added strength support.. Gluten free. Supports energy and alertness.",
+    "metadata": {
+      "sku": "PRE-OPT-HIG-058",
+      "name": "Pre-Workout Igniter - Pink Lemonade",
+      "brand": "Optimum Nutrition",
+      "category": "preworkout",
+      "price": 39.75,
+      "weight_kg": 0.395,
+      "flavor": "Pink Lemonade",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/optimum-nutrition-pre-workout-igniter---pink-lemonade-pink-lemonade.jpg",
+      "product_url": "https://example.com/products/optimum-nutrition-pre-workout-igniter---pink-lemonade-pink-lemonade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "high",
+      "caffeine_per_serving_mg": 125,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Alpha-GPC",
+        "L-Norvaline",
+        "Taurine",
+        "Huperzine A",
+        "L-Tyrosine"
+      ],
+      "serving_size_g": 7.0,
+      "servings_per_container": 50,
+      "dietary": [
+        "gluten-free",
+        "natural-ingredients"
+      ],
+      "goals": [
+        "energy",
+        "alertness"
+      ]
+    }
+  },
+  {
+    "id": "pre-059",
+    "page_content": "BSN Training Stack is a extreme-stimulant pre-workout in Rainbow featuring 203mg of caffeine per serving. Key ingredients: Ashwagandha, Creatine Nitrate, Beta-Alanine, Arginine AKG, L-Citrulline Malate, Betaine, Creatine Monohydrate. Includes creatine for added strength support.. Sugar free. Designed to support energy and intensity for peak performance.",
+    "metadata": {
+      "sku": "PRE-BSN-EXT-059",
+      "name": "Training Stack - Rainbow",
+      "brand": "BSN",
+      "category": "preworkout",
+      "price": 59.51,
+      "weight_kg": 0.514,
+      "flavor": "Rainbow",
+      "origin_country": "UK",
+      "image_url": "https://example.com/images/bsn-training-stack---rainbow-rainbow.jpg",
+      "product_url": "https://example.com/products/bsn-training-stack---rainbow-rainbow"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 203,
+      "beta_alanine_mg": 2872,
+      "l_citrulline_mg": 3986,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Ashwagandha",
+        "Creatine Nitrate",
+        "Beta-Alanine",
+        "Arginine AKG",
+        "L-Citrulline Malate",
+        "Betaine",
+        "Creatine Monohydrate"
+      ],
+      "serving_size_g": 7.0,
+      "servings_per_container": 70,
+      "dietary": [
+        "sugar-free",
+        "stim-free-available"
+      ],
+      "goals": [
+        "energy",
+        "intensity"
+      ]
+    }
+  },
+  {
+    "id": "pre-060",
+    "page_content": "MusclePharm Training Stack is a moderate-stimulant pre-workout in Sour Gummy featuring 213mg of caffeine per serving. Key ingredients: Natural Caffeine, L-Citrulline, Alpha-Yohimbine, Quercetin, L-Citrulline Malate, Agmatine Sulfate, Betaine. Stimulant-free formula without creatine.. Keto friendly. Designed to support focus and endurance for peak performance.",
+    "metadata": {
+      "sku": "PRE-MUS-MOD-060",
+      "name": "Training Stack - Sour Gummy",
+      "brand": "MusclePharm",
+      "category": "preworkout",
+      "price": 47.97,
+      "weight_kg": 0.338,
+      "flavor": "Sour Gummy",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/musclepharm-training-stack---sour-gummy-sour-gummy.jpg",
+      "product_url": "https://example.com/products/musclepharm-training-stack---sour-gummy-sour-gummy"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 213,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 5290,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "Natural Caffeine",
+        "L-Citrulline",
+        "Alpha-Yohimbine",
+        "Quercetin",
+        "L-Citrulline Malate",
+        "Agmatine Sulfate",
+        "Betaine"
+      ],
+      "serving_size_g": 7.5,
+      "servings_per_container": 40,
+      "dietary": [
+        "keto-friendly",
+        "dairy-free"
+      ],
+      "goals": [
+        "focus",
+        "endurance"
+      ]
+    }
+  },
+  {
+    "id": "pre-061",
+    "page_content": "1st Phorm Pre-Training Formula is a low-stimulant pre-workout in Pink Lemonade featuring 155mg of caffeine per serving. Key ingredients: Creatine Monohydrate, Creatine Nitrate, Agmatine Sulfate, Caffeine Citrate, Ashwagandha, L-Arginine, Electrolytes, Alpha-Yohimbine. Includes creatine for added strength support.. Natural ingredients. Designed to support pump and performance for peak performance.",
+    "metadata": {
+      "sku": "PRE-1ST-LOW-061",
+      "name": "Pre-Training Formula - Pink Lemonade",
+      "brand": "1st Phorm",
+      "category": "preworkout",
+      "price": 59.5,
+      "weight_kg": 0.325,
+      "flavor": "Pink Lemonade",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/1st-phorm-pre-training-formula---pink-lemonade-pink-lemonade.jpg",
+      "product_url": "https://example.com/products/1st-phorm-pre-training-formula---pink-lemonade-pink-lemonade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "low",
+      "caffeine_per_serving_mg": 155,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Creatine Nitrate",
+        "Agmatine Sulfate",
+        "Caffeine Citrate",
+        "Ashwagandha",
+        "L-Arginine",
+        "Electrolytes",
+        "Alpha-Yohimbine"
+      ],
+      "serving_size_g": 10.0,
+      "servings_per_container": 30,
+      "dietary": [
+        "natural-ingredients"
+      ],
+      "goals": [
+        "pump",
+        "performance"
+      ]
+    }
+  },
+  {
+    "id": "pre-062",
+    "page_content": "Unlock your potential with GAT Sport Training Stack — high-stimulant intensity, 237mg caffeine. Creatine Monohydrate, Caffeine Anhydrous, Natural Caffeine, Taurine, L-Citrulline Malate.. Includes creatine for added strength support.. Dairy free. Built for performance and focus.",
+    "metadata": {
+      "sku": "PRE-GAT-HIG-062",
+      "name": "Training Stack - Cotton Candy",
+      "brand": "GAT Sport",
+      "category": "preworkout",
+      "price": 44.47,
+      "weight_kg": 0.437,
+      "flavor": "Cotton Candy",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/gat-sport-training-stack---cotton-candy-cotton-candy.jpg",
+      "product_url": "https://example.com/products/gat-sport-training-stack---cotton-candy-cotton-candy"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "high",
+      "caffeine_per_serving_mg": 237,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 4629,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Caffeine Anhydrous",
+        "Natural Caffeine",
+        "Taurine",
+        "L-Citrulline Malate",
+        "BCAAs"
+      ],
+      "serving_size_g": 8.0,
+      "servings_per_container": 50,
+      "dietary": [
+        "dairy-free"
+      ],
+      "goals": [
+        "performance",
+        "focus"
+      ]
+    }
+  },
+  {
+    "id": "pre-063",
+    "page_content": "Redcon1 Pre-Training Formula in Blueberry Lemonade delivers 0mg caffeine (stimulant-free) per serving. Ingredients: CarnoSyn Beta-Alanine, Huperzine A, Caffeine Citrate, Natural Caffeine, DMHA. Stimulant-free formula without creatine.. Vegan. Supports focus and intensity.",
+    "metadata": {
+      "sku": "PRE-RED-NON-063",
+      "name": "Pre-Training Formula - Blueberry Lemonade",
+      "brand": "Redcon1",
+      "category": "preworkout",
+      "price": 42.81,
+      "weight_kg": 0.809,
+      "flavor": "Blueberry Lemonade",
+      "origin_country": "Germany",
+      "image_url": "https://example.com/images/redcon1-pre-training-formula---blueberry-lemonade-blueberry-lemonade.jpg",
+      "product_url": "https://example.com/products/redcon1-pre-training-formula---blueberry-lemonade-blueberry-lemonade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "none",
+      "caffeine_per_serving_mg": 0,
+      "beta_alanine_mg": 3341,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "CarnoSyn Beta-Alanine",
+        "Huperzine A",
+        "Caffeine Citrate",
+        "Natural Caffeine",
+        "DMHA"
+      ],
+      "serving_size_g": 11.0,
+      "servings_per_container": 70,
+      "dietary": [
+        "vegan",
+        "gluten-free"
+      ],
+      "goals": [
+        "focus",
+        "intensity"
+      ]
+    }
+  },
+  {
+    "id": "pre-064",
+    "page_content": "Onnit Pre-Workout is a moderate-stimulant pre-workout in Rocket Pop featuring 393mg of caffeine per serving. Key ingredients: Creatine Monohydrate, Caffeine Anhydrous, Alpha-GPC, Agmatine Sulfate, Betaine Anhydrous. Includes creatine for added strength support.. Vegan. Designed to support focus and strength for peak performance.",
+    "metadata": {
+      "sku": "PRE-ONN-MOD-064",
+      "name": "Pre-Workout - Rocket Pop",
+      "brand": "Onnit",
+      "category": "preworkout",
+      "price": 53.13,
+      "weight_kg": 0.829,
+      "flavor": "Rocket Pop",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/onnit-pre-workout---rocket-pop-rocket-pop.jpg",
+      "product_url": "https://example.com/products/onnit-pre-workout---rocket-pop-rocket-pop"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 393,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Caffeine Anhydrous",
+        "Alpha-GPC",
+        "Agmatine Sulfate",
+        "Betaine Anhydrous"
+      ],
+      "serving_size_g": 13.0,
+      "servings_per_container": 60,
+      "dietary": [
+        "vegan",
+        "stim-free-available"
+      ],
+      "goals": [
+        "focus",
+        "strength"
+      ]
+    }
+  },
+  {
+    "id": "pre-065",
+    "page_content": "Unlock your potential with C4 Pre-Workout — extreme-stimulant intensity, 53mg caffeine. Creatine Monohydrate, L-Arginine, Betaine Anhydrous, Huperzine A, Agmatine Sulfate.. Includes creatine for added strength support.. Keto friendly. Built for focus and energy.",
+    "metadata": {
+      "sku": "PRE-C4-EXT-065",
+      "name": "Pre-Workout - Cherry Limeade",
+      "brand": "C4",
+      "category": "preworkout",
+      "price": 52.5,
+      "weight_kg": 0.21,
+      "flavor": "Cherry Limeade",
+      "origin_country": "Netherlands",
+      "image_url": "https://example.com/images/c4-pre-workout---cherry-limeade-cherry-limeade.jpg",
+      "product_url": "https://example.com/products/c4-pre-workout---cherry-limeade-cherry-limeade"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "extreme",
+      "caffeine_per_serving_mg": 53,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "L-Arginine",
+        "Betaine Anhydrous",
+        "Huperzine A",
+        "Agmatine Sulfate",
+        "Alpha-Yohimbine",
+        "L-Theanine"
+      ],
+      "serving_size_g": 7.5,
+      "servings_per_container": 25,
+      "dietary": [
+        "keto-friendly"
+      ],
+      "goals": [
+        "focus",
+        "energy"
+      ]
+    }
+  },
+  {
+    "id": "pre-066",
+    "page_content": "MAN Pre-Workout Igniter in Orange Citrus delivers 350mg caffeine (high-stimulant) per serving. Ingredients: Creatine Monohydrate, Natural Caffeine, Arginine AKG, CarnoSyn Beta-Alanine, L-Norvaline, Creatine Nitrate, L-Arginine, L-Citrulline Malate. Includes creatine for added strength support.. Stim free available. Supports endurance and focus.",
+    "metadata": {
+      "sku": "PRE-MAN-HIG-066",
+      "name": "Pre-Workout Igniter - Orange Citrus",
+      "brand": "MAN Sports",
+      "category": "preworkout",
+      "price": 49.91,
+      "weight_kg": 0.428,
+      "flavor": "Orange Citrus",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/man-sports-pre-workout-igniter---orange-citrus-orange-citrus.jpg",
+      "product_url": "https://example.com/products/man-sports-pre-workout-igniter---orange-citrus-orange-citrus"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "high",
+      "caffeine_per_serving_mg": 350,
+      "beta_alanine_mg": 3210,
+      "l_citrulline_mg": 4860,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Natural Caffeine",
+        "Arginine AKG",
+        "CarnoSyn Beta-Alanine",
+        "L-Norvaline",
+        "Creatine Nitrate",
+        "L-Arginine",
+        "L-Citrulline Malate"
+      ],
+      "serving_size_g": 13.0,
+      "servings_per_container": 30,
+      "dietary": [
+        "stim-free-available"
+      ],
+      "goals": [
+        "endurance",
+        "focus"
+      ]
+    }
+  },
+  {
+    "id": "pre-067",
+    "page_content": "Unlock your potential with Dr Jekyll Pre-Workout Igniter — stimulant-free intensity, 0mg caffeine. L-Norvaline, Ashwagandha, L-Arginine, Caffeine Anhydrous, Natural Caffeine.. Stimulant-free formula without creatine.. Gluten free. Built for performance and pump.",
+    "metadata": {
+      "sku": "PRE-DR -NON-067",
+      "name": "Pre-Workout Igniter - Sour Gummy",
+      "brand": "Dr Jekyll",
+      "category": "preworkout",
+      "price": 45.88,
+      "weight_kg": 0.619,
+      "flavor": "Sour Gummy",
+      "origin_country": "Canada",
+      "image_url": "https://example.com/images/dr-jekyll-pre-workout-igniter---sour-gummy-sour-gummy.jpg",
+      "product_url": "https://example.com/products/dr-jekyll-pre-workout-igniter---sour-gummy-sour-gummy"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "none",
+      "caffeine_per_serving_mg": 0,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "L-Norvaline",
+        "Ashwagandha",
+        "L-Arginine",
+        "Caffeine Anhydrous",
+        "Natural Caffeine",
+        "Alpha-Yohimbine",
+        "DMHA"
+      ],
+      "serving_size_g": 6.5,
+      "servings_per_container": 90,
+      "dietary": [
+        "gluten-free"
+      ],
+      "goals": [
+        "performance",
+        "pump"
+      ]
+    }
+  },
+  {
+    "id": "pre-068",
+    "page_content": "Bucked Up Training Formula is a low-stimulant pre-workout in Mango featuring 228mg of caffeine per serving. Key ingredients: Creatine Monohydrate, Huperzine A, Quercetin, BCAAs, Electrolytes, L-Arginine, CarnoSyn Beta-Alanine, Creatine Nitrate. Includes creatine for added strength support.. Vegan. Designed to support focus and pump for peak performance.",
+    "metadata": {
+      "sku": "PRE-BUC-LOW-068",
+      "name": "Training Formula - Mango",
+      "brand": "Bucked Up",
+      "category": "preworkout",
+      "price": 52.76,
+      "weight_kg": 0.26,
+      "flavor": "Mango",
+      "origin_country": "France",
+      "image_url": "https://example.com/images/bucked-up-training-formula---mango-mango.jpg",
+      "product_url": "https://example.com/products/bucked-up-training-formula---mango-mango"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "low",
+      "caffeine_per_serving_mg": 228,
+      "beta_alanine_mg": 2691,
+      "l_citrulline_mg": 0,
+      "contains_creatine": true,
+      "key_ingredients": [
+        "Creatine Monohydrate",
+        "Huperzine A",
+        "Quercetin",
+        "BCAAs",
+        "Electrolytes",
+        "L-Arginine",
+        "CarnoSyn Beta-Alanine",
+        "Creatine Nitrate"
+      ],
+      "serving_size_g": 9.0,
+      "servings_per_container": 25,
+      "dietary": [
+        "vegan"
+      ],
+      "goals": [
+        "focus",
+        "pump"
+      ]
+    }
+  },
+  {
+    "id": "pre-069",
+    "page_content": "Axe & Sledge Pre-Workout in Cotton Candy delivers 242mg caffeine (moderate-stimulant) per serving. Ingredients: L-Arginine, Electrolytes, Alpha-GPC, Quercetin. Stimulant-free formula without creatine.. Gluten free. Supports pump and intensity.",
+    "metadata": {
+      "sku": "PRE-AXE-MOD-069",
+      "name": "Pre-Workout - Cotton Candy",
+      "brand": "Axe & Sledge",
+      "category": "preworkout",
+      "price": 31.79,
+      "weight_kg": 0.166,
+      "flavor": "Cotton Candy",
+      "origin_country": "Sweden",
+      "image_url": "https://example.com/images/axe---sledge-pre-workout---cotton-candy-cotton-candy.jpg",
+      "product_url": "https://example.com/products/axe---sledge-pre-workout---cotton-candy-cotton-candy"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 242,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 0,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "L-Arginine",
+        "Electrolytes",
+        "Alpha-GPC",
+        "Quercetin"
+      ],
+      "serving_size_g": 6.5,
+      "servings_per_container": 20,
+      "dietary": [
+        "gluten-free",
+        "vegan"
+      ],
+      "goals": [
+        "pump",
+        "intensity"
+      ]
+    }
+  },
+  {
+    "id": "pre-070",
+    "page_content": "BPI Sports Pre-Workout Igniter is a moderate-stimulant pre-workout in Green Apple featuring 100mg of caffeine per serving. Key ingredients: L-Tyrosine, Creatine Nitrate, Ashwagandha, Creatine Monohydrate, L-Citrulline, Electrolytes, Betaine. Stimulant-free formula without creatine.. Non gmo. Designed to support alertness and intensity for peak performance.",
+    "metadata": {
+      "sku": "PRE-BPI-MOD-070",
+      "name": "Pre-Workout Igniter - Green Apple",
+      "brand": "BPI Sports",
+      "category": "preworkout",
+      "price": 62.37,
+      "weight_kg": 0.409,
+      "flavor": "Green Apple",
+      "origin_country": "USA",
+      "image_url": "https://example.com/images/bpi-sports-pre-workout-igniter---green-apple-green-apple.jpg",
+      "product_url": "https://example.com/products/bpi-sports-pre-workout-igniter---green-apple-green-apple"
+    },
+    "attributes": {
+      "form": "powder",
+      "stimulant_level": "moderate",
+      "caffeine_per_serving_mg": 100,
+      "beta_alanine_mg": 0,
+      "l_citrulline_mg": 3103,
+      "contains_creatine": false,
+      "key_ingredients": [
+        "L-Tyrosine",
+        "Creatine Nitrate",
+        "Ashwagandha",
+        "Creatine Monohydrate",
+        "L-Citrulline",
+        "Electrolytes",
+        "Betaine"
+      ],
+      "serving_size_g": 6.0,
+      "servings_per_container": 60,
+      "dietary": [
+        "non-gmo"
+      ],
+      "goals": [
+        "alertness",
+        "intensity"
+      ]
+    }
+  }
+]
